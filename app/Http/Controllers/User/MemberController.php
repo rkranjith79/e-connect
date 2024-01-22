@@ -23,6 +23,7 @@ class MemberController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
+
     public function index()
     {
         return view('user.member-listing');
