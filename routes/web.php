@@ -25,3 +25,11 @@ Route::name('admin.')->prefix('admin')->middleware(['auth', 'isAdmin'])->group(f
     Route::get('/dashboard', [App\Http\Controllers\Admin\AdminDashboardController::class, 'index'])->name('dashboard');
     Route::get('/users', [App\Http\Controllers\Admin\UserController::class, 'index'])->name('users');
 });
+
+Route::name('user.')->group(function () {
+    Route::get('/member-listing', [App\Http\Controllers\User\MemberController::class, 'index'])->name('member-listing');
+    Route::get('/jathagam', [App\Http\Controllers\User\MemberController::class, 'jathagam'])->name('jathagam');
+    Route::get('/profile-search', [App\Http\Controllers\User\MemberController::class, 'search'])->name('search');
+    Route::get('/profile', [App\Http\Controllers\User\MemberController::class, 'profile'])->name('profile');
+
+});

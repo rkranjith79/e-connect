@@ -50,22 +50,37 @@
                         class="d-none mb-0 pl-0 ml-lg-auto d-lg-flex align-items-stretch justify-content-center justify-content-lg-start mobile-hor-swipe">
                         <li class="d-inline-block d-lg-flex pb-1 bg-primary-grad">
                             <a class="nav-link text-uppercase fw-700 fs-15 d-flex align-items-center bg-white py-2"
-                                href="index.html">
+                                href="{{ route('home') }}">
                                 <span class="text-primary-grad mb-n1">Home</span>
                             </a>
                         </li>
                         <li class="d-inline-block d-lg-flex pb-1 ">
                             <a class="nav-link text-uppercase fw-700 fs-15 d-flex align-items-center bg-white py-2"
-                                href="users/login.html">
+                                href="{{ route('user.member-listing') }}">
                                 <span class="text-primary-grad mb-n1">View Profiles</span>
                             </a>
                         </li>
                         <li class="d-inline-block d-lg-flex pb-1 ">
                             <a class="nav-link text-uppercase fw-700 fs-15 d-flex align-items-center bg-white py-2"
-                                href="users/login.html">
+                                href="{{ route('user.search') }}">
                                 <span class="text-primary-grad mb-n1">Search</span>
                             </a>
                         </li>
+
+                        <li class="d-inline-block d-lg-flex pb-1 ">
+                            <a class="nav-link text-uppercase fw-700 fs-15 d-flex align-items-center bg-white py-2"
+                                href="{{ route('user.jathagam') }}">
+                                <span class="text-primary-grad mb-n1">Jathagam</span>
+                            </a>
+                        </li>
+
+                        <li class="d-inline-block d-lg-flex pb-1 ">
+                            <a class="nav-link text-uppercase fw-700 fs-15 d-flex align-items-center bg-white py-2"
+                                href="{{ route('user.profile') }}">
+                                <span class="text-primary-grad mb-n1">profile</span>
+                            </a>
+                        </li>
+
                         <li class="d-inline-block d-lg-flex pb-1 ">
                             <a class="nav-link text-uppercase fw-700 fs-15 d-flex align-items-center bg-white py-2"
                                 href="packages.html">
