@@ -26,6 +26,7 @@ Route::name('admin.')->prefix('admin')->middleware(['auth', 'isAdmin'])->group(f
     Route::get('/users', [App\Http\Controllers\Admin\UserController::class, 'index'])->name('users');
 });
 
+
 Route::name('user.')->group(function () {
     Route::get('/member-listing', [App\Http\Controllers\User\MemberController::class, 'index'])->name('member-listing');
     Route::get('/jathagam', [App\Http\Controllers\User\MemberController::class, 'jathagam'])->name('jathagam');
