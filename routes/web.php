@@ -24,6 +24,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::name('admin.')->prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
     Route::get('/dashboard', [App\Http\Controllers\Admin\AdminDashboardController::class, 'index'])->name('dashboard');
     Route::get('/users', [App\Http\Controllers\Admin\UserController::class, 'index'])->name('users');
+    Route::post('/user/create', [App\Http\Controllers\Admin\UserController::class, 'create'])->name('user.create');
 });
 
 

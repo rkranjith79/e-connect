@@ -9,11 +9,14 @@ class UserController extends Controller
 {
     public function index()
     {
-        return view('layouts.includes.admin.users.list');
+        return view('admin.users.list');
     }
 
-    public function create()
+    public function create(Request $request)
     {
-        return view('layouts.includes.admin.users.create');
+        return response()->json([
+            'status' => 500,
+            'message' => 'Product Added Successfully',
+        ]);
     }
 }
