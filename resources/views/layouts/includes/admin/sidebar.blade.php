@@ -1,7 +1,7 @@
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
     <ul class="nav">
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('admin.users') }}">
+                <a class="nav-link" href="{{ route('admin.user.list') }}">
                     <i class="mdi mdi-home menu-icon"></i>
                     <span class="menu-title">Users</span>
                 </a>
