@@ -40,7 +40,7 @@ class UserController extends Controller
             ]);
             return response()->json([
                 'status' => 700,
-                'message' => 'Product Added Successfully',
+                'message' => 'User Added Successfully',
             ]);
         }
     }
