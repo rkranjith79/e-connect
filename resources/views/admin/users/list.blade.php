@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 @section('content')
-    <div class="row table-data">
+    <div class="row " id="page_details">
         <div class="col-md-12">
             <div id="success_message" class=""></div>
             <div class="card">
@@ -10,7 +10,8 @@
                         Add
                     </button>
                 </div>
-                <div class="card-body">
+                <div class="card-body table-body">
+                    <div class="table-data">
                     <table class="table table-bordered table-striped">
                         <thead>
                             <tr>
@@ -38,6 +39,7 @@
                             @endforeach
                         </tbody>
                     </table>
+                </div>
                 </div>
                 <div class="card-footer clearfix">
                     {{ $users->links() }}
@@ -104,6 +106,7 @@
                     <h4 class="modal-title">Edit User</h4>
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
+                
                 <!-- Modal body -->
                 <form method="POST" action="">
                     <div class="modal-body">
@@ -144,9 +147,12 @@
 @endsection
 @push('script')
     <script>
-        $(document).ready(function() {
+        //$(document).ready(function() {
             //Save User
-            $(".createUser").click(function(e) {
+            // $(".createUser").click(function(e) {
+            //$( ".createUser" ).on( "click", function(e) {
+            $(document).on('click', '.createUser', function (e) {
+
                 e.preventDefault();
                 var name = $('input[name=name]').val();
                 var email = $('input[name=email]').val();
@@ -177,16 +183,20 @@
                         } else {
                             $('#success_message').addClass('alert alert-success');
                             $('#success_message').text(response.message)
-                            $('#createUser').modal('hide');
+                            $("#createUser .close").click()
+
                             $('#createUser').find('input').val('');
-                            $('.table-data').load(location.href + ' .table-data');
+                            $('.table-body').empty().load(location.href + ' .table-data');
                         }
                     }
                 });
             });
-        });
+        //});
         //Edit User
-        $(".editUser").click(function(e) {
+        //$(".editUser").click(function(e) {
+        //$( ".editUser" ).on( "click", function(e) {
+        $(document).on('click', '.editUser', function (e) {
+
             e.preventDefault();
             var user_id = $(this).val();
             $("#editUser").modal('show');
@@ -214,7 +224,10 @@
             });
         });
         //Update User
-        $(".updateUser").click(function(e) {
+        //$(".updateUser").click(function(e) {
+        //$( ".updateUser" ).on( "click", function(e) {
+        $(document).on('click', '.updateUser', function (e) {
+
             e.preventDefault();
             var user_id = $('#edit_id').val()
             $('#name_err').addClass('d-none');
@@ -244,13 +257,16 @@
                         $('#success_message').text(response.message)
                         $('#editUser').modal('hide');
                         $('#editUser').find('input').val('');
-                        $('.table-data').load(location.href + ' .table-data');
+                        $('.table-body').empty().load(location.href + ' .table-data');
                     }
                 }
             });
         });
 
-        $(".deleteUser").click(function(e) {
+        //$(".deleteUser").click(function(e) {
+        //$( ".deleteUser" ).on( "click", function(e) {
+        $(document).on('click', '.deleteUser', function (e) {
+
             e.preventDefault();
             var user_id = $(this).val()
             if (confirm('Are your sure want to delete User??')) {
@@ -266,11 +282,14 @@
                             $('#success_message').html('');
                             $('#success_message').addClass('alert alert-danger');
                             $('#success_message').text(response.message)
-                            $('.table-data').load(location.href + ' .table-data');
+                            $('.table-body').load(location.href + ' .table-data');
                         }
                     }
                 });
             }
         });
+        $(document).on('click', '#editUser .close', function (e) {
+        $("#editUser").modal('hide');
+    });
     </script>
 @endpush
