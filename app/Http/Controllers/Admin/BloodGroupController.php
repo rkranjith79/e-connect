@@ -14,6 +14,12 @@ class BloodGroupController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+     public $pageData;
+
+     public function __construct()
+     {
+         $this->pageData['title'] = "Blood Group";
+     }
     public function index()
     {
         $blood_groups = BloodGroup::paginate(5);
