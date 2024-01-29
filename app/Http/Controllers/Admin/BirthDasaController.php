@@ -14,10 +14,17 @@ class BirthDasaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public $pageData;
+
+    public function __construct()
+    {
+        $this->pageData['title'] = "Birth Dasas";
+    }
     public function index()
     {
+        $page_data = $this->pageData;
         $birth_dasas = BirthDasa::paginate(5);
-        return view('admin.birth_dasa.index', compact('birth_dasas'));
+        return view('admin.birth_dasa.index', compact('birth_dasas', 'page_data'));
     }
 
     public function create(Request $request)
