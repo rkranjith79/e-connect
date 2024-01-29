@@ -38,9 +38,7 @@ return new class extends Migration
             $table->string('father_name',100)->nullable();
             $table->string('mother_name',100)->nullable();
             $table->string('native',100)->nullable();
-            $table->string('mother_name',100)->nullable();
             $table->string('siblings',100)->nullable();
-            $table->foreignId('social_type_id')->nullable();
             $table->foreignId('asset_value_id')->nullable();
             $table->text('asset_details')->nullable();
             $table->text('seimurai')->nullable();
