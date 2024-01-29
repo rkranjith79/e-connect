@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 
 use App\Models\Caste;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class CasteController extends Controller
 {
@@ -15,72 +16,90 @@ class CasteController extends Controller
      */
     public function index()
     {
-        //
+        $castes = Caste::paginate(5);
+        return view('admin.caste.index', compact('castes'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'title' => ['required', 'max:255', 'unique:castes'],
+            'active' => ['nullable'],
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'status' => 400,
+                'errors' => $validator->messages(),
+            ]);
+        } else {
+            Caste::create([
+                'title' => $request->title,
+                'active' => $request->active == true ? '1' : '0',
+            ]);
+            return response()->json([
+                'status' => 700,
+                'message' => 'Caste Added Successfully',
+            ]);
+        }
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function edit($id)
     {
-        //
+        $caste = Caste::find($id);
+        if ($caste) {
+            return response()->json([
+                'status' => 200,
+                'caste' => $caste
+            ]);
+        } else {
+            return response()->json([
+                'status' => 404,
+                'message' => 'Caste Not found'
+            ]);
+        }
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Caste  $caste
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Caste $caste)
+    public function update(Request $request, $id)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'title' => ['required', 'max:255', 'unique:castes,title,'.$id.',id'],
+            'active' => ['nullable'],
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'status' => 400,
+                'errors' => $validator->messages(),
+            ]);
+        } else {
+            $input = [
+                'title' => $request->title,
+                'active' => $request->active == true ? '1' : '0',
+            ];
+            $caste = Caste::find($id);
+            $caste->update($input);
+            return response()->json([
+                'status' => 700,
+                'message' => 'Caste Updated Successfully',
+            ]);
+        }
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Caste  $caste
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Caste $caste)
+    public function destroy(Request $request)
     {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Caste  $caste
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Caste $caste)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Caste  $caste
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Caste $caste)
-    {
-        //
+        $caste = Caste::find($request->caste_id);
+        if ($caste) {
+            $caste->delete();
+            return response()->json([
+                'status' => 200,
+                'message' => 'Caste Deleted'
+            ]);
+        } else {
+            return response()->json([
+                'status' => 404,
+                'message' => 'Caste Not Found'
+            ]);
+        }
     }
 }

@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 
 use App\Models\RasiNakshatra;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class RasiNakshatraController extends Controller
 {
@@ -15,72 +16,90 @@ class RasiNakshatraController extends Controller
      */
     public function index()
     {
-        //
+        $rasi_nakshatras = RasiNakshatra::paginate(5);
+        return view('admin.rasi_nakshatra.index', compact('rasi_nakshatras'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'title' => ['required', 'max:255', 'unique:rasi_nakshatras'],
+            'active' => ['nullable'],
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'status' => 400,
+                'errors' => $validator->messages(),
+            ]);
+        } else {
+            RasiNakshatra::create([
+                'title' => $request->title,
+                'active' => $request->active == true ? '1' : '0',
+            ]);
+            return response()->json([
+                'status' => 700,
+                'message' => 'Rasi Nakshatra Added Successfully',
+            ]);
+        }
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function edit($id)
     {
-        //
+        $rasi_nakshatra = RasiNakshatra::find($id);
+        if ($rasi_nakshatra) {
+            return response()->json([
+                'status' => 200,
+                'rasi_nakshatra' => $rasi_nakshatra
+            ]);
+        } else {
+            return response()->json([
+                'status' => 404,
+                'message' => 'Rasi Nakshatra Not found'
+            ]);
+        }
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\RasiNakshatra  $rasiNakshatra
-     * @return \Illuminate\Http\Response
-     */
-    public function show(RasiNakshatra $rasiNakshatra)
+    public function update(Request $request, $id)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'title' => ['required', 'max:255', 'unique:rasi_nakshatras,title,'.$id.',id'],
+            'active' => ['nullable'],
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'status' => 400,
+                'errors' => $validator->messages(),
+            ]);
+        } else {
+            $input = [
+                'title' => $request->title,
+                'active' => $request->active == true ? '1' : '0',
+            ];
+            $rasi_nakshatra = RasiNakshatra::find($id);
+            $rasi_nakshatra->update($input);
+            return response()->json([
+                'status' => 700,
+                'message' => 'Rasi Nakshatra Updated Successfully',
+            ]);
+        }
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\RasiNakshatra  $rasiNakshatra
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(RasiNakshatra $rasiNakshatra)
+    public function destroy(Request $request)
     {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\RasiNakshatra  $rasiNakshatra
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, RasiNakshatra $rasiNakshatra)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\RasiNakshatra  $rasiNakshatra
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(RasiNakshatra $rasiNakshatra)
-    {
-        //
+        $rasi_nakshatra = RasiNakshatra::find($request->rasi_nakshatra_id);
+        if ($rasi_nakshatra) {
+            $rasi_nakshatra->delete();
+            return response()->json([
+                'status' => 200,
+                'message' => 'Rasi Nakshatra Deleted'
+            ]);
+        } else {
+            return response()->json([
+                'status' => 404,
+                'message' => 'Rasi Nakshatra Not Found'
+            ]);
+        }
     }
 }

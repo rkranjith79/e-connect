@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 
 use App\Models\Jathagam;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class JathagamController extends Controller
 {
@@ -15,72 +16,90 @@ class JathagamController extends Controller
      */
     public function index()
     {
-        //
+        $jathagams = Jathagam::paginate(5);
+        return view('admin.jathagam.index', compact('jathagams'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'title' => ['required', 'max:255', 'unique:jathagams'],
+            'active' => ['nullable'],
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'status' => 400,
+                'errors' => $validator->messages(),
+            ]);
+        } else {
+            Jathagam::create([
+                'title' => $request->title,
+                'active' => $request->active == true ? '1' : '0',
+            ]);
+            return response()->json([
+                'status' => 700,
+                'message' => 'Jathagam Added Successfully',
+            ]);
+        }
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function edit($id)
     {
-        //
+        $jathagam = Jathagam::find($id);
+        if ($jathagam) {
+            return response()->json([
+                'status' => 200,
+                'jathagam' => $jathagam
+            ]);
+        } else {
+            return response()->json([
+                'status' => 404,
+                'message' => 'Jathagam Not found'
+            ]);
+        }
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Jathagam  $jathagam
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Jathagam $jathagam)
+    public function update(Request $request, $id)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'title' => ['required', 'max:255', 'unique:jathagams,title,'.$id.',id'],
+            'active' => ['nullable'],
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'status' => 400,
+                'errors' => $validator->messages(),
+            ]);
+        } else {
+            $input = [
+                'title' => $request->title,
+                'active' => $request->active == true ? '1' : '0',
+            ];
+            $jathagam = Jathagam::find($id);
+            $jathagam->update($input);
+            return response()->json([
+                'status' => 700,
+                'message' => 'Jathagam Updated Successfully',
+            ]);
+        }
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Jathagam  $jathagam
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Jathagam $jathagam)
+    public function destroy(Request $request)
     {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Jathagam  $jathagam
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Jathagam $jathagam)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Jathagam  $jathagam
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Jathagam $jathagam)
-    {
-        //
+        $jathagam = Jathagam::find($request->jathagam_id);
+        if ($jathagam) {
+            $jathagam->delete();
+            return response()->json([
+                'status' => 200,
+                'message' => 'Jathagam Deleted'
+            ]);
+        } else {
+            return response()->json([
+                'status' => 404,
+                'message' => 'Jathagam Not Found'
+            ]);
+        }
     }
 }

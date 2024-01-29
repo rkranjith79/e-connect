@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 
 use App\Models\Country;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class CountryController extends Controller
 {
@@ -15,72 +16,90 @@ class CountryController extends Controller
      */
     public function index()
     {
-        //
+        $countries = Country::paginate(5);
+        return view('admin.country.index', compact('countries'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'title' => ['required', 'max:255', 'unique:countries'],
+            'active' => ['nullable'],
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'status' => 400,
+                'errors' => $validator->messages(),
+            ]);
+        } else {
+            Country::create([
+                'title' => $request->title,
+                'active' => $request->active == true ? '1' : '0',
+            ]);
+            return response()->json([
+                'status' => 700,
+                'message' => 'Country Added Successfully',
+            ]);
+        }
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function edit($id)
     {
-        //
+        $country = Country::find($id);
+        if ($country) {
+            return response()->json([
+                'status' => 200,
+                'country' => $country
+            ]);
+        } else {
+            return response()->json([
+                'status' => 404,
+                'message' => 'Country Not found'
+            ]);
+        }
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Country  $country
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Country $country)
+    public function update(Request $request, $id)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'title' => ['required', 'max:255', 'unique:countries,title,'.$id.',id'],
+            'active' => ['nullable'],
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'status' => 400,
+                'errors' => $validator->messages(),
+            ]);
+        } else {
+            $input = [
+                'title' => $request->title,
+                'active' => $request->active == true ? '1' : '0',
+            ];
+            $country = Country::find($id);
+            $country->update($input);
+            return response()->json([
+                'status' => 700,
+                'message' => 'Country Updated Successfully',
+            ]);
+        }
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Country  $country
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Country $country)
+    public function destroy(Request $request)
     {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Country  $country
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Country $country)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Country  $country
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Country $country)
-    {
-        //
+        $country = Country::find($request->country_id);
+        if ($country) {
+            $country->delete();
+            return response()->json([
+                'status' => 200,
+                'message' => 'Country Deleted'
+            ]);
+        } else {
+            return response()->json([
+                'status' => 404,
+                'message' => 'Country Not Found'
+            ]);
+        }
     }
 }

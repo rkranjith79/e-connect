@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 
 use App\Models\Expectation;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class ExpectationController extends Controller
 {
@@ -15,72 +16,90 @@ class ExpectationController extends Controller
      */
     public function index()
     {
-        //
+        $expectations = Expectation::paginate(5);
+        return view('admin.expectation.index', compact('expectations'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'title' => ['required', 'max:255', 'unique:expectations'],
+            'active' => ['nullable'],
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'status' => 400,
+                'errors' => $validator->messages(),
+            ]);
+        } else {
+            Expectation::create([
+                'title' => $request->title,
+                'active' => $request->active == true ? '1' : '0',
+            ]);
+            return response()->json([
+                'status' => 700,
+                'message' => 'Expectation Added Successfully',
+            ]);
+        }
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function edit($id)
     {
-        //
+        $expectation = Expectation::find($id);
+        if ($expectation) {
+            return response()->json([
+                'status' => 200,
+                'expectation' => $expectation
+            ]);
+        } else {
+            return response()->json([
+                'status' => 404,
+                'message' => 'Expectation Not found'
+            ]);
+        }
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Expectation  $expectation
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Expectation $expectation)
+    public function update(Request $request, $id)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'title' => ['required', 'max:255', 'unique:expectations,title,'.$id.',id'],
+            'active' => ['nullable'],
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'status' => 400,
+                'errors' => $validator->messages(),
+            ]);
+        } else {
+            $input = [
+                'title' => $request->title,
+                'active' => $request->active == true ? '1' : '0',
+            ];
+            $expectation = Expectation::find($id);
+            $expectation->update($input);
+            return response()->json([
+                'status' => 700,
+                'message' => 'Expectation Updated Successfully',
+            ]);
+        }
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Expectation  $expectation
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Expectation $expectation)
+    public function destroy(Request $request)
     {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Expectation  $expectation
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Expectation $expectation)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Expectation  $expectation
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Expectation $expectation)
-    {
-        //
+        $expectation = Expectation::find($request->expectation_id);
+        if ($expectation) {
+            $expectation->delete();
+            return response()->json([
+                'status' => 200,
+                'message' => 'Expectation Deleted'
+            ]);
+        } else {
+            return response()->json([
+                'status' => 404,
+                'message' => 'Expectation Not Found'
+            ]);
+        }
     }
 }

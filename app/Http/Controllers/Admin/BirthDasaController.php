@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 
 use App\Models\BirthDasa;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class BirthDasaController extends Controller
 {
@@ -15,72 +16,90 @@ class BirthDasaController extends Controller
      */
     public function index()
     {
-        //
+        $birth_dasas = BirthDasa::paginate(5);
+        return view('admin.birth_dasa.index', compact('birth_dasas'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'title' => ['required', 'max:255', 'unique:birth_dasas'],
+            'active' => ['nullable'],
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'status' => 400,
+                'errors' => $validator->messages(),
+            ]);
+        } else {
+            BirthDasa::create([
+                'title' => $request->title,
+                'active' => $request->active == true ? '1' : '0',
+            ]);
+            return response()->json([
+                'status' => 700,
+                'message' => 'Birth Dasa Added Successfully',
+            ]);
+        }
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function edit($id)
     {
-        //
+        $birth_dasa = BirthDasa::find($id);
+        if ($birth_dasa) {
+            return response()->json([
+                'status' => 200,
+                'birth_dasa' => $birth_dasa
+            ]);
+        } else {
+            return response()->json([
+                'status' => 404,
+                'message' => 'Birth Dasa Not found'
+            ]);
+        }
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\BirthDasa  $birthDasa
-     * @return \Illuminate\Http\Response
-     */
-    public function show(BirthDasa $birthDasa)
+    public function update(Request $request, $id)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'title' => ['required', 'max:255', 'unique:birth_dasas,title,'.$id.',id'],
+            'active' => ['nullable'],
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'status' => 400,
+                'errors' => $validator->messages(),
+            ]);
+        } else {
+            $input = [
+                'title' => $request->title,
+                'active' => $request->active == true ? '1' : '0',
+            ];
+            $birth_dasa = BirthDasa::find($id);
+            $birth_dasa->update($input);
+            return response()->json([
+                'status' => 700,
+                'message' => 'Birth Dasa Updated Successfully',
+            ]);
+        }
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\BirthDasa  $birthDasa
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(BirthDasa $birthDasa)
+    public function destroy(Request $request)
     {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\BirthDasa  $birthDasa
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, BirthDasa $birthDasa)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\BirthDasa  $birthDasa
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(BirthDasa $birthDasa)
-    {
-        //
+        $birth_dasa = BirthDasa::find($request->birth_dasa_id);
+        if ($birth_dasa) {
+            $birth_dasa->delete();
+            return response()->json([
+                'status' => 200,
+                'message' => 'Birth Dasa Deleted'
+            ]);
+        } else {
+            return response()->json([
+                'status' => 404,
+                'message' => 'Birth Dasa Not Found'
+            ]);
+        }
     }
 }

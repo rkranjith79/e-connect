@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 
 use App\Models\SubCaste;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class SubCasteController extends Controller
 {
@@ -15,72 +16,90 @@ class SubCasteController extends Controller
      */
     public function index()
     {
-        //
+        $sub_castes = SubCaste::paginate(5);
+        return view('admin.sub_caste.index', compact('sub_castes'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'title' => ['required', 'max:255', 'unique:sub_castes'],
+            'active' => ['nullable'],
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'status' => 400,
+                'errors' => $validator->messages(),
+            ]);
+        } else {
+            SubCaste::create([
+                'title' => $request->title,
+                'active' => $request->active == true ? '1' : '0',
+            ]);
+            return response()->json([
+                'status' => 700,
+                'message' => 'Sub Caste Added Successfully',
+            ]);
+        }
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function edit($id)
     {
-        //
+        $sub_caste = SubCaste::find($id);
+        if ($sub_caste) {
+            return response()->json([
+                'status' => 200,
+                'sub_caste' => $sub_caste
+            ]);
+        } else {
+            return response()->json([
+                'status' => 404,
+                'message' => 'Sub Caste Not found'
+            ]);
+        }
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\SubCaste  $subCaste
-     * @return \Illuminate\Http\Response
-     */
-    public function show(SubCaste $subCaste)
+    public function update(Request $request, $id)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'title' => ['required', 'max:255', 'unique:sub_castes,title,'.$id.',id'],
+            'active' => ['nullable'],
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'status' => 400,
+                'errors' => $validator->messages(),
+            ]);
+        } else {
+            $input = [
+                'title' => $request->title,
+                'active' => $request->active == true ? '1' : '0',
+            ];
+            $sub_caste = SubCaste::find($id);
+            $sub_caste->update($input);
+            return response()->json([
+                'status' => 700,
+                'message' => 'Sub Caste Updated Successfully',
+            ]);
+        }
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\SubCaste  $subCaste
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(SubCaste $subCaste)
+    public function destroy(Request $request)
     {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\SubCaste  $subCaste
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, SubCaste $subCaste)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\SubCaste  $subCaste
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(SubCaste $subCaste)
-    {
-        //
+        $sub_caste = SubCaste::find($request->sub_caste_id);
+        if ($sub_caste) {
+            $sub_caste->delete();
+            return response()->json([
+                'status' => 200,
+                'message' => 'Sub Caste Deleted'
+            ]);
+        } else {
+            return response()->json([
+                'status' => 404,
+                'message' => 'Sub Caste Not Found'
+            ]);
+        }
     }
 }

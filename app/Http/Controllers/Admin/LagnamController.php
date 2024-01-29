@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 
 use App\Models\Lagnam;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class LagnamController extends Controller
 {
@@ -15,72 +16,90 @@ class LagnamController extends Controller
      */
     public function index()
     {
-        //
+        $lagnams = Lagnam::paginate(5);
+        return view('admin.lagnam.index', compact('lagnams'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'title' => ['required', 'max:255', 'unique:lagnams'],
+            'active' => ['nullable'],
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'status' => 400,
+                'errors' => $validator->messages(),
+            ]);
+        } else {
+            Lagnam::create([
+                'title' => $request->title,
+                'active' => $request->active == true ? '1' : '0',
+            ]);
+            return response()->json([
+                'status' => 700,
+                'message' => 'Lagnam Added Successfully',
+            ]);
+        }
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function edit($id)
     {
-        //
+        $lagnam = Lagnam::find($id);
+        if ($lagnam) {
+            return response()->json([
+                'status' => 200,
+                'lagnam' => $lagnam
+            ]);
+        } else {
+            return response()->json([
+                'status' => 404,
+                'message' => 'Lagnam Not found'
+            ]);
+        }
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Lagnam  $lagnam
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Lagnam $lagnam)
+    public function update(Request $request, $id)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'title' => ['required', 'max:255', 'unique:lagnams,title,'.$id.',id'],
+            'active' => ['nullable'],
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'status' => 400,
+                'errors' => $validator->messages(),
+            ]);
+        } else {
+            $input = [
+                'title' => $request->title,
+                'active' => $request->active == true ? '1' : '0',
+            ];
+            $lagnam = Lagnam::find($id);
+            $lagnam->update($input);
+            return response()->json([
+                'status' => 700,
+                'message' => 'Lagnam Updated Successfully',
+            ]);
+        }
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Lagnam  $lagnam
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Lagnam $lagnam)
+    public function destroy(Request $request)
     {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Lagnam  $lagnam
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Lagnam $lagnam)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Lagnam  $lagnam
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Lagnam $lagnam)
-    {
-        //
+        $lagnam = Lagnam::find($request->lagnam_id);
+        if ($lagnam) {
+            $lagnam->delete();
+            return response()->json([
+                'status' => 200,
+                'message' => 'Lagnam Deleted'
+            ]);
+        } else {
+            return response()->json([
+                'status' => 404,
+                'message' => 'Lagnam Not Found'
+            ]);
+        }
     }
 }

@@ -13,7 +13,7 @@ class UserController extends Controller
 {
     public function index()
     {
-        $users = User::paginate(2);
+        $users = User::paginate(5);
         return view('admin.users.list', compact('users'));
     }
 
@@ -21,7 +21,7 @@ class UserController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'name' => ['required'],
-            'email' => ['required'],
+            'email' => ['required', 'max:255', 'unique:users'],
             'password' => ['required'],
             'status' => ['nullable'],
         ]);
@@ -64,8 +64,8 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
         $validator = Validator::make($request->all(), [
-            'name' => ['required'],
-            'email' => ['required'],
+            'name' => ['required', 'max:255'],
+            'email' => ['required', 'max:255', 'unique:users,email,'.$id.',id'],
             'password' => ['required'],
             'status' => ['nullable'],
         ]);
