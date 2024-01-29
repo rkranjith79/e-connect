@@ -5,6 +5,7 @@
             <div id="success_message" class=""></div>
             <div class="card">
                 <div class="card-header">
+                    <h2 class="card-title float-start pt-2 mb-2">{{ $page_data['title'] }}</h2>
                     <button type="button" class="btn btn-primary btn-sm float-end" data-toggle="modal"
                         data-target="#createAssetsValue">
                         Add
@@ -91,7 +92,7 @@
                 <!-- Modal Header -->
                 <div class="modal-header">
                     <h4 class="modal-title">Edit Assets Value</h4>
-                    <button type="button" class="close" data-bs-dismiss="modal">&times;</button>
+                    <button   type="button" class="close btn btn-icon" data-bs-dismiss="modal">&times;</button>
                 </div>
 
                 <!-- Modal body -->
@@ -149,8 +150,10 @@
                         } else {
                             $('#success_message').addClass('alert alert-success');
                             $('#success_message').text(response.message)
+                            setTimeout(function() {
+                                $("#success_message").hide();
+                            }, 2000);
                             $("#createAssetsValue .close").click()
-
                             $('#createAssetsValue').find('input').val('');
                             $('.table').empty().load(location.href + ' .table');
                         }
@@ -175,11 +178,11 @@
                         } else {
                             $('#edit_id').val(response.assets_value.id),
                                 $('#edit_title').val(response.assets_value.title)
-                                if (response.assets_value.active == 1) {
-                                    $('#edit_active').prop('checked', true)
-                                } else {
-                                    $('#edit_active').prop('checked', false)
-                                }
+                            if (response.assets_value.active == 1) {
+                                $('#edit_active').prop('checked', true)
+                            } else {
+                                $('#edit_active').prop('checked', false)
+                            }
                         }
                     }
                 });
@@ -208,7 +211,11 @@
                             });
                         } else {
                             $('#success_message').addClass('alert alert-success');
-                            $('#success_message').text(response.message)
+                            $('#success_message').text(response.message);
+                            $("#success_message").show();
+                            setTimeout(function() {
+                                $("#success_message").hide();
+                            }, 2000);
                             $('#editAssetsValue').modal('hide');
                             $('#editAssetsValue').find('input').val('');
                             $('.table').empty().load(location.href + ' .table');
@@ -234,6 +241,10 @@
                                 $('#success_message').html('');
                                 $('#success_message').addClass('alert alert-danger');
                                 $('#success_message').text(response.message)
+                                $("#success_message").show();
+                                setTimeout(function() {
+                                    $("#success_message").hide();
+                                }, 2000);
                                 $('.table').load(location.href + ' .table');
                             }
                         }

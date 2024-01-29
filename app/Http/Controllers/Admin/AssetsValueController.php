@@ -15,10 +15,18 @@ class AssetsValueController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public $pageData = [];
+
+    public function __construct()
+    {
+        $this->pageData['title'] = "Assets Values";
+    }
+
     public function index()
     {
+        $page_data = $this->pageData;
         $assets_values = AssetsValue::paginate(5);
-        return view('admin.assets_value.index', compact('assets_values'));
+        return view('admin.assets_value.index', compact('assets_values','page_data'));
     }
 
     public function create(Request $request)
