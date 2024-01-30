@@ -164,4 +164,6 @@ Route::name('user.')->group(function () {
     Route::get('/jathagam', [App\Http\Controllers\User\MemberController::class, 'jathagam'])->name('jathagam');
     Route::get('/profile-search', [App\Http\Controllers\User\MemberController::class, 'search'])->name('search');
     Route::get('/profile', [App\Http\Controllers\User\MemberController::class, 'profile'])->name('profile');
+    Route::get('/register', [App\Http\Controllers\User\ProfileController::class, 'register'])->name('register');
+
 });

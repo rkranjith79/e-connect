@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class profile_jathagams extends Model
+class ProfileBasic extends Model
 {
     use HasFactory;
 }

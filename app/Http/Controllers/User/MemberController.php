@@ -43,4 +43,6 @@ class MemberController extends Controller
     {
         return view('user.profile');
     }
+    
+
 }
