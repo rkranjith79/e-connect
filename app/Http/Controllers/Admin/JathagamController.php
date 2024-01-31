@@ -1,8 +1,8 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
-use App\Http\Controllers\Controller;
 
+use App\Http\Controllers\Controller;
 use App\Models\Jathagam;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -14,10 +14,18 @@ class JathagamController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public $pageData = [];
+
+    public function __construct()
+    {
+        $this->pageData['title'] = "Jathagams";
+    }
+
     public function index()
     {
+        $page_data = $this->pageData;
         $jathagams = Jathagam::paginate(5);
-        return view('admin.jathagam.index', compact('jathagams'));
+        return view('admin.jathagam.index', compact('jathagams', 'page_data'));
     }
 
     public function create(Request $request)
@@ -63,7 +71,7 @@ class JathagamController extends Controller
     public function update(Request $request, $id)
     {
         $validator = Validator::make($request->all(), [
-            'title' => ['required', 'max:255', 'unique:jathagams,title,'.$id.',id'],
+            'title' => ['required', 'max:255', 'unique:jathagams,title,' . $id . ',id'],
             'active' => ['nullable'],
         ]);
 

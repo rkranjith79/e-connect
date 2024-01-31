@@ -14,16 +14,18 @@ class BloodGroupController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-     public $pageData;
+    public $pageData;
 
-     public function __construct()
-     {
-         $this->pageData['title'] = "Blood Group";
-     }
+    public function __construct()
+    {
+        $this->pageData['title'] = "Blood Groups";
+    }
+
     public function index()
     {
+        $page_data = $this->pageData;
         $blood_groups = BloodGroup::paginate(5);
-        return view('admin.blood_group.index', compact('blood_groups'));
+        return view('admin.blood_group.index', compact('blood_groups','page_data'));
     }
 
     public function create(Request $request)

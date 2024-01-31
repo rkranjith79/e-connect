@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
+
 use App\Http\Controllers\Controller;
 
 use App\Models\RasiNakshatra;
@@ -14,10 +15,18 @@ class RasiNakshatraController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public $pageData = [];
+
+    public function __construct()
+    {
+        $this->pageData['title'] = "Rasi Nakshatras";
+    }
+
     public function index()
     {
+        $page_data = $this->pageData;
         $rasi_nakshatras = RasiNakshatra::paginate(5);
-        return view('admin.rasi_nakshatra.index', compact('rasi_nakshatras'));
+        return view('admin.rasi_nakshatra.index', compact('rasi_nakshatras', 'page_data'));
     }
 
     public function create(Request $request)
@@ -63,7 +72,7 @@ class RasiNakshatraController extends Controller
     public function update(Request $request, $id)
     {
         $validator = Validator::make($request->all(), [
-            'title' => ['required', 'max:255', 'unique:rasi_nakshatras,title,'.$id.',id'],
+            'title' => ['required', 'max:255', 'unique:rasi_nakshatras,title,' . $id . ',id'],
             'active' => ['nullable'],
         ]);
 

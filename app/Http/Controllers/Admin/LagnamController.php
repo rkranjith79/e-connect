@@ -1,8 +1,8 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
-use App\Http\Controllers\Controller;
 
+use App\Http\Controllers\Controller;
 use App\Models\Lagnam;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -14,10 +14,18 @@ class LagnamController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public $pageData = [];
+
+    public function __construct()
+    {
+        $this->pageData['title'] = "Lagnams";
+    }
+
     public function index()
     {
+        $page_data = $this->pageData;
         $lagnams = Lagnam::paginate(5);
-        return view('admin.lagnam.index', compact('lagnams'));
+        return view('admin.lagnam.index', compact('lagnams', 'page_data'));
     }
 
     public function create(Request $request)
@@ -63,7 +71,7 @@ class LagnamController extends Controller
     public function update(Request $request, $id)
     {
         $validator = Validator::make($request->all(), [
-            'title' => ['required', 'max:255', 'unique:lagnams,title,'.$id.',id'],
+            'title' => ['required', 'max:255', 'unique:lagnams,title,' . $id . ',id'],
             'active' => ['nullable'],
         ]);
 

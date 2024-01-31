@@ -5,6 +5,7 @@
             <div id="success_message" class=""></div>
             <div class="card">
                 <div class="card-header">
+                    <h2 class="card-title float-start pt-2 mb-2">{{ $page_data['title'] }}</h2>
                     <button type="button" class="btn btn-primary btn-sm float-end" data-toggle="modal"
                         data-target="#createBloodGroup">
                         Add
@@ -56,7 +57,7 @@
                 <!-- Modal Header -->
                 <div class="modal-header">
                     <h4 class="modal-title">Add Blood Group</h4>
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <button type="button" class="close btn btn-icon" data-dismiss="modal">&times;</button>
                 </div>
                 <!-- Modal body -->
                 <form method="POST" action="">
@@ -66,7 +67,7 @@
                                 <label for="name">Blood Group</label>
                                 <input type="text" class="form-control" id="name" name="title"
                                     placeholder="Blood Group">
-                                <span><small id="title_err"></small></span>
+                                <span><small class="errorMsg" id="title_err"></small></span>
                             </div>
                             <div class="col-md-6 mb-3 form-group">
                                 <label for="">Active</label></br>
@@ -76,7 +77,7 @@
                         <!-- /.card-body -->
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-primary createBloodGroup">Save</button>
+                        <button type="submit" class="btn btn-primary createBloodGroup">Save</button>
                     </div>
                 </form>
             </div>
@@ -91,7 +92,7 @@
                 <!-- Modal Header -->
                 <div class="modal-header">
                     <h4 class="modal-title">Edit Blood Group</h4>
-                    <button type="button" class="close" data-bs-dismiss="modal">&times;</button>
+                    <button type="button" class="close btn btn-icon" data-bs-dismiss="modal">&times;</button>
                 </div>
 
                 <!-- Modal body -->
@@ -103,7 +104,7 @@
                                 <label for="name">Blood Group</label>
                                 <input type="text" class="form-control" id="edit_title" name="title"
                                     placeholder="Blood Group">
-                                <span><small id="edit_title_err"></small></span>
+                                <span><small class="errorMsg" id="edit_title_err"></small></span>
                             </div>
                             <div class="col-md-6 mb-3 form-group">
                                 <label for="">Active</label></br>
@@ -113,7 +114,7 @@
                         <!-- /.card-body -->
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-primary updateBloodGroup">Update</button>
+                        <button type="submit" class="btn btn-primary updateBloodGroup">Update</button>
                     </div>
                 </form>
             </div>
@@ -148,10 +149,13 @@
                             });
                         } else {
                             $('#success_message').addClass('alert alert-success');
-                            $('#success_message').text(response.message)
-                            $("#createBloodGroup .close").click()
-
+                            $('#success_message').text(response.message);
+                            $("#createBloodGroup .close").click();
+                            $("#success_message").show();
                             $('#createBloodGroup').find('input').val('');
+                            setTimeout(function() {
+                                $("#success_message").hide();
+                            }, 2000);
                             $('.table').empty().load(location.href + ' .table');
                         }
                     }
@@ -159,7 +163,6 @@
             });
             //Edit BloodGroup
             $(document).on('click', '.editBloodGroup', function(e) {
-
                 e.preventDefault();
                 var blood_group_id = $(this).val();
                 $("#editBloodGroup").modal('show');
@@ -175,11 +178,11 @@
                         } else {
                             $('#edit_id').val(response.blood_group.id),
                                 $('#edit_title').val(response.blood_group.title)
-                                if (response.blood_group.active == 1) {
-                                    $('#edit_active').prop('checked', true)
-                                } else {
-                                    $('#edit_active').prop('checked', false)
-                                }
+                            if (response.blood_group.active == 1) {
+                                $('#edit_active').prop('checked', true)
+                            } else {
+                                $('#edit_active').prop('checked', false)
+                            }
                         }
                     }
                 });
@@ -208,9 +211,13 @@
                             });
                         } else {
                             $('#success_message').addClass('alert alert-success');
-                            $('#success_message').text(response.message)
+                            $('#success_message').text(response.message);
                             $('#editBloodGroup').modal('hide');
                             $('#editBloodGroup').find('input').val('');
+                            $("#success_message").show();
+                            setTimeout(function() {
+                                $("#success_message").hide();
+                            }, 2000);
                             $('.table').empty().load(location.href + ' .table');
                         }
                     }
@@ -218,7 +225,6 @@
             });
             //Delete Blood Group
             $(document).on('click', '.deleteBloodGroup', function(e) {
-
                 e.preventDefault();
                 var blood_group_id = $(this).val()
                 if (confirm('Are your sure want to delete BloodGroup??')) {
@@ -233,7 +239,11 @@
                             if (response.status == 200) {
                                 $('#success_message').html('');
                                 $('#success_message').addClass('alert alert-danger');
-                                $('#success_message').text(response.message)
+                                $('#success_message').text(response.message);
+                                $("#success_message").show();
+                                setTimeout(function() {
+                                    $("#success_message").hide();
+                                }, 2000);
                                 $('.table').load(location.href + ' .table');
                             }
                         }

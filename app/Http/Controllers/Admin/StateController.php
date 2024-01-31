@@ -14,10 +14,18 @@ class StateController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public $pageData = [];
+
+    public function __construct()
+    {
+        $this->pageData['title'] = "States";
+    }
+
     public function index()
     {
+        $page_data = $this->pageData;
         $states = State::paginate(5);
-        return view('admin.state.index', compact('states'));
+        return view('admin.state.index', compact('states', 'page_data'));
     }
 
     public function create(Request $request)

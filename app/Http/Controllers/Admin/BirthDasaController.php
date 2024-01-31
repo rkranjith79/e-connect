@@ -20,6 +20,7 @@ class BirthDasaController extends Controller
     {
         $this->pageData['title'] = "Birth Dasas";
     }
+
     public function index()
     {
         $page_data = $this->pageData;

@@ -14,10 +14,18 @@ class WorkController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public $pageData = [];
+
+    public function __construct()
+    {
+        $this->pageData['title'] = "Works";
+    }
+
     public function index()
     {
+        $page_data = $this->pageData;
         $works = Work::paginate(5);
-        return view('admin.work.index', compact('works'));
+        return view('admin.work.index', compact('works', 'page_data'));
     }
 
     public function create(Request $request)

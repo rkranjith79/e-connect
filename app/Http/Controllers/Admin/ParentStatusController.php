@@ -1,8 +1,8 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
-use App\Http\Controllers\Controller;
 
+use App\Http\Controllers\Controller;
 use App\Models\ParentStatus;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -14,10 +14,18 @@ class ParentStatusController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public $pageData = [];
+
+    public function __construct()
+    {
+        $this->pageData['title'] = "Parent Statuses";
+    }
+
     public function index()
     {
+        $page_data = $this->pageData;
         $parent_statuses = ParentStatus::paginate(5);
-        return view('admin.parent_status.index', compact('parent_statuses'));
+        return view('admin.parent_status.index', compact('parent_statuses', 'page_data'));
     }
 
     public function create(Request $request)
@@ -63,7 +71,7 @@ class ParentStatusController extends Controller
     public function update(Request $request, $id)
     {
         $validator = Validator::make($request->all(), [
-            'title' => ['required', 'max:255', 'unique:parent_statuses,title,'.$id.',id'],
+            'title' => ['required', 'max:255', 'unique:parent_statuses,title,' . $id . ',id'],
             'active' => ['nullable'],
         ]);
 

@@ -57,7 +57,7 @@
                 <!-- Modal Header -->
                 <div class="modal-header">
                     <h4 class="modal-title">Add Assets Value</h4>
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <button type="button" class="close btn btn-icon" data-dismiss="modal">&times;</button>
                 </div>
                 <!-- Modal body -->
                 <form method="POST" action="">
@@ -67,7 +67,7 @@
                                 <label for="name">Assets Value</label>
                                 <input type="text" class="form-control" id="name" name="title"
                                     placeholder="Assets Value">
-                                <span><small id="title_err"></small></span>
+                                <span><small class="errorMsg" id="title_err"></small></span>
                             </div>
                             <div class="col-md-6 mb-3 form-group">
                                 <label for="">Active</label></br>
@@ -77,7 +77,7 @@
                         <!-- /.card-body -->
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-primary createAssetsValue">Save</button>
+                        <button type="submit" class="btn btn-primary createAssetsValue">Save</button>
                     </div>
                 </form>
             </div>
@@ -92,7 +92,7 @@
                 <!-- Modal Header -->
                 <div class="modal-header">
                     <h4 class="modal-title">Edit Assets Value</h4>
-                    <button   type="button" class="close btn btn-icon" data-bs-dismiss="modal">&times;</button>
+                    <button type="button" class="close btn btn-icon" data-bs-dismiss="modal">&times;</button>
                 </div>
 
                 <!-- Modal body -->
@@ -104,7 +104,7 @@
                                 <label for="name">Assets Value</label>
                                 <input type="text" class="form-control" id="edit_title" name="title"
                                     placeholder="Assets Value">
-                                <span><small id="edit_title_err"></small></span>
+                                <span><small class="errorMsg" id="edit_title_err"></small></span>
                             </div>
                             <div class="col-md-6 mb-3 form-group">
                                 <label for="">Active</label></br>
@@ -114,7 +114,7 @@
                         <!-- /.card-body -->
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-primary updateAssetsValue">Update</button>
+                        <button type="submit" class="btn btn-primary updateAssetsValue">Update</button>
                     </div>
                 </form>
             </div>
@@ -149,12 +149,12 @@
                             });
                         } else {
                             $('#success_message').addClass('alert alert-success');
-                            $('#success_message').text(response.message)
+                            $('#success_message').text(response.message);
+                            $("#createAssetsValue .close").click();
+                            $('#createAssetsValue').find('input').val('');
                             setTimeout(function() {
                                 $("#success_message").hide();
                             }, 2000);
-                            $("#createAssetsValue .close").click()
-                            $('#createAssetsValue').find('input').val('');
                             $('.table').empty().load(location.href + ' .table');
                         }
                     }
@@ -212,12 +212,12 @@
                         } else {
                             $('#success_message').addClass('alert alert-success');
                             $('#success_message').text(response.message);
+                            $('#editAssetsValue').modal('hide');
+                            $('#editAssetsValue').find('input').val('');
                             $("#success_message").show();
                             setTimeout(function() {
                                 $("#success_message").hide();
                             }, 2000);
-                            $('#editAssetsValue').modal('hide');
-                            $('#editAssetsValue').find('input').val('');
                             $('.table').empty().load(location.href + ' .table');
                         }
                     }
@@ -240,7 +240,7 @@
                             if (response.status == 200) {
                                 $('#success_message').html('');
                                 $('#success_message').addClass('alert alert-danger');
-                                $('#success_message').text(response.message)
+                                $('#success_message').text(response.message);
                                 $("#success_message").show();
                                 setTimeout(function() {
                                     $("#success_message").hide();
