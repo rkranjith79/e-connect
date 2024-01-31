@@ -15,7 +15,8 @@ return new class extends Migration
     {
         Schema::create('profile_basics', function (Blueprint $table) {
             $table->id();
-            $table->string('temple',100);
+            $table->foreignId('profile_id');
+            $table->string('temple',100)->nullable();
             $table->foreignId('caste_id')->nullable();
             $table->foreignId('sub_caste_id')->nullable();
             $table->foreignId('degree_id')->nullable();
@@ -32,8 +33,8 @@ return new class extends Migration
             $table->string('country_others',100)->nullable();
             $table->string('state_others',100)->nullable();
             $table->string('district_others',100)->nullable();
-            $table->foreignId('father_status')->nullable();
-            $table->foreignId('mother_status')->nullable();
+            $table->foreignId('father_status_id')->nullable();
+            $table->foreignId('mother_status_id')->nullable();
             $table->foreignId('social_type_id')->nullable();
             $table->string('father_name',100)->nullable();
             $table->string('mother_name',100)->nullable();
@@ -47,6 +48,7 @@ return new class extends Migration
             $table->foreignId('expectation_work_place_id')->nullable();
             $table->text('expectation_nakshatra')->nullable();
             $table->text('expectation')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\profile_basics;
+use App\Models\profile_jathagams;
 use Illuminate\Http\Request;
 
-class ProfileBasicsController extends Controller
+class ProfileJathagamController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +41,10 @@ class ProfileBasicsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\profile_basics  $profile_basics
+     * @param  \App\Models\profile_jathagams  $profile_jathagams
      * @return \Illuminate\Http\Response
      */
-    public function show(profile_basics $profile_basics)
+    public function show(profile_jathagams $profile_jathagams)
     {
         //
     }
@@ -52,10 +52,10 @@ class ProfileBasicsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\profile_basics  $profile_basics
+     * @param  \App\Models\profile_jathagams  $profile_jathagams
      * @return \Illuminate\Http\Response
      */
-    public function edit(profile_basics $profile_basics)
+    public function edit(profile_jathagams $profile_jathagams)
     {
         //
     }
@@ -64,10 +64,10 @@ class ProfileBasicsController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\profile_basics  $profile_basics
+     * @param  \App\Models\profile_jathagams  $profile_jathagams
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, profile_basics $profile_basics)
+    public function update(Request $request, profile_jathagams $profile_jathagams)
     {
         //
     }
@@ -75,10 +75,10 @@ class ProfileBasicsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\profile_basics  $profile_basics
+     * @param  \App\Models\profile_jathagams  $profile_jathagams
      * @return \Illuminate\Http\Response
      */
-    public function destroy(profile_basics $profile_basics)
+    public function destroy(profile_jathagams $profile_jathagams)
     {
         //
     }
