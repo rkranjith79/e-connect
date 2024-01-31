@@ -14,10 +14,18 @@ class CountryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public $pageData = [];
+
+    public function __construct()
+    {
+        $this->pageData['title'] = "Countries";
+    }
+
     public function index()
     {
+        $page_data = $this->pageData;
         $countries = Country::paginate(5);
-        return view('admin.country.index', compact('countries'));
+        return view('admin.country.index', compact('countries', 'page_data'));
     }
 
     public function create(Request $request)

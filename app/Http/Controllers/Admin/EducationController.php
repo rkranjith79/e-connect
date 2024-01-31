@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
+
 use App\Http\Controllers\Controller;
 
 use App\Models\Education;
@@ -14,10 +15,18 @@ class EducationController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public $pageData = [];
+
+    public function __construct()
+    {
+        $this->pageData['title'] = "Educations";
+    }
+
     public function index()
     {
+        $page_data = $this->pageData;
         $educations = Education::paginate(5);
-        return view('admin.education.index', compact('educations'));
+        return view('admin.education.index', compact('educations', 'page_data'));
     }
 
     public function create(Request $request)
@@ -63,7 +72,7 @@ class EducationController extends Controller
     public function update(Request $request, $id)
     {
         $validator = Validator::make($request->all(), [
-            'title' => ['required', 'max:255', 'unique:educations,title,'.$id.',id'],
+            'title' => ['required', 'max:255', 'unique:educations,title,' . $id . ',id'],
             'active' => ['nullable'],
         ]);
 

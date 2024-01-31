@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
+
 use App\Http\Controllers\Controller;
 use App\Models\Gender;
 use Illuminate\Http\Request;
@@ -8,10 +9,18 @@ use Illuminate\Support\Facades\Validator;
 
 class GenderController extends Controller
 {
+    public $pageData = [];
+
+    public function __construct()
+    {
+        $this->pageData['title'] = "Genders";
+    }
+
     public function index()
     {
+        $page_data = $this->pageData;
         $genders = Gender::paginate(5);
-        return view('admin.gender.index', compact('genders'));
+        return view('admin.gender.index', compact('genders', 'page_data'));
     }
 
     public function create(Request $request)
@@ -57,7 +66,7 @@ class GenderController extends Controller
     public function update(Request $request, $id)
     {
         $validator = Validator::make($request->all(), [
-            'title' => ['required', 'max:255', 'unique:genders,title,'.$id.',id'],
+            'title' => ['required', 'max:255', 'unique:genders,title,' . $id . ',id'],
             'active' => ['nullable'],
         ]);
 

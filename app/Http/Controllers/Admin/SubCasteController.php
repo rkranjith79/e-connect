@@ -14,10 +14,18 @@ class SubCasteController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public $pageData = [];
+
+    public function __construct()
+    {
+        $this->pageData['title'] = "Sub Castes";
+    }
+
     public function index()
     {
+        $page_data = $this->pageData;
         $sub_castes = SubCaste::paginate(5);
-        return view('admin.sub_caste.index', compact('sub_castes'));
+        return view('admin.sub_caste.index', compact('sub_castes', 'page_data'));
     }
 
     public function create(Request $request)

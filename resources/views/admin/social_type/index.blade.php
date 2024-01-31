@@ -5,6 +5,7 @@
             <div id="success_message" class=""></div>
             <div class="card">
                 <div class="card-header">
+                    <h2 class="card-title float-start pt-2 mb-2">{{ $page_data['title'] }}</h2>
                     <button type="button" class="btn btn-primary btn-sm float-end" data-toggle="modal"
                         data-target="#createSocialType">
                         Add
@@ -48,14 +49,15 @@
 
     <!-- Modal -->
     <!--Add SocialType -->
-    <div class="modal fade" id="createSocialType" save-action="{{ route('admin.social_type.create') }}" token="{{ csrf_token() }}">
+    <div class="modal fade" id="createSocialType" save-action="{{ route('admin.social_type.create') }}"
+        token="{{ csrf_token() }}">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
 
                 <!-- Modal Header -->
                 <div class="modal-header">
                     <h4 class="modal-title">Add Social Type</h4>
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <button type="button" class="close btn btn-icon" data-dismiss="modal">&times;</button>
                 </div>
                 <!-- Modal body -->
                 <form method="POST" action="">
@@ -65,7 +67,7 @@
                                 <label for="name">Social Type</label>
                                 <input type="text" class="form-control" id="name" name="title"
                                     placeholder="Social Type">
-                                <span><small id="title_err"></small></span>
+                                <span><small class="errorMsg" id="title_err"></small></span>
                             </div>
                             <div class="col-md-6 mb-3 form-group">
                                 <label for="">Active</label></br>
@@ -75,7 +77,7 @@
                         <!-- /.card-body -->
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-primary createSocialType">Save</button>
+                        <button type="submit" class="btn btn-primary createSocialType">Save</button>
                     </div>
                 </form>
             </div>
@@ -90,7 +92,7 @@
                 <!-- Modal Header -->
                 <div class="modal-header">
                     <h4 class="modal-title">Edit Social Type</h4>
-                    <button type="button" class="close" data-bs-dismiss="modal">&times;</button>
+                    <button type="button" class="close btn btn-icon" data-bs-dismiss="modal">&times;</button>
                 </div>
 
                 <!-- Modal body -->
@@ -102,7 +104,7 @@
                                 <label for="name">Social Type</label>
                                 <input type="text" class="form-control" id="edit_title" name="title"
                                     placeholder="Social Type">
-                                <span><small id="edit_title_err"></small></span>
+                                <span><small class="errorMsg" id="edit_title_err"></small></span>
                             </div>
                             <div class="col-md-6 mb-3 form-group">
                                 <label for="">Active</label></br>
@@ -112,7 +114,7 @@
                         <!-- /.card-body -->
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-primary updateSocialType">Update</button>
+                        <button type="submit" class="btn btn-primary updateSocialType">Update</button>
                     </div>
                 </form>
             </div>
@@ -147,9 +149,12 @@
                             });
                         } else {
                             $('#success_message').addClass('alert alert-success');
-                            $('#success_message').text(response.message)
-                            $("#createSocialType .close").click()
-
+                            $('#success_message').text(response.message);
+                            $("#createSocialType .close").click();
+                            $("#success_message").show();
+                            setTimeout(function() {
+                                $("#success_message").hide();
+                            }, 2000);
                             $('#createSocialType').find('input').val('');
                             $('.table').empty().load(location.href + ' .table');
                         }
@@ -207,9 +212,13 @@
                             });
                         } else {
                             $('#success_message').addClass('alert alert-success');
-                            $('#success_message').text(response.message)
+                            $('#success_message').text(response.message);
                             $('#editSocialType').modal('hide');
                             $('#editSocialType').find('input').val('');
+                            $("#success_message").show();
+                            setTimeout(function() {
+                                $("#success_message").hide();
+                            }, 2000);
                             $('.table').empty().load(location.href + ' .table');
                         }
                     }
@@ -232,7 +241,11 @@
                             if (response.status == 200) {
                                 $('#success_message').html('');
                                 $('#success_message').addClass('alert alert-danger');
-                                $('#success_message').text(response.message)
+                                $('#success_message').text(response.message);
+                                $("#success_message").show();
+                                setTimeout(function() {
+                                    $("#success_message").hide();
+                                }, 2000);
                                 $('.table').load(location.href + ' .table');
                             }
                         }

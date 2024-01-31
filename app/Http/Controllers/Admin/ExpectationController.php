@@ -14,10 +14,18 @@ class ExpectationController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public $pageData = [];
+
+    public function __construct()
+    {
+        $this->pageData['title'] = "Expectations";
+    }
+
     public function index()
     {
+        $page_data = $this->pageData;
         $expectations = Expectation::paginate(5);
-        return view('admin.expectation.index', compact('expectations'));
+        return view('admin.expectation.index', compact('expectations', 'page_data'));
     }
 
     public function create(Request $request)

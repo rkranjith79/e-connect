@@ -14,10 +14,18 @@ class CasteController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public $pageData = [];
+
+    public function __construct()
+    {
+        $this->pageData['title'] = "Castes";
+    }
+
     public function index()
     {
+        $page_data = $this->pageData;
         $castes = Caste::paginate(5);
-        return view('admin.caste.index', compact('castes'));
+        return view('admin.caste.index', compact('castes','page_data'));
     }
 
     public function create(Request $request)

@@ -11,10 +11,18 @@ use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
+    public $pageData = [];
+
+    public function __construct()
+    {
+        $this->pageData['title'] = "Users";
+    }
+
     public function index()
     {
+        $page_data = $this->pageData;
         $users = User::paginate(5);
-        return view('admin.users.list', compact('users'));
+        return view('admin.users.list', compact('users', 'page_data'));
     }
 
     public function create(Request $request)

@@ -14,10 +14,18 @@ class WorkPlaceController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public $pageData = [];
+
+    public function __construct()
+    {
+        $this->pageData['title'] = "Work Places";
+    }
+
     public function index()
     {
+        $page_data = $this->pageData;
         $work_places = WorkPlace::paginate(5);
-        return view('admin.work_place.index', compact('work_places'));
+        return view('admin.work_place.index', compact('work_places', 'page_data'));
     }
 
     public function create(Request $request)

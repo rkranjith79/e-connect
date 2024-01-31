@@ -14,10 +14,18 @@ class SocialTypeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public $pageData = [];
+
+    public function __construct()
+    {
+        $this->pageData['title'] = "Social Types";
+    }
+
     public function index()
     {
+        $page_data = $this->pageData;
         $social_types = SocialType::paginate(5);
-        return view('admin.social_type.index', compact('social_types'));
+        return view('admin.social_type.index', compact('social_types', 'page_data'));
     }
 
     public function create(Request $request)

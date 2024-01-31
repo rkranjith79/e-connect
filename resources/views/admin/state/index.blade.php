@@ -5,6 +5,7 @@
             <div id="success_message" class=""></div>
             <div class="card">
                 <div class="card-header">
+                    <h2 class="card-title float-start pt-2 mb-2">{{ $page_data['title'] }}</h2>
                     <button type="button" class="btn btn-primary btn-sm float-end" data-toggle="modal"
                         data-target="#createState">
                         Add
@@ -55,7 +56,7 @@
                 <!-- Modal Header -->
                 <div class="modal-header">
                     <h4 class="modal-title">Add State</h4>
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <button type="button" class="close btn btn-icon" data-dismiss="modal">&times;</button>
                 </div>
                 <!-- Modal body -->
                 <form method="POST" action="">
@@ -65,7 +66,7 @@
                                 <label for="name">State</label>
                                 <input type="text" class="form-control" id="name" name="title"
                                     placeholder="State">
-                                <span><small id="title_err"></small></span>
+                                <span><small class="errorMsg" id="title_err"></small></span>
                             </div>
                             <div class="col-md-6 mb-3 form-group">
                                 <label for="">Active</label></br>
@@ -75,7 +76,7 @@
                         <!-- /.card-body -->
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-primary createState">Save</button>
+                        <button type="submit" class="btn btn-primary createState">Save</button>
                     </div>
                 </form>
             </div>
@@ -90,7 +91,7 @@
                 <!-- Modal Header -->
                 <div class="modal-header">
                     <h4 class="modal-title">Edit State</h4>
-                    <button type="button" class="close" data-bs-dismiss="modal">&times;</button>
+                    <button type="button" class="close btn btn-icon" data-bs-dismiss="modal">&times;</button>
                 </div>
 
                 <!-- Modal body -->
@@ -102,7 +103,7 @@
                                 <label for="name">State</label>
                                 <input type="text" class="form-control" id="edit_title" name="title"
                                     placeholder="State">
-                                <span><small id="edit_title_err"></small></span>
+                                <span><small class="errorMsg" id="edit_title_err"></small></span>
                             </div>
                             <div class="col-md-6 mb-3 form-group">
                                 <label for="">Active</label></br>
@@ -112,7 +113,7 @@
                         <!-- /.card-body -->
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-primary updateState">Update</button>
+                        <button type="submit" class="btn btn-primary updateState">Update</button>
                     </div>
                 </form>
             </div>

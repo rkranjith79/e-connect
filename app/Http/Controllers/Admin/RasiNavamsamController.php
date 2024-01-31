@@ -14,10 +14,18 @@ class RasiNavamsamController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public $pageData = [];
+
+    public function __construct()
+    {
+        $this->pageData['title'] = "Rasi Navamsams";
+    }
+
     public function index()
     {
+        $page_data = $this->pageData;
         $rasi_navamsams = RasiNavamsam::paginate(5);
-        return view('admin.rasi_navamsam.index', compact('rasi_navamsams'));
+        return view('admin.rasi_navamsam.index', compact('rasi_navamsams', 'page_data'));
     }
 
     public function create(Request $request)

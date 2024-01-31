@@ -5,6 +5,7 @@
             <div id="success_message" class=""></div>
             <div class="card">
                 <div class="card-header">
+                    <h2 class="card-title float-start pt-2 mb-2">{{ $page_data['title'] }}</h2>
                     <button type="button" class="btn btn-primary btn-sm float-end" data-toggle="modal"
                         data-target="#createParentStatus">
                         Add
@@ -16,7 +17,7 @@
                             <thead>
                                 <tr>
                                     <th width="7%">S No.</th>
-                                    <th>ParentStatus</th>
+                                    <th>Parent Status</th>
                                     <th>Status</th>
                                     <th>Actions</th>
                                 </tr>
@@ -48,24 +49,25 @@
 
     <!-- Modal -->
     <!--Add ParentStatus -->
-    <div class="modal fade" id="createParentStatus" save-action="{{ route('admin.parent_status.create') }}" token="{{ csrf_token() }}">
+    <div class="modal fade" id="createParentStatus" save-action="{{ route('admin.parent_status.create') }}"
+        token="{{ csrf_token() }}">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
 
                 <!-- Modal Header -->
                 <div class="modal-header">
-                    <h4 class="modal-title">Add ParentStatus</h4>
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Add Parent Status</h4>
+                    <button type="button" class="close btn btn-icon" data-dismiss="modal">&times;</button>
                 </div>
                 <!-- Modal body -->
                 <form method="POST" action="">
                     <div class="modal-body">
                         <div class="card-body">
                             <div class="form-group">
-                                <label for="name">ParentStatus</label>
+                                <label for="name">Parent Status</label>
                                 <input type="text" class="form-control" id="name" name="title"
-                                    placeholder="ParentStatus">
-                                <span><small id="title_err"></small></span>
+                                    placeholder="Parent Status">
+                                <span><small class="errorMsg" id="title_err"></small></span>
                             </div>
                             <div class="col-md-6 mb-3 form-group">
                                 <label for="">Active</label></br>
@@ -75,7 +77,7 @@
                         <!-- /.card-body -->
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-primary createParentStatus">Save</button>
+                        <button type="submit" class="btn btn-primary createParentStatus">Save</button>
                     </div>
                 </form>
             </div>
@@ -89,8 +91,8 @@
             <div class="modal-content">
                 <!-- Modal Header -->
                 <div class="modal-header">
-                    <h4 class="modal-title">Edit ParentStatus</h4>
-                    <button type="button" class="close" data-bs-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Edit Parent Status</h4>
+                    <button type="button" class="close btn btn-icon" data-bs-dismiss="modal">&times;</button>
                 </div>
 
                 <!-- Modal body -->
@@ -99,10 +101,10 @@
                         <div class="card-body">
                             <div class="form-group">
                                 <input type="hidden" name="id" id="edit_id">
-                                <label for="name">ParentStatus</label>
+                                <label for="name">Parent Status</label>
                                 <input type="text" class="form-control" id="edit_title" name="title"
-                                    placeholder="ParentStatus">
-                                <span><small id="edit_title_err"></small></span>
+                                    placeholder="Parent Status">
+                                <span><small class="errorMsg" id="edit_title_err"></small></span>
                             </div>
                             <div class="col-md-6 mb-3 form-group">
                                 <label for="">Active</label></br>
@@ -112,7 +114,7 @@
                         <!-- /.card-body -->
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-primary updateParentStatus">Update</button>
+                        <button type="submit" class="btn btn-primary updateParentStatus">Update</button>
                     </div>
                 </form>
             </div>
@@ -147,9 +149,12 @@
                             });
                         } else {
                             $('#success_message').addClass('alert alert-success');
-                            $('#success_message').text(response.message)
-                            $("#createParentStatus .close").click()
-
+                            $('#success_message').text(response.message);
+                            $("#createParentStatus .close").click();
+                            $("#success_message").show();
+                            setTimeout(function() {
+                                $("#success_message").hide();
+                            }, 2000);
                             $('#createParentStatus').find('input').val('');
                             $('.table').empty().load(location.href + ' .table');
                         }
@@ -207,9 +212,13 @@
                             });
                         } else {
                             $('#success_message').addClass('alert alert-success');
-                            $('#success_message').text(response.message)
+                            $('#success_message').text(response.message);
                             $('#editParentStatus').modal('hide');
                             $('#editParentStatus').find('input').val('');
+                            $("#success_message").show();
+                            setTimeout(function() {
+                                $("#success_message").hide();
+                            }, 2000);
                             $('.table').empty().load(location.href + ' .table');
                         }
                     }
@@ -232,7 +241,11 @@
                             if (response.status == 200) {
                                 $('#success_message').html('');
                                 $('#success_message').addClass('alert alert-danger');
-                                $('#success_message').text(response.message)
+                                $('#success_message').text(response.message);
+                                $("#success_message").show();
+                                setTimeout(function() {
+                                    $("#success_message").hide();
+                                }, 2000);
                                 $('.table').load(location.href + ' .table');
                             }
                         }
