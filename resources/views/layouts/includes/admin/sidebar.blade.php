@@ -19,6 +19,8 @@
         ['name' => 'Social Types', 'href' => route('admin.social_type.list'), 'icon' => 'mdi-star'],
         ['name' => 'Works', 'href' => route('admin.work.list'), 'icon' => 'mdi-star'],
         ['name' => 'Work Places', 'href' => route('admin.work_place.list'), 'icon' => 'mdi-star'],
+        ['name' => 'Religion', 'href' => route('admin.religion.index'), 'icon' => 'mdi-star'],
+
     ];
 @endphp
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
