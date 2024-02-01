@@ -152,7 +152,7 @@ style="background-image: url(https://ganeshkongumatrimony.com/uploads/all/iajOd7
                                         <div class="input-group-prepend"><span class="input-group-text"><i
                                                     class="fas fa-key"></i></span></div>
                                         <input type="password" class="form-control required " value=""
-                                            id="passwd" name="passwd" maxlength="100"><button
+                                            id="password" name="password" maxlength="100"><button
                                             id="toggle-pwd" type="button"><i
                                                 class="fa fa-eye"></i></button><span class="">
                                     </div>
@@ -163,12 +163,12 @@ style="background-image: url(https://ganeshkongumatrimony.com/uploads/all/iajOd7
                             </div>
                             <div class="col-sm-4">
                                 <div class="form-group mb-3">
-                                    <label class="form-label" for="gender">Gender<span
+                                    <label class="form-label" for="gender_id">Gender<span
                                             class="require-star">*</span></label>
                                     <div class="input-group">
                                         <div class="input-group-prepend"><span class="input-group-text"><i
                                                     class="fas fa-caret-down"></i></span></div>
-                                        <select type="select" name="gender" id="gender"
+                                        <select type="select" name="gender_id" id="gender_id"
                                             class="form-control aiz-selectpicker required "
                                             data-live-search="true" -data-width="auto">
                                             <option style="display:none" value="">-- Select --</option>
@@ -180,14 +180,14 @@ style="background-image: url(https://ganeshkongumatrimony.com/uploads/all/iajOd7
                                     <span class="invalid-feedback"></span>
                                 </div>
                             </div>
-                            <div class="col-sm-4 div-maritalstatus">
+                            <div class="col-sm-4 div-marital_status_id">
                                 <div class="form-group mb-3">
-                                    <label class="form-label" for="maritalstatus">Marital Status<span
+                                    <label class="form-label" for="marital_status_id">Marital Status<span
                                             class="require-star">*</span></label>
                                     <div class="input-group">
                                         <div class="input-group-prepend"><span class="input-group-text"><i
                                                     class="fas fa-caret-down"></i></span></div>
-                                        <select type="select" name="maritalstatus" id="maritalstatus"
+                                        <select type="select" name="marital_status_id" id="marital_status_id"
                                             class="form-control aiz-selectpicker required "
                                             data-live-search="true" -data-width="auto">
                                             <option style="display:none" value="">-- Select --</option>
@@ -229,12 +229,12 @@ style="background-image: url(https://ganeshkongumatrimony.com/uploads/all/iajOd7
                             </div>
                             <div class="col-sm-4">
                                 <div class="form-group mb-3">
-                                    <label class="form-label" for="profcreatedby">Registered By<span
+                                    <label class="form-label" for="registered_by_id">Registered By<span
                                             class="require-star">*</span></label>
                                     <div class="input-group">
                                         <div class="input-group-prepend"><span class="input-group-text"><i
                                                     class="fas fa-caret-down"></i></span></div>
-                                        <select type="select" name="profcreatedby" id="profcreatedby"
+                                        <select type="select" name="registered_by_id" id="registered_by_id"
                                             class="form-control aiz-selectpicker required "
                                             data-live-search="true" -data-width="auto">
                                             <option style="display:none" value="">-- Select --</option>
@@ -257,12 +257,12 @@ style="background-image: url(https://ganeshkongumatrimony.com/uploads/all/iajOd7
                         <div class="row">
                             <div class="col-sm-3">
                                 <div class="form-group mb-3">
-                                    <label class="form-label" for="splcategory">Physical Status<span
+                                    <label class="form-label" for="physical_status_id">Physical Status<span
                                             class="require-star">*</span></label>
                                     <div class="input-group">
                                         <div class="input-group-prepend"><span class="input-group-text"><i
                                                     class="fas fa-caret-down"></i></span></div>
-                                        <select type="select" name="splcategory" id="splcategory"
+                                        <select type="select" name="physical_status_id" id="physical_status_id"
                                             class="form-control aiz-selectpicker required "
                                             data-live-search="true" -data-width="auto">
                                             <option style="display:none" value="">-- Select --</option>
@@ -276,13 +276,13 @@ style="background-image: url(https://ganeshkongumatrimony.com/uploads/all/iajOd7
                             </div>
                             <div class="col-sm-3 div-splcategory-details hide">
                                 <div class="form-group mb-3">
-                                    <label class="form-label" for="splcat_details">Special Category
+                                    <label class="form-label" for="special_category_details">Special Category
                                         Details<span class="require-star">*</span></label>
                                     <div class="input-group">
                                         <div class="input-group-prepend"><span class="input-group-text"><i
                                                     class="fas fa-pen"></i></span></div>
                                         <input type="text" class="form-control required " value=""
-                                            id="splcat_details" name="splcat_details" maxlength="255">
+                                            id="special_category_details" name="special_category_details" maxlength="255">
                                     </div>
                                     <small class="form-text text-muted text-help"></small>
                                     <span class="invalid-feedback"></span>
@@ -290,12 +290,12 @@ style="background-image: url(https://ganeshkongumatrimony.com/uploads/all/iajOd7
                             </div>
                             <div class="col-sm-3">
                                 <div class="form-group mb-3">
-                                    <label class="form-label" for="height">Height<span
+                                    <label class="form-label" for="height_id">Height<span
                                             class="require-star">*</span></label>
                                     <div class="input-group">
                                         <div class="input-group-prepend"><span class="input-group-text"><i
                                                     class="fas fa-hashtag"></i></span></div>
-                                        <select type="select" name="height" id="height"
+                                        <select type="select" name="height_id" id="height_id"
                                             class="form-control aiz-selectpicker required "
                                             data-live-search="true" -data-width="auto">
                                             <option style="display:none" value="">-- Select --</option>
@@ -340,12 +340,12 @@ style="background-image: url(https://ganeshkongumatrimony.com/uploads/all/iajOd7
                             </div>
                             <div class="col-sm-3">
                                 <div class="form-group mb-3">
-                                    <label class="form-label" for="weight">Weight<span
+                                    <label class="form-label" for="weight_id">Weight<span
                                             class="require-star">*</span></label>
                                     <div class="input-group">
                                         <div class="input-group-prepend"><span class="input-group-text"><i
                                                     class="fas fa-hashtag"></i></span></div>
-                                        <select type="select" name="weight" id="weight"
+                                        <select type="select" name="weight_id" id="weight_id"
                                             class="form-control aiz-selectpicker required "
                                             data-live-search="true" -data-width="auto">
                                             <option style="display:none" value="">-- Select --</option>
@@ -475,12 +475,12 @@ style="background-image: url(https://ganeshkongumatrimony.com/uploads/all/iajOd7
                             </div>
                             <div class="col-sm-3">
                                 <div class="form-group mb-3">
-                                    <label class="form-label" for="body_type">Body Type<span
+                                    <label class="form-label" for="body_type_id">Body Type<span
                                             class="require-star">*</span></label>
                                     <div class="input-group">
                                         <div class="input-group-prepend"><span class="input-group-text"><i
                                                     class="fas fa-caret-down"></i></span></div>
-                                        <select type="select" name="body_type" id="body_type"
+                                        <select type="select" name="body_type_id" id="body_type_id"
                                             class="form-control aiz-selectpicker required "
                                             data-live-search="true" -data-width="auto">
                                             <option style="display:none" value="">-- Select --</option>
@@ -497,12 +497,12 @@ style="background-image: url(https://ganeshkongumatrimony.com/uploads/all/iajOd7
                             </div>
                             <div class="col-sm-3">
                                 <div class="form-group mb-3">
-                                    <label class="form-label" for="color">Color<span
+                                    <label class="form-label" for="color_id">Color<span
                                             class="require-star">*</span></label>
                                     <div class="input-group">
                                         <div class="input-group-prepend"><span class="input-group-text"><i
                                                     class="fas fa-caret-down"></i></span></div>
-                                        <select type="select" name="color" id="color"
+                                        <select type="select" name="color_id" id="color_id"
                                             class="form-control aiz-selectpicker required "
                                             data-live-search="true" -data-width="auto">
                                             <option style="display:none" value="">-- Select --</option>
@@ -519,12 +519,12 @@ style="background-image: url(https://ganeshkongumatrimony.com/uploads/all/iajOd7
                             </div>
                             <div class="col-sm-3">
                                 <div class="form-group mb-3">
-                                    <label class="form-label" for="blood_group">Blood Group<span
+                                    <label class="form-label" for="blood_group_id">Blood Group<span
                                             class="require-star">*</span></label>
                                     <div class="input-group">
                                         <div class="input-group-prepend"><span class="input-group-text"><i
                                                     class="fas fa-caret-down"></i></span></div>
-                                        <select type="select" name="blood_group" id="blood_group"
+                                        <select type="select" name="blood_group_id" id="blood_group_id"
                                             class="form-control aiz-selectpicker required "
                                             data-live-search="true" -data-width="auto">
                                             <option style="display:none" value="">-- Select --</option>
@@ -557,12 +557,12 @@ style="background-image: url(https://ganeshkongumatrimony.com/uploads/all/iajOd7
                         <div class="row">
                             <div class="col-sm-3">
                                 <div class="form-group mb-3">
-                                    <label class="form-label" for="caste">Caste<span
+                                    <label class="form-label" for="caste_id">Caste<span
                                             class="require-star">*</span></label>
                                     <div class="input-group">
                                         <div class="input-group-prepend"><span class="input-group-text"><i
                                                     class="fas fa-caret-down"></i></span></div>
-                                        <select type="select" name="caste" id="caste"
+                                        <select type="select" name="caste_id" id="caste_id"
                                             class="form-control aiz-selectpicker required "
                                             data-live-search="true" -data-width="auto">
                                             <option style="display:none" value="">-- Select --</option>
@@ -577,12 +577,12 @@ style="background-image: url(https://ganeshkongumatrimony.com/uploads/all/iajOd7
                             </div>
                             <div class="col-sm-3">
                                 <div class="form-group mb-3">
-                                    <label class="form-label" for="sub_caste">Sub-Caste<span
+                                    <label class="form-label" for="sub_caste_id">Sub-Caste<span
                                             class="require-star">*</span></label>
                                     <div class="input-group">
                                         <div class="input-group-prepend"><span class="input-group-text"><i
                                                     class="fas fa-caret-down"></i></span></div>
-                                        <select type="select" name="sub_caste" id="sub_caste"
+                                        <select type="select" name="sub_caste_id" id="sub_caste_id"
                                             class="form-control aiz-selectpicker required "
                                             data-live-search="true" -data-width="auto">
                                             <option style="display:none" value="">-- Select --</option>
@@ -704,12 +704,12 @@ style="background-image: url(https://ganeshkongumatrimony.com/uploads/all/iajOd7
                         <div class="row">
                             <div class="col-sm-3">
                                 <div class="form-group mb-3">
-                                    <label class="form-label" for="education">Education<span
+                                    <label class="form-label" for="education_id">Education<span
                                             class="require-star">*</span></label>
                                     <div class="input-group">
                                         <div class="input-group-prepend"><span class="input-group-text"><i
                                                     class="fas fa-graduation-cap"></i></span></div>
-                                        <select type="select" name="education" id="education"
+                                        <select type="select" name="education_id" id="education_id"
                                             class="form-control aiz-selectpicker required "
                                             data-live-search="true" -data-width="auto">
                                             <option style="display:none" value="">-- Select --</option>
@@ -761,12 +761,12 @@ style="background-image: url(https://ganeshkongumatrimony.com/uploads/all/iajOd7
                             </div>
                             <div class="col-sm-3">
                                 <div class="form-group mb-3">
-                                    <label class="form-label" for="work">Work<span
+                                    <label class="form-label" for="work_id">Work<span
                                             class="require-star">*</span></label>
                                     <div class="input-group">
                                         <div class="input-group-prepend"><span class="input-group-text"><i
                                                     class="fas fa-caret-down"></i></span></div>
-                                        <select type="select" name="work" id="work"
+                                        <select type="select" name="work_id" id="work_id"
                                             class="form-control aiz-selectpicker required "
                                             data-live-search="true" -data-width="auto">
                                             <option style="display:none" value="">-- Select --</option>
@@ -816,12 +816,12 @@ style="background-image: url(https://ganeshkongumatrimony.com/uploads/all/iajOd7
                             </div>
                             <div class="col-sm-3 div-work-place hide">
                                 <div class="form-group mb-3">
-                                    <label class="form-label" for="work_place">Work Place<span
+                                    <label class="form-label" for="work_place_id">Work Place<span
                                             class="require-star">*</span></label>
                                     <div class="input-group">
                                         <div class="input-group-prepend"><span class="input-group-text"><i
                                                     class="fas fa-caret-down"></i></span></div>
-                                        <select type="select" name="work_place" id="work_place"
+                                        <select type="select" name="work_place_id" id="work_place_id"
                                             class="form-control aiz-selectpicker required "
                                             data-live-search="true" -data-width="auto">
                                             <option style="display:none" value="">-- Select --</option>
@@ -895,12 +895,12 @@ style="background-image: url(https://ganeshkongumatrimony.com/uploads/all/iajOd7
                         <div class="row">
                             <div class="col-sm-4">
                                 <div class="form-group mb-3">
-                                    <label class="form-label" for="country">Country<span
+                                    <label class="form-label" for="country_id">Country<span
                                             class="require-star">*</span></label>
                                     <div class="input-group">
                                         <div class="input-group-prepend"><span class="input-group-text"><i
                                                     class="fas fa-globe-asia"></i></span></div>
-                                        <select type="select" name="country" id="country"
+                                        <select type="select" name="country_id" id="country_id"
                                             class="form-control aiz-selectpicker required "
                                             data-live-search="true" -data-width="auto">
                                             <option style="display:none" value="">-- Select --</option>
@@ -1151,12 +1151,12 @@ style="background-image: url(https://ganeshkongumatrimony.com/uploads/all/iajOd7
                             </div>
                             <div class="col-sm-4">
                                 <div class="form-group mb-3">
-                                    <label class="form-label" for="state">State<span
+                                    <label class="form-label" for="state_id">State<span
                                             class="require-star">*</span></label>
                                     <div class="input-group">
                                         <div class="input-group-prepend"><span class="input-group-text"><i
                                                     class="fas fa-map-marker-alt"></i></span></div>
-                                        <select type="select" name="state" id="state"
+                                        <select type="select" name="state_id" id="state_id"
                                             class="form-control aiz-selectpicker required "
                                             data-live-search="true" -data-width="auto">
                                             <option style="display:none" value="">-- Select --</option>
@@ -1218,12 +1218,12 @@ style="background-image: url(https://ganeshkongumatrimony.com/uploads/all/iajOd7
                             </div>
                             <div class="col-sm-4">
                                 <div class="form-group mb-3">
-                                    <label class="form-label" for="district">District<span
+                                    <label class="form-label" for="district_id">District<span
                                             class="require-star">*</span></label>
                                     <div class="input-group">
                                         <div class="input-group-prepend"><span class="input-group-text"><i
                                                     class="fas fa-map-marker-alt"></i></span></div>
-                                        <select type="select" name="district" id="district"
+                                        <select type="select" name="district_id" id="district_id"
                                             class="form-control aiz-selectpicker required "
                                             data-live-search="true" -data-width="auto">
                                             <option style="display:none" value="">-- Select --</option>
@@ -1303,12 +1303,12 @@ style="background-image: url(https://ganeshkongumatrimony.com/uploads/all/iajOd7
                             </div>
                             <div class="col-sm-3">
                                 <div class="form-group mb-3">
-                                    <label class="form-label" for="father_status">Father Status<span
+                                    <label class="form-label" for="father_status_id">Father Status<span
                                             class="require-star">*</span></label>
                                     <div class="input-group">
                                         <div class="input-group-prepend"><span class="input-group-text"><i
                                                     class="fas fa-caret-down"></i></span></div>
-                                        <select type="select" name="father_status" id="father_status"
+                                        <select type="select" name="father_status_id" id="father_status_id"
                                             class="form-control aiz-selectpicker required "
                                             data-live-search="true" -data-width="auto">
                                             <option style="display:none" value="">-- Select --</option>
@@ -1323,13 +1323,13 @@ style="background-image: url(https://ganeshkongumatrimony.com/uploads/all/iajOd7
                             </div>
                             <div class="col-sm-3 div-father-occu hide">
                                 <div class="form-group mb-3">
-                                    <label class="form-label" for="father_occu">Father Occupation<span
+                                    <label class="form-label" for="father_occupation">Father Occupation<span
                                             class="require-star">*</span></label>
                                     <div class="input-group">
                                         <div class="input-group-prepend"><span class="input-group-text"><i
                                                     class="fas fa-keyboard"></i></span></div>
                                         <input type="text" class="form-control required " value=""
-                                            id="father_occu" name="father_occu" maxlength="255">
+                                            id="father_occupation" name="father_occupation" maxlength="255">
                                     </div>
                                     <small class="form-text text-muted text-help"></small>
                                     <span class="invalid-feedback"></span>
@@ -1351,12 +1351,12 @@ style="background-image: url(https://ganeshkongumatrimony.com/uploads/all/iajOd7
                             </div>
                             <div class="col-sm-3">
                                 <div class="form-group mb-3">
-                                    <label class="form-label" for="mother_status">Mother Status<span
+                                    <label class="form-label" for="mother_status_id">Mother Status<span
                                             class="require-star">*</span></label>
                                     <div class="input-group">
                                         <div class="input-group-prepend"><span class="input-group-text"><i
                                                     class="fas fa-caret-down"></i></span></div>
-                                        <select type="select" name="mother_status" id="mother_status"
+                                        <select type="select" name="mother_status_id" id="mother_status_id"
                                             class="form-control aiz-selectpicker required "
                                             data-live-search="true" -data-width="auto">
                                             <option style="display:none" value="">-- Select --</option>
@@ -1371,13 +1371,13 @@ style="background-image: url(https://ganeshkongumatrimony.com/uploads/all/iajOd7
                             </div>
                             <div class="col-sm-3 div-mother-occu hide">
                                 <div class="form-group mb-3">
-                                    <label class="form-label" for="mother_occu">Mother Occupation<span
+                                    <label class="form-label" for="mother_occupation">Mother Occupation<span
                                             class="require-star">*</span></label>
                                     <div class="input-group">
                                         <div class="input-group-prepend"><span class="input-group-text"><i
                                                     class="fas fa-keyboard"></i></span></div>
                                         <input type="text" class="form-control required " value=""
-                                            id="mother_occu" name="mother_occu" maxlength="255">
+                                            id="mother_occupation" name="mother_occupation" maxlength="255">
                                     </div>
                                     <small class="form-text text-muted text-help"></small>
                                     <span class="invalid-feedback"></span>
@@ -1385,12 +1385,12 @@ style="background-image: url(https://ganeshkongumatrimony.com/uploads/all/iajOd7
                             </div>
                             <div class="col-sm-3">
                                 <div class="form-group mb-3">
-                                    <label class="form-label" for="social_type">Social Type<span
+                                    <label class="form-label" for="social_type_id">Social Type<span
                                             class="require-star">*</span></label>
                                     <div class="input-group">
                                         <div class="input-group-prepend"><span class="input-group-text"><i
                                                     class="fas fa-caret-down"></i></span></div>
-                                        <select type="select" name="social_type" id="social_type"
+                                        <select type="select" name="social_type_id" id="social_type_id"
                                             class="form-control aiz-selectpicker required "
                                             data-live-search="true" -data-width="auto">
                                             <option style="display:none" value="">-- Select --</option>
@@ -1440,12 +1440,12 @@ style="background-image: url(https://ganeshkongumatrimony.com/uploads/all/iajOd7
                         <div class="row">
                             <div class="col-sm-4">
                                 <div class="form-group mb-3">
-                                    <label class="form-label" for="asset_values">Assets Value<span
+                                    <label class="form-label" for="asset_value_id">Assets Value<span
                                             class="require-star">*</span></label>
                                     <div class="input-group">
                                         <div class="input-group-prepend"><span class="input-group-text"><i
                                                     class="fas fa-caret-down"></i></span></div>
-                                        <select type="select" name="asset_values" id="asset_values"
+                                        <select type="select" name="asset_value_id" id="asset_value_id"
                                             class="form-control aiz-selectpicker required "
                                             data-live-search="true" -data-width="auto">
                                             <option style="display:none" value="">-- Select --</option>
@@ -1517,12 +1517,12 @@ style="background-image: url(https://ganeshkongumatrimony.com/uploads/all/iajOd7
                         <div class="form-row">
                             <div class="col-sm-3 div-astro">
                                 <div class="form-group mb-3">
-                                    <label class="form-label" for="rasi_nakshatra">Rasi - Nakshatra<span
+                                    <label class="form-label" for="rasi_nakshatra_id">Rasi - Nakshatra<span
                                             class="require-star">*</span></label>
                                     <div class="input-group">
                                         <div class="input-group-prepend"><span class="input-group-text"><i
                                                     class="fas fa-caret-down"></i></span></div>
-                                        <select type="select" name="rasi_nakshatra" id="rasi_nakshatra"
+                                        <select type="select" name="rasi_nakshatra_id" id="rasi_nakshatra_id"
                                             class="form-control aiz-selectpicker required "
                                             data-live-search="true" -data-width="auto">
                                             <option style="display:none" value="">-- Select --</option>
@@ -1572,12 +1572,12 @@ style="background-image: url(https://ganeshkongumatrimony.com/uploads/all/iajOd7
                             </div>
                             <div class="col-sm-3 div-astro">
                                 <div class="form-group mb-3">
-                                    <label class="form-label" for="nakshatra_patham">Nakshatra Patham<span
+                                    <label class="form-label" for="nakshatra_patham_id">Nakshatra Patham<span
                                             class="require-star">*</span></label>
                                     <div class="input-group">
                                         <div class="input-group-prepend"><span class="input-group-text"><i
                                                     class="fas fa-caret-down"></i></span></div>
-                                        <select type="select" name="nakshatra_patham" id="nakshatra_patham"
+                                        <select type="select" name="nakshatra_patham_id" id="nakshatra_patham_id"
                                             class="form-control aiz-selectpicker required "
                                             data-live-search="true" -data-width="auto">
                                             <option style="display:none" value="">-- Select --</option>
@@ -1595,11 +1595,11 @@ style="background-image: url(https://ganeshkongumatrimony.com/uploads/all/iajOd7
                             </div>
                             <div class="col-sm-3 div-astro">
                                 <div class="form-group mb-3">
-                                    <label class="form-label" for="lagnam">Lagnam</label>
+                                    <label class="form-label" for="lagnam_id">Lagnam</label>
                                     <div class="input-group">
                                         <div class="input-group-prepend"><span class="input-group-text"><i
                                                     class="fas fa-caret-down"></i></span></div>
-                                        <select type="select" name="lagnam" id="lagnam"
+                                        <select type="select" name="lagnam_id" id="lagnam_id"
                                             class="form-control aiz-selectpicker " data-live-search="true"
                                             -data-width="auto">
                                             <option style="display:none" value="">-- Select --</option>
@@ -1624,12 +1624,12 @@ style="background-image: url(https://ganeshkongumatrimony.com/uploads/all/iajOd7
                             </div>
                             <div class="col-sm-3 div-astro">
                                 <div class="form-group mb-3">
-                                    <label class="form-label" for="jathagam">Jathagam<span
+                                    <label class="form-label" for="jathagam_id">Jathagam<span
                                             class="require-star">*</span></label>
                                     <div class="input-group">
                                         <div class="input-group-prepend"><span class="input-group-text"><i
                                                     class="fas fa-caret-down"></i></span></div>
-                                        <select type="select" name="jathagam" id="jathagam"
+                                        <select type="select" name="jathagam_id" id="jathagam_id"
                                             class="form-control aiz-selectpicker required "
                                             data-live-search="true" -data-width="auto">
                                             <option style="display:none" value="">-- Select --</option>
@@ -1957,7 +1957,7 @@ style="background-image: url(https://ganeshkongumatrimony.com/uploads/all/iajOd7
                                     <div class="col-4">
                                         <div class="form-group mb-3">
                                             <div class="input-group" style="width: 88px;">
-                                                <select type="select" name="dasa_year" id="dasa_year"
+                                                <select type="select" name="birth_dasa_remaining_year" id="birth_dasa_remaining_year"
                                                     class="form-control aiz-selectpicker"
                                                     data-live-search="true" -data-width="auto"
                                                     -data-size="5">
@@ -1992,7 +1992,7 @@ style="background-image: url(https://ganeshkongumatrimony.com/uploads/all/iajOd7
                                     <div class="col-4">
                                         <div class="form-group mb-3">
                                             <div class="input-group" style="width: 88px;">
-                                                <select type="select" name="dasa_month" id="dasa_month"
+                                                <select type="select" name="birth_dasa_remaining_month" id="birth_dasa_remaining_month"
                                                     class="form-control aiz-selectpicker"
                                                     data-live-search="true" -data-width="auto"
                                                     -data-size="5">
@@ -2019,7 +2019,7 @@ style="background-image: url(https://ganeshkongumatrimony.com/uploads/all/iajOd7
                                     <div class="col-4">
                                         <div class="form-group mb-3">
                                             <div class="input-group" style="width: 88px;">
-                                                <select type="select" name="dasa_day" id="dasa_day"
+                                                <select type="select" name="birth_dasa_remaining_day" id="birth_dasa_remaining_day"
                                                     class="form-control aiz-selectpicker"
                                                     data-live-search="true" -data-width="auto"
                                                     -data-size="5">
@@ -2067,808 +2067,7 @@ style="background-image: url(https://ganeshkongumatrimony.com/uploads/all/iajOd7
                         </div>
 
 
-                        <div class="form-row">
-                            <div class="col-md-6 div-astro my-2 mt-sm-0">
-                                <table class="tablehoro" border="0" cellpadding="0" cellspacing="0"
-                                    align="center">
-                                    <tr>
-                                        <td>
-                                            <p></p>
-                                            <div class="form-group mb-3">
-                                                <label class="form-label" for="rasi_12"></label>
-                                                <div class="input-group">
-                                                    <select type="select" name="rasi_12[]" id="rasi_12"
-                                                        class="form-control aiz-selectpicker " multiple ""
-                                                        data-live-search="true" -data-width="auto">
-                                                        <option style="display:none" value="">-- Select --
-                                                        </option>
-                                                        <option value="1">லக்னம்/Lagnam</option>
-                                                        <option value="2">சூரியன்/Sun</option>
-                                                        <option value="3">சந்திரன்/Moon</option>
-                                                        <option value="4">செவ்வாய்/Mars</option>
-                                                        <option value="5">ராகு/Raagu</option>
-                                                        <option value="6">குரு/Jupiter</option>
-                                                        <option value="7">சனி/Saturn</option>
-                                                        <option value="8">புதன்/Mercury</option>
-                                                        <option value="9">கேது/Kethu</option>
-                                                        <option value="10">சுக்கிரன்/Venus</option>
-                                                        <option value="11">மாந்தி/Maanthi</option>
-                                                        <option value="12">செவ்வாய் (வ)/Mars (V)</option>
-                                                        <option value="13">குரு (வ)/Jupiter (V)</option>
-                                                        <option value="14">சனி (வ)/Saturn (V)</option>
-                                                        <option value="15">புதன் (வ)/Mercury (V)</option>
-                                                        <option value="16">சுக்கிரன் (வ)/Venus (V)</option>
-                                                    </select>
-                                                </div>
-                                                <small class="form-text text-muted text-help"></small>
-                                                <span class="invalid-feedback"></span>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <p></p>
-                                            <div class="form-group mb-3">
-                                                <label class="form-label" for="rasi_1"></label>
-                                                <div class="input-group">
-                                                    <select type="select" name="rasi_1[]" id="rasi_1"
-                                                        class="form-control aiz-selectpicker " multiple ""
-                                                        data-live-search="true" -data-width="auto">
-                                                        <option style="display:none" value="">-- Select --
-                                                        </option>
-                                                        <option value="1">லக்னம்/Lagnam</option>
-                                                        <option value="2">சூரியன்/Sun</option>
-                                                        <option value="3">சந்திரன்/Moon</option>
-                                                        <option value="4">செவ்வாய்/Mars</option>
-                                                        <option value="5">ராகு/Raagu</option>
-                                                        <option value="6">குரு/Jupiter</option>
-                                                        <option value="7">சனி/Saturn</option>
-                                                        <option value="8">புதன்/Mercury</option>
-                                                        <option value="9">கேது/Kethu</option>
-                                                        <option value="10">சுக்கிரன்/Venus</option>
-                                                        <option value="11">மாந்தி/Maanthi</option>
-                                                        <option value="12">செவ்வாய் (வ)/Mars (V)</option>
-                                                        <option value="13">குரு (வ)/Jupiter (V)</option>
-                                                        <option value="14">சனி (வ)/Saturn (V)</option>
-                                                        <option value="15">புதன் (வ)/Mercury (V)</option>
-                                                        <option value="16">சுக்கிரன் (வ)/Venus (V)</option>
-                                                    </select>
-                                                </div>
-                                                <small class="form-text text-muted text-help"></small>
-                                                <span class="invalid-feedback"></span>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <p></p>
-                                            <div class="form-group mb-3">
-                                                <label class="form-label" for="rasi_2"></label>
-                                                <div class="input-group">
-                                                    <select type="select" name="rasi_2[]" id="rasi_2"
-                                                        class="form-control aiz-selectpicker " multiple ""
-                                                        data-live-search="true" -data-width="auto">
-                                                        <option style="display:none" value="">-- Select --
-                                                        </option>
-                                                        <option value="1">லக்னம்/Lagnam</option>
-                                                        <option value="2">சூரியன்/Sun</option>
-                                                        <option value="3">சந்திரன்/Moon</option>
-                                                        <option value="4">செவ்வாய்/Mars</option>
-                                                        <option value="5">ராகு/Raagu</option>
-                                                        <option value="6">குரு/Jupiter</option>
-                                                        <option value="7">சனி/Saturn</option>
-                                                        <option value="8">புதன்/Mercury</option>
-                                                        <option value="9">கேது/Kethu</option>
-                                                        <option value="10">சுக்கிரன்/Venus</option>
-                                                        <option value="11">மாந்தி/Maanthi</option>
-                                                        <option value="12">செவ்வாய் (வ)/Mars (V)</option>
-                                                        <option value="13">குரு (வ)/Jupiter (V)</option>
-                                                        <option value="14">சனி (வ)/Saturn (V)</option>
-                                                        <option value="15">புதன் (வ)/Mercury (V)</option>
-                                                        <option value="16">சுக்கிரன் (வ)/Venus (V)</option>
-                                                    </select>
-                                                </div>
-                                                <small class="form-text text-muted text-help"></small>
-                                                <span class="invalid-feedback"></span>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <p></p>
-                                            <div class="form-group mb-3">
-                                                <label class="form-label" for="rasi_3"></label>
-                                                <div class="input-group">
-                                                    <select type="select" name="rasi_3[]" id="rasi_3"
-                                                        class="form-control aiz-selectpicker " multiple ""
-                                                        data-live-search="true" -data-width="auto">
-                                                        <option style="display:none" value="">-- Select --
-                                                        </option>
-                                                        <option value="1">லக்னம்/Lagnam</option>
-                                                        <option value="2">சூரியன்/Sun</option>
-                                                        <option value="3">சந்திரன்/Moon</option>
-                                                        <option value="4">செவ்வாய்/Mars</option>
-                                                        <option value="5">ராகு/Raagu</option>
-                                                        <option value="6">குரு/Jupiter</option>
-                                                        <option value="7">சனி/Saturn</option>
-                                                        <option value="8">புதன்/Mercury</option>
-                                                        <option value="9">கேது/Kethu</option>
-                                                        <option value="10">சுக்கிரன்/Venus</option>
-                                                        <option value="11">மாந்தி/Maanthi</option>
-                                                        <option value="12">செவ்வாய் (வ)/Mars (V)</option>
-                                                        <option value="13">குரு (வ)/Jupiter (V)</option>
-                                                        <option value="14">சனி (வ)/Saturn (V)</option>
-                                                        <option value="15">புதன் (வ)/Mercury (V)</option>
-                                                        <option value="16">சுக்கிரன் (வ)/Venus (V)</option>
-                                                    </select>
-                                                </div>
-                                                <small class="form-text text-muted text-help"></small>
-                                                <span class="invalid-feedback"></span>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <p></p>
-                                            <div class="form-group mb-3">
-                                                <label class="form-label" for="rasi_11"></label>
-                                                <div class="input-group">
-                                                    <select type="select" name="rasi_11[]" id="rasi_11"
-                                                        class="form-control aiz-selectpicker " multiple ""
-                                                        data-live-search="true" -data-width="auto">
-                                                        <option style="display:none" value="">-- Select --
-                                                        </option>
-                                                        <option value="1">லக்னம்/Lagnam</option>
-                                                        <option value="2">சூரியன்/Sun</option>
-                                                        <option value="3">சந்திரன்/Moon</option>
-                                                        <option value="4">செவ்வாய்/Mars</option>
-                                                        <option value="5">ராகு/Raagu</option>
-                                                        <option value="6">குரு/Jupiter</option>
-                                                        <option value="7">சனி/Saturn</option>
-                                                        <option value="8">புதன்/Mercury</option>
-                                                        <option value="9">கேது/Kethu</option>
-                                                        <option value="10">சுக்கிரன்/Venus</option>
-                                                        <option value="11">மாந்தி/Maanthi</option>
-                                                        <option value="12">செவ்வாய் (வ)/Mars (V)</option>
-                                                        <option value="13">குரு (வ)/Jupiter (V)</option>
-                                                        <option value="14">சனி (வ)/Saturn (V)</option>
-                                                        <option value="15">புதன் (வ)/Mercury (V)</option>
-                                                        <option value="16">சுக்கிரன் (வ)/Venus (V)</option>
-                                                    </select>
-                                                </div>
-                                                <small class="form-text text-muted text-help"></small>
-                                                <span class="invalid-feedback"></span>
-                                            </div>
-                                        </td>
-                                        <td rowspan="2" colspan="2">
-                                            <strong>Rasi</strong>
-                                        </td>
-                                        <td>
-                                            <p></p>
-                                            <div class="form-group mb-3">
-                                                <label class="form-label" for="rasi_4"></label>
-                                                <div class="input-group">
-                                                    <select type="select" name="rasi_4[]" id="rasi_4"
-                                                        class="form-control aiz-selectpicker " multiple ""
-                                                        data-live-search="true" -data-width="auto">
-                                                        <option style="display:none" value="">-- Select --
-                                                        </option>
-                                                        <option value="1">லக்னம்/Lagnam</option>
-                                                        <option value="2">சூரியன்/Sun</option>
-                                                        <option value="3">சந்திரன்/Moon</option>
-                                                        <option value="4">செவ்வாய்/Mars</option>
-                                                        <option value="5">ராகு/Raagu</option>
-                                                        <option value="6">குரு/Jupiter</option>
-                                                        <option value="7">சனி/Saturn</option>
-                                                        <option value="8">புதன்/Mercury</option>
-                                                        <option value="9">கேது/Kethu</option>
-                                                        <option value="10">சுக்கிரன்/Venus</option>
-                                                        <option value="11">மாந்தி/Maanthi</option>
-                                                        <option value="12">செவ்வாய் (வ)/Mars (V)</option>
-                                                        <option value="13">குரு (வ)/Jupiter (V)</option>
-                                                        <option value="14">சனி (வ)/Saturn (V)</option>
-                                                        <option value="15">புதன் (வ)/Mercury (V)</option>
-                                                        <option value="16">சுக்கிரன் (வ)/Venus (V)</option>
-                                                    </select>
-                                                </div>
-                                                <small class="form-text text-muted text-help"></small>
-                                                <span class="invalid-feedback"></span>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <p></p>
-                                            <div class="form-group mb-3">
-                                                <label class="form-label" for="rasi_10"></label>
-                                                <div class="input-group">
-                                                    <select type="select" name="rasi_10[]" id="rasi_10"
-                                                        class="form-control aiz-selectpicker " multiple ""
-                                                        data-live-search="true" -data-width="auto">
-                                                        <option style="display:none" value="">-- Select --
-                                                        </option>
-                                                        <option value="1">லக்னம்/Lagnam</option>
-                                                        <option value="2">சூரியன்/Sun</option>
-                                                        <option value="3">சந்திரன்/Moon</option>
-                                                        <option value="4">செவ்வாய்/Mars</option>
-                                                        <option value="5">ராகு/Raagu</option>
-                                                        <option value="6">குரு/Jupiter</option>
-                                                        <option value="7">சனி/Saturn</option>
-                                                        <option value="8">புதன்/Mercury</option>
-                                                        <option value="9">கேது/Kethu</option>
-                                                        <option value="10">சுக்கிரன்/Venus</option>
-                                                        <option value="11">மாந்தி/Maanthi</option>
-                                                        <option value="12">செவ்வாய் (வ)/Mars (V)</option>
-                                                        <option value="13">குரு (வ)/Jupiter (V)</option>
-                                                        <option value="14">சனி (வ)/Saturn (V)</option>
-                                                        <option value="15">புதன் (வ)/Mercury (V)</option>
-                                                        <option value="16">சுக்கிரன் (வ)/Venus (V)</option>
-                                                    </select>
-                                                </div>
-                                                <small class="form-text text-muted text-help"></small>
-                                                <span class="invalid-feedback"></span>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <p></p>
-                                            <div class="form-group mb-3">
-                                                <label class="form-label" for="rasi_5"></label>
-                                                <div class="input-group">
-                                                    <select type="select" name="rasi_5[]" id="rasi_5"
-                                                        class="form-control aiz-selectpicker " multiple ""
-                                                        data-live-search="true" -data-width="auto">
-                                                        <option style="display:none" value="">-- Select --
-                                                        </option>
-                                                        <option value="1">லக்னம்/Lagnam</option>
-                                                        <option value="2">சூரியன்/Sun</option>
-                                                        <option value="3">சந்திரன்/Moon</option>
-                                                        <option value="4">செவ்வாய்/Mars</option>
-                                                        <option value="5">ராகு/Raagu</option>
-                                                        <option value="6">குரு/Jupiter</option>
-                                                        <option value="7">சனி/Saturn</option>
-                                                        <option value="8">புதன்/Mercury</option>
-                                                        <option value="9">கேது/Kethu</option>
-                                                        <option value="10">சுக்கிரன்/Venus</option>
-                                                        <option value="11">மாந்தி/Maanthi</option>
-                                                        <option value="12">செவ்வாய் (வ)/Mars (V)</option>
-                                                        <option value="13">குரு (வ)/Jupiter (V)</option>
-                                                        <option value="14">சனி (வ)/Saturn (V)</option>
-                                                        <option value="15">புதன் (வ)/Mercury (V)</option>
-                                                        <option value="16">சுக்கிரன் (வ)/Venus (V)</option>
-                                                    </select>
-                                                </div>
-                                                <small class="form-text text-muted text-help"></small>
-                                                <span class="invalid-feedback"></span>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <p></p>
-                                            <div class="form-group mb-3">
-                                                <label class="form-label" for="rasi_9"></label>
-                                                <div class="input-group">
-                                                    <select type="select" name="rasi_9[]" id="rasi_9"
-                                                        class="form-control aiz-selectpicker " multiple ""
-                                                        data-live-search="true" -data-width="auto">
-                                                        <option style="display:none" value="">-- Select --
-                                                        </option>
-                                                        <option value="1">லக்னம்/Lagnam</option>
-                                                        <option value="2">சூரியன்/Sun</option>
-                                                        <option value="3">சந்திரன்/Moon</option>
-                                                        <option value="4">செவ்வாய்/Mars</option>
-                                                        <option value="5">ராகு/Raagu</option>
-                                                        <option value="6">குரு/Jupiter</option>
-                                                        <option value="7">சனி/Saturn</option>
-                                                        <option value="8">புதன்/Mercury</option>
-                                                        <option value="9">கேது/Kethu</option>
-                                                        <option value="10">சுக்கிரன்/Venus</option>
-                                                        <option value="11">மாந்தி/Maanthi</option>
-                                                        <option value="12">செவ்வாய் (வ)/Mars (V)</option>
-                                                        <option value="13">குரு (வ)/Jupiter (V)</option>
-                                                        <option value="14">சனி (வ)/Saturn (V)</option>
-                                                        <option value="15">புதன் (வ)/Mercury (V)</option>
-                                                        <option value="16">சுக்கிரன் (வ)/Venus (V)</option>
-                                                    </select>
-                                                </div>
-                                                <small class="form-text text-muted text-help"></small>
-                                                <span class="invalid-feedback"></span>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <p></p>
-                                            <div class="form-group mb-3">
-                                                <label class="form-label" for="rasi_8"></label>
-                                                <div class="input-group">
-                                                    <select type="select" name="rasi_8[]" id="rasi_8"
-                                                        class="form-control aiz-selectpicker " multiple ""
-                                                        data-live-search="true" -data-width="auto">
-                                                        <option style="display:none" value="">-- Select --
-                                                        </option>
-                                                        <option value="1">லக்னம்/Lagnam</option>
-                                                        <option value="2">சூரியன்/Sun</option>
-                                                        <option value="3">சந்திரன்/Moon</option>
-                                                        <option value="4">செவ்வாய்/Mars</option>
-                                                        <option value="5">ராகு/Raagu</option>
-                                                        <option value="6">குரு/Jupiter</option>
-                                                        <option value="7">சனி/Saturn</option>
-                                                        <option value="8">புதன்/Mercury</option>
-                                                        <option value="9">கேது/Kethu</option>
-                                                        <option value="10">சுக்கிரன்/Venus</option>
-                                                        <option value="11">மாந்தி/Maanthi</option>
-                                                        <option value="12">செவ்வாய் (வ)/Mars (V)</option>
-                                                        <option value="13">குரு (வ)/Jupiter (V)</option>
-                                                        <option value="14">சனி (வ)/Saturn (V)</option>
-                                                        <option value="15">புதன் (வ)/Mercury (V)</option>
-                                                        <option value="16">சுக்கிரன் (வ)/Venus (V)</option>
-                                                    </select>
-                                                </div>
-                                                <small class="form-text text-muted text-help"></small>
-                                                <span class="invalid-feedback"></span>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <p></p>
-                                            <div class="form-group mb-3">
-                                                <label class="form-label" for="rasi_7"></label>
-                                                <div class="input-group">
-                                                    <select type="select" name="rasi_7[]" id="rasi_7"
-                                                        class="form-control aiz-selectpicker " multiple ""
-                                                        data-live-search="true" -data-width="auto">
-                                                        <option style="display:none" value="">-- Select --
-                                                        </option>
-                                                        <option value="1">லக்னம்/Lagnam</option>
-                                                        <option value="2">சூரியன்/Sun</option>
-                                                        <option value="3">சந்திரன்/Moon</option>
-                                                        <option value="4">செவ்வாய்/Mars</option>
-                                                        <option value="5">ராகு/Raagu</option>
-                                                        <option value="6">குரு/Jupiter</option>
-                                                        <option value="7">சனி/Saturn</option>
-                                                        <option value="8">புதன்/Mercury</option>
-                                                        <option value="9">கேது/Kethu</option>
-                                                        <option value="10">சுக்கிரன்/Venus</option>
-                                                        <option value="11">மாந்தி/Maanthi</option>
-                                                        <option value="12">செவ்வாய் (வ)/Mars (V)</option>
-                                                        <option value="13">குரு (வ)/Jupiter (V)</option>
-                                                        <option value="14">சனி (வ)/Saturn (V)</option>
-                                                        <option value="15">புதன் (வ)/Mercury (V)</option>
-                                                        <option value="16">சுக்கிரன் (வ)/Venus (V)</option>
-                                                    </select>
-                                                </div>
-                                                <small class="form-text text-muted text-help"></small>
-                                                <span class="invalid-feedback"></span>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <p></p>
-                                            <div class="form-group mb-3">
-                                                <label class="form-label" for="rasi_6"></label>
-                                                <div class="input-group">
-                                                    <select type="select" name="rasi_6[]" id="rasi_6"
-                                                        class="form-control aiz-selectpicker " multiple ""
-                                                        data-live-search="true" -data-width="auto">
-                                                        <option style="display:none" value="">-- Select --
-                                                        </option>
-                                                        <option value="1">லக்னம்/Lagnam</option>
-                                                        <option value="2">சூரியன்/Sun</option>
-                                                        <option value="3">சந்திரன்/Moon</option>
-                                                        <option value="4">செவ்வாய்/Mars</option>
-                                                        <option value="5">ராகு/Raagu</option>
-                                                        <option value="6">குரு/Jupiter</option>
-                                                        <option value="7">சனி/Saturn</option>
-                                                        <option value="8">புதன்/Mercury</option>
-                                                        <option value="9">கேது/Kethu</option>
-                                                        <option value="10">சுக்கிரன்/Venus</option>
-                                                        <option value="11">மாந்தி/Maanthi</option>
-                                                        <option value="12">செவ்வாய் (வ)/Mars (V)</option>
-                                                        <option value="13">குரு (வ)/Jupiter (V)</option>
-                                                        <option value="14">சனி (வ)/Saturn (V)</option>
-                                                        <option value="15">புதன் (வ)/Mercury (V)</option>
-                                                        <option value="16">சுக்கிரன் (வ)/Venus (V)</option>
-                                                    </select>
-                                                </div>
-                                                <small class="form-text text-muted text-help"></small>
-                                                <span class="invalid-feedback"></span>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </table>
-                            </div>
-                            <div class="col-md-6 div-astro my-2 mt-sm-0">
-                                <table class="tablehoro" border="0" cellpadding="0" cellspacing="0"
-                                    align="center">
-                                    <tr>
-                                        <td>
-                                            <p></p>
-                                            <div class="form-group mb-3">
-                                                <label class="form-label" for="nava_12"></label>
-                                                <div class="input-group">
-                                                    <select type="select" name="nava_12[]" id="nava_12"
-                                                        class="form-control aiz-selectpicker " multiple ""
-                                                        data-live-search="true" -data-width="auto">
-                                                        <option style="display:none" value="">-- Select --
-                                                        </option>
-                                                        <option value="1">லக்னம்/Lagnam</option>
-                                                        <option value="2">சூரியன்/Sun</option>
-                                                        <option value="3">சந்திரன்/Moon</option>
-                                                        <option value="4">செவ்வாய்/Mars</option>
-                                                        <option value="5">ராகு/Raagu</option>
-                                                        <option value="6">குரு/Jupiter</option>
-                                                        <option value="7">சனி/Saturn</option>
-                                                        <option value="8">புதன்/Mercury</option>
-                                                        <option value="9">கேது/Kethu</option>
-                                                        <option value="10">சுக்கிரன்/Venus</option>
-                                                        <option value="11">மாந்தி/Maanthi</option>
-                                                        <option value="12">செவ்வாய் (வ)/Mars (V)</option>
-                                                        <option value="13">குரு (வ)/Jupiter (V)</option>
-                                                        <option value="14">சனி (வ)/Saturn (V)</option>
-                                                        <option value="15">புதன் (வ)/Mercury (V)</option>
-                                                        <option value="16">சுக்கிரன் (வ)/Venus (V)</option>
-                                                    </select>
-                                                </div>
-                                                <small class="form-text text-muted text-help"></small>
-                                                <span class="invalid-feedback"></span>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <p></p>
-                                            <div class="form-group mb-3">
-                                                <label class="form-label" for="nava_1"></label>
-                                                <div class="input-group">
-                                                    <select type="select" name="nava_1[]" id="nava_1"
-                                                        class="form-control aiz-selectpicker " multiple ""
-                                                        data-live-search="true" -data-width="auto">
-                                                        <option style="display:none" value="">-- Select --
-                                                        </option>
-                                                        <option value="1">லக்னம்/Lagnam</option>
-                                                        <option value="2">சூரியன்/Sun</option>
-                                                        <option value="3">சந்திரன்/Moon</option>
-                                                        <option value="4">செவ்வாய்/Mars</option>
-                                                        <option value="5">ராகு/Raagu</option>
-                                                        <option value="6">குரு/Jupiter</option>
-                                                        <option value="7">சனி/Saturn</option>
-                                                        <option value="8">புதன்/Mercury</option>
-                                                        <option value="9">கேது/Kethu</option>
-                                                        <option value="10">சுக்கிரன்/Venus</option>
-                                                        <option value="11">மாந்தி/Maanthi</option>
-                                                        <option value="12">செவ்வாய் (வ)/Mars (V)</option>
-                                                        <option value="13">குரு (வ)/Jupiter (V)</option>
-                                                        <option value="14">சனி (வ)/Saturn (V)</option>
-                                                        <option value="15">புதன் (வ)/Mercury (V)</option>
-                                                        <option value="16">சுக்கிரன் (வ)/Venus (V)</option>
-                                                    </select>
-                                                </div>
-                                                <small class="form-text text-muted text-help"></small>
-                                                <span class="invalid-feedback"></span>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <p></p>
-                                            <div class="form-group mb-3">
-                                                <label class="form-label" for="nava_2"></label>
-                                                <div class="input-group">
-                                                    <select type="select" name="nava_2[]" id="nava_2"
-                                                        class="form-control aiz-selectpicker " multiple ""
-                                                        data-live-search="true" -data-width="auto">
-                                                        <option style="display:none" value="">-- Select --
-                                                        </option>
-                                                        <option value="1">லக்னம்/Lagnam</option>
-                                                        <option value="2">சூரியன்/Sun</option>
-                                                        <option value="3">சந்திரன்/Moon</option>
-                                                        <option value="4">செவ்வாய்/Mars</option>
-                                                        <option value="5">ராகு/Raagu</option>
-                                                        <option value="6">குரு/Jupiter</option>
-                                                        <option value="7">சனி/Saturn</option>
-                                                        <option value="8">புதன்/Mercury</option>
-                                                        <option value="9">கேது/Kethu</option>
-                                                        <option value="10">சுக்கிரன்/Venus</option>
-                                                        <option value="11">மாந்தி/Maanthi</option>
-                                                        <option value="12">செவ்வாய் (வ)/Mars (V)</option>
-                                                        <option value="13">குரு (வ)/Jupiter (V)</option>
-                                                        <option value="14">சனி (வ)/Saturn (V)</option>
-                                                        <option value="15">புதன் (வ)/Mercury (V)</option>
-                                                        <option value="16">சுக்கிரன் (வ)/Venus (V)</option>
-                                                    </select>
-                                                </div>
-                                                <small class="form-text text-muted text-help"></small>
-                                                <span class="invalid-feedback"></span>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <p></p>
-                                            <div class="form-group mb-3">
-                                                <label class="form-label" for="nava_3"></label>
-                                                <div class="input-group">
-                                                    <select type="select" name="nava_3[]" id="nava_3"
-                                                        class="form-control aiz-selectpicker " multiple ""
-                                                        data-live-search="true" -data-width="auto">
-                                                        <option style="display:none" value="">-- Select --
-                                                        </option>
-                                                        <option value="1">லக்னம்/Lagnam</option>
-                                                        <option value="2">சூரியன்/Sun</option>
-                                                        <option value="3">சந்திரன்/Moon</option>
-                                                        <option value="4">செவ்வாய்/Mars</option>
-                                                        <option value="5">ராகு/Raagu</option>
-                                                        <option value="6">குரு/Jupiter</option>
-                                                        <option value="7">சனி/Saturn</option>
-                                                        <option value="8">புதன்/Mercury</option>
-                                                        <option value="9">கேது/Kethu</option>
-                                                        <option value="10">சுக்கிரன்/Venus</option>
-                                                        <option value="11">மாந்தி/Maanthi</option>
-                                                        <option value="12">செவ்வாய் (வ)/Mars (V)</option>
-                                                        <option value="13">குரு (வ)/Jupiter (V)</option>
-                                                        <option value="14">சனி (வ)/Saturn (V)</option>
-                                                        <option value="15">புதன் (வ)/Mercury (V)</option>
-                                                        <option value="16">சுக்கிரன் (வ)/Venus (V)</option>
-                                                    </select>
-                                                </div>
-                                                <small class="form-text text-muted text-help"></small>
-                                                <span class="invalid-feedback"></span>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <p></p>
-                                            <div class="form-group mb-3">
-                                                <label class="form-label" for="nava_11"></label>
-                                                <div class="input-group">
-                                                    <select type="select" name="nava_11[]" id="nava_11"
-                                                        class="form-control aiz-selectpicker " multiple ""
-                                                        data-live-search="true" -data-width="auto">
-                                                        <option style="display:none" value="">-- Select --
-                                                        </option>
-                                                        <option value="1">லக்னம்/Lagnam</option>
-                                                        <option value="2">சூரியன்/Sun</option>
-                                                        <option value="3">சந்திரன்/Moon</option>
-                                                        <option value="4">செவ்வாய்/Mars</option>
-                                                        <option value="5">ராகு/Raagu</option>
-                                                        <option value="6">குரு/Jupiter</option>
-                                                        <option value="7">சனி/Saturn</option>
-                                                        <option value="8">புதன்/Mercury</option>
-                                                        <option value="9">கேது/Kethu</option>
-                                                        <option value="10">சுக்கிரன்/Venus</option>
-                                                        <option value="11">மாந்தி/Maanthi</option>
-                                                        <option value="12">செவ்வாய் (வ)/Mars (V)</option>
-                                                        <option value="13">குரு (வ)/Jupiter (V)</option>
-                                                        <option value="14">சனி (வ)/Saturn (V)</option>
-                                                        <option value="15">புதன் (வ)/Mercury (V)</option>
-                                                        <option value="16">சுக்கிரன் (வ)/Venus (V)</option>
-                                                    </select>
-                                                </div>
-                                                <small class="form-text text-muted text-help"></small>
-                                                <span class="invalid-feedback"></span>
-                                            </div>
-                                        </td>
-                                        <td rowspan="2" colspan="2">
-                                            <strong>Navamsam</strong>
-                                        </td>
-                                        <td>
-                                            <p></p>
-                                            <div class="form-group mb-3">
-                                                <label class="form-label" for="nava_4"></label>
-                                                <div class="input-group">
-                                                    <select type="select" name="nava_4[]" id="nava_4"
-                                                        class="form-control aiz-selectpicker " multiple ""
-                                                        data-live-search="true" -data-width="auto">
-                                                        <option style="display:none" value="">-- Select --
-                                                        </option>
-                                                        <option value="1">லக்னம்/Lagnam</option>
-                                                        <option value="2">சூரியன்/Sun</option>
-                                                        <option value="3">சந்திரன்/Moon</option>
-                                                        <option value="4">செவ்வாய்/Mars</option>
-                                                        <option value="5">ராகு/Raagu</option>
-                                                        <option value="6">குரு/Jupiter</option>
-                                                        <option value="7">சனி/Saturn</option>
-                                                        <option value="8">புதன்/Mercury</option>
-                                                        <option value="9">கேது/Kethu</option>
-                                                        <option value="10">சுக்கிரன்/Venus</option>
-                                                        <option value="11">மாந்தி/Maanthi</option>
-                                                        <option value="12">செவ்வாய் (வ)/Mars (V)</option>
-                                                        <option value="13">குரு (வ)/Jupiter (V)</option>
-                                                        <option value="14">சனி (வ)/Saturn (V)</option>
-                                                        <option value="15">புதன் (வ)/Mercury (V)</option>
-                                                        <option value="16">சுக்கிரன் (வ)/Venus (V)</option>
-                                                    </select>
-                                                </div>
-                                                <small class="form-text text-muted text-help"></small>
-                                                <span class="invalid-feedback"></span>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <p></p>
-                                            <div class="form-group mb-3">
-                                                <label class="form-label" for="nava_10"></label>
-                                                <div class="input-group">
-                                                    <select type="select" name="nava_10[]" id="nava_10"
-                                                        class="form-control aiz-selectpicker " multiple ""
-                                                        data-live-search="true" -data-width="auto">
-                                                        <option style="display:none" value="">-- Select --
-                                                        </option>
-                                                        <option value="1">லக்னம்/Lagnam</option>
-                                                        <option value="2">சூரியன்/Sun</option>
-                                                        <option value="3">சந்திரன்/Moon</option>
-                                                        <option value="4">செவ்வாய்/Mars</option>
-                                                        <option value="5">ராகு/Raagu</option>
-                                                        <option value="6">குரு/Jupiter</option>
-                                                        <option value="7">சனி/Saturn</option>
-                                                        <option value="8">புதன்/Mercury</option>
-                                                        <option value="9">கேது/Kethu</option>
-                                                        <option value="10">சுக்கிரன்/Venus</option>
-                                                        <option value="11">மாந்தி/Maanthi</option>
-                                                        <option value="12">செவ்வாய் (வ)/Mars (V)</option>
-                                                        <option value="13">குரு (வ)/Jupiter (V)</option>
-                                                        <option value="14">சனி (வ)/Saturn (V)</option>
-                                                        <option value="15">புதன் (வ)/Mercury (V)</option>
-                                                        <option value="16">சுக்கிரன் (வ)/Venus (V)</option>
-                                                    </select>
-                                                </div>
-                                                <small class="form-text text-muted text-help"></small>
-                                                <span class="invalid-feedback"></span>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <p></p>
-                                            <div class="form-group mb-3">
-                                                <label class="form-label" for="nava_5"></label>
-                                                <div class="input-group">
-                                                    <select type="select" name="nava_5[]" id="nava_5"
-                                                        class="form-control aiz-selectpicker " multiple ""
-                                                        data-live-search="true" -data-width="auto">
-                                                        <option style="display:none" value="">-- Select --
-                                                        </option>
-                                                        <option value="1">லக்னம்/Lagnam</option>
-                                                        <option value="2">சூரியன்/Sun</option>
-                                                        <option value="3">சந்திரன்/Moon</option>
-                                                        <option value="4">செவ்வாய்/Mars</option>
-                                                        <option value="5">ராகு/Raagu</option>
-                                                        <option value="6">குரு/Jupiter</option>
-                                                        <option value="7">சனி/Saturn</option>
-                                                        <option value="8">புதன்/Mercury</option>
-                                                        <option value="9">கேது/Kethu</option>
-                                                        <option value="10">சுக்கிரன்/Venus</option>
-                                                        <option value="11">மாந்தி/Maanthi</option>
-                                                        <option value="12">செவ்வாய் (வ)/Mars (V)</option>
-                                                        <option value="13">குரு (வ)/Jupiter (V)</option>
-                                                        <option value="14">சனி (வ)/Saturn (V)</option>
-                                                        <option value="15">புதன் (வ)/Mercury (V)</option>
-                                                        <option value="16">சுக்கிரன் (வ)/Venus (V)</option>
-                                                    </select>
-                                                </div>
-                                                <small class="form-text text-muted text-help"></small>
-                                                <span class="invalid-feedback"></span>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <p></p>
-                                            <div class="form-group mb-3">
-                                                <label class="form-label" for="nava_9"></label>
-                                                <div class="input-group">
-                                                    <select type="select" name="nava_9[]" id="nava_9"
-                                                        class="form-control aiz-selectpicker " multiple ""
-                                                        data-live-search="true" -data-width="auto">
-                                                        <option style="display:none" value="">-- Select --
-                                                        </option>
-                                                        <option value="1">லக்னம்/Lagnam</option>
-                                                        <option value="2">சூரியன்/Sun</option>
-                                                        <option value="3">சந்திரன்/Moon</option>
-                                                        <option value="4">செவ்வாய்/Mars</option>
-                                                        <option value="5">ராகு/Raagu</option>
-                                                        <option value="6">குரு/Jupiter</option>
-                                                        <option value="7">சனி/Saturn</option>
-                                                        <option value="8">புதன்/Mercury</option>
-                                                        <option value="9">கேது/Kethu</option>
-                                                        <option value="10">சுக்கிரன்/Venus</option>
-                                                        <option value="11">மாந்தி/Maanthi</option>
-                                                        <option value="12">செவ்வாய் (வ)/Mars (V)</option>
-                                                        <option value="13">குரு (வ)/Jupiter (V)</option>
-                                                        <option value="14">சனி (வ)/Saturn (V)</option>
-                                                        <option value="15">புதன் (வ)/Mercury (V)</option>
-                                                        <option value="16">சுக்கிரன் (வ)/Venus (V)</option>
-                                                    </select>
-                                                </div>
-                                                <small class="form-text text-muted text-help"></small>
-                                                <span class="invalid-feedback"></span>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <p></p>
-                                            <div class="form-group mb-3">
-                                                <label class="form-label" for="nava_8"></label>
-                                                <div class="input-group">
-                                                    <select type="select" name="nava_8[]" id="nava_8"
-                                                        class="form-control aiz-selectpicker " multiple ""
-                                                        data-live-search="true" -data-width="auto">
-                                                        <option style="display:none" value="">-- Select --
-                                                        </option>
-                                                        <option value="1">லக்னம்/Lagnam</option>
-                                                        <option value="2">சூரியன்/Sun</option>
-                                                        <option value="3">சந்திரன்/Moon</option>
-                                                        <option value="4">செவ்வாய்/Mars</option>
-                                                        <option value="5">ராகு/Raagu</option>
-                                                        <option value="6">குரு/Jupiter</option>
-                                                        <option value="7">சனி/Saturn</option>
-                                                        <option value="8">புதன்/Mercury</option>
-                                                        <option value="9">கேது/Kethu</option>
-                                                        <option value="10">சுக்கிரன்/Venus</option>
-                                                        <option value="11">மாந்தி/Maanthi</option>
-                                                        <option value="12">செவ்வாய் (வ)/Mars (V)</option>
-                                                        <option value="13">குரு (வ)/Jupiter (V)</option>
-                                                        <option value="14">சனி (வ)/Saturn (V)</option>
-                                                        <option value="15">புதன் (வ)/Mercury (V)</option>
-                                                        <option value="16">சுக்கிரன் (வ)/Venus (V)</option>
-                                                    </select>
-                                                </div>
-                                                <small class="form-text text-muted text-help"></small>
-                                                <span class="invalid-feedback"></span>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <p></p>
-                                            <div class="form-group mb-3">
-                                                <label class="form-label" for="nava_7"></label>
-                                                <div class="input-group">
-                                                    <select type="select" name="nava_7[]" id="nava_7"
-                                                        class="form-control aiz-selectpicker " multiple ""
-                                                        data-live-search="true" -data-width="auto">
-                                                        <option style="display:none" value="">-- Select --
-                                                        </option>
-                                                        <option value="1">லக்னம்/Lagnam</option>
-                                                        <option value="2">சூரியன்/Sun</option>
-                                                        <option value="3">சந்திரன்/Moon</option>
-                                                        <option value="4">செவ்வாய்/Mars</option>
-                                                        <option value="5">ராகு/Raagu</option>
-                                                        <option value="6">குரு/Jupiter</option>
-                                                        <option value="7">சனி/Saturn</option>
-                                                        <option value="8">புதன்/Mercury</option>
-                                                        <option value="9">கேது/Kethu</option>
-                                                        <option value="10">சுக்கிரன்/Venus</option>
-                                                        <option value="11">மாந்தி/Maanthi</option>
-                                                        <option value="12">செவ்வாய் (வ)/Mars (V)</option>
-                                                        <option value="13">குரு (வ)/Jupiter (V)</option>
-                                                        <option value="14">சனி (வ)/Saturn (V)</option>
-                                                        <option value="15">புதன் (வ)/Mercury (V)</option>
-                                                        <option value="16">சுக்கிரன் (வ)/Venus (V)</option>
-                                                    </select>
-                                                </div>
-                                                <small class="form-text text-muted text-help"></small>
-                                                <span class="invalid-feedback"></span>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <p></p>
-                                            <div class="form-group mb-3">
-                                                <label class="form-label" for="nava_6"></label>
-                                                <div class="input-group">
-                                                    <select type="select" name="nava_6[]" id="nava_6"
-                                                        class="form-control aiz-selectpicker " multiple ""
-                                                        data-live-search="true" -data-width="auto">
-                                                        <option style="display:none" value="">-- Select --
-                                                        </option>
-                                                        <option value="1">லக்னம்/Lagnam</option>
-                                                        <option value="2">சூரியன்/Sun</option>
-                                                        <option value="3">சந்திரன்/Moon</option>
-                                                        <option value="4">செவ்வாய்/Mars</option>
-                                                        <option value="5">ராகு/Raagu</option>
-                                                        <option value="6">குரு/Jupiter</option>
-                                                        <option value="7">சனி/Saturn</option>
-                                                        <option value="8">புதன்/Mercury</option>
-                                                        <option value="9">கேது/Kethu</option>
-                                                        <option value="10">சுக்கிரன்/Venus</option>
-                                                        <option value="11">மாந்தி/Maanthi</option>
-                                                        <option value="12">செவ்வாய் (வ)/Mars (V)</option>
-                                                        <option value="13">குரு (வ)/Jupiter (V)</option>
-                                                        <option value="14">சனி (வ)/Saturn (V)</option>
-                                                        <option value="15">புதன் (வ)/Mercury (V)</option>
-                                                        <option value="16">சுக்கிரன் (வ)/Venus (V)</option>
-                                                    </select>
-                                                </div>
-                                                <small class="form-text text-muted text-help"></small>
-                                                <span class="invalid-feedback"></span>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </table>
-                            </div>
-                        </div>
+                   
 
                         <h4 class="section-title">Expectation</h4>
                         <div class="form-row">

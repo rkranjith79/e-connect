@@ -39,7 +39,6 @@ class ProfileController extends Controller
      */
     public function store(Request $request)
     {
-        
         $validator = Validator::make($request->all(), [
             'title' => ['required', 'max:100'],
             'email' => ['required', 'max:100'],
@@ -49,16 +48,27 @@ class ProfileController extends Controller
             'weight_id' => ['required'],
             'physical_status_id' => ['required'],
             'body_type_id' => ['required'],
+            'special_category_details' => ['required', 200],
+            'height_id' => ['required'],
             'color_id' => ['required'],
             'blood_group_id' => ['required'],
             'caste_id' => ['required'],
             'sub_caste_id' => ['required'],
+            'sub_caste_others'=> ['required', 200],
             'degree_id' => ['required'],
             'work_id' => ['required'],
             'country_id' => ['required'],
             'state_id' => ['required'],
+            'education_id' => ['required'],
             'district_id' => ['required'],
+            'work_place_id' => ['required'],
+                       
+            'social_type_id' => ['required'],
+
             'father_status_id' => ['required'],
+            'father_occupation' => ['required', 'max:100'],
+            'education_details' => ['required', 'max:100'],
+            'mother_occupation' => ['required', 'max:100'],
             'mother_status_id' => ['required'],
             'social_type_id' => ['required'],
             'asset_value_id' => ['required'],
@@ -71,6 +81,9 @@ class ProfileController extends Controller
             'expectation_work_place_id' => ['required'],
             'temple' => ['required', 'max:100'],
             'education_details' => ['required', 'max:100'],
+            'education_others' => ['required', 'max:100'],
+            'work_others' => ['required', 'max:100'],
+            
             'work_details' => ['required', 'max:100'],
             'monthly_income' => ['required', 'max:100'],
             'whatsapp' => ['required', 'max:100'],
@@ -89,12 +102,31 @@ class ProfileController extends Controller
             'expectation' => ['required', 'max:1000'],
             'place_to_birth' => ['required', 'max:200'],
             'birth_dasa' => ['required', 'max:200'],
+            'dasa_remaining' => ['required'],
+
+            
             'date_of_birth' => ['required', 'max:200'],
+            'dob_date' => ['required', 'max:200'],
+
+            'dob_month' => ['required', 'max:200'],
+
+            'dob_year' => ['required', 'max:200'],
+
+            'tob_hour' => ['required', 'max:200'],
+            'tob_min' => ['required', 'max:200'],
+            'tob_m' => ['required', 'max:200'],
+
+
+            
+            
+            
             'time_of_birth' => ['required', 'max:200'],
             'birth_dasa_remaining_year' => ['required', 'max:200'],
             'birth_dasa_remaining_month' => ['required', 'max:200'],
             'birth_dasa_remaining_day' => ['required', 'max:200'],
-
+            'children_details' => ['required', 'max:200'],
+            'marital_details' => ['required', 'max:200'],
+            'password' => ['required', 'max:200'],
             'active' => ['nullable'],
         ]);
 
