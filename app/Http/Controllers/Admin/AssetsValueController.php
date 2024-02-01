@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
+
 use App\Http\Controllers\Controller;
 
 use App\Models\AssetsValue;
@@ -16,17 +17,19 @@ class AssetsValueController extends Controller
      * @return \Illuminate\Http\Response
      */
     public $pageData = [];
+    public $customMessages = [];
 
     public function __construct()
     {
         $this->pageData['title'] = "Assets Values";
+        $this->pageData['name'] = "Assets Value";
     }
 
     public function index()
     {
         $page_data = $this->pageData;
         $assets_values = AssetsValue::paginate(5);
-        return view('admin.assets_value.index', compact('assets_values','page_data'));
+        return view('admin.assets_value.index', compact('assets_values', 'page_data'));
     }
 
     public function create(Request $request)
@@ -34,6 +37,10 @@ class AssetsValueController extends Controller
         $validator = Validator::make($request->all(), [
             'title' => ['required', 'max:255', 'unique:assets_values'],
             'active' => ['nullable'],
+        ],);
+
+        $validator->setAttributeNames([
+            'title' => $this->pageData['name'],
         ]);
 
         if ($validator->fails()) {
@@ -48,7 +55,7 @@ class AssetsValueController extends Controller
             ]);
             return response()->json([
                 'status' => 700,
-                'message' => 'Assets Value Added Successfully',
+                'message' => $this->pageData['name'].' Added Successfully',
             ]);
         }
     }
@@ -64,16 +71,21 @@ class AssetsValueController extends Controller
         } else {
             return response()->json([
                 'status' => 404,
-                'message' => 'Assets Value Not found'
+                'message' => $this->pageData['name'].' Not found'
             ]);
         }
     }
 
     public function update(Request $request, $id)
     {
+
         $validator = Validator::make($request->all(), [
-            'title' => ['required', 'max:255', 'unique:assets_values,title,'.$id.',id'],
+            'title' => ['required', 'max:255', 'unique:assets_values,title,' . $id . ',id'],
             'active' => ['nullable'],
+        ],);
+
+        $validator->setAttributeNames([
+            'title' => $this->pageData['name'],
         ]);
 
         if ($validator->fails()) {
@@ -90,7 +102,7 @@ class AssetsValueController extends Controller
             $assets_value->update($input);
             return response()->json([
                 'status' => 700,
-                'message' => 'Assets Value Updated Successfully',
+                'message' => $this->pageData['name'].' Updated Successfully',
             ]);
         }
     }
@@ -102,12 +114,12 @@ class AssetsValueController extends Controller
             $assets_value->delete();
             return response()->json([
                 'status' => 200,
-                'message' => 'Assets Value Deleted'
+                'message' => $this->pageData['name'].' Deleted'
             ]);
         } else {
             return response()->json([
                 'status' => 404,
-                'message' => 'Assets Value Not Found'
+                'message' => $this->pageData['name'].' Not Found'
             ]);
         }
     }
