@@ -129,7 +129,13 @@ class ProfileController extends Controller
             'password' => ['required', 'max:200'],
             'active' => ['nullable'],
         ]);
-
+        
+        if ($validator->fails()) {
+            return response()->json([
+                'status' => 400,
+                'errors' => $validator->messages(),
+            ]);
+        } 
     }
 
     /**

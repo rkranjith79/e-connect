@@ -156,6 +156,10 @@ Route::name('admin.')->prefix('admin')->middleware(['auth', 'isAdmin'])->group(f
         Route::put('/update/{id}', [App\Http\Controllers\Admin\SubCasteController::class, 'update'])->name('update');
         Route::get('/delete', [App\Http\Controllers\Admin\SubCasteController::class, 'destroy'])->name('delete');
     });
+
+    Route::resource('religion', App\Http\Controllers\Admin\ReligionController::class);
+
+
 });
 
 
@@ -164,6 +168,8 @@ Route::name('user.')->group(function () {
     Route::get('/jathagam', [App\Http\Controllers\User\MemberController::class, 'jathagam'])->name('jathagam');
     Route::get('/profile-search', [App\Http\Controllers\User\MemberController::class, 'search'])->name('search');
     Route::get('/profile', [App\Http\Controllers\User\MemberController::class, 'profile'])->name('profile');
-    Route::get('/register', [App\Http\Controllers\User\ProfileController::class, 'register'])->name('register');
+    Route::get('/registers', [App\Http\Controllers\User\ProfileController::class, 'register'])->name('register');
+    Route::post('/profile_store', [App\Http\Controllers\User\ProfileController::class, 'store'])->name('profile_store');
 
+    
 });

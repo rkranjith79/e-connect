@@ -33,10 +33,10 @@ style="background-image: url(https://ganeshkongumatrimony.com/uploads/all/iajOd7
                             </a>
                         </form>
                     </div>
-                    <form class="form-default" id="reg-form" role="form"
-                        action="https://ganeshkongumatrimony.com/register" method="POST">
-                        <input type="hidden" name="_token" value="VcVngDNyTp2Mk9wtryCb0XbHmphlNSrKREKWSswB">
-                        <h4 class="section-title">Upload Photo & Jathagam</h4>
+                    <form class="form-default" id="registration_form" role="form"
+                         method="POST">
+@csrf
+                         <h4 class="section-title">Upload Photo & Jathagam</h4>
                         <div class="form-row">
                             <div class="col-md-6 div-photo text-center">
                                 <div class="form-group mx-auto">
@@ -2181,7 +2181,7 @@ style="background-image: url(https://ganeshkongumatrimony.com/uploads/all/iajOd7
 
                         <div class="text-center mb-3">
                             <input type="hidden" name="otp" id="otp">
-                            <button type="submit" class="btn btn-primary">Register <i
+                            <button type="button" onclick="submitForm()" class="btn btn-primary">Register <i
                                     class="fas fa-check-square"></i></button>
                         </div>
 
@@ -2196,5 +2196,56 @@ style="background-image: url(https://ganeshkongumatrimony.com/uploads/all/iajOd7
     </div>
 </div>
 </div>
+<script>
+    function submitForm() {
+  var formData = $("#registration_form").serialize(); // Serialize the form data
+  
+  $.ajax({
+    type: "POST",
+    url: "{{ route('user.profile_store') }}", // Replace with your server endpoint
+    headers: {
+                        'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                    },
+    data: formData,
+    success: function(response) {
+        if (response.success) {
+                $("#myForm")[0].reset(); // Reset the form
+                $("#successMessage").show(); // Show success message
+                clearErrors(); // Clear any previous error messages
+            } else {
+                handleErrors(response.errors); // Display validation errors
+            }      // Handle the server response as needed
+    },
+    error: function(error) {
+        if (response.success) {
+                $("#myForm")[0].reset(); // Reset the form
+                $("#successMessage").show(); // Show success message
+                clearErrors(); // Clear any previous error messages
+            } else {
+                handleErrors(response.errors); // Display validation errors
+            }
+    }
+  });
+}
+function handleErrors(errors) {
+    clearErrors();
 
+    $.each(errors, function (key, value) {
+        $("#" + key).addClass("is-invalid"); // Add 'is-invalid' class to the input
+        $("#" + key).removeClass('is-valid').addClass('is-invalid');
+		$("#" + key).parents('.input-group').removeClass('is-valid').addClass('is-invalid');
+        $("#" + key).parents('.form-control').removeClass('is-valid').addClass('is-invalid');
+
+        
+        $("#" + key).parents('.form-group').find('.invalid-feedback').text(value[0]);
+
+       // $("#" + key).after('<div class="invalid-feedback">' + value[0] + '</div>'); // Display the error message
+    });
+}
+
+function clearErrors() {
+    $(".is-invalid").removeClass("is-invalid");
+   // $(".invalid-feedback").remove();
+}
+</script>
 @endsection
