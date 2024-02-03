@@ -24,9 +24,10 @@
         ['name' => 'Physical Status', 'href' => route('admin.physical_status.index'), 'icon' => 'mdi-star'],
         ['name' => 'Marital Status', 'href' => route('admin.marital_status.index'), 'icon' => 'mdi-star'],
         ['name' => 'Registered By', 'href' => route('admin.registered_by.index'), 'icon' => 'mdi-star'],
+        ['name' => 'Body Type', 'href' => route('admin.body_type.index'), 'icon' => 'mdi-star'],
+        ['name' => 'Color', 'href' => route('admin.color.index'), 'icon' => 'mdi-star'],
 
         
-
 
 
 

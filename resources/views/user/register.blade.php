@@ -40,13 +40,13 @@ style="background-image: url(https://ganeshkongumatrimony.com/uploads/all/iajOd7
                         <div class="row">
                             <div class="col-sm-4">
                                 <div class="form-group mb-3">
-                                    <label class="form-label" for="name">Name<span
+                                    <label class="form-label" for="title">Name<span
                                             class="require-star">*</span></label>
                                     <div class="input-group">
                                         <div class="input-group-prepend"><span class="input-group-text"><i
                                                     class="fas fa-user"></i></span></div>
-                                        <input type="text" class="form-control required " value="" id="name"
-                                            name="name" maxlength="255">
+                                        <input type="text" class="form-control required " value="" id="title"
+                                            name="title" maxlength="255">
                                     </div>
                                     <small class="form-text text-muted text-help"><span
                                             style="color:red">முடிந்தவரை தமிழில் பதிவு
@@ -90,19 +90,19 @@ style="background-image: url(https://ganeshkongumatrimony.com/uploads/all/iajOd7
                                     <label class="form-label" for="gender_id">Gender<span
                                             class="require-star">*</span></label>
                                     <div class="input-group">
-                                        <div class="input-group-prepend"><span class="input-group-text"><i
-                                                    class="fas fa-caret-down"></i></span></div>
-                                        <select type="select" name="gender_id" id="gender_id"
-                                            class="form-control aiz-selectpicker required "
-                                            data-live-search="true" -data-width="auto">
-                                            <option style="display:none" value="">-- Select --</option>
-                                            @isset($record['genders'])
-                                                @foreach ($record['genders'] as $value => $label)
-                                                    <option value="{{ $value }}">{{ $label }}</option>
-                                                @endforeach
-                                            @endisset
-                                        </select>
-                                    </div>
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="fas fa-caret-down"></i></span></div>
+                                            <select type="select" name="gender_id" id="gender_id"
+                                                class="form-control aiz-selectpicker required "
+                                                data-live-search="true" -data-width="auto">
+                                                <option style="display:none" value="">-- Select --</option>
+                                                @isset($record['genders'])
+                                                    @foreach ($record['genders'] as $value => $label)
+                                                        <option value="{{ $value }}">{{ $label }}</option>
+                                                    @endforeach
+                                                @endisset
+                                            </select>
+                                        </div>
                                     <small class="form-text text-muted text-help"></small>
                                     <span class="invalid-feedback"></span>
                                 </div>
@@ -118,8 +118,11 @@ style="background-image: url(https://ganeshkongumatrimony.com/uploads/all/iajOd7
                                             class="form-control aiz-selectpicker required "
                                             data-live-search="true" -data-width="auto">
                                             <option style="display:none" value="">-- Select --</option>
-                                            <option value="U">First Marriage</option>
-                                            <option value="R">Remarriage</option>
+                                            @isset($record['marital_statuses'])
+                                                @foreach ($record['marital_statuses'] as $value => $label)
+                                                    <option value="{{ $value }}">{{ $label }}</option>
+                                                @endforeach
+                                            @endisset
                                         </select>
                                     </div>
                                     <small class="form-text text-muted text-help"></small>
@@ -165,13 +168,11 @@ style="background-image: url(https://ganeshkongumatrimony.com/uploads/all/iajOd7
                                             class="form-control aiz-selectpicker required "
                                             data-live-search="true" -data-width="auto">
                                             <option style="display:none" value="">-- Select --</option>
-                                            <option selected value="1">Self</option>
-                                            <option value="2">Parents</option>
-                                            <option value="3">Family</option>
-                                            <option value="4">Relative</option>
-                                            <option value="5">Friends</option>
-                                            <option value="6">Amaippalar</option>
-                                            <option value="7">Admin</option>
+                                            @isset($record['registered_bies'])
+                                                @foreach ($record['registered_bies'] as $value => $label)
+                                                    <option value="{{ $value }}">{{ $label }}</option>
+                                                @endforeach
+                                            @endisset
                                         </select>
                                     </div>
                                     <small class="form-text text-muted text-help"></small>
@@ -193,8 +194,11 @@ style="background-image: url(https://ganeshkongumatrimony.com/uploads/all/iajOd7
                                             class="form-control aiz-selectpicker required "
                                             data-live-search="true" -data-width="auto">
                                             <option style="display:none" value="">-- Select --</option>
-                                            <option value="N">Normal</option>
-                                            <option value="Y">Physically Challenged</option>
+                                            @isset($record['registered_bies'])
+                                                @foreach ($record['registered_bies'] as $value => $label)
+                                                    <option value="{{ $value }}">{{ $label }}</option>
+                                                @endforeach
+                                            @endisset
                                         </select>
                                     </div>
                                     <small class="form-text text-muted text-help"></small>
@@ -226,39 +230,11 @@ style="background-image: url(https://ganeshkongumatrimony.com/uploads/all/iajOd7
                                             class="form-control aiz-selectpicker required "
                                             data-live-search="true" -data-width="auto">
                                             <option style="display:none" value="">-- Select --</option>
-                                            <option value="1">4ft 6in / 137 cms</option>
-                                            <option value="2">4ft 7in / 139 cms</option>
-                                            <option value="3">4ft 8in / 142 cms</option>
-                                            <option value="4">4ft 9in / 144 cms</option>
-                                            <option value="5">4ft 10in / 147 cms</option>
-                                            <option value="6">4ft 11in / 149 cms</option>
-                                            <option value="7">5ft / 152 cms</option>
-                                            <option value="8">5ft 1in / 154 cms</option>
-                                            <option value="9">5ft 2in / 157 cms</option>
-                                            <option value="10">5ft 3in / 160 cms</option>
-                                            <option value="11">5ft 4in / 162 cms</option>
-                                            <option value="12">5ft 5in / 165 cms</option>
-                                            <option value="13">5ft 6in / 167 cms</option>
-                                            <option value="14">5ft 7in / 170 cms</option>
-                                            <option value="15">5ft 8in / 172 cms</option>
-                                            <option value="16">5ft 9in / 175 cms</option>
-                                            <option value="17">5ft 10in / 177 cms</option>
-                                            <option value="18">5ft 11in / 180 cms</option>
-                                            <option value="19">6ft / 182 cms</option>
-                                            <option value="20">6ft 1in / 185 cms</option>
-                                            <option value="21">6ft 2in / 187 cms</option>
-                                            <option value="22">6ft 3in / 190 cms</option>
-                                            <option value="23">6ft 4in / 193 cms</option>
-                                            <option value="24">6ft 5in / 195 cms</option>
-                                            <option value="25">6ft 6in / 198 cms</option>
-                                            <option value="26">6ft 7in / 200 cms</option>
-                                            <option value="27">6ft 8in / 203 cms</option>
-                                            <option value="28">6ft 9in / 205 cms</option>
-                                            <option value="29">6ft 10in / 208 cms</option>
-                                            <option value="30">6ft 11in / 210 cms</option>
-                                            <option value="31">7ft / 213 cms</option>
-                                            <option value="32">7ft 2in / 214 cms</option>
-                                            <option value="999">Don't Know</option>
+                                            @isset($record['heights'])
+                                                @foreach ($record['heights'] as $value => $label)
+                                                    <option value="{{ $value }}">{{ $label }}</option>
+                                                @endforeach
+                                            @endisset
                                         </select>
                                     </div>
                                     <small class="form-text text-muted text-help"></small>
@@ -276,124 +252,11 @@ style="background-image: url(https://ganeshkongumatrimony.com/uploads/all/iajOd7
                                             class="form-control aiz-selectpicker required "
                                             data-live-search="true" -data-width="auto">
                                             <option style="display:none" value="">-- Select --</option>
-                                            <option value="1">35 Kg</option>
-                                            <option value="2">36 Kg</option>
-                                            <option value="3">37 Kg</option>
-                                            <option value="4">38 Kg</option>
-                                            <option value="5">39 Kg</option>
-                                            <option value="6">40 Kg</option>
-                                            <option value="7">41 Kg</option>
-                                            <option value="8">42 Kg</option>
-                                            <option value="9">43 Kg</option>
-                                            <option value="10">44 Kg</option>
-                                            <option value="11">45 Kg</option>
-                                            <option value="12">46 Kg</option>
-                                            <option value="13">47 Kg</option>
-                                            <option value="14">48 Kg</option>
-                                            <option value="15">49 Kg</option>
-                                            <option value="16">50 Kg</option>
-                                            <option value="17">51 Kg</option>
-                                            <option value="18">52 Kg</option>
-                                            <option value="19">53 Kg</option>
-                                            <option value="20">54 Kg</option>
-                                            <option value="21">55 Kg</option>
-                                            <option value="22">56 Kg</option>
-                                            <option value="23">57 Kg</option>
-                                            <option value="24">58 Kg</option>
-                                            <option value="25">59 Kg</option>
-                                            <option value="26">60 Kg</option>
-                                            <option value="27">61 Kg</option>
-                                            <option value="28">62 Kg</option>
-                                            <option value="29">63 Kg</option>
-                                            <option value="30">64 Kg</option>
-                                            <option value="31">65 Kg</option>
-                                            <option value="32">66 Kg</option>
-                                            <option value="33">67 Kg</option>
-                                            <option value="34">68 Kg</option>
-                                            <option value="35">69 Kg</option>
-                                            <option value="36">70 Kg</option>
-                                            <option value="37">71 Kg</option>
-                                            <option value="38">72 Kg</option>
-                                            <option value="39">73 Kg</option>
-                                            <option value="40">74 Kg</option>
-                                            <option value="41">75 Kg</option>
-                                            <option value="42">76 Kg</option>
-                                            <option value="43">77 Kg</option>
-                                            <option value="44">78 Kg</option>
-                                            <option value="45">79 Kg</option>
-                                            <option value="46">80 Kg</option>
-                                            <option value="47">81 Kg</option>
-                                            <option value="48">82 Kg</option>
-                                            <option value="49">83 Kg</option>
-                                            <option value="50">84 Kg</option>
-                                            <option value="51">85 Kg</option>
-                                            <option value="52">86 Kg</option>
-                                            <option value="53">87 Kg</option>
-                                            <option value="54">88 Kg</option>
-                                            <option value="55">89 Kg</option>
-                                            <option value="56">90 Kg</option>
-                                            <option value="57">91 Kg</option>
-                                            <option value="58">92 Kg</option>
-                                            <option value="59">93 Kg</option>
-                                            <option value="60">94 Kg</option>
-                                            <option value="61">95 Kg</option>
-                                            <option value="62">96 Kg</option>
-                                            <option value="63">97 Kg</option>
-                                            <option value="64">98 Kg</option>
-                                            <option value="65">99 Kg</option>
-                                            <option value="66">100 Kg</option>
-                                            <option value="67">101 Kg</option>
-                                            <option value="68">102 Kg</option>
-                                            <option value="69">103 Kg</option>
-                                            <option value="70">104 Kg</option>
-                                            <option value="71">105 Kg</option>
-                                            <option value="72">106 Kg</option>
-                                            <option value="73">107 Kg</option>
-                                            <option value="74">108 Kg</option>
-                                            <option value="75">109 Kg</option>
-                                            <option value="76">110 Kg</option>
-                                            <option value="77">111 Kg</option>
-                                            <option value="78">112 Kg</option>
-                                            <option value="79">113 Kg</option>
-                                            <option value="80">114 Kg</option>
-                                            <option value="81">115 Kg</option>
-                                            <option value="82">116 Kg</option>
-                                            <option value="83">117 Kg</option>
-                                            <option value="84">118 Kg</option>
-                                            <option value="85">119 Kg</option>
-                                            <option value="86">120 Kg</option>
-                                            <option value="87">121 Kg</option>
-                                            <option value="88">122 Kg</option>
-                                            <option value="89">123 Kg</option>
-                                            <option value="90">124 Kg</option>
-                                            <option value="91">125 Kg</option>
-                                            <option value="92">126 Kg</option>
-                                            <option value="93">127 Kg</option>
-                                            <option value="94">128 Kg</option>
-                                            <option value="95">129 Kg</option>
-                                            <option value="96">130 Kg</option>
-                                            <option value="97">131 Kg</option>
-                                            <option value="98">132 Kg</option>
-                                            <option value="99">133 Kg</option>
-                                            <option value="100">134 Kg</option>
-                                            <option value="101">135 Kg</option>
-                                            <option value="102">136 Kg</option>
-                                            <option value="103">137 Kg</option>
-                                            <option value="104">138 Kg</option>
-                                            <option value="105">139 Kg</option>
-                                            <option value="106">140 Kg</option>
-                                            <option value="107">141 Kg</option>
-                                            <option value="108">142 Kg</option>
-                                            <option value="109">143 Kg</option>
-                                            <option value="110">144 Kg</option>
-                                            <option value="111">145 Kg</option>
-                                            <option value="112">146 Kg</option>
-                                            <option value="113">147 Kg</option>
-                                            <option value="114">148 Kg</option>
-                                            <option value="115">149 Kg</option>
-                                            <option value="116">150 Kg</option>
-                                            <option value="117">151 Kg</option>
-                                            <option value="999">Don't Know</option>
+                                            @isset($record['weights'])
+                                                @foreach ($record['weights'] as $value => $label)
+                                                    <option value="{{ $value }}">{{ $label }}</option>
+                                                @endforeach
+                                            @endisset
                                         </select>
                                     </div>
                                     <small class="form-text text-muted text-help"></small>
@@ -411,11 +274,11 @@ style="background-image: url(https://ganeshkongumatrimony.com/uploads/all/iajOd7
                                             class="form-control aiz-selectpicker required "
                                             data-live-search="true" -data-width="auto">
                                             <option style="display:none" value="">-- Select --</option>
-                                            <option value="1">Slim Body Type</option>
-                                            <option value="2">Average Body Type</option>
-                                            <option value="3">Slightly Obese Body Type</option>
-                                            <option value="4">Obese Body Type</option>
-                                            <option value="999">Don't Know</option>
+                                            @isset($record['body_types'])
+                                                @foreach ($record['body_types'] as $value => $label)
+                                                    <option value="{{ $value }}">{{ $label }}</option>
+                                                @endforeach
+                                            @endisset
                                         </select>
                                     </div>
                                     <small class="form-text text-muted text-help"></small>
@@ -433,11 +296,11 @@ style="background-image: url(https://ganeshkongumatrimony.com/uploads/all/iajOd7
                                             class="form-control aiz-selectpicker required "
                                             data-live-search="true" -data-width="auto">
                                             <option style="display:none" value="">-- Select --</option>
-                                            <option value="1">Very Fair</option>
-                                            <option value="2">Fair</option>
-                                            <option value="3">Wheatish Brown</option>
-                                            <option value="4">Dark</option>
-                                            <option value="999">Don't Know</option>
+                                            @isset($record['colors'])
+                                                @foreach ($record['colors'] as $value => $label)
+                                                    <option value="{{ $value }}">{{ $label }}</option>
+                                                @endforeach
+                                            @endisset
                                         </select>
                                     </div>
                                     <small class="form-text text-muted text-help"></small>
@@ -455,23 +318,11 @@ style="background-image: url(https://ganeshkongumatrimony.com/uploads/all/iajOd7
                                             class="form-control aiz-selectpicker required "
                                             data-live-search="true" -data-width="auto">
                                             <option style="display:none" value="">-- Select --</option>
-                                            <option value="A-">A-</option>
-                                            <option value="A+">A+</option>
-                                            <option value="A1-">A1-</option>
-                                            <option value="A1+">A1+</option>
-                                            <option value="A2-">A2-</option>
-                                            <option value="0">A2+</option>
-                                            <option value="B-">B-</option>
-                                            <option value="B+">B+</option>
-                                            <option value="A1B-">A1B-</option>
-                                            <option value="A1B+">A1B+</option>
-                                            <option value="A2B-">A2B-</option>
-                                            <option value="A2B+">A2B+</option>
-                                            <option value="AB-">AB-</option>
-                                            <option value="AB+">AB+</option>
-                                            <option value="O-">O-</option>
-                                            <option value="O+">O+</option>
-                                            <option value="999">Don't Know</option>
+                                            @isset($record['blood_groups'])
+                                                @foreach ($record['blood_groups'] as $value => $label)
+                                                    <option value="{{ $value }}">{{ $label }}</option>
+                                                @endforeach
+                                            @endisset
                                         </select>
                                     </div>
                                     <small class="form-text text-muted text-help"></small>

@@ -8,7 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Profile extends Model
 {
     use HasFactory;
+
     protected $guarded = [];
+    
     protected $fillable = [
         "blood_group_id",  
         "title",
@@ -70,4 +72,7 @@ class Profile extends Model
         return $this->belongsTo(RegisteredBy::class);
     }  
     
+    public function getModelData($data){
+        // Full data get 
+    }
 }

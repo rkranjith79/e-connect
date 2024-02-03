@@ -163,7 +163,10 @@ Route::name('admin.')->prefix('admin')->middleware(['auth', 'isAdmin'])->group(f
     Route::resource('physical_status', App\Http\Controllers\Admin\PhysicalStatusController::class);
     Route::resource('marital_status', App\Http\Controllers\Admin\MaritalStatusController::class);
     Route::resource('registered_by', App\Http\Controllers\Admin\RegisteredByController::class); 
-    
+    Route::resource('body_type', App\Http\Controllers\Admin\BodyTypeController::class);
+    Route::resource('color', App\Http\Controllers\Admin\ColorController::class); 
+
+
 });
 
 
@@ -172,6 +175,6 @@ Route::name('user.')->group(function () {
     Route::get('/jathagam', [App\Http\Controllers\User\MemberController::class, 'jathagam'])->name('jathagam');
     Route::get('/profile-search', [App\Http\Controllers\User\MemberController::class, 'search'])->name('search');
     Route::get('/profile', [App\Http\Controllers\User\MemberController::class, 'profile'])->name('profile');
-    Route::get('/registers', [App\Http\Controllers\User\ProfileController::class, 'register'])->name('register');
+    Route::get('/registers', [App\Http\Controllers\User\ProfileController::class, 'register'])->name('registers');
     Route::post('/profile_store', [App\Http\Controllers\User\ProfileController::class, 'store'])->name('profile_store');
 });

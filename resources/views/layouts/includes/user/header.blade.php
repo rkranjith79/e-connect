@@ -23,7 +23,7 @@
                         </li>
                         <li class="list-inline-item">
                             <a class="btn btn-sm btn-primary text-white fw-600 py-1 border"
-                                href="register.html">பதிவு</a>
+                                href="{{ route('user.registers') }}">பதிவு</a>
                         </li>
                     </ul>
                 </div>

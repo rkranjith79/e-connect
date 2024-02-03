@@ -9,6 +9,7 @@ use App\Models\Common\MasterModel;
 class Weight extends MasterModel
 {
     use HasFactory;
+    
     protected $guarded = [];
 
 }
