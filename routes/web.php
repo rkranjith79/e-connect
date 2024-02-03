@@ -158,8 +158,12 @@ Route::name('admin.')->prefix('admin')->middleware(['auth', 'isAdmin'])->group(f
     });
 
     Route::resource('religion', App\Http\Controllers\Admin\ReligionController::class);
-
-
+    Route::resource('weight', App\Http\Controllers\Admin\WeightController::class);
+    Route::resource('height', App\Http\Controllers\Admin\HeightController::class);
+    Route::resource('physical_status', App\Http\Controllers\Admin\PhysicalStatusController::class);
+    Route::resource('marital_status', App\Http\Controllers\Admin\MaritalStatusController::class);
+    Route::resource('registered_by', App\Http\Controllers\Admin\RegisteredByController::class); 
+    
 });
 
 
@@ -170,6 +174,4 @@ Route::name('user.')->group(function () {
     Route::get('/profile', [App\Http\Controllers\User\MemberController::class, 'profile'])->name('profile');
     Route::get('/registers', [App\Http\Controllers\User\ProfileController::class, 'register'])->name('register');
     Route::post('/profile_store', [App\Http\Controllers\User\ProfileController::class, 'store'])->name('profile_store');
-
-    
 });

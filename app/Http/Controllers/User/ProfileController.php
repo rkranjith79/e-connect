@@ -1,11 +1,21 @@
 <?php
 namespace App\Http\Controllers\User;
 use App\Models\Profile;
+use App\Models\User;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Hash;
+use App\Models\Color;
+use App\Models\bodyType;
+use App\Models\Weight;
+use App\Models\Height;
+use App\Models\PhysicalStatus;
+use App\Models\Gender;
+use App\Models\MaritalStatus;
+use App\Models\RegisteredBy;
 
 class ProfileController extends Controller
 {
@@ -16,9 +26,20 @@ class ProfileController extends Controller
      */
     public function register()
     {
-        return view('user.register');
+        //dd((new gender)::published()->pluck('title','id'));        
+        $record = [
+            "genders" => $this->getPublishedData(Gender::class),
+            "marital_statuses" => $this->getPublishedData(MaritalStatus::class),
+            "registered_bies" => $this->getPublishedData(RegisteredBy::class),
+            "colors" => $this->getPublishedData(Color::class),
+            "body_types" => $this->getPublishedData(BodyType::class),
+            "physical_statuses" => $this->getPublishedData(PhysicalStatus::class),
+            "weights" => $this->getPublishedData(Weight::class),
+            "heights" => $this->getPublishedData(Height::class),
+        ];
+        return view('user.register', compact('record'));
     }
-
+    
     /**
      * Show the form for creating a new resource.
      *
@@ -29,28 +50,22 @@ class ProfileController extends Controller
         //
     }
 
-    
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
             'title' => ['required', 'max:100'],
             'email' => ['required', 'max:100'],
             'gender_id' => ['required'],
+            'password' => ['required', 'max:200'],
             'marital_status_id' => ['required'],
             'registered_by_id' => ['required'],
-            'weight_id' => ['required'],
-            'physical_status_id' => ['required'],
-            'body_type_id' => ['required'],
-            'special_category_details' => ['required', 200],
-            'height_id' => ['required'],
             'color_id' => ['required'],
+            'body_type_id' => ['required'],
+            'physical_status_id' => ['required'],
+            'weight_id' => ['required'],
+            'height_id' => ['required'],
+            /*
+            'special_category_details' => ['required', 200],
             'blood_group_id' => ['required'],
             'caste_id' => ['required'],
             'sub_caste_id' => ['required'],
@@ -126,8 +141,8 @@ class ProfileController extends Controller
             'birth_dasa_remaining_day' => ['required', 'max:200'],
             'children_details' => ['required', 'max:200'],
             'marital_details' => ['required', 'max:200'],
-            'password' => ['required', 'max:200'],
             'active' => ['nullable'],
+            */
         ]);
         
         if ($validator->fails()) {
@@ -136,7 +151,39 @@ class ProfileController extends Controller
                 'errors' => $validator->messages(),
             ]);
         } 
+
+        $user = User::create([
+            'name' => $request->title,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+        ]);
+
+        Profile::create([
+            "title" => $request->title,
+            "email"=> $request->email,
+            "color_id" => $request->color_id,
+            "body_type_id" => $request->body_type_id,
+            "blood_group_id" => $request->blood_group_id,  
+            "weight_id" => $request->weight_id,
+            "height_id" => $request->height_id,
+            "physical_status_id" => $request->physical_status_id,
+            "registered_by_id" => $request->registered_by_id,
+            "marital_status_id" => $request->marital_status_id,
+            "gender_id" => $request->gender_id,
+            "user_id" => $user->user_id,
+            "active" => $request->active == true ? '1' : '0',
+        ]);
     }
+    
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+
+   
 
     /**
      * Display the specified resource.
@@ -181,5 +228,9 @@ class ProfileController extends Controller
     public function destroy(Profile $profile)
     {
         //
+    }
+    function getPublishedData($model)
+    {
+        return $model::published()->pluck('title', 'id')->toArray();
     }
 }

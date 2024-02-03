@@ -5,12 +5,24 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
+
 
 class MasterController extends Controller
 {
     public $pageData = [], $modal;
 
 
+    // public function dynamicRoute($modalName)
+    // {
+    //     $this->pageData['title'] = Str::plural($modalName);
+    //     $this->pageData['name'] = Str::singular($modalName);
+    //     $this->pageData['view'] = "admin.common_master.index";
+    //     $this->pageData['tables'] = Str::plural($modalName);;
+    //     $this->pageData['prefix_url'] = route("admin.dynamic_master.index");
+    //     $this->modal =  app()->make("\App\Models\\$modalName");
+    //     return $this->index();
+    // }
 
     public function index()
     {

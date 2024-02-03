@@ -18,8 +18,18 @@
         ['name' => 'Rasi Navamsams', 'href' => route('admin.rasi_navamsam.list'), 'icon' => 'mdi-star'],
         ['name' => 'Social Types', 'href' => route('admin.social_type.list'), 'icon' => 'mdi-star'],
         ['name' => 'Works', 'href' => route('admin.work.list'), 'icon' => 'mdi-star'],
-        ['name' => 'Work Places', 'href' => route('admin.work_place.list'), 'icon' => 'mdi-star'],
-        ['name' => 'Religion', 'href' => route('admin.religion.index'), 'icon' => 'mdi-star'],
+        ['name' => 'Religions', 'href' => route('admin.religion.index'), 'icon' => 'mdi-star'],
+        ['name' => 'Weight', 'href' => route('admin.weight.index'), 'icon' => 'mdi-star'],
+        ['name' => 'Height', 'href' => route('admin.height.index'), 'icon' => 'mdi-star'],
+        ['name' => 'Physical Status', 'href' => route('admin.physical_status.index'), 'icon' => 'mdi-star'],
+        ['name' => 'Marital Status', 'href' => route('admin.marital_status.index'), 'icon' => 'mdi-star'],
+        ['name' => 'Registered By', 'href' => route('admin.registered_by.index'), 'icon' => 'mdi-star'],
+
+        
+
+
+
+
 
     ];
 @endphp

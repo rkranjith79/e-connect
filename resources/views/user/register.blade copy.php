@@ -35,7 +35,83 @@ style="background-image: url(https://ganeshkongumatrimony.com/uploads/all/iajOd7
                     </div>
                     <form class="form-default" id="registration_form" role="form"
                          method="POST">
-                        @csrf
+@csrf
+                         <h4 class="section-title">Upload Photo & Jathagam</h4>
+                        <div class="form-row">
+                            <div class="col-md-6 div-photo text-center">
+                                <div class="form-group mx-auto">
+                                    <label class="form-label w-100" for="photo">Upload your Photo<span
+                                            class="require-star">*</span></label>
+                                    <div class="input-group fileinput fileinput-new text-center"
+                                        data-provides="fileinput">
+                                        <div class="fileinput-new thumbnail img-raised">
+                                            <img src="https://ganeshkongumatrimony.com/uploads/profile_images/1.png"
+                                                alt="photo">
+                                        </div>
+                                        <div
+                                            class="fileinput-preview fileinput-exists thumbnail img-raised">
+                                        </div>
+                                        <div>
+                                            <span
+                                                class="btn btn-raised btn-round btn-primary btn-file btn-sm">
+                                                <span class="fileinput-new"
+                                                    onclick="$('#photo').trigger('click');">Upload your
+                                                    Photo</span>
+                                                <span class="fileinput-exists"
+                                                    onclick="$('#photo').trigger('click');">Change</span>
+                                                <input type="file" class="required" name="photo" id="photo"
+                                                    accept=".jpg,.jpeg,.png" />
+                                            </span>
+                                            <a href="#pablo"
+                                                class="btn btn-danger btn-round btn-sm fileinput-exists"
+                                                data-dismiss="fileinput"><i class="fas fa-times"></i>
+                                                Remove</a>
+                                        </div>
+                                    </div>
+                                    <h5 class="info-text mb-0" id="photo_help"></h5>
+                                    <small class="form-text text-muted">Only jpeg, jpg, png files less than
+                                        <span class="text-bold">2 MB</span> are allowed.</small>
+                                    <span class="invalid-feedback"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6 text-center">
+                                <div class="form-group mx-auto">
+                                    <label class="form-label w-100" for="jathagam_file">Upload your
+                                        Horoscope<span class="require-star">*</span></label>
+                                    <div class="input-group fileinput fileinput-new text-center"
+                                        data-provides="fileinput">
+                                        <div class="fileinput-new thumbnail img-raised">
+                                            <img src="https://ganeshkongumatrimony.com/uploads/jathagam_images/horoscope.jpg"
+                                                alt="jathagam_file">
+                                        </div>
+                                        <div
+                                            class="fileinput-preview fileinput-exists thumbnail img-raised">
+                                        </div>
+                                        <div>
+                                            <span
+                                                class="btn btn-raised btn-round btn-primary btn-file btn-sm">
+                                                <span class="fileinput-new"
+                                                    onclick="$('#jathagam_file').trigger('click');">Upload
+                                                    your Horoscope</span>
+                                                <span class="fileinput-exists"
+                                                    onclick="$('#jathagam_file').trigger('click');">Change</span>
+                                                <input type="file" class="required" name="jathagam_file"
+                                                    id="jathagam_file" accept=".jpg,.jpeg,.png" />
+                                            </span>
+                                            <a href="#pablo"
+                                                class="btn btn-danger btn-round btn-sm fileinput-exists"
+                                                data-dismiss="fileinput"><i class="fas fa-times"></i>
+                                                Remove</a>
+                                        </div>
+                                    </div>
+                                    <h5 class="info-text mb-0" id="jathagam_file_help"></h5>
+                                    <small class="form-text text-muted">Only jpeg, jpg, png files less than
+                                        <span class="text-bold">2 MB</span> are allowed.</small>
+                                    <span class="invalid-feedback"></span>
+                                </div>
+                            </div>
+                        </div>
+
                         <h4 class="section-title">Basic Information</h4>
                         <div class="row">
                             <div class="col-sm-4">
@@ -96,11 +172,8 @@ style="background-image: url(https://ganeshkongumatrimony.com/uploads/all/iajOd7
                                             class="form-control aiz-selectpicker required "
                                             data-live-search="true" -data-width="auto">
                                             <option style="display:none" value="">-- Select --</option>
-                                            @isset($record['genders'])
-                                                @foreach ($record['genders'] as $value => $label)
-                                                    <option value="{{ $value }}">{{ $label }}</option>
-                                                @endforeach
-                                            @endisset
+                                            <option value="1">Male</option>
+                                            <option value="2">Female</option>
                                         </select>
                                     </div>
                                     <small class="form-text text-muted text-help"></small>
