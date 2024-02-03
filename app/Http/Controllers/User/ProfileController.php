@@ -11,7 +11,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Hash;
 use App\Models\Color;
-use App\Models\bodyType;
+use App\Models\BodyType;
 use App\Models\Weight;
 use App\Models\Height;
 use App\Models\PhysicalStatus;

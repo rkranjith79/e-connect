@@ -10,7 +10,7 @@ class Profile extends Model
     use HasFactory;
 
     protected $guarded = [];
-    
+
     protected $fillable = [
         "blood_group_id",  
         "title",
@@ -39,7 +39,7 @@ class Profile extends Model
     
     public function body_type()
     {
-        return $this->belongsTo(bodyType::class);
+        return $this->belongsTo(BodyType::class);
     }
 
     public function weight()
