@@ -2,13 +2,14 @@
 
 namespace App\Models;
 
+use App\Models\Common\MasterModel;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Common\MasterModel;
 
-class Gender extends MasterModel
+class NakshatraPatham extends MasterModel
 {
     use HasFactory;
-    
+
     protected $guarded = [];
+
 }

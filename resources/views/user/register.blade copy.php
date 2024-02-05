@@ -670,20 +670,7 @@ style="background-image: url(https://ganeshkongumatrimony.com/uploads/all/iajOd7
                                     <span class="invalid-feedback"></span>
                                 </div>
                             </div>
-                            <div class="col-sm-3 div-sub_caste-others hide ">
-                                <div class="form-group mb-3">
-                                    <label class="form-label" for="sub_caste_others">Sub-Caste Name<span
-                                            class="require-star">*</span></label>
-                                    <div class="input-group">
-                                        <div class="input-group-prepend"><span class="input-group-text"><i
-                                                    class="fas fa-keyboard"></i></span></div>
-                                        <input type="text" class="form-control required " value=""
-                                            id="sub_caste_others" name="sub_caste_others" maxlength="255">
-                                    </div>
-                                    <small class="form-text text-muted text-help"></small>
-                                    <span class="invalid-feedback"></span>
-                                </div>
-                            </div>
+                         
                             <div class="col-sm">
                                 <div class="form-group mb-3">
                                     <label class="form-label" for="temple">Temple<span

@@ -192,12 +192,35 @@ class ProfileController extends Controller
             'navamsam_11' => ['nullable'],
             'navamsam_12' => ['nullable'],
 
-            "expectation_jathagam_id"  => ['nullable'],
-            "expectation_marital_status_id"  => ['nullable'],
-            "expectation_work_place_id"  => ['nullable'],
-            "expectation_nakshatra"  => ['nullable'],
-            "expectation"  => ['nullable'],
-    
+
+            /*
+            'expectation_jathagam_id' => ['required'],
+            'expectation_marital_status_id' => ['required'],
+            'expectation_work_place_id' => ['required'],
+            'birth_dasa' => ['required', 'max:200'],
+            
+            'expectation_nakshatra' => ['required', 'max:1000'],
+            'expectation' => ['required', 'max:1000'],
+
+            
+            'dob_date' => ['required', 'max:200'],
+
+            'dob_month' => ['required', 'max:200'],
+
+            'dob_year' => ['required', 'max:200'],
+
+            'tob_hour' => ['required', 'max:200'],
+            'tob_min' => ['required', 'max:200'],
+            'tob_m' => ['required', 'max:200'],
+
+
+            
+            
+            
+            'children_details' => ['required', 'max:200'],
+            'marital_details' => ['required', 'max:200'],
+            'active' => ['nullable'],
+            */
         ]);
         
         $rasi = [];
@@ -236,11 +259,6 @@ class ProfileController extends Controller
             "marital_status_id" => $request->marital_status_id,
             "gender_id" => $request->gender_id,
             "user_id" => $user->id,
-            "expectation_jathagam_id" => $request->expectation_jathagam_id,
-            "expectation_marital_status_id" => $request->expectation_marital_status_id,
-            "expectation_work_place_id" => $request->expectation_work_place_id,
-            "expectation_nakshatra" => $request->expectation_nakshatra,
-            "expectation" => $request->expectation,
             "active" => $request->active == true ? '1' : '0',
         ]);
 

@@ -36,150 +36,7 @@ style="background-image: url(https://ganeshkongumatrimony.com/uploads/all/iajOd7
                     <form class="form-default" id="registration_form" role="form"
                          method="POST">
                         @csrf
-                        <h4 class="section-title">Basic Information</h4>
-                        <div class="row">
-                            <div class="col-sm-4">
-                                <div class="form-group mb-3">
-                                    <label class="form-label" for="title">Name<span
-                                            class="require-star">*</span></label>
-                                    <div class="input-group">
-                                        <div class="input-group-prepend"><span class="input-group-text"><i
-                                                    class="fas fa-user"></i></span></div>
-                                        <input type="text" class="form-control required " value="" id="title"
-                                            name="title" maxlength="255">
-                                    </div>
-                                    <small class="form-text text-muted text-help"><span
-                                            style="color:red">முடிந்தவரை தமிழில் பதிவு
-                                            செய்யவும்.</span></small>
-                                    <span class="invalid-feedback"></span>
-                                </div>
-                            </div>
-                            <div class="col-sm-4">
-                                <div class="form-group mb-3">
-                                    <label class="form-label" for="email">Email<span
-                                            class="require-star">*</span></label>
-                                    <div class="input-group">
-                                        <div class="input-group-prepend"><span class="input-group-text"><i
-                                                    class="fas fa-envelope"></i></span></div>
-                                        <input type="email" class="form-control required " value=""
-                                            id="email" name="email" maxlength="255">
-                                    </div>
-                                    <small class="form-text text-muted text-help"></small>
-                                    <span class="invalid-feedback"></span>
-                                </div>
-                            </div>
-                            <div class="col-sm-4">
-                                <div class="form-group mb-3">
-                                    <label class="form-label" for="passwd">New Password<span
-                                            class="require-star">*</span></label>
-                                    <div class="input-group">
-                                        <div class="input-group-prepend"><span class="input-group-text"><i
-                                                    class="fas fa-key"></i></span></div>
-                                        <input type="password" class="form-control required " value=""
-                                            id="password" name="password" maxlength="100"><button
-                                            id="toggle-pwd" type="button"><i
-                                                class="fa fa-eye"></i></button><span class="">
-                                    </div>
-                                    <small class="form-text text-muted text-help">New Password for
-                                        login.</small>
-                                    <span class="invalid-feedback"></span>
-                                </div>
-                            </div>
-                            <div class="col-sm-4">
-                                <div class="form-group mb-3">
-                                    <label class="form-label" for="gender_id">Gender<span
-                                            class="require-star">*</span></label>
-                                    <div class="input-group">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text"><i class="fas fa-caret-down"></i></span></div>
-                                            <select type="select" name="gender_id" id="gender_id"
-                                                class="form-control aiz-selectpicker required "
-                                                data-live-search="true" -data-width="auto">
-                                                <option style="display:none" value="">-- Select --</option>
-                                                @isset($record['genders'])
-                                                    @foreach ($record['genders'] as $value => $label)
-                                                        <option value="{{ $value }}">{{ $label }}</option>
-                                                    @endforeach
-                                                @endisset
-                                            </select>
-                                        </div>
-                                    <small class="form-text text-muted text-help"></small>
-                                    <span class="invalid-feedback"></span>
-                                </div>
-                            </div>
-                            <div class="col-sm-4 div-marital_status_id">
-                                <div class="form-group mb-3">
-                                    <label class="form-label" for="marital_status_id">Marital Status<span
-                                            class="require-star">*</span></label>
-                                    <div class="input-group">
-                                        <div class="input-group-prepend"><span class="input-group-text"><i
-                                                    class="fas fa-caret-down"></i></span></div>
-                                        <select type="select" name="marital_status_id" id="marital_status_id"
-                                            class="form-control aiz-selectpicker required "
-                                            data-live-search="true" -data-width="auto">
-                                            <option style="display:none" value="">-- Select --</option>
-                                            @isset($record['marital_statuses'])
-                                                @foreach ($record['marital_statuses'] as $value => $label)
-                                                    <option value="{{ $value }}">{{ $label }}</option>
-                                                @endforeach
-                                            @endisset
-                                        </select>
-                                    </div>
-                                    <small class="form-text text-muted text-help"></small>
-                                    <span class="invalid-feedback"></span>
-                                </div>
-                            </div>
-                            <div class="col-sm-4 div-marital-details hide">
-                                <div class="form-group mb-3">
-                                    <label class="form-label" for="marital_details">Marriage Details<span
-                                            class="require-star">*</span></label>
-                                    <div class="input-group">
-                                        <div class="input-group-prepend"><span class="input-group-text"><i
-                                                    class="fas fa-pen"></i></span></div>
-                                        <input type="text" class="form-control required " value=""
-                                            id="marital_details" name="marital_details" maxlength="255">
-                                    </div>
-                                    <small class="form-text text-muted text-help"></small>
-                                    <span class="invalid-feedback"></span>
-                                </div>
-                            </div>
-                            <div class="col-sm-4 div-marital-details hide">
-                                <div class="form-group mb-3">
-                                    <label class="form-label" for="children_details">Children Details<span
-                                            class="require-star">*</span></label>
-                                    <div class="input-group">
-                                        <div class="input-group-prepend"><span class="input-group-text"><i
-                                                    class="fas fa-pen"></i></span></div>
-                                        <input type="text" class="form-control required " value=""
-                                            id="children_details" name="children_details" maxlength="255">
-                                    </div>
-                                    <small class="form-text text-muted text-help"></small>
-                                    <span class="invalid-feedback"></span>
-                                </div>
-                            </div>
-                            <div class="col-sm-4">
-                                <div class="form-group mb-3">
-                                    <label class="form-label" for="registered_by_id">Registered By<span
-                                            class="require-star">*</span></label>
-                                    <div class="input-group">
-                                        <div class="input-group-prepend"><span class="input-group-text"><i
-                                                    class="fas fa-caret-down"></i></span></div>
-                                        <select type="select" name="registered_by_id" id="registered_by_id"
-                                            class="form-control aiz-selectpicker required "
-                                            data-live-search="true" -data-width="auto">
-                                            <option style="display:none" value="">-- Select --</option>
-                                            @isset($record['registered_bies'])
-                                                @foreach ($record['registered_bies'] as $value => $label)
-                                                    <option value="{{ $value }}">{{ $label }}</option>
-                                                @endforeach
-                                            @endisset
-                                        </select>
-                                    </div>
-                                    <small class="form-text text-muted text-help"></small>
-                                    <span class="invalid-feedback"></span>
-                                </div>
-                            </div>
-                        </div>
+                        @include('basic')
 
                         <h4 class="section-title">Personal Details</h4>
                         <div class="row">
@@ -205,20 +62,7 @@ style="background-image: url(https://ganeshkongumatrimony.com/uploads/all/iajOd7
                                     <span class="invalid-feedback"></span>
                                 </div>
                             </div>
-                            <div class="col-sm-3 div-splcategory-details hide">
-                                <div class="form-group mb-3">
-                                    <label class="form-label" for="special_category_details">Special Category
-                                        Details<span class="require-star">*</span></label>
-                                    <div class="input-group">
-                                        <div class="input-group-prepend"><span class="input-group-text"><i
-                                                    class="fas fa-pen"></i></span></div>
-                                        <input type="text" class="form-control required " value=""
-                                            id="special_category_details" name="special_category_details" maxlength="255">
-                                    </div>
-                                    <small class="form-text text-muted text-help"></small>
-                                    <span class="invalid-feedback"></span>
-                                </div>
-                            </div>
+                            
                             <div class="col-sm-3">
                                 <div class="form-group mb-3">
                                     <label class="form-label" for="height_id">Height<span
@@ -335,6 +179,27 @@ style="background-image: url(https://ganeshkongumatrimony.com/uploads/all/iajOd7
                         <div class="row">
                             <div class="col-sm-3">
                                 <div class="form-group mb-3">
+                                    <label class="form-label" for="religion_id">Religion<span
+                                            class="require-star">*</span></label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend"><span class="input-group-text"><i
+                                                    class="fas fa-caret-down"></i></span></div>
+                                        <select type="select" name="religion_id" id="religion_id"
+                                            class="form-control aiz-selectpicker required "
+                                            data-live-search="true" -data-width="auto">
+                                            <option style="display:none" value="">-- Select --</option>
+                                            <option value="1">Kongu Vellala Gounder</option>
+                                            <option value="2">Kongu Vellalar Division</option>
+                                            <option value="3">Kongu Vellalar Mix</option>
+                                        </select>
+                                    </div>
+                                    <small class="form-text text-muted text-help"></small>
+                                    <span class="invalid-feedback"></span>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-3">
+                                <div class="form-group mb-3">
                                     <label class="form-label" for="caste_id">Caste<span
                                             class="require-star">*</span></label>
                                     <div class="input-group">
@@ -355,113 +220,13 @@ style="background-image: url(https://ganeshkongumatrimony.com/uploads/all/iajOd7
                             </div>
                             <div class="col-sm-3">
                                 <div class="form-group mb-3">
-                                    <label class="form-label" for="sub_caste_id">Sub-Caste<span
-                                            class="require-star">*</span></label>
-                                    <div class="input-group">
-                                        <div class="input-group-prepend"><span class="input-group-text"><i
-                                                    class="fas fa-caret-down"></i></span></div>
-                                        <select type="select" name="sub_caste_id" id="sub_caste_id"
-                                            class="form-control aiz-selectpicker required "
-                                            data-live-search="true" -data-width="auto">
-                                            <option style="display:none" value="">-- Select --</option>
-                                            <option value="2">Andhuvan Kulam</option>
-                                            <option value="3">Alagan Kulam</option>
-                                            <option value="4">Aada Kulam</option>
-                                            <option value="5">Adhi Kulam</option>
-                                            <option value="6">Aanthai Kulam</option>
-                                            <option value="7">Ava Kulam</option>
-                                            <option value="8">Aavin Kulam</option>
-                                            <option value="9">Injan Kulam</option>
-                                            <option value="10">Ennai Kulam</option>
-                                            <option value="11">Olukka caste</option>
-                                            <option value="12">Othaalan Kulam</option>
-                                            <option value="13">Kanakkan Kulam</option>
-                                            <option value="14">Kanavaalan Kulam</option>
-                                            <option value="15">Kannandai Kulam</option>
-                                            <option value="16">Kannan Kulam</option>
-                                            <option value="17">Kalinji Kulam</option>
-                                            <option value="18">Kaadai Kulam</option>
-                                            <option value="19">Kaari Kulam</option>
-                                            <option value="20">Keeran Kulam</option>
-                                            <option value="21">Kuyilar Kulam</option>
-                                            <option value="22">Kuzhiyar Kulam</option>
-                                            <option value="23">Koorai Kulam</option>
-                                            <option value="24">Govender Kulam</option>
-                                            <option value="25">Sathanthai Kulam</option>
-                                            <option value="26">Silamban Kulam</option>
-                                            <option value="27">Senkannan Kulam</option>
-                                            <option value="28">Sengunni Kulam</option>
-                                            <option value="29">Semban Kulam</option>
-                                            <option value="30">Sembuthan Kulam</option>
-                                            <option value="31">Sellan Kulam</option>
-                                            <option value="32">Sevvanthi Kulam</option>
-                                            <option value="33">Sevvai Kulam</option>
-                                            <option value="34">Sedan Kulam</option>
-                                            <option value="35">Cheran Kulam</option>
-                                            <option value="36">Cheralan Kulam</option>
-                                            <option value="37">Chola Kulam</option>
-                                            <option value="38">Dhanancheyan Kulam</option>
-                                            <option value="39">Thalinji Kulam</option>
-                                            <option value="40">Thooran Kulam</option>
-                                            <option value="41">Devendran Kulam</option>
-                                            <option value="42">Thodai Kulam</option>
-                                            <option value="43">Neerunniyar Kulam</option>
-                                            <option value="44">Pannai caste</option>
-                                            <option value="45">Pathariyar Kulam</option>
-                                            <option value="46">Padhuman Kulam</option>
-                                            <option value="47">Panangadai Kulam</option>
-                                            <option value="48">Panayan Kulam</option>
-                                            <option value="49">Payiran Kulam</option>
-                                            <option value="50">Pavala Kulam</option>
-                                            <option value="51">Pandiyan Kulam</option>
-                                            <option value="52">Piralanthai Kulam</option>
-                                            <option value="53">Billan Kulam</option>
-                                            <option value="54">Poosan Kulam</option>
-                                            <option value="55">Poochandhai Kulam</option>
-                                            <option value="56">Poonthan Kulam</option>
-                                            <option value="57">Periya Kulam</option>
-                                            <option value="58">Perungudi Kulam</option>
-                                            <option value="59">Podian Kulam</option>
-                                            <option value="60">Ponnar Kulam</option>
-                                            <option value="61">Porul Thantha Kulam</option>
-                                            <option value="62">Maniyan Kulam</option>
-                                            <option value="63">Mayilar Kulam</option>
-                                            <option value="64">Mada Kulam</option>
-                                            <option value="65">Muthan Kulam</option>
-                                            <option value="66">Mullai Kulam</option>
-                                            <option value="67">Mulukkathaan Kulam</option>
-                                            <option value="68">Moolan Kulam</option>
-                                            <option value="69">Medhi Kulam</option>
-                                            <option value="70">Vannakan Kulam</option>
-                                            <option value="71">Willy Kulam</option>
-                                            <option value="72">Vilayan Kulam</option>
-                                            <option value="73">Venduvan Kulam</option>
-                                            <option value="74">Vennai Kulam</option>
-                                            <option value="75">Veliyan Kulam</option>
-                                            <option value="76">Velamban Kulam</option>
-                                            <option value="77">Vendan Kulam</option>
-                                            <option value="78">Kalli Kulam</option>
-                                            <option value="1">Others</option>
                                         </select>
                                     </div>
                                     <small class="form-text text-muted text-help"></small>
                                     <span class="invalid-feedback"></span>
                                 </div>
                             </div>
-                            <div class="col-sm-3 div-sub_caste-others hide ">
-                                <div class="form-group mb-3">
-                                    <label class="form-label" for="sub_caste_others">Sub-Caste Name<span
-                                            class="require-star">*</span></label>
-                                    <div class="input-group">
-                                        <div class="input-group-prepend"><span class="input-group-text"><i
-                                                    class="fas fa-keyboard"></i></span></div>
-                                        <input type="text" class="form-control required " value=""
-                                            id="sub_caste_others" name="sub_caste_others" maxlength="255">
-                                    </div>
-                                    <small class="form-text text-muted text-help"></small>
-                                    <span class="invalid-feedback"></span>
-                                </div>
-                            </div>
+                            
                             <div class="col-sm">
                                 <div class="form-group mb-3">
                                     <label class="form-label" for="temple">Temple<span
@@ -509,20 +274,7 @@ style="background-image: url(https://ganeshkongumatrimony.com/uploads/all/iajOd7
                                     <span class="invalid-feedback"></span>
                                 </div>
                             </div>
-                            <div class="col-sm-3 div-education-others hide ">
-                                <div class="form-group mb-3">
-                                    <label class="form-label" for="education_others">Education Name<span
-                                            class="require-star">*</span></label>
-                                    <div class="input-group">
-                                        <div class="input-group-prepend"><span class="input-group-text"><i
-                                                    class="fas fa-pen"></i></span></div>
-                                        <input type="text" class="form-control required " value=""
-                                            id="education_others" name="education_others" maxlength="255">
-                                    </div>
-                                    <small class="form-text text-muted text-help"></small>
-                                    <span class="invalid-feedback"></span>
-                                </div>
-                            </div>
+                            
                             <div class="col-sm-3">
                                 <div class="form-group mb-3">
                                     <label class="form-label" for="education_details">Education Details<span
@@ -564,20 +316,7 @@ style="background-image: url(https://ganeshkongumatrimony.com/uploads/all/iajOd7
                                     <span class="invalid-feedback"></span>
                                 </div>
                             </div>
-                            <div class="col-sm-3 div-work-others hide">
-                                <div class="form-group mb-3">
-                                    <label class="form-label" for="work_others">Work Name<span
-                                            class="require-star">*</span></label>
-                                    <div class="input-group">
-                                        <div class="input-group-prepend"><span class="input-group-text"><i
-                                                    class="fas fa-pen"></i></span></div>
-                                        <input type="text" class="form-control required " value=""
-                                            id="work_others" name="work_others" maxlength="255">
-                                    </div>
-                                    <small class="form-text text-muted text-help"></small>
-                                    <span class="invalid-feedback"></span>
-                                </div>
-                            </div>
+                            
                             <div class="col-sm-3">
                                 <div class="form-group mb-3">
                                     <label class="form-label" for="work_details">Work Details<span
@@ -592,7 +331,7 @@ style="background-image: url(https://ganeshkongumatrimony.com/uploads/all/iajOd7
                                     <span class="invalid-feedback"></span>
                                 </div>
                             </div>
-                            <div class="col-sm-3 div-work-place hide">
+                            <div class="col-sm-3 div-work-place">
                                 <div class="form-group mb-3">
                                     <label class="form-label" for="work_place_id">Work Place<span
                                             class="require-star">*</span></label>
@@ -682,245 +421,7 @@ style="background-image: url(https://ganeshkongumatrimony.com/uploads/all/iajOd7
                                             class="form-control aiz-selectpicker required "
                                             data-live-search="true" -data-width="auto">
                                             <option style="display:none" value="">-- Select --</option>
-                                            <option selected value="3">India</option>
-                                            <option value="4">Afghanistan</option>
-                                            <option value="5">Albania</option>
-                                            <option value="6">Algeria</option>
-                                            <option value="7">American Samoa</option>
-                                            <option value="8">Andorra</option>
-                                            <option value="9">Angola</option>
-                                            <option value="10">Anguilla</option>
-                                            <option value="11">Antartica</option>
-                                            <option value="12">Antigua & Barbuda</option>
-                                            <option value="13">Argentina</option>
-                                            <option value="14">Armenia</option>
-                                            <option value="15">Aruba</option>
-                                            <option value="16">Australia</option>
-                                            <option value="17">Austria</option>
-                                            <option value="18">Azerbaijan</option>
-                                            <option value="19">Bahamas</option>
-                                            <option value="20">Bahrain</option>
-                                            <option value="21">Bangladesh</option>
-                                            <option value="22">Barbados</option>
-                                            <option value="23">Belarus</option>
-                                            <option value="24">Belgium</option>
-                                            <option value="25">Belize</option>
-                                            <option value="26">Benin</option>
-                                            <option value="27">Bermuda</option>
-                                            <option value="28">Bhutan</option>
-                                            <option value="29">Bolivia</option>
-                                            <option value="30">Bosnia & Herzegovina</option>
-                                            <option value="31">Botswana</option>
-                                            <option value="32">Bouvet Island</option>
-                                            <option value="33">Br.Ind.Ocean Terr.</option>
-                                            <option value="34">Brazil</option>
-                                            <option value="35">Brunei</option>
-                                            <option value="36">Bulgaria</option>
-                                            <option value="37">Burkina Faso</option>
-                                            <option value="38">Burundi</option>
-                                            <option value="39">Cambodia</option>
-                                            <option value="40">Cameroon</option>
-                                            <option value="41">Canada</option>
-                                            <option value="42">Cango</option>
-                                            <option value="43">Cape Verde</option>
-                                            <option value="44">Caymen Is.</option>
-                                            <option value="45">Central African Rep.</option>
-                                            <option value="46">Chad</option>
-                                            <option value="47">Chile</option>
-                                            <option value="48">China</option>
-                                            <option value="49">Christmas Is.</option>
-                                            <option value="50">Cocos Is.</option>
-                                            <option value="51">Colombia</option>
-                                            <option value="52">Comoros</option>
-                                            <option value="53">Cook Is.</option>
-                                            <option value="54">Costa Rica</option>
-                                            <option value="55">Cote D'Ivoire</option>
-                                            <option value="56">Croatia</option>
-                                            <option value="57">Cuba</option>
-                                            <option value="58">Cyprus</option>
-                                            <option value="59">Czech Rep.</option>
-                                            <option value="60">Denmark</option>
-                                            <option value="61">Djibouti</option>
-                                            <option value="62">Dominica</option>
-                                            <option value="63">Dominican Rep.</option>
-                                            <option value="64">East Timor</option>
-                                            <option value="65">Ecuador</option>
-                                            <option value="66">Egypt</option>
-                                            <option value="67">El Salvador</option>
-                                            <option value="68">Equatorial Guinea</option>
-                                            <option value="69">Eritrea</option>
-                                            <option value="70">Estonia</option>
-                                            <option value="71">Ethiopia</option>
-                                            <option value="72">Falkland Is.</option>
-                                            <option value="73">Faroe Is.</option>
-                                            <option value="74">Fiji Is.</option>
-                                            <option value="75">Finland</option>
-                                            <option value="76">France</option>
-                                            <option value="77">French Guiana</option>
-                                            <option value="78">French Polynesia</option>
-                                            <option value="79">French Southern Terr.</option>
-                                            <option value="80">Gabon</option>
-                                            <option value="81">Gambia</option>
-                                            <option value="82">Georgia</option>
-                                            <option value="83">Germany</option>
-                                            <option value="84">Ghana</option>
-                                            <option value="85">Gibraltar</option>
-                                            <option value="86">Greece</option>
-                                            <option value="87">Greenland</option>
-                                            <option value="88">Grenada</option>
-                                            <option value="89">Guadeloupe</option>
-                                            <option value="90">Guam</option>
-                                            <option value="91">Guatemala</option>
-                                            <option value="92">Guinea</option>
-                                            <option value="93">Guinea-Bissau</option>
-                                            <option value="94">Guyana</option>
-                                            <option value="95">Haiti</option>
-                                            <option value="96">Heard & McDonald Is.</option>
-                                            <option value="97">Honduras</option>
-                                            <option value="98">Hong Kong</option>
-                                            <option value="99">Hungary</option>
-                                            <option value="100">Iceland</option>
-                                            <option value="101">Indonesia</option>
-                                            <option value="102">Iran</option>
-                                            <option value="103">Iraq</option>
-                                            <option value="104">Ireland</option>
-                                            <option value="105">Israel</option>
-                                            <option value="106">Italy</option>
-                                            <option value="107">Jamaica</option>
-                                            <option value="108">Japan</option>
-                                            <option value="109">Jordan</option>
-                                            <option value="110">Kazakhstan</option>
-                                            <option value="111">Kenya</option>
-                                            <option value="112">Kirbati</option>
-                                            <option value="113">Korea</option>
-                                            <option value="114">Kuwait</option>
-                                            <option value="115">Kyrgyzstan</option>
-                                            <option value="116">Laos</option>
-                                            <option value="117">Latvia</option>
-                                            <option value="118">Lebanon</option>
-                                            <option value="119">Lesotho</option>
-                                            <option value="120">Liberia</option>
-                                            <option value="121">Libya</option>
-                                            <option value="122">Liechtenstein</option>
-                                            <option value="123">Lithuania</option>
-                                            <option value="124">Luxembourg</option>
-                                            <option value="125">Macedonia</option>
-                                            <option value="126">Madagascar</option>
-                                            <option value="127">Malawi</option>
-                                            <option value="128">Malaysia</option>
-                                            <option value="129">Maldives</option>
-                                            <option value="130">Mali</option>
-                                            <option value="131">Malta</option>
-                                            <option value="132">Manaco</option>
-                                            <option value="133">Marshall Is.</option>
-                                            <option value="134">Martinique</option>
-                                            <option value="135">Mauritania</option>
-                                            <option value="136">Mauritius</option>
-                                            <option value="137">Mayotte</option>
-                                            <option value="138">Mexico</option>
-                                            <option value="139">Micronesia</option>
-                                            <option value="140">Moldova</option>
-                                            <option value="141">Mongolia</option>
-                                            <option value="142">Montserrat</option>
-                                            <option value="143">Morocco</option>
-                                            <option value="144">Mozambique</option>
-                                            <option value="145">Myanmar</option>
-                                            <option value="146">Namibia</option>
-                                            <option value="147">Nauru</option>
-                                            <option value="148">Nepal</option>
-                                            <option value="149">Netherlands</option>
-                                            <option value="150">Netherlands Antilles</option>
-                                            <option value="151">New Caledonia</option>
-                                            <option value="152">New Zealand</option>
-                                            <option value="153">Nicaragua</option>
-                                            <option value="154">Niger</option>
-                                            <option value="155">Nigeria</option>
-                                            <option value="156">Niue</option>
-                                            <option value="157">Norfolk Is.</option>
-                                            <option value="158">North korea</option>
-                                            <option value="159">Northern Mariana (U.S.Territor)</option>
-                                            <option value="160">Northern Mariana Is.</option>
-                                            <option value="161">Norfolk Is.</option>
-                                            <option value="162">Norway</option>
-                                            <option value="163">Oman</option>
-                                            <option value="164">Pakistan</option>
-                                            <option value="165">Palau</option>
-                                            <option value="166">Panama</option>
-                                            <option value="167">Papua New Guinea</option>
-                                            <option value="168">Paraguay</option>
-                                            <option value="169">Peru</option>
-                                            <option value="170">Philippines</option>
-                                            <option value="171">Pitcairn Is.</option>
-                                            <option value="172">Poland</option>
-                                            <option value="173">Portugal</option>
-                                            <option value="174">Puerto Rico</option>
-                                            <option value="175">Qatar</option>
-                                            <option value="176">Romania</option>
-                                            <option value="177">Russia</option>
-                                            <option value="178">Rwanda</option>
-                                            <option value="179">S.Georgia & S.S.Is.</option>
-                                            <option value="180">Samoa</option>
-                                            <option value="181">San Marino</option>
-                                            <option value="182">Sao Tome & Principe</option>
-                                            <option value="183">Saudi Arabia</option>
-                                            <option value="184">Scyclegal</option>
-                                            <option value="185">Seychelles</option>
-                                            <option value="186">Sierra Leone</option>
-                                            <option value="187">Singapore</option>
-                                            <option value="188">Slovakia</option>
-                                            <option value="189">Slovenia</option>
-                                            <option value="190">Solomon Is.</option>
-                                            <option value="191">Somalia</option>
-                                            <option value="192">South Africa</option>
-                                            <option value="193">South Korea</option>
-                                            <option value="194">Spain</option>
-                                            <option value="195">Sri Lanka</option>
-                                            <option value="196">St.Helena</option>
-                                            <option value="197">St.Kitts & Nevis</option>
-                                            <option value="198">St.Lucia</option>
-                                            <option value="199">St.Pierre & Miquelon</option>
-                                            <option value="200">St.Vincent & Grenadines</option>
-                                            <option value="201">Sudan</option>
-                                            <option value="202">Suriname</option>
-                                            <option value="203">Svalbard & J.M.Is.</option>
-                                            <option value="204">Swaziland</option>
-                                            <option value="205">Sweden</option>
-                                            <option value="206">Switzerland</option>
-                                            <option value="207">Syria</option>
-                                            <option value="208">Taiwan</option>
-                                            <option value="209">Tajikistan</option>
-                                            <option value="210">Tanzania</option>
-                                            <option value="211">Thailand</option>
-                                            <option value="212">Timor-Leste</option>
-                                            <option value="213">Togo</option>
-                                            <option value="214">Tokelau</option>
-                                            <option value="215">Tonga</option>
-                                            <option value="216">Trinidad & Tobago</option>
-                                            <option value="217">Tunisia</option>
-                                            <option value="218">Turkey</option>
-                                            <option value="219">Turkmenistan</option>
-                                            <option value="220">Turks & Caicos Is.</option>
-                                            <option value="221">Tuvalu</option>
-                                            <option value="222">U.S.Minor Outlying Is.</option>
-                                            <option value="223">Uganda</option>
-                                            <option value="224">Ukraine</option>
-                                            <option value="225">United Arab Emirates</option>
-                                            <option value="226">United Kindom</option>
-                                            <option value="227">United States</option>
-                                            <option value="228">Uruguay</option>
-                                            <option value="229">Uzbekistan</option>
-                                            <option value="230">Vanuatu</option>
-                                            <option value="231">Vatican City State</option>
-                                            <option value="232">Vcyclezuela</option>
-                                            <option value="233">Vietnam</option>
-                                            <option value="234">Virgin Is.(US)</option>
-                                            <option value="235">Virginia Is.(Br.)</option>
-                                            <option value="236">Wallis & Futuna Is.</option>
-                                            <option value="237">Western Sahara</option>
-                                            <option value="238">Yemen</option>
-                                            <option value="239">Yugoslavia</option>
-                                            <option value="240">Zambia</option>
-                                            <option value="241">Zimbabwe</option>
+                                            
                                         </select>
                                     </div>
                                     <small class="form-text text-muted text-help"></small>
@@ -939,40 +440,7 @@ style="background-image: url(https://ganeshkongumatrimony.com/uploads/all/iajOd7
                                             data-live-search="true" -data-width="auto">
                                             <option style="display:none" value="">-- Select --</option>
                                             <option selected value="3">Tamilnadu</option>
-                                            <option value="4">Andaman & nicobar</option>
-                                            <option value="5">Andhra pradesh</option>
-                                            <option value="6">Arunachal pradesh</option>
-                                            <option value="7">Assam</option>
-                                            <option value="8">Bihar</option>
-                                            <option value="10">Chhattisgarh</option>
-                                            <option value="11">Chandigarh</option>
-                                            <option value="12">Dadra & Nagar Haveli</option>
-                                            <option value="13">Daman & Diu</option>
-                                            <option value="14">Delhi</option>
-                                            <option value="15">Goa</option>
-                                            <option value="16">Gujarat</option>
-                                            <option value="17">Haryana</option>
-                                            <option value="18">Himachal pradesh</option>
-                                            <option value="19">Jammu & kashmir</option>
-                                            <option value="20">Jharkand</option>
-                                            <option value="21">Karnataka</option>
-                                            <option value="22">Kerala</option>
-                                            <option value="23">Lakshadeep</option>
-                                            <option value="24">Madhya pradesh</option>
-                                            <option value="25">Maharashtra</option>
-                                            <option value="26">Manipur</option>
-                                            <option value="27">Meghalaya</option>
-                                            <option value="28">Mizoram</option>
-                                            <option value="29">Nagaland</option>
-                                            <option value="30">Orissa</option>
-                                            <option value="31">Pondicherry</option>
-                                            <option value="32">Punjab</option>
-                                            <option value="33">Rajasthan</option>
-                                            <option value="34">Sikkim</option>
-                                            <option value="35">Tripura</option>
-                                            <option value="36">Uttar pradesh</option>
-                                            <option value="37">Uttaranchal</option>
-                                            <option value="38">West Bengal </option>
+                                        
                                             <option value="1">Others</option>
                                         </select>
                                     </div>
@@ -980,7 +448,21 @@ style="background-image: url(https://ganeshkongumatrimony.com/uploads/all/iajOd7
                                     <span class="invalid-feedback"></span>
                                 </div>
                             </div>
-                            <div class="col-sm-4 div-state-others hide">
+                            <div class="col-sm-4 div-country-others">
+                                <div class="form-group mb-3">
+                                    <label class="form-label" for="country_others">Country Name<span
+                                            class="require-star">*</span></label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend"><span class="input-group-text"><i
+                                                    class="fas fa-map-marker-alt"></i></span></div>
+                                        <input type="text" class="form-control required " value=""
+                                            id="country_others" name="country_others" maxlength="255">
+                                    </div>
+                                    <small class="form-text text-muted text-help"></small>
+                                    <span class="invalid-feedback"></span>
+                                </div>
+                            </div>
+                            <div class="col-sm-4 div-state-others">
                                 <div class="form-group mb-3">
                                     <label class="form-label" for="state_others">State Name<span
                                             class="require-star">*</span></label>
@@ -1005,49 +487,14 @@ style="background-image: url(https://ganeshkongumatrimony.com/uploads/all/iajOd7
                                             class="form-control aiz-selectpicker required "
                                             data-live-search="true" -data-width="auto">
                                             <option style="display:none" value="">-- Select --</option>
-                                            <option value="3">Ariyalur</option>
-                                            <option value="4">Chennai</option>
-                                            <option value="5">Coimbatore</option>
-                                            <option value="6">Cuddalore</option>
-                                            <option value="7">Dharmapuri</option>
-                                            <option value="8">Dindigul</option>
-                                            <option value="9">Erode</option>
-                                            <option value="10">Kanchipuram</option>
-                                            <option value="11">Kanyakumari</option>
-                                            <option value="12">Karur</option>
-                                            <option value="13">Krishnagiri</option>
-                                            <option value="14">Madurai</option>
-                                            <option value="15">Nagapattinam</option>
-                                            <option value="16">Namakkal</option>
-                                            <option value="17">Nilgiris</option>
-                                            <option value="18">Perambalur</option>
-                                            <option value="19">Pudukkottai</option>
-                                            <option value="20">Pudukkottai</option>
-                                            <option value="21">Ramanathapuram</option>
-                                            <option value="22">Salem</option>
-                                            <option value="23">Sivaganga</option>
-                                            <option value="24">Thanjavur</option>
-                                            <option value="25">Theni</option>
-                                            <option value="26">Thoothukudi</option>
-                                            <option value="27">Tirunelveli</option>
-                                            <option value="28">Tiruppur</option>
-                                            <option value="29">Tiruvallur</option>
-                                            <option value="30">Tiruvallur</option>
-                                            <option value="31">Tiruvannamalai</option>
-                                            <option value="32">Tiruvarur</option>
-                                            <option value="33">Trichy</option>
-                                            <option value="34">Tuticorin</option>
-                                            <option value="35">Vellore</option>
-                                            <option value="36">Viluppuram</option>
-                                            <option value="37">Virudhunagar</option>
-                                            <option value="1">Others</option>
+                                        
                                         </select>
                                     </div>
                                     <small class="form-text text-muted text-help"></small>
                                     <span class="invalid-feedback"></span>
                                 </div>
                             </div>
-                            <div class="col-sm-4 div-district-others hide">
+                            <div class="col-sm-4 div-district-others">
                                 <div class="form-group mb-3">
                                     <label class="form-label" for="district_others">District Name<span
                                             class="require-star">*</span></label>
@@ -1099,7 +546,7 @@ style="background-image: url(https://ganeshkongumatrimony.com/uploads/all/iajOd7
                                     <span class="invalid-feedback"></span>
                                 </div>
                             </div>
-                            <div class="col-sm-3 div-father-occu hide">
+                            <div class="col-sm-3 div-father-occu">
                                 <div class="form-group mb-3">
                                     <label class="form-label" for="father_occupation">Father Occupation<span
                                             class="require-star">*</span></label>
@@ -1147,7 +594,7 @@ style="background-image: url(https://ganeshkongumatrimony.com/uploads/all/iajOd7
                                     <span class="invalid-feedback"></span>
                                 </div>
                             </div>
-                            <div class="col-sm-3 div-mother-occu hide">
+                            <div class="col-sm-3 div-mother-occu">
                                 <div class="form-group mb-3">
                                     <label class="form-label" for="mother_occupation">Mother Occupation<span
                                             class="require-star">*</span></label>
@@ -1228,35 +675,7 @@ style="background-image: url(https://ganeshkongumatrimony.com/uploads/all/iajOd7
                                             data-live-search="true" -data-width="auto">
                                             <option style="display:none" value="">-- Select --</option>
                                             <option value="1">Below 50 lakhs</option>
-                                            <option value="2">50 lakhs - 01 crores</option>
-                                            <option value="3">01 crores - 2.5 crores</option>
-                                            <option value="4">2.5 crores - 05 crores</option>
-                                            <option value="5">05 crores - 7 crores</option>
-                                            <option value="6">07 crores - 10 crores</option>
-                                            <option value="7">10 crores - 15 crores</option>
-                                            <option value="8">15 crores - 20 crores</option>
-                                            <option value="9">20 crores - 30 crores</option>
-                                            <option value="10">30 crores - 40 crores</option>
-                                            <option value="11">40 crores - 50 crores</option>
-                                            <option value="12">50 crores - 75 crores</option>
-                                            <option value="13">75 crores - 100 crores</option>
-                                            <option value="14">100 crores - 125 crores</option>
-                                            <option value="15">125 crores - 150 crores</option>
-                                            <option value="16">150 crores - 175 crores</option>
-                                            <option value="17">175 crores - 200 crores</option>
-                                            <option value="18">200 crores - 250 crores</option>
-                                            <option value="19">250 crores - 300 crores</option>
-                                            <option value="20">300 crores - 400 crores</option>
-                                            <option value="21">400 crores - 500 crores</option>
-                                            <option value="22">500 crores - 750 crores</option>
-                                            <option value="23">750 crores - 1000 crores</option>
-                                            <option value="24">1000 crores - 1500 crores</option>
-                                            <option value="25">1500 crores - 2000 crores</option>
-                                            <option value="26">2000 crores -3000 crores</option>
-                                            <option value="27">3000 crores - 4000 crores</option>
-                                            <option value="28">4000 crores - 5000 crores</option>
-                                            <option value="29">5000 crores - 10000 crores</option>
-                                            <option value="30">More than 10000 crores</option>
+                                         
                                         </select>
                                     </div>
                                     <small class="form-text text-muted text-help"></small>
@@ -1286,12 +705,7 @@ style="background-image: url(https://ganeshkongumatrimony.com/uploads/all/iajOd7
                         </div>
 
                         <h4 class="section-title div-astro">Astro Details</h4>
-                        <div class="text-center">
-                            <a class="btn btn-sm btn-danger" style="font-weight:bold"
-                                href="https://www.youtube.com/watch?v=rXEWlBmbpvQ&gkm_external"
-                                target="_blank"><i class="fab fa-youtube text-white"></i> How to fill
-                                Horoscope?</a>
-                        </div>
+                       
                         <div class="form-row">
                             <div class="col-sm-3 div-astro">
                                 <div class="form-group mb-3">
@@ -1305,43 +719,7 @@ style="background-image: url(https://ganeshkongumatrimony.com/uploads/all/iajOd7
                                             data-live-search="true" -data-width="auto">
                                             <option style="display:none" value="">-- Select --</option>
                                             <option value="1">Aries-Ashwini</option>
-                                            <option value="2">Aries-Bharani</option>
-                                            <option value="3">Aries-Krithigai</option>
-                                            <option value="4">Taurus-Krithigai</option>
-                                            <option value="5">Taurus-Rohini</option>
-                                            <option value="6">Taurus-Mrigasrisham</option>
-                                            <option value="7">Gemini-Mrigasrisham</option>
-                                            <option value="8">Gemini-Thiruvathirai</option>
-                                            <option value="9">Gemini-Punarpoosam</option>
-                                            <option value="10">Cancer-Punarpoosam</option>
-                                            <option value="11">Cancer-Poosam</option>
-                                            <option value="12">Cancer-Ayilyam</option>
-                                            <option value="13">Leo-Magam</option>
-                                            <option value="14">Leo-Pooram</option>
-                                            <option value="15">Leo-Uthiram</option>
-                                            <option value="16">Virgo-Uthiram</option>
-                                            <option value="17">Virgo-Hastham</option>
-                                            <option value="18">Virgo-Chithirai</option>
-                                            <option value="19">Libra-Chithirai</option>
-                                            <option value="20">Libra-Swathi</option>
-                                            <option value="21">Libra-Visakam</option>
-                                            <option value="22">Scorpio-Visakam</option>
-                                            <option value="23">Scorpio-Anusham</option>
-                                            <option value="24">Scorpio-Kettai</option>
-                                            <option value="25">Sagittarious-Moolam</option>
-                                            <option value="26">Sagittarious-Pooradam</option>
-                                            <option value="27">Sagittarious-Uthiradam</option>
-                                            <option value="28">Capricorn-Uthiradam</option>
-                                            <option value="29">Capricorn-Thiruvonam</option>
-                                            <option value="30">Capricorn-Avittam</option>
-                                            <option value="31">Aquarious-Avittam</option>
-                                            <option value="32">Aquarious-Sathayam</option>
-                                            <option value="33">Aquarious-Poorattadhi</option>
-                                            <option value="34">Pisces-Poorattadhi</option>
-                                            <option value="35">Pisces-Uthiratadhi</option>
-                                            <option value="36">Pisces-Revathi</option>
-                                            <option value="37">No Horoscope / Do not view horoscope</option>
-                                            <option value="999">Don't Know</option>
+                                     
                                         </select>
                                     </div>
                                     <small class="form-text text-muted text-help"></small>
@@ -1360,11 +738,7 @@ style="background-image: url(https://ganeshkongumatrimony.com/uploads/all/iajOd7
                                             data-live-search="true" -data-width="auto">
                                             <option style="display:none" value="">-- Select --</option>
                                             <option value="1">Patham 1</option>
-                                            <option value="2">Patham 2</option>
-                                            <option value="3">Patham 3</option>
-                                            <option value="4">Patham 4</option>
-                                            <option value="5">No Horoscope / Do not view horoscope</option>
-                                            <option value="999">Don't Know</option>
+                                        
                                         </select>
                                     </div>
                                     <small class="form-text text-muted text-help"></small>
@@ -1383,17 +757,7 @@ style="background-image: url(https://ganeshkongumatrimony.com/uploads/all/iajOd7
                                             <option style="display:none" value="">-- Select --</option>
                                             <option value="1">மேஷம் (Aries)</option>
                                             <option value="2">ரிஷபம் (Taurus)</option>
-                                            <option value="3">மிதுனம் (Gemini)</option>
-                                            <option value="4">கடகம் (Cancer)</option>
-                                            <option value="5">சிம்மம் (Leo)</option>
-                                            <option value="6">கன்னி (Virgo)</option>
-                                            <option value="7">துலாம் (Libra)</option>
-                                            <option value="8">விருச்சிகம் (Scorpio)</option>
-                                            <option value="9">தனுசு (Sagittarious)</option>
-                                            <option value="10">மகரம் (Capricorn)</option>
-                                            <option value="11">கும்பம் (Aquarious)</option>
-                                            <option value="12">மீனம் (Pisces)</option>
-                                            <option value="999">Don't Know</option>
+                                         
                                         </select>
                                     </div>
                                     <small class="form-text text-muted text-help"></small>

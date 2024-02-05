@@ -21,7 +21,7 @@ return new class extends Migration
             $table->foreignId('jathagam_id')->nullable();
             $table->foreignId('nakshatra_patham_id')->nullable();
             $table->date('date_of_birth')->nullable();
-            $table->date('time_of_birth')->nullable();
+            $table->time('time_of_birth')->nullable();
             $table->string('place_to_birth', 200)->nullable();
             $table->string('birth_dasa', 200)->nullable();
             $table->integer('birth_dasa_remaining_year')->nullable();

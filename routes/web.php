@@ -165,7 +165,12 @@ Route::name('admin.')->prefix('admin')->middleware(['auth', 'isAdmin'])->group(f
     Route::resource('registered_by', App\Http\Controllers\Admin\RegisteredByController::class); 
     Route::resource('body_type', App\Http\Controllers\Admin\BodyTypeController::class);
     Route::resource('color', App\Http\Controllers\Admin\ColorController::class); 
+    Route::resource('district', App\Http\Controllers\Admin\DistrictConroller::class); 
+    Route::resource('nakshatra_patham', App\Http\Controllers\Admin\NakshatraPathamController::class); 
+    Route::resource('navamsam', App\Http\Controllers\Admin\NavamsamController::class); 
+    Route::resource('rasi', App\Http\Controllers\Admin\RasiController::class); 
 
+    
 
 });
 

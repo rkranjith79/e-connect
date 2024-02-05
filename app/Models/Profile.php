@@ -24,7 +24,19 @@ class Profile extends Model
         "gender_id",
         "user_id",
         "email",
+        "expectation_jathagam_id",
+        "expectation_marital_status_id",
+        "expectation_work_place_id",
+        "expectation_nakshatra",
+        "expectation",
         "active"
+    ];
+
+    protected $casts = [
+        'expectation_jathagam_id' => "object",
+        'expectation_marital_status_id' => "object",
+        'expectation_work_place_id' => "object",
+
     ];
 
     public function user()
