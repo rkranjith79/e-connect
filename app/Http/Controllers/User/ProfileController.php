@@ -77,8 +77,6 @@ class ProfileController extends Controller
             "nakshatra_pathams" => $this->getPublishedData(NakshatraPatham::class),
             "rasis" => $this->getPublishedData(Rasi::class),
             "navamsams" => $this->getPublishedData(Navamsam::class),
-
-            
             
         ];
         return view('user.registration.index', compact('record'));
@@ -226,12 +224,15 @@ class ProfileController extends Controller
         
         if( $request->hasFile('photo_file') ) {
             $file = $request->file('photo_file');
-            $photo_file_path = $file->store('photos');  
+            $photo_file_path = $file->getClientOriginalName();
+            $file->storeAs('public/photos', $photo_file_path);  
         }
 
         if( $request->hasFile('jathagam_file') ) {
             $file = $request->file('jathagam_file');
-            $jathagam_file_path = $file->store('jathagam');
+            $jathagam_file_path = $file->getClientOriginalName();
+            $file->storeAs('public/jathagam', $jathagam_file_path);
+
         }
 
         $user = User::create([

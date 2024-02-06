@@ -43,4 +43,30 @@ class ProfileBasic extends Model
          "work_place_id",
          "father_occupation",
          "mother_occupation"];
+
+    public function district()
+    {
+        return $this->belongsTo(District::class);
+    } 
+
+    public function education()
+    {
+        return $this->belongsTo(Education::class);
+    } 
+
+    public function work()
+    {
+        return $this->belongsTo(Work::class);
+    } 
+
+    public function caste()
+    {
+        return $this->belongsTo(Caste::class);
+    } 
+
+    public function sub_caste()
+    {
+        return $this->belongsTo(SubCaste::class);
+    } 
+         
 }

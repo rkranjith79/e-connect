@@ -235,19 +235,55 @@
                 <div class="aiz-carousel gutters-10 half-outside-arrow pb-3" data-items="5" data-xl-items="4"
                     data-lg-items="4" data-md-items="3" data-sm-items="2" data-xs-items="1" data-arrows='true'
                     data-dots='true' data-infinite='true' data-autoplay='true'>
+                    
+                    @foreach ($data['brides'] as $profile)
+                        <div class="carousel-box">
+                            <div class="member-block position-relative overflow-hidden">
+                                <img data-lazy="{{ $profile->photo ?? '' }}"
+                                    class="img-fit mw-100 h-300px">
+                                <div class="w-100 p-3 z-1">
+                                    <div class="text-center">
+                                        <h6 class="font-weight-bold mb-1">{{ $profile->title ?? '-' }}</h6>
+                                        <h6 class="text-primary mb-0">{{ $profile->id ?? '-'}}</h6>
+                                        <p class="mb-0">வயது : <span class="font-weight-bold">{{ $profile->jathagam->age ?? '-' }}</span></p>
+                                        <p class="mb-0">படிப்பு : <span class="font-weight-bold">{{ $profile->title ?? '-' }}</span></p>
+                                        <p class="mb-0">இராசி : <span class="font-weight-bold">{{ $profile->jathagam->rasi_nakshatra->title ?? '-' }}</span></p>
+                                        <p class="mb-0">ஜாதகம் : <span class="font-weight-bold">{{ $profile->jathagam->jathagam->title ?? '-' }}</span></p>
+                                        <p class="mb-0">ஊர் : <span class="font-weight-bold">{{ $profile->basic->district->title ?? '-' }}</span></p>
+                                        <div class="text-center mt-2">
+                                            <a class="btn btn-circle btn-sm btn-primary mr-1" href="p/53tnc1s.html"
+                                                onclick="">ப்ரொபைல்</a>
+                                            <a class="btn btn-circle btn-sm btn-primary ml-1" href="j/53tnc1s.html"
+                                                target="_blank" onclick="">ஜாதகம்</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> 
+
+                    @endforeach
+                </div>
+
+
+
+                <div class="aiz-carousel gutters-10 half-outside-arrow py-3" data-items="5" data-xl-items="4"
+                    data-lg-items="4" data-md-items="3" data-sm-items="2" data-xs-items="1" data-arrows='true'
+                    data-dots='true' data-infinite='true' data-autoplay='true'>
+
+                    @foreach ($data['grooms'] as $profile)
                     <div class="carousel-box">
                         <div class="member-block position-relative overflow-hidden">
-                            <img data-lazy="https://ganeshkongumatrimony.com/uploads/profile_images/CIYP6R4iIcBNrskZcZXBBXfeS2u4iZLXjy8eYla4.jpg"
+                            <img data-lazy="{{ $profile->photo }}"
                                 class="img-fit mw-100 h-300px">
                             <div class="w-100 p-3 z-1">
                                 <div class="text-center">
-                                    <h6 class="font-weight-bold mb-1">பிரீத்திகா</h6>
-                                    <h6 class="text-primary mb-0">GK4525</h6>
-                                    <p class="mb-0">வயது : <span class="font-weight-bold">28</span></p>
-                                    <p class="mb-0">படிப்பு : <span class="font-weight-bold">MDS (Perio)</span></p>
-                                    <p class="mb-0">இராசி : <span class="font-weight-bold">கன்னி-உத்திரம்</span></p>
-                                    <p class="mb-0">ஜாதகம் : <span class="font-weight-bold">சுத்த ஜாதகம்</span></p>
-                                    <p class="mb-0">ஊர் : <span class="font-weight-bold">திருப்பூர்</span></p>
+                                    <h6 class="font-weight-bold mb-1">{{ $profile->title }}</h6>
+                                    <h6 class="text-primary mb-0">{{ $profile->id }}</h6>
+                                    <p class="mb-0">வயது : <span class="font-weight-bold">{{ $profile->jathagam->age ?? '-' }}</span></p>
+                                    <p class="mb-0">படிப்பு : <span class="font-weight-bold">{{ $profile->title ?? '-' }}</span></p>
+                                    <p class="mb-0">இராசி : <span class="font-weight-bold">{{ $profile->jathagam->rasi_nakshatra->title ?? '-' }}</span></p>
+                                    <p class="mb-0">ஜாதகம் : <span class="font-weight-bold">{{ $profile->jathagam->jathagam->title ?? '-' }}</span></p>
+                                    <p class="mb-0">ஊர் : <span class="font-weight-bold">{{ $profile->basic->district->title ?? '-' }}</span></p>
                                     <div class="text-center mt-2">
                                         <a class="btn btn-circle btn-sm btn-primary mr-1" href="p/53tnc1s.html"
                                             onclick="">ப்ரொபைல்</a>
@@ -257,471 +293,9 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="carousel-box">
-                        <div class="member-block position-relative overflow-hidden">
-                            <img data-lazy="https://ganeshkongumatrimony.com/uploads/profile_images/tmEvqai7SskCI1GE7nRqGeMnRZ46l64mmjzZfONC.jpg"
-                                class="img-fit mw-100 h-300px">
-                            <div class="w-100 p-3 z-1">
-                                <div class="text-center">
-                                    <h6 class="font-weight-bold mb-1">மணிஷா</h6>
-                                    <h6 class="text-primary mb-0">GK4524</h6>
-                                    <p class="mb-0">வயது : <span class="font-weight-bold">27</span></p>
-                                    <p class="mb-0">படிப்பு : <span class="font-weight-bold">MBA</span></p>
-                                    <p class="mb-0">இராசி : <span class="font-weight-bold">சிம்மம்-மகம்</span></p>
-                                    <p class="mb-0">ஜாதகம் : <span class="font-weight-bold">சுத்த ஜாதகம்</span></p>
-                                    <p class="mb-0">ஊர் : <span class="font-weight-bold">திருப்பூர்</span></p>
-                                    <div class="text-center mt-2">
-                                        <a class="btn btn-circle btn-sm btn-primary mr-1" href="p/51mt2tc.html"
-                                            onclick="">ப்ரொபைல்</a>
-                                        <a class="btn btn-circle btn-sm btn-primary ml-1" href="j/51mt2tc.html"
-                                            target="_blank" onclick="">ஜாதகம்</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-box">
-                        <div class="member-block position-relative overflow-hidden">
-                            <img data-lazy="https://ganeshkongumatrimony.com/uploads/profile_images/OhHEmneORWZBpi6YR8PEWD6Mig4UoBiEQLWAiaOH.jpg"
-                                class="img-fit mw-100 h-300px">
-                            <div class="w-100 p-3 z-1">
-                                <div class="text-center">
-                                    <h6 class="font-weight-bold mb-1">அனு</h6>
-                                    <h6 class="text-primary mb-0">GK4521</h6>
-                                    <p class="mb-0">வயது : <span class="font-weight-bold">31</span></p>
-                                    <p class="mb-0">படிப்பு : <span class="font-weight-bold">B.A,B.L (Hons)
-                                            ,ACS,</span></p>
-                                    <p class="mb-0">இராசி : <span class="font-weight-bold">மேஷம்-கிருத்திகை</span>
-                                    </p>
-                                    <p class="mb-0">ஜாதகம் : <span class="font-weight-bold">சுத்த ஜாதகம்</span></p>
-                                    <p class="mb-0">ஊர் : <span class="font-weight-bold">நாமக்கல்</span></p>
-                                    <div class="text-center mt-2">
-                                        <a class="btn btn-circle btn-sm btn-primary mr-1" href="p/4t2c99w.html"
-                                            onclick="">ப்ரொபைல்</a>
-                                        <a class="btn btn-circle btn-sm btn-primary ml-1" href="j/4t2c99w.html"
-                                            target="_blank" onclick="">ஜாதகம்</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-box">
-                        <div class="member-block position-relative overflow-hidden">
-                            <img data-lazy="https://ganeshkongumatrimony.com/uploads/profile_images/FYSDLSEYgGNqsffUCvfGpKbMpWZmfX6a0f4OSPob.jpg"
-                                class="img-fit mw-100 h-300px">
-                            <div class="w-100 p-3 z-1">
-                                <div class="text-center">
-                                    <h6 class="font-weight-bold mb-1">அருணி ஆதித்யா</h6>
-                                    <h6 class="text-primary mb-0">GK4507</h6>
-                                    <p class="mb-0">வயது : <span class="font-weight-bold">27</span></p>
-                                    <p class="mb-0">படிப்பு : <span class="font-weight-bold">MBBS ,MD</span></p>
-                                    <p class="mb-0">இராசி : <span class="font-weight-bold">மகரம்-உத்திராடம்</span>
-                                    </p>
-                                    <p class="mb-0">ஜாதகம் : <span class="font-weight-bold">ராகு கேது ஜாதகம்</span>
-                                    </p>
-                                    <p class="mb-0">ஊர் : <span class="font-weight-bold">திருப்பூர்</span></p>
-                                    <div class="text-center mt-2">
-                                        <a class="btn btn-circle btn-sm btn-primary mr-1" href="p/3w8oglc.html"
-                                            onclick="">ப்ரொபைல்</a>
-                                        <a class="btn btn-circle btn-sm btn-primary ml-1" href="j/3w8oglc.html"
-                                            target="_blank" onclick="">ஜாதகம்</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-box">
-                        <div class="member-block position-relative overflow-hidden">
-                            <img data-lazy="https://ganeshkongumatrimony.com/uploads/profile_images/cGQSKZfy3QNiTnPkf5dfTVhm6OaQX8e2LPjj0TIp.jpg"
-                                class="img-fit mw-100 h-300px">
-                            <div class="w-100 p-3 z-1">
-                                <div class="text-center">
-                                    <h6 class="font-weight-bold mb-1">மோகனபிரியா</h6>
-                                    <h6 class="text-primary mb-0">GK4476</h6>
-                                    <p class="mb-0">வயது : <span class="font-weight-bold">27</span></p>
-                                    <p class="mb-0">படிப்பு : <span class="font-weight-bold">BE</span></p>
-                                    <p class="mb-0">இராசி : <span class="font-weight-bold">சிம்மம்-பூரம்</span></p>
-                                    <p class="mb-0">ஜாதகம் : <span class="font-weight-bold">சுத்த ஜாதகம்</span></p>
-                                    <p class="mb-0">ஊர் : <span class="font-weight-bold">கோவை</span></p>
-                                    <div class="text-center mt-2">
-                                        <a class="btn btn-circle btn-sm btn-primary mr-1" href="p/1w0w3oq.html"
-                                            onclick="">ப்ரொபைல்</a>
-                                        <a class="btn btn-circle btn-sm btn-primary ml-1" href="j/1w0w3oq.html"
-                                            target="_blank" onclick="">ஜாதகம்</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-box">
-                        <div class="member-block position-relative overflow-hidden">
-                            <img data-lazy="https://ganeshkongumatrimony.com/uploads/profile_images/srL5qoaIGFqe3uEdVvlwW6cg4bat3a64JZvRV8Mt21.png"
-                                class="img-fit mw-100 h-300px">
-                            <div class="w-100 p-3 z-1">
-                                <div class="text-center">
-                                    <h6 class="font-weight-bold mb-1">ஹரிணி</h6>
-                                    <h6 class="text-primary mb-0">GK4467</h6>
-                                    <p class="mb-0">வயது : <span class="font-weight-bold">27</span></p>
-                                    <p class="mb-0">படிப்பு : <span class="font-weight-bold">BTech fashion
-                                            tech</span></p>
-                                    <p class="mb-0">இராசி : <span class="font-weight-bold">மிதுனம்-திருவாதிரை</span>
-                                    </p>
-                                    <p class="mb-0">ஜாதகம் : <span class="font-weight-bold">பரிகார செவ்வாய்
-                                            ஜாதகம்</span></p>
-                                    <p class="mb-0">ஊர் : <span class="font-weight-bold">நாமக்கல்</span></p>
-                                    <div class="text-center mt-2">
-                                        <a class="btn btn-circle btn-sm btn-primary mr-1" href="p/1c7fn0i.html"
-                                            onclick="">ப்ரொபைல்</a>
-                                        <a class="btn btn-circle btn-sm btn-primary ml-1" href="j/1c7fn0i.html"
-                                            target="_blank" onclick="">ஜாதகம்</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-box">
-                        <div class="member-block position-relative overflow-hidden">
-                            <img data-lazy="https://ganeshkongumatrimony.com/uploads/profile_images/T3vc1wVFd2F3HiQfazwQebcK8xEW6J2uXcNCmH3R56.png"
-                                class="img-fit mw-100 h-300px">
-                            <div class="w-100 p-3 z-1">
-                                <div class="text-center">
-                                    <h6 class="font-weight-bold mb-1">சரண்யா ஶ்ரீ</h6>
-                                    <h6 class="text-primary mb-0">GK4461</h6>
-                                    <p class="mb-0">வயது : <span class="font-weight-bold">25</span></p>
-                                    <p class="mb-0">படிப்பு : <span class="font-weight-bold">BE ( Civil )</span></p>
-                                    <p class="mb-0">இராசி : <span class="font-weight-bold">மிதுனம்-திருவாதிரை</span>
-                                    </p>
-                                    <p class="mb-0">ஜாதகம் : <span class="font-weight-bold">ராகு கேது,
-                                            செவ்வாய்</span></p>
-                                    <p class="mb-0">ஊர் : <span class="font-weight-bold">கோவை</span></p>
-                                    <div class="text-center mt-2">
-                                        <a class="btn btn-circle btn-sm btn-primary mr-1" href="p/x0g1to.html"
-                                            onclick="">ப்ரொபைல்</a>
-                                        <a class="btn btn-circle btn-sm btn-primary ml-1" href="j/x0g1to.html"
-                                            target="_blank" onclick="">ஜாதகம்</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-box">
-                        <div class="member-block position-relative overflow-hidden">
-                            <img data-lazy="https://ganeshkongumatrimony.com/uploads/profile_images/uXjYCy64TRlGvXdvFLTDGigB8CRcGzBaN2nCj7YL3034.png"
-                                class="img-fit mw-100 h-300px">
-                            <div class="w-100 p-3 z-1">
-                                <div class="text-center">
-                                    <h6 class="font-weight-bold mb-1">அம்ரிதா ப்ரீத்தி</h6>
-                                    <h6 class="text-primary mb-0">GK4457</h6>
-                                    <p class="mb-0">வயது : <span class="font-weight-bold">25</span></p>
-                                    <p class="mb-0">படிப்பு : <span class="font-weight-bold">மருத்துவம்</span></p>
-                                    <p class="mb-0">இராசி : <span class="font-weight-bold">மிதுனம்-திருவாதிரை</span>
-                                    </p>
-                                    <p class="mb-0">ஜாதகம் : <span class="font-weight-bold">சுத்த ஜாதகம்</span></p>
-                                    <p class="mb-0">ஊர் : <span class="font-weight-bold">திருப்பூர்</span></p>
-                                    <div class="text-center mt-2">
-                                        <a class="btn btn-circle btn-sm btn-primary mr-1" href="p/o74x3s.html"
-                                            onclick="">ப்ரொபைல்</a>
-                                        <a class="btn btn-circle btn-sm btn-primary ml-1" href="j/o74x3s.html"
-                                            target="_blank" onclick="">ஜாதகம்</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-box">
-                        <div class="member-block position-relative overflow-hidden">
-                            <img data-lazy="https://ganeshkongumatrimony.com/assets/img/avatar-place.png"
-                                class="img-fit mw-100 h-300px">
-                            <div class="w-100 p-3 z-1">
-                                <div class="text-center">
-                                    <h6 class="font-weight-bold mb-1">அனுவர்ஷினி</h6>
-                                    <h6 class="text-primary mb-0">GK4454</h6>
-                                    <p class="mb-0">வயது : <span class="font-weight-bold">18</span></p>
-                                    <p class="mb-0">படிப்பு : <span class="font-weight-bold">BBA RM</span></p>
-                                    <p class="mb-0">இராசி : <span class="font-weight-bold">தனுசு-மூலம்</span></p>
-                                    <p class="mb-0">ஜாதகம் : <span class="font-weight-bold">சுத்த ஜாதகம்</span></p>
-                                    <p class="mb-0">ஊர் : <span class="font-weight-bold">கோவை</span></p>
-                                    <div class="text-center mt-2">
-                                        <a class="btn btn-circle btn-sm btn-primary mr-1" href="p/hkm5ie.html"
-                                            onclick="">ப்ரொபைல்</a>
-                                        <a class="btn btn-circle btn-sm btn-primary ml-1" href="j/hkm5ie.html"
-                                            target="_blank" onclick="">ஜாதகம்</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-box">
-                        <div class="member-block position-relative overflow-hidden">
-                            <img data-lazy="https://ganeshkongumatrimony.com/uploads/profile_images/eqUALeZmiGDhB2U8dHpaOOREwp77hbdM9lyRe2JY27.png"
-                                class="img-fit mw-100 h-300px">
-                            <div class="w-100 p-3 z-1">
-                                <div class="text-center">
-                                    <h6 class="font-weight-bold mb-1">வித்யா</h6>
-                                    <h6 class="text-primary mb-0">GK4451</h6>
-                                    <p class="mb-0">வயது : <span class="font-weight-bold">27</span></p>
-                                    <p class="mb-0">படிப்பு : <span class="font-weight-bold">B. Arch.</span></p>
-                                    <p class="mb-0">இராசி : <span class="font-weight-bold">ரிஷபம்-ரோகினி</span></p>
-                                    <p class="mb-0">ஜாதகம் : <span class="font-weight-bold">சுத்த ஜாதகம்</span></p>
-                                    <p class="mb-0">ஊர் : <span class="font-weight-bold">ஈரோடு</span></p>
-                                    <div class="text-center mt-2">
-                                        <a class="btn btn-circle btn-sm btn-primary mr-1" href="p/b05bx0.html"
-                                            onclick="">ப்ரொபைல்</a>
-                                        <a class="btn btn-circle btn-sm btn-primary ml-1" href="j/b05bx0.html"
-                                            target="_blank" onclick="">ஜாதகம்</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="aiz-carousel gutters-10 half-outside-arrow py-3" data-items="5" data-xl-items="4"
-                    data-lg-items="4" data-md-items="3" data-sm-items="2" data-xs-items="1" data-arrows='true'
-                    data-dots='true' data-infinite='true' data-autoplay='true'>
-                    <div class="carousel-box">
-                        <div class="member-block position-relative overflow-hidden">
-                            <img data-lazy="https://ganeshkongumatrimony.com/uploads/profile_images/FAVDaXLeNJhz4xMj1HRjomWRgyPTexpG5duxT7Zw.jpg"
-                                class="img-fit mw-100 h-300px">
-                            <div class="w-100 p-3 z-1">
-                                <div class="text-center">
-                                    <h6 class="font-weight-bold mb-1">கௌதம்</h6>
-                                    <h6 class="text-primary mb-0">GK4503</h6>
-                                    <p class="mb-0">வயது : <span class="font-weight-bold">33</span></p>
-                                    <p class="mb-0">படிப்பு : <span class="font-weight-bold">B. Com</span></p>
-                                    <p class="mb-0">இராசி : <span class="font-weight-bold">கும்பம்-சதயம்</span></p>
-                                    <p class="mb-0">ஜாதகம் : <span class="font-weight-bold">சுத்த ஜாதகம்</span></p>
-                                    <p class="mb-0">ஊர் : <span class="font-weight-bold">திருப்பூர்</span></p>
-                                    <div class="text-center mt-2">
-                                        <a class="btn btn-circle btn-sm btn-primary mr-1" href="p/3nfddtg.html"
-                                            onclick="">ப்ரொபைல்</a>
-                                        <a class="btn btn-circle btn-sm btn-primary ml-1" href="j/3nfddtg.html"
-                                            target="_blank" onclick="">ஜாதகம்</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-box">
-                        <div class="member-block position-relative overflow-hidden">
-                            <img data-lazy="https://ganeshkongumatrimony.com/uploads/profile_images/LiRALla76PEkch4RsOwwEa1VPVcTwI7TScut609m78.png"
-                                class="img-fit mw-100 h-300px">
-                            <div class="w-100 p-3 z-1">
-                                <div class="text-center">
-                                    <h6 class="font-weight-bold mb-1">பிரசாந்த்</h6>
-                                    <h6 class="text-primary mb-0">GK4495</h6>
-                                    <p class="mb-0">வயது : <span class="font-weight-bold">33</span></p>
-                                    <p class="mb-0">படிப்பு : <span class="font-weight-bold">B. E</span></p>
-                                    <p class="mb-0">இராசி : <span class="font-weight-bold">கன்னி-உத்திரம்</span></p>
-                                    <p class="mb-0">ஜாதகம் : <span class="font-weight-bold">ராகு கேது ஜாதகம்</span>
-                                    </p>
-                                    <p class="mb-0">ஊர் : <span class="font-weight-bold">கோவை</span></p>
-                                    <div class="text-center mt-2">
-                                        <a class="btn btn-circle btn-sm btn-primary mr-1" href="p/35sp8bo.html"
-                                            onclick="">ப்ரொபைல்</a>
-                                        <a class="btn btn-circle btn-sm btn-primary ml-1" href="j/35sp8bo.html"
-                                            target="_blank" onclick="">ஜாதகம்</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-box">
-                        <div class="member-block position-relative overflow-hidden">
-                            <img data-lazy="https://ganeshkongumatrimony.com/uploads/profile_images/dm91FvIQBB8VGgyJbjjCVN2jW1vBNy0zM88XKmmU.jpg"
-                                class="img-fit mw-100 h-300px">
-                            <div class="w-100 p-3 z-1">
-                                <div class="text-center">
-                                    <h6 class="font-weight-bold mb-1">ப இராஜகணேஷ்</h6>
-                                    <h6 class="text-primary mb-0">GK4485</h6>
-                                    <p class="mb-0">வயது : <span class="font-weight-bold">31</span></p>
-                                    <p class="mb-0">படிப்பு : <span class="font-weight-bold">B.E MECHATRONICS
-                                            ENGINEERING</span></p>
-                                    <p class="mb-0">இராசி : <span class="font-weight-bold">துலாம்-சித்திரை</span>
-                                    </p>
-                                    <p class="mb-0">ஜாதகம் : <span class="font-weight-bold">சுத்த ஜாதகம்</span></p>
-                                    <p class="mb-0">ஊர் : <span class="font-weight-bold">திருப்பூர்</span></p>
-                                    <div class="text-center mt-2">
-                                        <a class="btn btn-circle btn-sm btn-primary mr-1" href="p/2hseif0.html"
-                                            onclick="">ப்ரொபைல்</a>
-                                        <a class="btn btn-circle btn-sm btn-primary ml-1" href="j/2hseif0.html"
-                                            target="_blank" onclick="">ஜாதகம்</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-box">
-                        <div class="member-block position-relative overflow-hidden">
-                            <img data-lazy="https://ganeshkongumatrimony.com/uploads/profile_images/QAMVpmU6zStJdzvVHbQSXda67ppShrbA8IIEQDHX51.png"
-                                class="img-fit mw-100 h-300px">
-                            <div class="w-100 p-3 z-1">
-                                <div class="text-center">
-                                    <h6 class="font-weight-bold mb-1">யோகசேகர்</h6>
-                                    <h6 class="text-primary mb-0">GK4474</h6>
-                                    <p class="mb-0">வயது : <span class="font-weight-bold">29</span></p>
-                                    <p class="mb-0">படிப்பு : <span class="font-weight-bold">MD Anaesthesia, AIIMS
-                                            New Delhi</span></p>
-                                    <p class="mb-0">இராசி : <span class="font-weight-bold">தனுசு-மூலம்</span></p>
-                                    <p class="mb-0">ஜாதகம் : <span class="font-weight-bold">பரிகார செவ்வாய்
-                                            ஜாதகம்</span></p>
-                                    <p class="mb-0">ஊர் : <span class="font-weight-bold">நாமக்கல்</span></p>
-                                    <div class="text-center mt-2">
-                                        <a class="btn btn-circle btn-sm btn-primary mr-1" href="p/1rl9jbs.html"
-                                            onclick="">ப்ரொபைல்</a>
-                                        <a class="btn btn-circle btn-sm btn-primary ml-1" href="j/1rl9jbs.html"
-                                            target="_blank" onclick="">ஜாதகம்</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-box">
-                        <div class="member-block position-relative overflow-hidden">
-                            <img data-lazy="https://ganeshkongumatrimony.com/uploads/all/qjCI0e92BuHqaQBzOpEULSNb4w55P27jQiO6Tmt2.jpg"
-                                class="img-fit mw-100 h-300px">
-                            <div class="w-100 p-3 z-1">
-                                <div class="text-center">
-                                    <h6 class="font-weight-bold mb-1">விவேகானந்தன்</h6>
-                                    <h6 class="text-primary mb-0">GK4473</h6>
-                                    <p class="mb-0">வயது : <span class="font-weight-bold">27</span></p>
-                                    <p class="mb-0">படிப்பு : <span class="font-weight-bold">Master&#039;s
-                                            Degree</span></p>
-                                    <p class="mb-0">இராசி : <span class="font-weight-bold">ரிஷபம்-ரோகினி</span></p>
-                                    <p class="mb-0">ஜாதகம் : <span class="font-weight-bold">செவ்வாய் ஜாதகம்</span>
-                                    </p>
-                                    <p class="mb-0">ஊர் : <span class="font-weight-bold">சென்னை</span></p>
-                                    <div class="text-center mt-2">
-                                        <a class="btn btn-circle btn-sm btn-primary mr-1" href="p/1pefa5c.html"
-                                            onclick="">ப்ரொபைல்</a>
-                                        <a class="btn btn-circle btn-sm btn-primary ml-1" href="j/1pefa5c.html"
-                                            target="_blank" onclick="">ஜாதகம்</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-box">
-                        <div class="member-block position-relative overflow-hidden">
-                            <img data-lazy="https://ganeshkongumatrimony.com/uploads/profile_images/DNVRZibvsUdKuXKVLR0YSZ6BUPkewMo9Xyn7e5wU42.png"
-                                class="img-fit mw-100 h-300px">
-                            <div class="w-100 p-3 z-1">
-                                <div class="text-center">
-                                    <h6 class="font-weight-bold mb-1">மதன்</h6>
-                                    <h6 class="text-primary mb-0">GK4464</h6>
-                                    <p class="mb-0">வயது : <span class="font-weight-bold">33</span></p>
-                                    <p class="mb-0">படிப்பு : <span class="font-weight-bold">MBA</span></p>
-                                    <p class="mb-0">இராசி : <span class="font-weight-bold">சிம்மம்-மகம்</span></p>
-                                    <p class="mb-0">ஜாதகம் : <span class="font-weight-bold">சுத்த ஜாதகம்</span></p>
-                                    <p class="mb-0">ஊர் : <span class="font-weight-bold">ஈரோடு</span></p>
-                                    <div class="text-center mt-2">
-                                        <a class="btn btn-circle btn-sm btn-primary mr-1" href="p/15kwtf4.html"
-                                            onclick="">ப்ரொபைல்</a>
-                                        <a class="btn btn-circle btn-sm btn-primary ml-1" href="j/15kwtf4.html"
-                                            target="_blank" onclick="">ஜாதகம்</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-box">
-                        <div class="member-block position-relative overflow-hidden">
-                            <img data-lazy="https://ganeshkongumatrimony.com/uploads/profile_images/d0RdFSDAP10NBaZOtABh5eySiu1BwRPvHUZpg9DO45.png"
-                                class="img-fit mw-100 h-300px">
-                            <div class="w-100 p-3 z-1">
-                                <div class="text-center">
-                                    <h6 class="font-weight-bold mb-1">ராஜ்குமார்</h6>
-                                    <h6 class="text-primary mb-0">GK4443</h6>
-                                    <p class="mb-0">வயது : <span class="font-weight-bold">32</span></p>
-                                    <p class="mb-0">படிப்பு : <span class="font-weight-bold">Marine</span></p>
-                                    <p class="mb-0">இராசி : <span class="font-weight-bold">மகரம்-திருவோணம்</span>
-                                    </p>
-                                    <p class="mb-0">ஜாதகம் : <span class="font-weight-bold">செவ்வாய் ஜாதகம்</span>
-                                    </p>
-                                    <p class="mb-0">ஊர் : <span class="font-weight-bold">திருப்பூர்</span></p>
-                                    <div class="text-center mt-2">
-                                        <a class="btn btn-circle btn-sm btn-primary mr-1" href="p/69gm7g9.html"
-                                            onclick="">ப்ரொபைல்</a>
-                                        <a class="btn btn-circle btn-sm btn-primary ml-1" href="j/69gm7g9.html"
-                                            target="_blank" onclick="">ஜாதகம்</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-box">
-                        <div class="member-block position-relative overflow-hidden">
-                            <img data-lazy="https://ganeshkongumatrimony.com/uploads/profile_images/e28JcGHyW6BV9ELSjaND1uIbwg6yyZbQHm6JTtZD.jpg"
-                                class="img-fit mw-100 h-300px">
-                            <div class="w-100 p-3 z-1">
-                                <div class="text-center">
-                                    <h6 class="font-weight-bold mb-1">சிவசஷாங்க்</h6>
-                                    <h6 class="text-primary mb-0">GK4442</h6>
-                                    <p class="mb-0">வயது : <span class="font-weight-bold">26</span></p>
-                                    <p class="mb-0">படிப்பு : <span class="font-weight-bold">B.E COMPUTER
-                                            SCIENCE</span></p>
-                                    <p class="mb-0">இராசி : <span class="font-weight-bold">மீனம்-உத்திரட்டாதி</span>
-                                    </p>
-                                    <p class="mb-0">ஜாதகம் : <span class="font-weight-bold">சுத்த ஜாதகம்</span></p>
-                                    <p class="mb-0">ஊர் : <span class="font-weight-bold">கோவை</span></p>
-                                    <div class="text-center mt-2">
-                                        <a class="btn btn-circle btn-sm btn-primary mr-1" href="p/679rw9r.html"
-                                            onclick="">ப்ரொபைல்</a>
-                                        <a class="btn btn-circle btn-sm btn-primary ml-1" href="j/679rw9r.html"
-                                            target="_blank" onclick="">ஜாதகம்</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-box">
-                        <div class="member-block position-relative overflow-hidden">
-                            <img data-lazy="https://ganeshkongumatrimony.com/uploads/profile_images/l3UXPnf3XjjCiQi0nGOlPZZcfcMLs0By6SXEDTJB62.png"
-                                class="img-fit mw-100 h-300px">
-                            <div class="w-100 p-3 z-1">
-                                <div class="text-center">
-                                    <h6 class="font-weight-bold mb-1">லோகேஷ் குமார்</h6>
-                                    <h6 class="text-primary mb-0">GK4435</h6>
-                                    <p class="mb-0">வயது : <span class="font-weight-bold">27</span></p>
-                                    <p class="mb-0">படிப்பு : <span class="font-weight-bold">Bsc computer
-                                            science</span></p>
-                                    <p class="mb-0">இராசி : <span class="font-weight-bold">மேஷம்-பரணி</span></p>
-                                    <p class="mb-0">ஜாதகம் : <span class="font-weight-bold">சுத்த ஜாதகம்</span></p>
-                                    <p class="mb-0">ஊர் : <span class="font-weight-bold">திருப்பூர்</span></p>
-                                    <div class="text-center mt-2">
-                                        <a class="btn btn-circle btn-sm btn-primary mr-1" href="p/5pu01wh.html"
-                                            onclick="">ப்ரொபைல்</a>
-                                        <a class="btn btn-circle btn-sm btn-primary ml-1" href="j/5pu01wh.html"
-                                            target="_blank" onclick="">ஜாதகம்</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-box">
-                        <div class="member-block position-relative overflow-hidden">
-                            <img data-lazy="https://ganeshkongumatrimony.com/uploads/profile_images/quWZLYFr2eFoomB6M3He3TmtqB7VUpx6dblX7Mef.jpg"
-                                class="img-fit mw-100 h-300px">
-                            <div class="w-100 p-3 z-1">
-                                <div class="text-center">
-                                    <h6 class="font-weight-bold mb-1">ஆனந்தகுமார்</h6>
-                                    <h6 class="text-primary mb-0">GK4432</h6>
-                                    <p class="mb-0">வயது : <span class="font-weight-bold">34</span></p>
-                                    <p class="mb-0">படிப்பு : <span class="font-weight-bold">BE</span></p>
-                                    <p class="mb-0">இராசி : <span class="font-weight-bold">மேஷம்-பரணி</span></p>
-                                    <p class="mb-0">ஜாதகம் : <span class="font-weight-bold">செவ்வாய் ஜாதகம்</span>
-                                    </p>
-                                    <p class="mb-0">ஊர் : <span class="font-weight-bold">கோவை</span></p>
-                                    <div class="text-center mt-2">
-                                        <a class="btn btn-circle btn-sm btn-primary mr-1" href="p/5j9h8d3.html"
-                                            onclick="">ப்ரொபைல்</a>
-                                        <a class="btn btn-circle btn-sm btn-primary ml-1" href="j/5j9h8d3.html"
-                                            target="_blank" onclick="">ஜாதகம்</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    </div> 
+                    
+                    @endforeach
                 </div>
             </div>
         </section>

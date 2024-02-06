@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Casts\Json;
+use Carbon\Carbon;
 
 class profileJathagam extends Model
 {
@@ -31,5 +32,20 @@ class profileJathagam extends Model
         'rasi' => "object",
         'navamsam' => "object",
     ];
+
+    public function getAgeAttribute()
+    {
+        return Carbon::parse($this->attributes['date_of_birth'])->age;
+    }
+
+    public function rasi_nakshatra()
+    {
+        return $this->belongsTo(RasiNakshatra::class);
+    }
+
+    public function jathagam()
+    {
+        return $this->belongsTo(Jathagam::class);
+    }
 
 }

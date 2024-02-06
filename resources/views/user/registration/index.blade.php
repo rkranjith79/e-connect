@@ -77,9 +77,7 @@
         function submitForm() {
             var formData = $("#registration_form").serialize(); // Serialize the form data
 
-            var formData = new FormData(document.getElementById('registration_form'));
-
-    
+            var formData = new FormData(document.getElementById('registration_form'));  
 
             formData.append('photo_file', $('input[name=photo_file]')[0].files[0]);
             formData.append('jathagam_file', $('input[name=jathagam_file]')[0].files[0]);

@@ -4,7 +4,7 @@ namespace App\Http\Controllers\User;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
+use App\Models\Profile;
 
 class MemberController extends Controller
 {
@@ -26,7 +26,15 @@ class MemberController extends Controller
 
     public function index()
     {
-        return view('user.member-listing');
+        $data['grooms'] = Profile::selectColumns()->groom()->get();
+        $data['brides'] = Profile::selectColumns()->bride()->get();
+        return view('user.index', compact('data'));
+    }
+
+    public function listing()
+    {
+        $data['profiles'] = Profile::selectColumns()->get();
+        return view('user.member-listing', compact('data'));
     }
 
     public function jathagam()

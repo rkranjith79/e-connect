@@ -11,4 +11,10 @@ class Gender extends MasterModel
     use HasFactory;
     
     protected $guarded = [];
+
+    public function profiles()
+    {
+        return $this->hasMany(Profile::class);
+    }
+
 }

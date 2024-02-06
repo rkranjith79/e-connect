@@ -83,9 +83,48 @@ class Profile extends Model
     public function registered_by()
     {
         return $this->belongsTo(RegisteredBy::class);
-    }  
+    } 
+    
+    public function basic()
+    {
+        return $this->hasOne(ProfileBasic::class);
+    }
+    
+    public function jathagam()
+    {
+        return $this->hasOne(profileJathagam::class);
+    }
     
     public function getModelData($data){
         // Full data get 
     }
+
+    
+    public function scopeBride($query)
+    {
+        return $query->where('gender_id', 2)->where('active', 1);
+    }
+
+    public function scopeGroom($query)
+    {
+        return $query->where('gender_id', 1)->where('active', 1);
+    }
+
+    public function scopeSelectColumns($query)
+    {
+        return $query->with([]);
+    }
+
+    public function getPhotoAttribute()
+    {
+        return !empty($this->attributes['photo_file']) ? 
+                asset("storage/photos/".$this->attributes['photo_file'] )
+                    : (
+                        $this->attributes['gender_id'] == 1 ?  
+                            asset('img/profile/groom.jpg') 
+                            :
+                            asset('img/profile/bride.jpg')
+                    );
+    }
+    
 }
