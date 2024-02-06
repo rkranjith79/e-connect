@@ -23,7 +23,8 @@ class profileJathagam extends Model
         "birth_dasa_remaining_month",
         "birth_dasa_remaining_day",
         "rasi",
-        "navamsam"
+        "navamsam",
+        "jathagam_file"
     ];
 
     protected $casts = [

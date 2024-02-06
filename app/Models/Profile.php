@@ -29,7 +29,8 @@ class Profile extends Model
         "expectation_work_place_id",
         "expectation_nakshatra",
         "expectation",
-        "active"
+        "active",
+        "photo_file",
     ];
 
     protected $casts = [

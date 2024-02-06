@@ -96,9 +96,14 @@ class ProfileController extends Controller
 
     public function store(Request $request)
     {
+        
+       
+        
         // Use Request Validation 
         //dd($request->time_of_birth);
         $validator = Validator::make($request->all(), [
+            'photo_file' => ['required', 'image', 'mimes:jpeg,jpg,png', 'max:2048'], 
+            'jathagam_file' => ['required', 'image', 'mimes:jpeg,jpg,png', 'max:2048'],
             'title' => ['required', 'max:100'],
             'email' => ['required', 'unique:users', 'max:100'],
             'gender_id' => ['required'],
@@ -200,13 +205,6 @@ class ProfileController extends Controller
     
         ]);
         
-        $rasi = [];
-        $navamsam = [];
-        for($i=1; $i<=12; $i++) {
-            $rasi[$i] = $request->{'rasi_'.$i};
-            $navamsam[$i] = $request->{'navamsam_'.$i};
-        };
-        
         
         
         //No need this
@@ -215,6 +213,25 @@ class ProfileController extends Controller
                 'status' => 400,
                 'errors' => $validator->messages(),
             ]);
+        }
+        
+        $rasi = [];
+        $navamsam = [];
+        for($i=1; $i<=12; $i++) {
+            $rasi[$i] = $request->{'rasi_'.$i};
+            $navamsam[$i] = $request->{'navamsam_'.$i};
+        };
+
+        $photo_file_path = $jathagam_file_path = "";
+        
+        if( $request->hasFile('photo_file') ) {
+            $file = $request->file('photo_file');
+            $photo_file_path = $file->store('photos');  
+        }
+
+        if( $request->hasFile('jathagam_file') ) {
+            $file = $request->file('jathagam_file');
+            $jathagam_file_path = $file->store('jathagam');
         }
 
         $user = User::create([
@@ -241,6 +258,7 @@ class ProfileController extends Controller
             "expectation_work_place_id" => $request->expectation_work_place_id,
             "expectation_nakshatra" => $request->expectation_nakshatra,
             "expectation" => $request->expectation,
+            "photo_file" => $photo_file_path,
             "active" => $request->active == true ? '1' : '0',
         ]);
 
@@ -293,8 +311,8 @@ class ProfileController extends Controller
             "birth_dasa_remaining_month" => $request->birth_dasa_remaining_month,
             "birth_dasa_remaining_day" => $request->birth_dasa_remaining_day,
             "rasi" => $rasi,
-            "navamsam" => $navamsam
-
+            "navamsam" => $navamsam,
+            "jathagam_file" => $jathagam_file_path
         ]);
     }
 
