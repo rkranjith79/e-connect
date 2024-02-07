@@ -17,7 +17,6 @@ class ReligionController extends MasterController
         $this->pageData['tables'] = "religions";
         $this->pageData['prefix_url'] = "religion";
 
-        
         $this->modal = new Religion;
     }
 

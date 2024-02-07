@@ -23,7 +23,7 @@
                         </li>
                         <li class="list-inline-item">
                             <a class="btn btn-sm btn-primary text-white fw-600 py-1 border"
-                                href="register.html">பதிவு</a>
+                                href="{{ route('user.registers') }}">பதிவு</a>
                         </li>
                     </ul>
                 </div>
@@ -35,7 +35,7 @@
             <div class="container px-0 px-md-3">
                 <div class="d-lg-flex justify-content-between text-center text-lg-left">
                     <div class="logo">
-                        <a href="index.html" class="logo-img d-inline-block">
+                        <a href="{{ url('/')}}" class="logo-img d-inline-block">
                             <img src="{{ asset('img/logo-e-connet.png') }}"
                                 alt="E-Connect Matrimony" class="mw-100 h-auto">
                         </a>
@@ -50,7 +50,7 @@
                         class="d-none mb-0 pl-0 ml-lg-auto d-lg-flex align-items-stretch justify-content-center justify-content-lg-start mobile-hor-swipe">
                         <li class="d-inline-block d-lg-flex pb-1 bg-primary-grad">
                             <a class="nav-link text-uppercase fw-700 fs-15 d-flex align-items-center bg-white py-2"
-                                href="{{ route('home') }}">
+                                href="{{ url('/') }}">
                                 <span class="text-primary-grad mb-n1">Home</span>
                             </a>
                         </li>

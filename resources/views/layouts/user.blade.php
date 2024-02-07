@@ -154,6 +154,7 @@
     <script src="{{ asset('js/vendors.js') }}"></script>
     <script src="{{ asset('js/aiz-core.js') }}"></script>
     <script src="{{ asset('js/custom-script.js') }}"></script>
+    <script src="{{ asset('js/jasny-bootstrap.min.js') }}"></script>
 
     <script type="text/javascript">
         function package_update_alert() {

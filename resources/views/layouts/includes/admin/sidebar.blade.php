@@ -8,6 +8,8 @@
         ['name' => 'Sub Castes', 'href' => route('admin.sub_caste.list'), 'icon' => 'mdi-star'],
         ['name' => 'Countries', 'href' => route('admin.country.list'), 'icon' => 'mdi-star'],
         ['name' => 'States', 'href' => route('admin.state.list'), 'icon' => 'mdi-star'],
+        ['name' => 'Districts', 'href' => route('admin.district.index'), 'icon' => 'mdi-star'],
+
         ['name' => 'Educations', 'href' => route('admin.education.list'), 'icon' => 'mdi-star'],
         ['name' => 'Expectations', 'href' => route('admin.expectation.list'), 'icon' => 'mdi-star'],
         ['name' => 'Genders', 'href' => route('admin.gender.list'), 'icon' => 'mdi-star'],
@@ -18,8 +20,25 @@
         ['name' => 'Rasi Navamsams', 'href' => route('admin.rasi_navamsam.list'), 'icon' => 'mdi-star'],
         ['name' => 'Social Types', 'href' => route('admin.social_type.list'), 'icon' => 'mdi-star'],
         ['name' => 'Works', 'href' => route('admin.work.list'), 'icon' => 'mdi-star'],
-        ['name' => 'Work Places', 'href' => route('admin.work_place.list'), 'icon' => 'mdi-star'],
-        ['name' => 'Religion', 'href' => route('admin.religion.index'), 'icon' => 'mdi-star'],
+        ['name' => 'Religions', 'href' => route('admin.religion.index'), 'icon' => 'mdi-star'],
+        ['name' => 'Weight', 'href' => route('admin.weight.index'), 'icon' => 'mdi-star'],
+        ['name' => 'Height', 'href' => route('admin.height.index'), 'icon' => 'mdi-star'],
+        ['name' => 'Physical Status', 'href' => route('admin.physical_status.index'), 'icon' => 'mdi-star'],
+        ['name' => 'Marital Status', 'href' => route('admin.marital_status.index'), 'icon' => 'mdi-star'],
+        ['name' => 'Registered By', 'href' => route('admin.registered_by.index'), 'icon' => 'mdi-star'],
+        ['name' => 'Body Type', 'href' => route('admin.body_type.index'), 'icon' => 'mdi-star'],
+        ['name' => 'Color', 'href' => route('admin.color.index'), 'icon' => 'mdi-star'],
+        ['name' => 'Work Place', 'href' => route('admin.work_place.list'), 'icon' => 'mdi-star'],
+        ['name' => 'Nakshatra Patham', 'href' => route('admin.nakshatra_patham.index'), 'icon' => 'mdi-star'],
+        ['name' => 'Navamsam', 'href' => route('admin.navamsam.index'), 'icon' => 'mdi-star'],
+        ['name' => 'Rasi', 'href' => route('admin.rasi.index'), 'icon' => 'mdi-star'],
+
+        
+
+        
+
+
+
 
     ];
 @endphp

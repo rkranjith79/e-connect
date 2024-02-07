@@ -12,9 +12,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/',  [App\Http\Controllers\User\MemberController::class, 'index'])->name('index');
 
 Auth::routes();
 
@@ -158,18 +156,28 @@ Route::name('admin.')->prefix('admin')->middleware(['auth', 'isAdmin'])->group(f
     });
 
     Route::resource('religion', App\Http\Controllers\Admin\ReligionController::class);
+    Route::resource('weight', App\Http\Controllers\Admin\WeightController::class);
+    Route::resource('height', App\Http\Controllers\Admin\HeightController::class);
+    Route::resource('physical_status', App\Http\Controllers\Admin\PhysicalStatusController::class);
+    Route::resource('marital_status', App\Http\Controllers\Admin\MaritalStatusController::class);
+    Route::resource('registered_by', App\Http\Controllers\Admin\RegisteredByController::class); 
+    Route::resource('body_type', App\Http\Controllers\Admin\BodyTypeController::class);
+    Route::resource('color', App\Http\Controllers\Admin\ColorController::class); 
+    Route::resource('district', App\Http\Controllers\Admin\DistrictConroller::class); 
+    Route::resource('nakshatra_patham', App\Http\Controllers\Admin\NakshatraPathamController::class); 
+    Route::resource('navamsam', App\Http\Controllers\Admin\NavamsamController::class); 
+    Route::resource('rasi', App\Http\Controllers\Admin\RasiController::class); 
 
+    
 
 });
 
 
 Route::name('user.')->group(function () {
-    Route::get('/member-listing', [App\Http\Controllers\User\MemberController::class, 'index'])->name('member-listing');
+    Route::get('/member-listing', [App\Http\Controllers\User\MemberController::class, 'listing'])->name('member-listing');
     Route::get('/jathagam', [App\Http\Controllers\User\MemberController::class, 'jathagam'])->name('jathagam');
     Route::get('/profile-search', [App\Http\Controllers\User\MemberController::class, 'search'])->name('search');
     Route::get('/profile', [App\Http\Controllers\User\MemberController::class, 'profile'])->name('profile');
-    Route::get('/registers', [App\Http\Controllers\User\ProfileController::class, 'register'])->name('register');
+    Route::get('/registers', [App\Http\Controllers\User\ProfileController::class, 'register'])->name('registers');
     Route::post('/profile_store', [App\Http\Controllers\User\ProfileController::class, 'store'])->name('profile_store');
-
-    
 });

@@ -1,5 +1,7 @@
+/*
 $( document ).ready( function () {
 	//Loader
+	
 	$("#loading").delay(500).fadeOut(500);
 	$("#loading").click(function() {
 		$("#loading").fadeOut(500);
@@ -232,7 +234,6 @@ $("#reg-form #email,#reg-form #phone").on("change", function() {
 		console.log(data);
 	});
 });
-/* Autocompletes */
 $(document).ready( function () {
 	$("#temple").parent().after('<div id="kovil-auto"></div>');
 	$("#exp_nakshatra").parent().after('<div id="nakshatra-auto"></div>');
@@ -273,7 +274,6 @@ function set_nakshatra(temple_name) {
 	old_value = old_value.substring(0, old_value.lastIndexOf(" "));
 	$("#exp_nakshatra").val(old_value + ' ' +temple_name + ' ');
 }
-/* Other Functions */
 $('.tablehoro select').on("change", function() {
 	var planets, in_text = [];
 	if($('#cur_lang').data('lang') != 'E')
@@ -348,3 +348,5 @@ function SSMLoading(option, title = 'Loading...') {
 		Swal.close();
 	}
 }
+
+*/

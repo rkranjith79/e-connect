@@ -51,6 +51,8 @@
     <!--Add{{ $page_data['name'] }} -->
     <div class="modal fade" id="createMaster"
         token="{{ csrf_token() }}">
+
+        {{-- use csrf view service provider --}}
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
 
