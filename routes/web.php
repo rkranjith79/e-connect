@@ -177,7 +177,7 @@ Route::name('user.')->group(function () {
     Route::get('/member-listing', [App\Http\Controllers\User\MemberController::class, 'listing'])->name('member-listing');
     Route::get('/jathagam', [App\Http\Controllers\User\MemberController::class, 'jathagam'])->name('jathagam');
     Route::get('/profile-search', [App\Http\Controllers\User\MemberController::class, 'search'])->name('search');
-    Route::get('/profile', [App\Http\Controllers\User\MemberController::class, 'profile'])->name('profile');
+    Route::get('/profile/{id?}', [App\Http\Controllers\User\MemberController::class, 'profile'])->name('profile');
     Route::get('/registers', [App\Http\Controllers\User\ProfileController::class, 'register'])->name('registers');
     Route::post('/profile_store', [App\Http\Controllers\User\ProfileController::class, 'store'])->name('profile_store');
 });

@@ -39,7 +39,7 @@ class Profile extends Model
         'expectation_work_place_id' => "object",
 
     ];
-
+    
     public function user()
     {
         return $this->belongsTo(User::class);
@@ -48,6 +48,11 @@ class Profile extends Model
     public function color()
     {
         return $this->belongsTo(Color::class);
+    }
+
+    public function blood_group()
+    {
+        return $this->belongsTo(BloodGroup::class);
     }
     
     public function body_type()
@@ -126,5 +131,22 @@ class Profile extends Model
                             asset('img/profile/bride.jpg')
                     );
     }
+
+    public function getExpectationJathagamTitleAttribute()
+    {
+        return Jathagam::find($this->expectation_jathagam_id)->pluck('title')->implode(", ");
+    }
+
+    public function getExpectationMaritalStatusTitleAttribute()
+    {
+        return Jathagam::find($this->expectation_marital_status_id)->pluck('title')->implode(", ");
+    }
+
+    public function getExpectationWorkPlaceTitleAttribute()
+    {
+        return Jathagam::find($this->expectation_work_place_id)->pluck('title')->implode(", ");
+    }
+
+    
     
 }

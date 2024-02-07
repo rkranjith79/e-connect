@@ -33,14 +33,14 @@ class profileJathagam extends Model
         'navamsam' => "object",
     ];
 
-    public function getAgeAttribute()
-    {
-        return Carbon::parse($this->attributes['date_of_birth'])->age;
-    }
-
     public function rasi_nakshatra()
     {
         return $this->belongsTo(RasiNakshatra::class);
+    }
+    
+    public function lagnam()
+    {
+        return $this->belongsTo(Lagnam::class);
     }
 
     public function jathagam()
@@ -48,4 +48,45 @@ class profileJathagam extends Model
         return $this->belongsTo(Jathagam::class);
     }
 
+    public function nakshatra_patham()
+    {
+        return $this->belongsTo(NakshatraPatham::class);
+    }
+
+    public function getAgeAttribute()
+    {
+        return Carbon::parse($this->attributes['date_of_birth'])->age;
+    }
+
+    public function getBirthDasaRemainingAttribute()
+    {
+        return (
+              $this->attributes['birth_dasa_remaining_year'] 
+                ." Year(s) ".
+                $this->attributes['birth_dasa_remaining_month'] 
+                ." Month(s)  ".
+                $this->attributes['birth_dasa_remaining_day'] 
+                ." Day(s) "
+        );
+    }
+
+    public function getRasiTitleAttribute()
+    {
+        $return = [];
+
+        // foreach($this->rasi as $key => $rasi) {
+        //    $return[$key] = Rasi::find($rasi)->pluck('title')->implode(", ");
+        // }
+        return $return;
+    }
+
+    public function getnavamsamTitleAttribute()
+    {
+        $return = [];
+
+        // foreach($this->navamsam as $key => $navamsam) {
+        //    $return[$key] = Navamsam::find($navamsam )->pluck('title')->implode(", ");
+        // }
+        return $return;
+    }
 }

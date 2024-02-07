@@ -1110,7 +1110,7 @@
                                                     class="profile-thumb"
                                                     onerror="this.onerror=null;this.src='{{ $profile->photo }}';">
                                                 <div class="mt-2">
-                                                    <a href="javascript:void(0);" onclick="package_alert()"
+                                                    <a href="{{ route('user.profile', ['id' => $profile->id]) }}" 
                                                         class="btn btn-primary btn-sm mr-1"><i class="fas fa-user"></i>
                                                         ப்ரொபைல்</a>
                                                     <a href="javascript:void(0);" onclick="package_alert()"

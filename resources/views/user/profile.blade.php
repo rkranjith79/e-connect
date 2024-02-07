@@ -7,10 +7,10 @@
                 <div class="col-lg-4">
                     <div class="card">
                         <div class="card-body text-white text-center bg-primary">
-                            <img src="https://ganeshkongumatrimony.com/uploads/profile_images/6tRN1feGnlji9ttBdH8c8nYkmMl24FUcDVb4Ziy199.png"
+                            <img src="{{ $data['profile']->photo }}"
                                 class="img-fit w-auto h-220px mw-100"
-                                onerror="this.onerror=null;this.src='https://ganeshkongumatrimony.com/assets/img/avatar-place.png';">
-                            <h3 class="text-white fw-500">திவ்யபிரபா</h3>
+                                onerror="this.onerror=null;this.src='{{asset('img/avatar-place.png')}}';">
+                            <h3 class="text-white fw-500">{{ $data['profile']->title }}</h3>
                             <h5 class="text-white fw-500">GK4573</h5>
                             <div class="row gutters-5">
                                 <div class="col">
@@ -73,17 +73,17 @@
                                                     <tr>
                                                         <td>Name</td>
                                                         <td>:</td>
-                                                        <td>திவ்யபிரபா</td>
+                                                        <td>{{ $data['profile']->title }}</td>
                                                     </tr>
                                                     <tr>
                                                         <td>Gender</td>
                                                         <td>:</td>
-                                                        <td>Female</td>
+                                                        <td>{{ $data['profile']->gender->title ?? "-" }}</td>
                                                     </tr>
                                                     <tr>
                                                         <td>Age</td>
                                                         <td>:</td>
-                                                        <td>27 Year, 8 Month</td>
+                                                        <td>{{ $data['profile']->jathagam->age ?? "-" }}</td>
                                                     </tr>
                                                 </tbody>
                                             </table>
@@ -94,12 +94,12 @@
                                                     <tr>
                                                         <td>Marital Status</td>
                                                         <td>:</td>
-                                                        <td>First Marriage</td>
+                                                        <td>{{ $data['profile']->marital_status->title ?? "-" }}</td>
                                                     </tr>
                                                     <tr>
                                                         <td>Registered By</td>
                                                         <td>:</td>
-                                                        <td>Parents</td>
+                                                        <td>{{ $data['profile']->registered_by->title ?? "-" }}</td>
                                                     </tr>
                                                 </tbody>
                                             </table>
@@ -114,17 +114,17 @@
                                                     <tr>
                                                         <td>Physical Status</td>
                                                         <td>:</td>
-                                                        <td>Normal</td>
+                                                        <td>{{ $data['profile']->physical_status->title ?? "-" }}</td>
                                                     </tr>
                                                     <tr>
                                                         <td>Height</td>
                                                         <td>:</td>
-                                                        <td>5ft 2in / 157 cms</td>
+                                                        <td>{{ $data['profile']->height->title ?? "-" }}</td>
                                                     </tr>
                                                     <tr>
                                                         <td>Weight</td>
                                                         <td>:</td>
-                                                        <td>67 Kg</td>
+                                                        <td>{{ $data['profile']->weight->title ?? "-" }}</td>
                                                     </tr>
                                                 </tbody>
                                             </table>
@@ -135,17 +135,17 @@
                                                     <tr>
                                                         <td>Body Type</td>
                                                         <td>:</td>
-                                                        <td>Average Body Type</td>
+                                                        <td>{{ $data['profile']->body_type->title ?? "-" }}</td>
                                                     </tr>
                                                     <tr>
                                                         <td>Color</td>
                                                         <td>:</td>
-                                                        <td>Fair</td>
+                                                        <td>{{ $data['profile']->color->title ?? "-" }}</td>
                                                     </tr>
                                                     <tr>
                                                         <td>Blood Group</td>
                                                         <td>:</td>
-                                                        <td>A+</td>
+                                                        <td>{{ $data['profile']->blood_group->title ?? "-" }}</td>
                                                     </tr>
                                                 </tbody>
                                             </table>
@@ -160,17 +160,17 @@
                                                     <tr>
                                                         <td>Caste</td>
                                                         <td>:</td>
-                                                        <td>Kongu Vellala Gounder</td>
+                                                        <td>{{ $data['profile']->basic->caste->title ?? "-" }}</td>
                                                     </tr>
                                                     <tr>
                                                         <td>Sub-Caste</td>
                                                         <td>:</td>
-                                                        <td>Maniyan Kulam</td>
+                                                        <td>{{ $data['profile']->basic->sub_caste->title ?? "-" }}</td>
                                                     </tr>
                                                     <tr>
                                                         <td>Temple</td>
                                                         <td>:</td>
-                                                        <td>நாவலடியன் கோயில் மோகனூர்</td>
+                                                        <td>{{ $data['profile']->basic->temple ?? "-" }}</td>
                                                     </tr>
                                                 </tbody>
                                             </table>
@@ -185,12 +185,12 @@
                                                     <tr>
                                                         <td>Education</td>
                                                         <td>:</td>
-                                                        <td>Engineering</td>
+                                                        <td>{{ $data['profile']->basic->education->title ?? "-" }}</td>
                                                     </tr>
                                                     <tr>
                                                         <td>Education Details</td>
                                                         <td>:</td>
-                                                        <td>B.E ECE</td>
+                                                        <td>{{ $data['profile']->basic->education_details ?? "-" }}</td>
                                                     </tr>
                                                 </tbody>
                                             </table>
@@ -201,22 +201,22 @@
                                                     <tr>
                                                         <td>Work</td>
                                                         <td>:</td>
-                                                        <td>Software</td>
+                                                        <td>{{ $data['profile']->basic->work->title ?? "-" }}</td>
                                                     </tr>
                                                     <tr>
                                                         <td>Work Details</td>
                                                         <td>:</td>
-                                                        <td>Senior Associate- Cognizant Technology Solutions</td>
+                                                        <td>{{ $data['profile']->basic->work_details ?? "-" }}</td>
                                                     </tr>
                                                     <tr>
                                                         <td>Work Place</td>
                                                         <td>:</td>
-                                                        <td>Tamil Nadu</td>
+                                                        <td>{{ $data['profile']->basic->work_place->title ?? "-" }}</td>
                                                     </tr>
                                                     <tr>
                                                         <td>Monthly Income</td>
                                                         <td>:</td>
-                                                        <td>120000</td>
+                                                        <td>{{ $data['profile']->basic->monthly_income ?? "-" }}</td>
                                                     </tr>
                                                 </tbody>
                                             </table>
@@ -231,12 +231,12 @@
                                                     <tr>
                                                         <td>Country</td>
                                                         <td>:</td>
-                                                        <td>India</td>
+                                                        <td>{{ $data['profile']->basic->country->title ?? "-" }}</td>
                                                     </tr>
                                                     <tr>
                                                         <td>State</td>
                                                         <td>:</td>
-                                                        <td>Tamilnadu</td>
+                                                        <td>{{ $data['profile']->basic->state->title ?? "-" }}</td>
                                                     </tr>
                                                 </tbody>
                                             </table>
@@ -247,7 +247,7 @@
                                                     <tr>
                                                         <td>District</td>
                                                         <td>:</td>
-                                                        <td>Coimbatore</td>
+                                                        <td>{{ $data['profile']->basic->district->title ?? "-" }}</td>
                                                     </tr>
                                                 </tbody>
                                             </table>
@@ -262,12 +262,12 @@
                                                     <tr>
                                                         <td>Father Status</td>
                                                         <td>:</td>
-                                                        <td>Alive</td>
+                                                        <td>{{ $data['profile']->basic->father_status->title ?? "-" }}</td>
                                                     </tr>
                                                     <tr>
                                                         <td>Social Type</td>
                                                         <td>:</td>
-                                                        <td>Middle</td>
+                                                        <td>{{ $data['profile']->basic->social_type->title ?? "-" }}</td>
                                                     </tr>
                                                 </tbody>
                                             </table>
@@ -278,12 +278,12 @@
                                                     <tr>
                                                         <td>Mother Status</td>
                                                         <td>:</td>
-                                                        <td>Alive</td>
+                                                        <td>{{ $data['profile']->basic->mother_status->title ?? "-" }}</td>
                                                     </tr>
                                                     <tr>
                                                         <td>Siblings</td>
                                                         <td>:</td>
-                                                        <td>1 younger sister</td>
+                                                        <td>{{ $data['profile']->basic->siblings ?? "-" }}</td>
                                                     </tr>
                                                 </tbody>
                                             </table>
@@ -298,18 +298,21 @@
                                                     <tr>
                                                         <td>Assets Value</td>
                                                         <td>:</td>
-                                                        <td>2.5 crores - 05 crores</td>
+                                                        <td>{{ $data['profile']->basic->asset_value->title ?? "-" }}</td>
                                                     </tr>
                                                     <tr>
                                                         <td>Assets Details (Land House Rent)</td>
                                                         <td>:</td>
-                                                        <td style="word-break:break-word;">Rc veedu-1 , plot-1, thottam- 60
-                                                            cent.</td>
+                                                        <td style="word-break:break-word;">
+                                                            {{ $data['profile']->basic->asset_details ?? "-" }}
+                                                        </td>
                                                     </tr>
                                                     <tr>
                                                         <td>Seimurai (Gold, Car Details)</td>
                                                         <td>:</td>
-                                                        <td style="word-break:break-word;">Gold- 35 poun</td>
+                                                        <td style="word-break:break-word;">
+                                                            {{ $data['profile']->basic->seimurai ?? "-" }}
+                                                        </td>
                                                     </tr>
                                                 </tbody>
                                             </table>
@@ -324,22 +327,22 @@
                                                     <tr>
                                                         <td>Rasi - Nakshatra</td>
                                                         <td>:</td>
-                                                        <td>Scorpio-Visakam</td>
+                                                        <td>{{ $data['profile']->jathagam->rasi_nakshatra->title ?? "-" }}</td>
                                                     </tr>
                                                     <tr>
                                                         <td>Nakshatra Patham</td>
                                                         <td>:</td>
-                                                        <td>Patham 4</td>
+                                                        <td>{{ $data['profile']->jathagam->nakshatra_patham->title ?? "-" }}</td>
                                                     </tr>
                                                     <tr>
                                                         <td>Lagnam</td>
                                                         <td>:</td>
-                                                        <td>Virgo</td>
+                                                        <td>{{ $data['profile']->jathagam->lagnam->title ?? "-" }}</td>
                                                     </tr>
                                                     <tr>
                                                         <td>Jathagam</td>
                                                         <td>:</td>
-                                                        <td>Raagu Kethu, Sevvai</td>
+                                                        <td>{{ $data['profile']->jathagam->jathagam->title ?? "-" }}</td>
                                                     </tr>
                                                 </tbody>
                                             </table>
@@ -350,22 +353,22 @@
                                                     <tr>
                                                         <td>Date of Birth</td>
                                                         <td>:</td>
-                                                        <td>04-05-1996</td>
+                                                        <td>{{ $data['profile']->jathagam->date_of_birth ?? "-" }}</td>
                                                     </tr>
                                                     <tr>
                                                         <td>Time of Birth</td>
                                                         <td>:</td>
-                                                        <td>3:14:P.M.</td>
+                                                        <td>{{ $data['profile']->jathagam->time_of_birth ?? "-" }}</td>
                                                     </tr>
                                                     <tr>
                                                         <td>Day of Birth</td>
                                                         <td>:</td>
-                                                        <td>Saturday</td>
+                                                        <td>{{ $data['profile']->jathagam->date_of_birth ?? "-" }}</td>
                                                     </tr>
                                                     <tr>
                                                         <td>Place of Birth</td>
                                                         <td>:</td>
-                                                        <td>Salem</td>
+                                                        <td>{{ $data['profile']->jathagam->place_of_birth ?? "-" }}</td>
                                                     </tr>
                                                 </tbody>
                                             </table>
@@ -378,21 +381,21 @@
                                                 align="center">
                                                 <tr>
                                                     <td>
-                                                        <p>7, 9</p>
+                                                        <p>{{ $data['profile']->jathagam->rasi_title['1'] ?? '' }}</p>
                                                     </td>
                                                     <td>
-                                                        <p>2, 4</p>
+                                                        <p>{{ $data['profile']->jathagam->rasi_title['2'] ?? '' }}</p>
                                                     </td>
                                                     <td>
-                                                        <p>8</p>
+                                                        <p>{{ $data['profile']->jathagam->rasi_title['3'] ?? '' }}</p>
                                                     </td>
                                                     <td>
-                                                        <p>10</p>
+                                                        <p>{{ $data['profile']->jathagam->rasi_title['4'] ?? '' }}</p>
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <td>
-                                                        <p></p>
+                                                        <p>{{ $data['profile']->jathagam->rasi_title['5'] ?? '' }}</p>
                                                     </td>
                                                     <td rowspan="2" colspan="2">
                                                         <img src="https://ganeshkongumatrimony.com/assets/img/icons/android-icon-72x72.png"
@@ -400,53 +403,53 @@
                                                         <strong>Rasi</strong>
                                                     </td>
                                                     <td>
-                                                        <p></p>
+                                                        <p>{{ $data['profile']->jathagam->rasi_title['6'] ?? '' }}</p>
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <td>
-                                                        <p></p>
+                                                        <p>{{ $data['profile']->jathagam->rasi_title['7'] ?? '' }}</p>
                                                     </td>
                                                     <td>
-                                                        <p></p>
+                                                        <p>{{ $data['profile']->jathagam->rasi_title['8'] ?? '' }}</p>
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <td>
-                                                        <p>6</p>
+                                                        <p>{{ $data['profile']->jathagam->rasi_title['9'] ?? '' }}</p>
                                                     </td>
                                                     <td>
-                                                        <p>3</p>
+                                                        <p>{{ $data['profile']->jathagam->rasi_title['10'] ?? '' }}</p>
                                                     </td>
                                                     <td>
-                                                        <p></p>
+                                                        <p>{{ $data['profile']->jathagam->rasi_title['11'] ?? '' }}</p>
                                                     </td>
                                                     <td>
-                                                        <p>1, 5</p>
+                                                        <p>{{ $data['profile']->jathagam->rasi_title['12'] ?? '' }}</p>
                                                     </td>
                                                 </tr>
                                             </table>
                                         </div>
-                                        <div class="col-md-6">
+                                        <div class="col-md-6 mb-1">
                                             <table class="tablehoro" border="0" cellpadding="0" cellspacing="0"
                                                 align="center">
                                                 <tr>
                                                     <td>
-                                                        <p></p>
+                                                        <p>{{ $data['profile']->jathagam->navamsam_title['1'] ?? '' }}</p>
                                                     </td>
                                                     <td>
-                                                        <p></p>
+                                                        <p>{{ $data['profile']->jathagam->navamsam_title['2'] ?? '' }}</p>
                                                     </td>
                                                     <td>
-                                                        <p></p>
+                                                        <p>{{ $data['profile']->jathagam->navamsam_title['3'] ?? '' }}</p>
                                                     </td>
                                                     <td>
-                                                        <p>4</p>
+                                                        <p>{{ $data['profile']->jathagam->navamsam_title['4'] ?? '' }}</p>
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <td>
-                                                        <p>8</p>
+                                                        <p>{{ $data['profile']->jathagam->navamsam_title['5'] ?? '' }}</p>
                                                     </td>
                                                     <td rowspan="2" colspan="2">
                                                         <img src="https://ganeshkongumatrimony.com/assets/img/icons/android-icon-72x72.png"
@@ -454,29 +457,29 @@
                                                         <strong>Navamsam</strong>
                                                     </td>
                                                     <td>
-                                                        <p>3, 5</p>
+                                                        <p>{{ $data['profile']->jathagam->navamsam_title['6'] ?? '' }}</p>
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <td>
-                                                        <p>1, 9</p>
+                                                        <p>{{ $data['profile']->jathagam->navamsam_title['7'] ?? '' }}</p>
                                                     </td>
                                                     <td>
-                                                        <p></p>
+                                                        <p>{{ $data['profile']->jathagam->navamsam_title['8'] ?? '' }}</p>
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <td>
-                                                        <p></p>
+                                                        <p>{{ $data['profile']->jathagam->navamsam_title['9'] ?? '' }}</p>
                                                     </td>
                                                     <td>
-                                                        <p>6</p>
+                                                        <p>{{ $data['profile']->jathagam->navamsam_title['10'] ?? '' }}</p>
                                                     </td>
                                                     <td>
-                                                        <p>2, 10</p>
+                                                        <p>{{ $data['profile']->jathagam->navamsam_title['11'] ?? '' }}</p>
                                                     </td>
                                                     <td>
-                                                        <p>7</p>
+                                                        <p>{{ $data['profile']->jathagam->navamsam_title['12'] ?? '' }}</p>
                                                     </td>
                                                 </tr>
                                             </table>
@@ -490,8 +493,7 @@
                                                     <tr>
                                                         <td>Birth Dasa Remaining</td>
                                                         <td>:</td>
-                                                        <td>
-                                                        </td>
+                                                        <td>{{ $data['profile']->jathagam->birth_dasa_remaining ?? "-" }}</td>
                                                     </tr>
                                                 </tbody>
                                             </table>
@@ -506,28 +508,31 @@
                                                     <tr>
                                                         <td>Jathagam</td>
                                                         <td>:</td>
-                                                        <td>Raagu Kethu, Sevvai</td>
+                                                        <td>{{ $data['profile']->expectation_jathagam_title ?? "-" }}</td>
                                                     </tr>
                                                     <tr>
                                                         <td>Marital Status</td>
                                                         <td>:</td>
-                                                        <td>First Marriage</td>
+                                                        <td>{{ $data['profile']->expectation_marital_status_title ?? "-" }}</td>
                                                     </tr>
                                                     <tr>
                                                         <td>Work Place</td>
                                                         <td>:</td>
-                                                        <td>Other Country</td>
+                                                        <td>{{ $data['profile']->expectation_work_place_title ?? "-" }}</td>
                                                     </tr>
                                                     <tr>
                                                         <td>Matching Nakshatras</td>
                                                         <td>:</td>
-                                                        <td style="word-break:break-word;">-</td>
+                                                        <td style="word-break:break-word;">
+                                                            {{ $data['profile']->expectation_nakshatra ?? "-" }}
+                                                        </td>
                                                     </tr>
                                                     <tr>
                                                         <td>Expectation</td>
                                                         <td>:</td>
-                                                        <td style="word-break:break-word;">Good family, preferably abroad
-                                                            working or software working boy.</td>
+                                                        <td style="word-break:break-word;">
+                                                            {{ $data['profile']->expectation ?? "-" }}
+                                                        </td>
                                                     </tr>
                                                 </tbody>
                                             </table>

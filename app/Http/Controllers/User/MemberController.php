@@ -47,9 +47,10 @@ class MemberController extends Controller
         return view('user.profile-search');
     }
 
-    public function profile()
+    public function profile($id = 1)
     {
-        return view('user.profile');
+        $data['profile'] = Profile::selectColumns()->find($id);
+        return view('user.profile', compact('data'));
     }
     
 
