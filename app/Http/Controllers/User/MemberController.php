@@ -4,7 +4,7 @@ namespace App\Http\Controllers\User;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
+use App\Models\Profile;
 
 class MemberController extends Controller
 {
@@ -26,12 +26,21 @@ class MemberController extends Controller
 
     public function index()
     {
-        return view('user.member-listing');
+        $data['grooms'] = Profile::selectColumns()->groom()->get();
+        $data['brides'] = Profile::selectColumns()->bride()->get();
+        return view('user.index', compact('data'));
     }
 
-    public function jathagam()
+    public function listing()
     {
-        return view('user.jathagam');
+        $data['profiles'] = Profile::selectColumns()->get();
+        return view('user.member-listing', compact('data'));
+    }
+
+    public function jathagam($id = 1)
+    {
+        $data['profile'] = Profile::selectColumns()->find($id);
+        return view('user.jathagam', compact('data'));
     }
 
     public function search()
@@ -39,9 +48,10 @@ class MemberController extends Controller
         return view('user.profile-search');
     }
 
-    public function profile()
+    public function profile($id = 1)
     {
-        return view('user.profile');
+        $data['profile'] = Profile::selectColumns()->find($id);
+        return view('user.profile', compact('data'));
     }
     
 

@@ -9,5 +9,6 @@ use App\Models\Common\MasterModel;
 class AssetsValue extends MasterModel
 {
     use HasFactory;
+
     protected $guarded = [];
 }

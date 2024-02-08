@@ -1100,780 +1100,141 @@
                                 </div>
                             </div>
                             <div class="mb-5">
-                                <div class="row no-gutters border border-gray-300 rounded shadow mb-4 has-transition position-relative"
-                                    id="block_id_1981">
-                                    <div class="col-md-auto">
-                                        <div class="text-center pt-3 pt-md-0">
-                                            <img src="https://ganeshkongumatrimony.com/uploads/profile_images/oNkgVjKXAUscI7bEhmSsFr0PozJiNfLPHy7bbaq674.png"
-                                                class="profile-thumb"
-                                                onerror="this.onerror=null;this.src='https://ganeshkongumatrimony.com/assets/img/avatar-place.png';">
-                                            <div class="mt-2">
-                                                <a href="javascript:void(0);" onclick="package_alert()"
-                                                    class="btn btn-primary btn-sm mr-1"><i class="fas fa-user"></i>
-                                                    ப்ரொபைல்</a>
-                                                <a href="javascript:void(0);" onclick="package_alert()"
-                                                    class="btn btn-primary btn-sm ml-1">ஜாதகம் <i
-                                                        class="fas fa-file-invoice"></i></a>
-                                                <a href="https://wa.me/?text=பதிவு எண் : GK4227%0aபெயர் : யாழினி (மருத்துவர்)%0aMDS (Pediatric Dentistry)%0aவயது : 26%0aபிறந்த ஊர் : ஈரோடு%0aதொழில் : MDS (Pediatric Dentistry) final year ( வெளிநாடு  செல்ல சம்மதம் )%0aமாத வருமானம் : 0%0aதுலாம்-ஸ்வாதி%0aபரிகார செவ்வாய் ஜாதகம்%0aசொத்து விபரம்  : நேரில்%0ahttps://ganeshkongumatrimony.com/p/589buen"
-                                                    target="_blank"
-                                                    class="btn btn-sm btn-success btn-circle px-2 lh-1 ml-2 d-md-none"><i
-                                                        class="fab fa-whatsapp"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md position-static d-flex align-items-center">
-                                        <span class="absolute-top-right px-2 pt-1 pb-3">
-                                            <span class="badge badge-inline badge-success">3003 Gold</span>
-                                        </span>
-                                        <div class="px-2 px-md-4 pt-4 pb-2 listing-profile flex-grow-1">
-                                            <h2 class="h6 fw-600 fs-18 text-primary text-truncate mb-1">யாழினி <span
-                                                    class="float-right text-primary">GK4227</span></h2>
-                                            <div class="form-row pb-1">
-                                                <div class="col-md-6">
-                                                    <table>
-                                                        <tbody>
-                                                            <tr>
-                                                                <td>வயது</td>
-                                                                <td>:</td>
-                                                                <td>26</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>நிலை</td>
-                                                                <td>:</td>
-                                                                <td>முதல் மணம்</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>படிப்பு</td>
-                                                                <td>:</td>
-                                                                <td>மருத்துவ படிப்பு</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>பணி</td>
-                                                                <td>:</td>
-                                                                <td>மருத்துவர்</td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <table>
-                                                        <tbody>
-                                                            <tr>
-                                                                <td>சாதி</td>
-                                                                <td>:</td>
-                                                                <td>கொங்கு வேளாளர் கலப்பு</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>குலம்</td>
-                                                                <td>:</td>
-                                                                <td>காடை குலம்</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>நட்சத்திரம்</td>
-                                                                <td>:</td>
-                                                                <td>துலாம்-ஸ்வாதி</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>ஜாதகம்</td>
-                                                                <td>:</td>
-                                                                <td>பரிகார செவ்வாய் ஜாதகம்</td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                            </div>
-                                            <div class="row gutters-5 text-center">
-                                                <div class="col">
-                                                    <a href="javascript:void(0);" onclick="package_alert()"
-                                                        class="text-dark c-pointer">
-                                                        <i class="fas fa-user fs-20 text-primary"></i>
-                                                        <span class="d-block fs-10">Full Profile</span>
-                                                    </a>
-                                                </div>
-                                                <div class="col">
-                                                    <a href="javascript:void(0);" onclick="package_alert()"
-                                                        class="text-dark c-pointer">
-                                                        <i class="fas fa-heart fs-20 text-primary"></i>
-                                                        <span class="d-block fs-10">Interest</span>
-                                                    </a>
-                                                </div>
-                                                <div class="col">
-                                                    <a href="javascript:void(0);" onclick="package_alert()"
-                                                        class="text-dark c-pointer">
-                                                        <i class="fas fa-list fs-20 text-primary"></i>
-                                                        <span class="d-block fs-10">Shortlist</span>
-                                                    </a>
-                                                </div>
-                                                <div class="col">
-                                                    <a href="javascript:void(0);" onclick="package_alert()"
-                                                        class="text-dark c-pointer">
-                                                        <i class="fas fa-ban fs-20 text-primary"></i>
-                                                        <span class="d-block fs-10">Ignore</span>
-                                                    </a>
-                                                </div>
-                                                <div class="col">
-                                                    <a href="javascript:void(0);" onclick="package_alert()"
-                                                        class="text-dark c-pointer">
-                                                        <i class="fas fa-phone-alt fs-20 text-primary"></i>
-                                                        <span class="d-block fs-10">View Contact</span>
-                                                    </a>
-                                                </div>
-                                                <div class="col d-none d-md-block">
+                                @forelse ($data['profiles'] as $profile)
+
+                                    <div class="row no-gutters border border-gray-300 rounded shadow mb-4 has-transition position-relative"
+                                        id="block_id_1981">
+                                        <div class="col-md-auto">
+                                            <div class="text-center pt-3 pt-md-0">
+                                                <img src="{{ $profile->photo }}"
+                                                    class="profile-thumb"
+                                                    onerror="this.onerror=null;this.src='{{ $profile->photo }}';">
+                                                <div class="mt-2">
+                                                    <a href="{{ route('user.profile', ['id' => $profile->id]) }}" 
+                                                        class="btn btn-primary btn-sm mr-1"><i class="fas fa-user"></i>
+                                                        ப்ரொபைல்</a>
+                                                    <a href="{{ route('user.jathagam', ['id' => $profile->id]) }}" 
+                                                            class="btn btn-primary btn-sm ml-1">ஜாதகம் <i
+                                                            class="fas fa-file-invoice"></i></a>
                                                     <a href="https://wa.me/?text=பதிவு எண் : GK4227%0aபெயர் : யாழினி (மருத்துவர்)%0aMDS (Pediatric Dentistry)%0aவயது : 26%0aபிறந்த ஊர் : ஈரோடு%0aதொழில் : MDS (Pediatric Dentistry) final year ( வெளிநாடு  செல்ல சம்மதம் )%0aமாத வருமானம் : 0%0aதுலாம்-ஸ்வாதி%0aபரிகார செவ்வாய் ஜாதகம்%0aசொத்து விபரம்  : நேரில்%0ahttps://ganeshkongumatrimony.com/p/589buen"
-                                                        target="_blank" class="text-dark c-pointer">
-                                                        <i class="fab fa-whatsapp fs-20 text-primary"></i>
-                                                        <span class="d-block fs-10">Share</span>
-                                                    </a>
+                                                        target="_blank"
+                                                        class="btn btn-sm btn-success btn-circle px-2 lh-1 ml-2 d-md-none"><i
+                                                            class="fab fa-whatsapp"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md position-static d-flex align-items-center">
+                                            <span class="absolute-top-right px-2 pt-1 pb-3">
+                                                <span class="badge badge-inline badge-success">3003 Gold</span>
+                                            </span>
+                                            <div class="px-2 px-md-4 pt-4 pb-2 listing-profile flex-grow-1">
+                                                <h2 class="h6 fw-600 fs-18 text-primary text-truncate mb-1">
+                                                    {{ $profile->title ?? "-"}} 
+                                                    <span class="float-right text-primary">GK4227</span></h2>
+                                                <div class="form-row pb-1">
+                                                    <div class="col-md-6">
+                                                        <table>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td>வயது</td>
+                                                                    <td>:</td>
+                                                                    <td>{{ $profile->jathagam->age ?? "-"}}</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>நிலை</td>
+                                                                    <td>:</td>
+                                                                    <td>{{ $profile->marital_status->title ?? "-"}}</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>படிப்பு</td>
+                                                                    <td>:</td>
+                                                                    <td>{{ $profile->basic->education->title ?? "-"}}</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>பணி</td>
+                                                                    <td>:</td>
+                                                                    <td>{{ $profile->basic->work->title ?? "-"}}</td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <table>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td>சாதி</td>
+                                                                    <td>:</td>
+                                                                    <td>{{ $profile->basic->caste->title ?? "-"}}</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>குலம்</td>
+                                                                    <td>:</td>
+                                                                    <td>{{ $profile->basic->sub_caste->title ?? "-"}}</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>நட்சத்திரம்</td>
+                                                                    <td>:</td>
+                                                                    <td>{{ $profile->jathagam->rasi_nakshatra->title ?? "-"}}</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>ஜாதகம்</td>
+                                                                    <td>:</td>
+                                                                    <td>{{ $profile->jathagam->jathagam->title ?? "-"}}</td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                                <div class="row gutters-5 text-center">
+                                                    <div class="col">
+                                                        <a href="javascript:void(0);" onclick="package_alert()"
+                                                            class="text-dark c-pointer">
+                                                            <i class="fas fa-user fs-20 text-primary"></i>
+                                                            <span class="d-block fs-10">Full Profile</span>
+                                                        </a>
+                                                    </div>
+                                                    <div class="col">
+                                                        <a href="javascript:void(0);" onclick="package_alert()"
+                                                            class="text-dark c-pointer">
+                                                            <i class="fas fa-heart fs-20 text-primary"></i>
+                                                            <span class="d-block fs-10">Interest</span>
+                                                        </a>
+                                                    </div>
+                                                    <div class="col">
+                                                        <a href="javascript:void(0);" onclick="package_alert()"
+                                                            class="text-dark c-pointer">
+                                                            <i class="fas fa-list fs-20 text-primary"></i>
+                                                            <span class="d-block fs-10">Shortlist</span>
+                                                        </a>
+                                                    </div>
+                                                    <div class="col">
+                                                        <a href="javascript:void(0);" onclick="package_alert()"
+                                                            class="text-dark c-pointer">
+                                                            <i class="fas fa-ban fs-20 text-primary"></i>
+                                                            <span class="d-block fs-10">Ignore</span>
+                                                        </a>
+                                                    </div>
+                                                    <div class="col">
+                                                        <a href="javascript:void(0);" onclick="package_alert()"
+                                                            class="text-dark c-pointer">
+                                                            <i class="fas fa-phone-alt fs-20 text-primary"></i>
+                                                            <span class="d-block fs-10">View Contact</span>
+                                                        </a>
+                                                    </div>
+                                                    <div class="col d-none d-md-block">
+                                                        <a href="https://wa.me/?text=பதிவு எண் : GK4227%0aபெயர் : யாழினி (மருத்துவர்)%0aMDS (Pediatric Dentistry)%0aவயது : 26%0aபிறந்த ஊர் : ஈரோடு%0aதொழில் : MDS (Pediatric Dentistry) final year ( வெளிநாடு  செல்ல சம்மதம் )%0aமாத வருமானம் : 0%0aதுலாம்-ஸ்வாதி%0aபரிகார செவ்வாய் ஜாதகம்%0aசொத்து விபரம்  : நேரில்%0ahttps://ganeshkongumatrimony.com/p/589buen"
+                                                            target="_blank" class="text-dark c-pointer">
+                                                            <i class="fab fa-whatsapp fs-20 text-primary"></i>
+                                                            <span class="d-block fs-10">Share</span>
+                                                        </a>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="row no-gutters border border-gray-300 rounded shadow mb-4 has-transition position-relative"
-                                    id="block_id_1963">
-                                    <div class="col-md-auto">
-                                        <div class="text-center pt-3 pt-md-0">
-                                            <img src="https://ganeshkongumatrimony.com/uploads/profile_images/mZ7jumsEAyFNhuAD1VlVQdzFz3y6H6hs9g2DHzXI99.png"
-                                                class="profile-thumb"
-                                                onerror="this.onerror=null;this.src='https://ganeshkongumatrimony.com/assets/img/avatar-place.png';">
-                                            <div class="mt-2">
-                                                <a href="javascript:void(0);" onclick="package_alert()"
-                                                    class="btn btn-primary btn-sm mr-1"><i class="fas fa-user"></i>
-                                                    ப்ரொபைல்</a>
-                                                <a href="javascript:void(0);" onclick="package_alert()"
-                                                    class="btn btn-primary btn-sm ml-1">ஜாதகம் <i
-                                                        class="fas fa-file-invoice"></i></a>
-                                                <a href="https://wa.me/?text=பதிவு எண் : GK4209%0aபெயர் : தாரகைவரனி%0aAnnesthesia%0aவயது : 26%0aபிறந்த ஊர் : Salem%0aதொழில் : PG studying%0aமாத வருமானம் : 50000%0aதுலாம்-ஸ்வாதி%0aராகு கேது, செவ்வாய்%0aசொத்து விபரம்  : 25 Acres in Harur TK2 Houses 3 plots%0a*(நேரடி தொடர்பு எண் ஜாதகத்தில் உள்ளது)*%0ahttps://ganeshkongumatrimony.com/p/42md107"
-                                                    target="_blank"
-                                                    class="btn btn-sm btn-success btn-circle px-2 lh-1 ml-2 d-md-none"><i
-                                                        class="fab fa-whatsapp"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md position-static d-flex align-items-center">
-                                        <span class="absolute-top-right px-2 pt-1 pb-3">
-                                            <span class="badge badge-inline badge-success">5005 Prepaid</span>
-                                        </span>
-                                        <div class="px-2 px-md-4 pt-4 pb-2 listing-profile flex-grow-1">
-                                            <h2 class="h6 fw-600 fs-18 text-primary text-truncate mb-1">தாரகைவரனி <span
-                                                    class="float-right text-primary">GK4209</span></h2>
-                                            <div class="form-row pb-1">
-                                                <div class="col-md-6">
-                                                    <table>
-                                                        <tbody>
-                                                            <tr>
-                                                                <td>வயது</td>
-                                                                <td>:</td>
-                                                                <td>26</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>நிலை</td>
-                                                                <td>:</td>
-                                                                <td>முதல் மணம்</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>படிப்பு</td>
-                                                                <td>:</td>
-                                                                <td>மருத்துவ படிப்பு</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>பணி</td>
-                                                                <td>:</td>
-                                                                <td>படித்துக் கொண்டிருக்கிறார்</td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <table>
-                                                        <tbody>
-                                                            <tr>
-                                                                <td>சாதி</td>
-                                                                <td>:</td>
-                                                                <td>கொங்கு வெள்ளாள கவுண்டர்</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>குலம்</td>
-                                                                <td>:</td>
-                                                                <td>கண்ணன் குலம்</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>நட்சத்திரம்</td>
-                                                                <td>:</td>
-                                                                <td>துலாம்-ஸ்வாதி</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>ஜாதகம்</td>
-                                                                <td>:</td>
-                                                                <td>ராகு கேது, செவ்வாய்</td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                            </div>
-                                            <div class="row gutters-5 text-center">
-                                                <div class="col">
-                                                    <a href="javascript:void(0);" onclick="package_alert()"
-                                                        class="text-dark c-pointer">
-                                                        <i class="fas fa-user fs-20 text-primary"></i>
-                                                        <span class="d-block fs-10">Full Profile</span>
-                                                    </a>
-                                                </div>
-                                                <div class="col">
-                                                    <a href="javascript:void(0);" onclick="package_alert()"
-                                                        class="text-dark c-pointer">
-                                                        <i class="fas fa-heart fs-20 text-primary"></i>
-                                                        <span class="d-block fs-10">Interest</span>
-                                                    </a>
-                                                </div>
-                                                <div class="col">
-                                                    <a href="javascript:void(0);" onclick="package_alert()"
-                                                        class="text-dark c-pointer">
-                                                        <i class="fas fa-list fs-20 text-primary"></i>
-                                                        <span class="d-block fs-10">Shortlist</span>
-                                                    </a>
-                                                </div>
-                                                <div class="col">
-                                                    <a href="javascript:void(0);" onclick="package_alert()"
-                                                        class="text-dark c-pointer">
-                                                        <i class="fas fa-ban fs-20 text-primary"></i>
-                                                        <span class="d-block fs-10">Ignore</span>
-                                                    </a>
-                                                </div>
-                                                <div class="col">
-                                                    <a href="javascript:void(0);" onclick="package_alert()"
-                                                        class="text-dark c-pointer">
-                                                        <i class="fas fa-phone-alt fs-20 text-primary"></i>
-                                                        <span class="d-block fs-10">View Contact</span>
-                                                    </a>
-                                                </div>
-                                                <div class="col d-none d-md-block">
-                                                    <a href="https://wa.me/?text=பதிவு எண் : GK4209%0aபெயர் : தாரகைவரனி%0aAnnesthesia%0aவயது : 26%0aபிறந்த ஊர் : Salem%0aதொழில் : PG studying%0aமாத வருமானம் : 50000%0aதுலாம்-ஸ்வாதி%0aராகு கேது, செவ்வாய்%0aசொத்து விபரம்  : 25 Acres in Harur TK2 Houses 3 plots%0a*(நேரடி தொடர்பு எண் ஜாதகத்தில் உள்ளது)*%0ahttps://ganeshkongumatrimony.com/p/42md107"
-                                                        target="_blank" class="text-dark c-pointer">
-                                                        <i class="fab fa-whatsapp fs-20 text-primary"></i>
-                                                        <span class="d-block fs-10">Share</span>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row no-gutters border border-gray-300 rounded shadow mb-4 has-transition position-relative"
-                                    id="block_id_1719">
-                                    <div class="col-md-auto">
-                                        <div class="text-center pt-3 pt-md-0">
-                                            <img src="https://ganeshkongumatrimony.com/uploads/profile_images/7X7qTqnWYA59cxnToiie3i4lVnYMi3YvJwQnfTbu98.png"
-                                                class="profile-thumb"
-                                                onerror="this.onerror=null;this.src='https://ganeshkongumatrimony.com/assets/img/avatar-place.png';">
-                                            <div class="mt-2">
-                                                <a href="javascript:void(0);" onclick="package_alert()"
-                                                    class="btn btn-primary btn-sm mr-1"><i class="fas fa-user"></i>
-                                                    ப்ரொபைல்</a>
-                                                <a href="javascript:void(0);" onclick="package_alert()"
-                                                    class="btn btn-primary btn-sm ml-1">ஜாதகம் <i
-                                                        class="fas fa-file-invoice"></i></a>
-                                                <a href="https://wa.me/?text=பதிவு எண் : GK3965%0aபெயர் : அக் ஷயா (மருத்துவர்) (V.I.P.)%0aMBBS., MS(Opthalmology 2nd year)%0aவயது : 26%0aபிறந்த ஊர் : Udumalpet%0aதொழில் : Doing MS Opthalmology 2nd year.%0aமாத வருமானம் : 50000%0aதுலாம்-ஸ்வாதி%0aராகு கேது ஜாதகம்%0aசொத்து விபரம்  : விவசாய பூமி 65 ஏக்கர். 16 சென்டில் சொந்த வீடு. சைட் இடத்தில் 12 கடை-வாடகை.%0ahttps://ganeshkongumatrimony.com/p/17rr4lf"
-                                                    target="_blank"
-                                                    class="btn btn-sm btn-success btn-circle px-2 lh-1 ml-2 d-md-none"><i
-                                                        class="fab fa-whatsapp"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md position-static d-flex align-items-center">
-                                        <span class="absolute-top-right px-2 pt-1 pb-3">
-                                            <span class="badge badge-inline badge-success">3003 Gold</span>
-                                        </span>
-                                        <div class="px-2 px-md-4 pt-4 pb-2 listing-profile flex-grow-1">
-                                            <h2 class="h6 fw-600 fs-18 text-primary text-truncate mb-1">அக் ஷயா <span
-                                                    class="float-right text-primary">GK3965</span></h2>
-                                            <div class="form-row pb-1">
-                                                <div class="col-md-6">
-                                                    <table>
-                                                        <tbody>
-                                                            <tr>
-                                                                <td>வயது</td>
-                                                                <td>:</td>
-                                                                <td>26</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>நிலை</td>
-                                                                <td>:</td>
-                                                                <td>முதல் மணம்</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>படிப்பு</td>
-                                                                <td>:</td>
-                                                                <td>மருத்துவ படிப்பு</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>பணி</td>
-                                                                <td>:</td>
-                                                                <td>மருத்துவர்</td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <table>
-                                                        <tbody>
-                                                            <tr>
-                                                                <td>சாதி</td>
-                                                                <td>:</td>
-                                                                <td>கொங்கு வெள்ளாள கவுண்டர்</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>குலம்</td>
-                                                                <td>:</td>
-                                                                <td>ஆதி குலம்</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>நட்சத்திரம்</td>
-                                                                <td>:</td>
-                                                                <td>துலாம்-ஸ்வாதி</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>ஜாதகம்</td>
-                                                                <td>:</td>
-                                                                <td>ராகு கேது ஜாதகம்</td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                            </div>
-                                            <div class="row gutters-5 text-center">
-                                                <div class="col">
-                                                    <a href="javascript:void(0);" onclick="package_alert()"
-                                                        class="text-dark c-pointer">
-                                                        <i class="fas fa-user fs-20 text-primary"></i>
-                                                        <span class="d-block fs-10">Full Profile</span>
-                                                    </a>
-                                                </div>
-                                                <div class="col">
-                                                    <a href="javascript:void(0);" onclick="package_alert()"
-                                                        class="text-dark c-pointer">
-                                                        <i class="fas fa-heart fs-20 text-primary"></i>
-                                                        <span class="d-block fs-10">Interest</span>
-                                                    </a>
-                                                </div>
-                                                <div class="col">
-                                                    <a href="javascript:void(0);" onclick="package_alert()"
-                                                        class="text-dark c-pointer">
-                                                        <i class="fas fa-list fs-20 text-primary"></i>
-                                                        <span class="d-block fs-10">Shortlist</span>
-                                                    </a>
-                                                </div>
-                                                <div class="col">
-                                                    <a href="javascript:void(0);" onclick="package_alert()"
-                                                        class="text-dark c-pointer">
-                                                        <i class="fas fa-ban fs-20 text-primary"></i>
-                                                        <span class="d-block fs-10">Ignore</span>
-                                                    </a>
-                                                </div>
-                                                <div class="col">
-                                                    <a href="javascript:void(0);" onclick="package_alert()"
-                                                        class="text-dark c-pointer">
-                                                        <i class="fas fa-phone-alt fs-20 text-primary"></i>
-                                                        <span class="d-block fs-10">View Contact</span>
-                                                    </a>
-                                                </div>
-                                                <div class="col d-none d-md-block">
-                                                    <a href="https://wa.me/?text=பதிவு எண் : GK3965%0aபெயர் : அக் ஷயா (மருத்துவர்) (V.I.P.)%0aMBBS., MS(Opthalmology 2nd year)%0aவயது : 26%0aபிறந்த ஊர் : Udumalpet%0aதொழில் : Doing MS Opthalmology 2nd year.%0aமாத வருமானம் : 50000%0aதுலாம்-ஸ்வாதி%0aராகு கேது ஜாதகம்%0aசொத்து விபரம்  : விவசாய பூமி 65 ஏக்கர். 16 சென்டில் சொந்த வீடு. சைட் இடத்தில் 12 கடை-வாடகை.%0ahttps://ganeshkongumatrimony.com/p/17rr4lf"
-                                                        target="_blank" class="text-dark c-pointer">
-                                                        <i class="fab fa-whatsapp fs-20 text-primary"></i>
-                                                        <span class="d-block fs-10">Share</span>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row no-gutters border border-gray-300 rounded shadow mb-4 has-transition position-relative"
-                                    id="block_id_1692">
-                                    <div class="col-md-auto">
-                                        <div class="text-center pt-3 pt-md-0">
-                                            <img src="https://ganeshkongumatrimony.com/uploads/profile_images/PvXWWrfy6X4VZSFjBcb5dhcrfms7h5FERvKpQDLy34.png"
-                                                class="profile-thumb"
-                                                onerror="this.onerror=null;this.src='https://ganeshkongumatrimony.com/assets/img/avatar-place.png';">
-                                            <div class="mt-2">
-                                                <a href="javascript:void(0);" onclick="package_alert()"
-                                                    class="btn btn-primary btn-sm mr-1"><i class="fas fa-user"></i>
-                                                    ப்ரொபைல்</a>
-                                                <a href="javascript:void(0);" onclick="package_alert()"
-                                                    class="btn btn-primary btn-sm ml-1">ஜாதகம் <i
-                                                        class="fas fa-file-invoice"></i></a>
-                                                <a href="https://wa.me/?text=பதிவு எண் : GK3938%0aபெயர் : ஸ்வாதி (V.I.P.)%0aMBA%0aவயது : 26%0aபிறந்த ஊர் : Salem%0aதொழில் : Not working%0aமாத வருமானம் : 0%0aதுலாம்-ஸ்வாதி%0aசுத்த ஜாதகம்%0aசொத்து விபரம்  : 3 Houses (2 Rental)Commercial plots%0a*(நேரடி தொடர்பு எண் ஜாதகத்தில் உள்ளது)*%0ahttps://ganeshkongumatrimony.com/p/5wggthq"
-                                                    target="_blank"
-                                                    class="btn btn-sm btn-success btn-circle px-2 lh-1 ml-2 d-md-none"><i
-                                                        class="fab fa-whatsapp"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md position-static d-flex align-items-center">
-                                        <span class="absolute-top-right px-2 pt-1 pb-3">
-                                            <span class="badge badge-inline badge-success">5005 Prepaid</span>
-                                        </span>
-                                        <div class="px-2 px-md-4 pt-4 pb-2 listing-profile flex-grow-1">
-                                            <h2 class="h6 fw-600 fs-18 text-primary text-truncate mb-1">ஸ்வாதி <span
-                                                    class="float-right text-primary">GK3938</span></h2>
-                                            <div class="form-row pb-1">
-                                                <div class="col-md-6">
-                                                    <table>
-                                                        <tbody>
-                                                            <tr>
-                                                                <td>வயது</td>
-                                                                <td>:</td>
-                                                                <td>26</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>நிலை</td>
-                                                                <td>:</td>
-                                                                <td>முதல் மணம்</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>படிப்பு</td>
-                                                                <td>:</td>
-                                                                <td>மேல்நிலை பட்டப்படிப்பு</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>பணி</td>
-                                                                <td>:</td>
-                                                                <td>பணியில் இல்லை</td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <table>
-                                                        <tbody>
-                                                            <tr>
-                                                                <td>சாதி</td>
-                                                                <td>:</td>
-                                                                <td>கொங்கு வெள்ளாள கவுண்டர்</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>குலம்</td>
-                                                                <td>:</td>
-                                                                <td>வெண்டுவன் குலம்</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>நட்சத்திரம்</td>
-                                                                <td>:</td>
-                                                                <td>துலாம்-ஸ்வாதி</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>ஜாதகம்</td>
-                                                                <td>:</td>
-                                                                <td>சுத்த ஜாதகம்</td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                            </div>
-                                            <div class="row gutters-5 text-center">
-                                                <div class="col">
-                                                    <a href="javascript:void(0);" onclick="package_alert()"
-                                                        class="text-dark c-pointer">
-                                                        <i class="fas fa-user fs-20 text-primary"></i>
-                                                        <span class="d-block fs-10">Full Profile</span>
-                                                    </a>
-                                                </div>
-                                                <div class="col">
-                                                    <a href="javascript:void(0);" onclick="package_alert()"
-                                                        class="text-dark c-pointer">
-                                                        <i class="fas fa-heart fs-20 text-primary"></i>
-                                                        <span class="d-block fs-10">Interest</span>
-                                                    </a>
-                                                </div>
-                                                <div class="col">
-                                                    <a href="javascript:void(0);" onclick="package_alert()"
-                                                        class="text-dark c-pointer">
-                                                        <i class="fas fa-list fs-20 text-primary"></i>
-                                                        <span class="d-block fs-10">Shortlist</span>
-                                                    </a>
-                                                </div>
-                                                <div class="col">
-                                                    <a href="javascript:void(0);" onclick="package_alert()"
-                                                        class="text-dark c-pointer">
-                                                        <i class="fas fa-ban fs-20 text-primary"></i>
-                                                        <span class="d-block fs-10">Ignore</span>
-                                                    </a>
-                                                </div>
-                                                <div class="col">
-                                                    <a href="javascript:void(0);" onclick="package_alert()"
-                                                        class="text-dark c-pointer">
-                                                        <i class="fas fa-phone-alt fs-20 text-primary"></i>
-                                                        <span class="d-block fs-10">View Contact</span>
-                                                    </a>
-                                                </div>
-                                                <div class="col d-none d-md-block">
-                                                    <a href="https://wa.me/?text=பதிவு எண் : GK3938%0aபெயர் : ஸ்வாதி (V.I.P.)%0aMBA%0aவயது : 26%0aபிறந்த ஊர் : Salem%0aதொழில் : Not working%0aமாத வருமானம் : 0%0aதுலாம்-ஸ்வாதி%0aசுத்த ஜாதகம்%0aசொத்து விபரம்  : 3 Houses (2 Rental)Commercial plots%0a*(நேரடி தொடர்பு எண் ஜாதகத்தில் உள்ளது)*%0ahttps://ganeshkongumatrimony.com/p/5wggthq"
-                                                        target="_blank" class="text-dark c-pointer">
-                                                        <i class="fab fa-whatsapp fs-20 text-primary"></i>
-                                                        <span class="d-block fs-10">Share</span>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row no-gutters border border-gray-300 rounded shadow mb-4 has-transition position-relative"
-                                    id="block_id_800">
-                                    <div class="col-md-auto">
-                                        <div class="text-center pt-3 pt-md-0">
-                                            <img src="https://ganeshkongumatrimony.com/uploads/profile_images/r2M4UWC4dvq581bDT0IBeqKnRQBlmq7ms0s50oYw.jpg"
-                                                class="profile-thumb"
-                                                onerror="this.onerror=null;this.src='https://ganeshkongumatrimony.com/assets/img/avatar-place.png';">
-                                            <div class="mt-2">
-                                                <a href="javascript:void(0);" onclick="package_alert()"
-                                                    class="btn btn-primary btn-sm mr-1"><i class="fas fa-user"></i>
-                                                    ப்ரொபைல்</a>
-                                                <a href="javascript:void(0);" onclick="package_alert()"
-                                                    class="btn btn-primary btn-sm ml-1">ஜாதகம் <i
-                                                        class="fas fa-file-invoice"></i></a>
-                                                <a href="https://wa.me/?text=பதிவு எண் : GK3058%0aபெயர் : ஷிவானி (மருத்துவர்) (V.I.P.)%0aMBBS%0aவயது : 25%0aபிறந்த ஊர் : Pollachi%0aதொழில் : Preparing for PG%0aமாத வருமானம் : 0%0aதுலாம்-ஸ்வாதி%0aசுத்த ஜாதகம்%0aசொத்து விபரம்  : 50 ACRES (25 ACRES COCONUT FARMING)%0ahttps://ganeshkongumatrimony.com/p/8"
-                                                    target="_blank"
-                                                    class="btn btn-sm btn-success btn-circle px-2 lh-1 ml-2 d-md-none"><i
-                                                        class="fab fa-whatsapp"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md position-static d-flex align-items-center">
-                                        <span class="absolute-top-right px-2 pt-1 pb-3">
-                                            <span class="badge badge-inline badge-success">3003 Gold</span>
-                                        </span>
-                                        <div class="px-2 px-md-4 pt-4 pb-2 listing-profile flex-grow-1">
-                                            <h2 class="h6 fw-600 fs-18 text-primary text-truncate mb-1">ஷிவானி <span
-                                                    class="float-right text-primary">GK3058</span></h2>
-                                            <div class="form-row pb-1">
-                                                <div class="col-md-6">
-                                                    <table>
-                                                        <tbody>
-                                                            <tr>
-                                                                <td>வயது</td>
-                                                                <td>:</td>
-                                                                <td>25</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>நிலை</td>
-                                                                <td>:</td>
-                                                                <td>முதல் மணம்</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>படிப்பு</td>
-                                                                <td>:</td>
-                                                                <td>மருத்துவ படிப்பு</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>பணி</td>
-                                                                <td>:</td>
-                                                                <td>மருத்துவர்</td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <table>
-                                                        <tbody>
-                                                            <tr>
-                                                                <td>சாதி</td>
-                                                                <td>:</td>
-                                                                <td>கொங்கு வெள்ளாள கவுண்டர்</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>குலம்</td>
-                                                                <td>:</td>
-                                                                <td>கண்ணந்தை குலம்</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>நட்சத்திரம்</td>
-                                                                <td>:</td>
-                                                                <td>துலாம்-ஸ்வாதி</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>ஜாதகம்</td>
-                                                                <td>:</td>
-                                                                <td>சுத்த ஜாதகம்</td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                            </div>
-                                            <div class="row gutters-5 text-center">
-                                                <div class="col">
-                                                    <a href="javascript:void(0);" onclick="package_alert()"
-                                                        class="text-dark c-pointer">
-                                                        <i class="fas fa-user fs-20 text-primary"></i>
-                                                        <span class="d-block fs-10">Full Profile</span>
-                                                    </a>
-                                                </div>
-                                                <div class="col">
-                                                    <a href="javascript:void(0);" onclick="package_alert()"
-                                                        class="text-dark c-pointer">
-                                                        <i class="fas fa-heart fs-20 text-primary"></i>
-                                                        <span class="d-block fs-10">Interest</span>
-                                                    </a>
-                                                </div>
-                                                <div class="col">
-                                                    <a href="javascript:void(0);" onclick="package_alert()"
-                                                        class="text-dark c-pointer">
-                                                        <i class="fas fa-list fs-20 text-primary"></i>
-                                                        <span class="d-block fs-10">Shortlist</span>
-                                                    </a>
-                                                </div>
-                                                <div class="col">
-                                                    <a href="javascript:void(0);" onclick="package_alert()"
-                                                        class="text-dark c-pointer">
-                                                        <i class="fas fa-ban fs-20 text-primary"></i>
-                                                        <span class="d-block fs-10">Ignore</span>
-                                                    </a>
-                                                </div>
-                                                <div class="col">
-                                                    <a href="javascript:void(0);" onclick="package_alert()"
-                                                        class="text-dark c-pointer">
-                                                        <i class="fas fa-phone-alt fs-20 text-primary"></i>
-                                                        <span class="d-block fs-10">View Contact</span>
-                                                    </a>
-                                                </div>
-                                                <div class="col d-none d-md-block">
-                                                    <a href="https://wa.me/?text=பதிவு எண் : GK3058%0aபெயர் : ஷிவானி (மருத்துவர்) (V.I.P.)%0aMBBS%0aவயது : 25%0aபிறந்த ஊர் : Pollachi%0aதொழில் : Preparing for PG%0aமாத வருமானம் : 0%0aதுலாம்-ஸ்வாதி%0aசுத்த ஜாதகம்%0aசொத்து விபரம்  : 50 ACRES (25 ACRES COCONUT FARMING)%0ahttps://ganeshkongumatrimony.com/p/8"
-                                                        target="_blank" class="text-dark c-pointer">
-                                                        <i class="fab fa-whatsapp fs-20 text-primary"></i>
-                                                        <span class="d-block fs-10">Share</span>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row no-gutters border border-gray-300 rounded shadow mb-4 has-transition position-relative"
-                                    id="block_id_648">
-                                    <div class="col-md-auto">
-                                        <div class="text-center pt-3 pt-md-0">
-                                            <img src="https://ganeshkongumatrimony.com/uploads/profile_images/c14c2539a6c050a1e83c.jpg"
-                                                class="profile-thumb"
-                                                onerror="this.onerror=null;this.src='https://ganeshkongumatrimony.com/assets/img/avatar-place.png';">
-                                            <div class="mt-2">
-                                                <a href="javascript:void(0);" onclick="package_alert()"
-                                                    class="btn btn-primary btn-sm mr-1"><i class="fas fa-user"></i>
-                                                    ப்ரொபைல்</a>
-                                                <a href="javascript:void(0);" onclick="package_alert()"
-                                                    class="btn btn-primary btn-sm ml-1">ஜாதகம் <i
-                                                        class="fas fa-file-invoice"></i></a>
-                                                <a href="https://wa.me/?text=பதிவு எண் : GK2906%0aபெயர் : சுவாதி%0aM.Sc.,B.Ed.,%0aவயது : 25%0aபிறந்த ஊர் : Harur%0aதொழில் : .%0aமாத வருமானம் : 0%0aதுலாம்-ஸ்வாதி%0aராகு கேது, செவ்வாய்%0aசொத்து விபரம்  : 20 ஏக்கர் நிலம்%0ahttps://ganeshkongumatrimony.com/p/33lux4q"
-                                                    target="_blank"
-                                                    class="btn btn-sm btn-success btn-circle px-2 lh-1 ml-2 d-md-none"><i
-                                                        class="fab fa-whatsapp"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md position-static d-flex align-items-center">
-                                        <span class="absolute-top-right px-2 pt-1 pb-3">
-                                            <span class="badge badge-inline badge-success">2000</span>
-                                        </span>
-                                        <div class="px-2 px-md-4 pt-4 pb-2 listing-profile flex-grow-1">
-                                            <h2 class="h6 fw-600 fs-18 text-primary text-truncate mb-1">சுவாதி <span
-                                                    class="float-right text-primary">GK2906</span></h2>
-                                            <div class="form-row pb-1">
-                                                <div class="col-md-6">
-                                                    <table>
-                                                        <tbody>
-                                                            <tr>
-                                                                <td>வயது</td>
-                                                                <td>:</td>
-                                                                <td>25</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>நிலை</td>
-                                                                <td>:</td>
-                                                                <td>முதல் மணம்</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>படிப்பு</td>
-                                                                <td>:</td>
-                                                                <td>மேல்நிலை பட்டப்படிப்பு</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>பணி</td>
-                                                                <td>:</td>
-                                                                <td></td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <table>
-                                                        <tbody>
-                                                            <tr>
-                                                                <td>சாதி</td>
-                                                                <td>:</td>
-                                                                <td>கொங்கு வெள்ளாள கவுண்டர்</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>குலம்</td>
-                                                                <td>:</td>
-                                                                <td>கண்ணன் குலம்</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>நட்சத்திரம்</td>
-                                                                <td>:</td>
-                                                                <td>துலாம்-ஸ்வாதி</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>ஜாதகம்</td>
-                                                                <td>:</td>
-                                                                <td>ராகு கேது, செவ்வாய்</td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                            </div>
-                                            <div class="row gutters-5 text-center">
-                                                <div class="col">
-                                                    <a href="javascript:void(0);" onclick="package_alert()"
-                                                        class="text-dark c-pointer">
-                                                        <i class="fas fa-user fs-20 text-primary"></i>
-                                                        <span class="d-block fs-10">Full Profile</span>
-                                                    </a>
-                                                </div>
-                                                <div class="col">
-                                                    <a href="javascript:void(0);" onclick="package_alert()"
-                                                        class="text-dark c-pointer">
-                                                        <i class="fas fa-heart fs-20 text-primary"></i>
-                                                        <span class="d-block fs-10">Interest</span>
-                                                    </a>
-                                                </div>
-                                                <div class="col">
-                                                    <a href="javascript:void(0);" onclick="package_alert()"
-                                                        class="text-dark c-pointer">
-                                                        <i class="fas fa-list fs-20 text-primary"></i>
-                                                        <span class="d-block fs-10">Shortlist</span>
-                                                    </a>
-                                                </div>
-                                                <div class="col">
-                                                    <a href="javascript:void(0);" onclick="package_alert()"
-                                                        class="text-dark c-pointer">
-                                                        <i class="fas fa-ban fs-20 text-primary"></i>
-                                                        <span class="d-block fs-10">Ignore</span>
-                                                    </a>
-                                                </div>
-                                                <div class="col">
-                                                    <a href="javascript:void(0);" onclick="package_alert()"
-                                                        class="text-dark c-pointer">
-                                                        <i class="fas fa-phone-alt fs-20 text-primary"></i>
-                                                        <span class="d-block fs-10">View Contact</span>
-                                                    </a>
-                                                </div>
-                                                <div class="col d-none d-md-block">
-                                                    <a href="https://wa.me/?text=பதிவு எண் : GK2906%0aபெயர் : சுவாதி%0aM.Sc.,B.Ed.,%0aவயது : 25%0aபிறந்த ஊர் : Harur%0aதொழில் : .%0aமாத வருமானம் : 0%0aதுலாம்-ஸ்வாதி%0aராகு கேது, செவ்வாய்%0aசொத்து விபரம்  : 20 ஏக்கர் நிலம்%0ahttps://ganeshkongumatrimony.com/p/33lux4q"
-                                                        target="_blank" class="text-dark c-pointer">
-                                                        <i class="fab fa-whatsapp fs-20 text-primary"></i>
-                                                        <span class="d-block fs-10">Share</span>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                @empty 
+                                 <h2>No Data Available :)</h2>
+                                @endforelse
                             </div>
                             <div class="aiz-pagination">
 

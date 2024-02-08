@@ -2,10 +2,11 @@
 
 namespace App\Models;
 
+use App\Models\Common\MasterModel;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class ProfileBasic extends Model
+class ProfileBasic extends MasterModel
 {
     use HasFactory;
 
@@ -43,4 +44,66 @@ class ProfileBasic extends Model
          "work_place_id",
          "father_occupation",
          "mother_occupation"];
+
+
+    public function education()
+    {
+        return $this->belongsTo(Education::class);
+    } 
+
+    public function work()
+    {
+        return $this->belongsTo(Work::class);
+    } 
+
+    public function caste()
+    {
+        return $this->belongsTo(Caste::class);
+    } 
+
+    public function sub_caste()
+    {
+        return $this->belongsTo(SubCaste::class);
+    }
+    
+    public function work_place()
+    {
+        return $this->belongsTo(WorkPlace::class);
+    }
+    
+    public function country()
+    {
+        return $this->belongsTo(Country::class);
+    }
+    
+    public function state()
+    {
+        return $this->belongsTo(State::class);
+    }
+    
+    public function district()
+    {
+        return $this->belongsTo(District::class);
+    }
+    
+    public function father_status()
+    {
+        return $this->belongsTo(ParentStatus::class);
+    }
+
+    public function mother_status()
+    {
+        return $this->belongsTo(ParentStatus::class);
+    }
+    
+    public function social_type()
+    {
+        return $this->belongsTo(SocialType::class);
+    }
+    
+    public function asset_value()
+    {
+        return $this->belongsTo(AssetsValue::class);
+    }   
+
 }

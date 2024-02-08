@@ -2,10 +2,11 @@
 
 namespace App\Models;
 
+use App\Models\Common\MasterModel;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Profile extends Model
+class Profile extends MasterModel
 {
     use HasFactory;
 
@@ -39,7 +40,7 @@ class Profile extends Model
         'expectation_work_place_id' => "object",
 
     ];
-
+    
     public function user()
     {
         return $this->belongsTo(User::class);
@@ -48,6 +49,11 @@ class Profile extends Model
     public function color()
     {
         return $this->belongsTo(Color::class);
+    }
+
+    public function blood_group()
+    {
+        return $this->belongsTo(BloodGroup::class);
     }
     
     public function body_type()
@@ -83,9 +89,65 @@ class Profile extends Model
     public function registered_by()
     {
         return $this->belongsTo(RegisteredBy::class);
-    }  
+    } 
+    
+    public function basic()
+    {
+        return $this->hasOne(ProfileBasic::class);
+    }
+    
+    public function jathagam()
+    {
+        return $this->hasOne(profileJathagam::class);
+    }
     
     public function getModelData($data){
         // Full data get 
     }
+
+    
+    public function scopeBride($query)
+    {
+        return $query->where('gender_id', 2)->where('active', 1);
+    }
+
+    public function scopeGroom($query)
+    {
+        return $query->where('gender_id', 1)->where('active', 1);
+    }
+
+    public function scopeSelectColumns($query)
+    {
+        return $query->with([]);
+    }
+
+    public function getPhotoAttribute()
+    {
+        return !empty($this->attributes['photo_file']) ? 
+                asset("storage/photos/".$this->attributes['photo_file'] )
+                    : (
+                        $this->attributes['gender_id'] == 1 ?  
+                            asset('img/profile/groom.jpg') 
+                            :
+                            asset('img/profile/bride.jpg')
+                    );
+    }
+
+    public function getExpectationJathagamTitleAttribute()
+    {
+        return Jathagam::find($this->expectation_jathagam_id)->pluck('title')->implode(", ");
+    }
+
+    public function getExpectationMaritalStatusTitleAttribute()
+    {
+        return Jathagam::find($this->expectation_marital_status_id)->pluck('title')->implode(", ");
+    }
+
+    public function getExpectationWorkPlaceTitleAttribute()
+    {
+        return Jathagam::find($this->expectation_work_place_id)->pluck('title')->implode(", ");
+    }
+
+    
+    
 }
