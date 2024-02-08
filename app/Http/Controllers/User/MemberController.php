@@ -37,9 +37,10 @@ class MemberController extends Controller
         return view('user.member-listing', compact('data'));
     }
 
-    public function jathagam()
+    public function jathagam($id = 1)
     {
-        return view('user.jathagam');
+        $data['profile'] = Profile::selectColumns()->find($id);
+        return view('user.jathagam', compact('data'));
     }
 
     public function search()

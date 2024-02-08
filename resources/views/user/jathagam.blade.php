@@ -40,7 +40,7 @@
                 <div class="row">
                     <div class="col">
                         <div class="print-header text-center">
-                            <img src="https://ganeshkongumatrimony.com/uploads/all/q6CbLbvGbexPN6MJ7VOm5aUBQRxdEdNzDLKa5xsZ.png"
+                            <img src="{{ $data['profile']->photo }}"
                                 alt="Ganesh Kongu Matrimony" class="w-auto h-80px">
                             <h6 class="font-weight-bold my-2">
                                 <span class="mx-2"><a href="tel:9025382525" class="text-dark"><i
@@ -59,19 +59,19 @@
                         <p class="mb-0">Profile ID: <span id="profile-id">GK4590</span></p>
                     </div>
                     <div class="col text-center">
-                        <p class="mb-0">Date Reg: 22-01-2024</p>
+                        <p class="mb-0">Date Reg: {{ $data['profile']->created_at }}</p>
                     </div>
                     <div class="col text-right">
-                        <p class="mb-0">Printed On: 22-01-2024</p>
+                        <p class="mb-0">Printed On: {{ date("Y-m-d") }}</p>
                     </div>
                 </div>
 
                 <h4 class="section-title">அடிப்படை விவரங்கள்</h4>
                 <div class="form-row first-row">
                     <div class="col-6 text-center">
-                        <img src="https://ganeshkongumatrimony.com/uploads/profile_images/13UIWeNF64cR93BYSRASD2AvQl9YgapJaSewuPd6.jpg"
+                       <img src="{{ $data['profile']->photo }}"
                             class="profile-thumbnail w-auto mw-100"
-                            onerror="this.onerror=null;this.src='https://ganeshkongumatrimony.com/assets/img/avatar-place.png';">
+                            onerror="this.onerror=null;this.src='{{asset('img/avatar-place.png')}}';">
                     </div>
                     <div class="col-6">
                         <table>
@@ -79,42 +79,42 @@
                                 <tr>
                                     <td>பெயர்</td>
                                     <td>:</td>
-                                    <td>சாய்பிருந்தா</td>
+                                    <td>{{ $data['profile']->title ?? "-" }}</td>
                                 </tr>
                                 <tr>
                                     <td>பாலினம்</td>
                                     <td>:</td>
-                                    <td>பெண்</td>
+                                    <td>{{ $data['profile']->gender->title ?? "-" }}</td>
                                 </tr>
                                 <tr>
                                     <td>வயது</td>
                                     <td>:</td>
-                                    <td>35 வருடம், 11 மாதம்</td>
+                                    <td>{{ $data['profile']->jathagam->title ?? "-" }}</td>
                                 </tr>
                                 <tr>
                                     <td>திருமண நிலை</td>
                                     <td>:</td>
-                                    <td>முதல் மணம்</td>
+                                    <td>{{ $data['profile']->marital_status->title ?? "-" }}</td>
                                 </tr>
                                 <tr>
                                     <td>பதிவு செய்தவர்</td>
                                     <td>:</td>
-                                    <td>பெற்றோர்</td>
+                                    <td>{{ $data['profile']->registered_by->title ?? "-" }}</td>
                                 </tr>
                                 <tr>
                                     <td>நிறம்</td>
                                     <td>:</td>
-                                    <td>சிகப்பு</td>
+                                    <td>{{ $data['profile']->color->title ?? "-" }}</td>
                                 </tr>
                                 <tr>
                                     <td>உயரம்</td>
                                     <td>:</td>
-                                    <td>5ft 3in / 160 cms</td>
+                                    <td>{{ $data['profile']->height->title ?? "-" }}</td>
                                 </tr>
                                 <tr>
                                     <td>எடை</td>
                                     <td>:</td>
-                                    <td>62 Kg</td>
+                                    <td>{{ $data['profile']->weight->title ?? "-" }}</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -129,7 +129,7 @@
                                 <tr>
                                     <td>சாதி</td>
                                     <td>:</td>
-                                    <td>கொங்கு வெள்ளாள கவுண்டர்</td>
+                                    <td>{{ $data['profile']->basic->caste->title ?? "-" }}</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -140,7 +140,7 @@
                                 <tr>
                                     <td>குலம்</td>
                                     <td>:</td>
-                                    <td>காடை குலம்</td>
+                                    <td>{{ $data['profile']->basic->sub_caste->title ?? "-" }}</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -153,7 +153,7 @@
                                 <tr>
                                     <td>கோவில்</td>
                                     <td>:</td>
-                                    <td>PERUNDURAI SHRI. CHELLANDIAMMAN.</td>
+                                    <td>{{ $data['profile']->basic->temple ?? "-" }}</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -168,12 +168,12 @@
                                 <tr>
                                     <td>தந்தை நிலை</td>
                                     <td>:</td>
-                                    <td>உண்டு</td>
+                                    <td>{{ $data['profile']->basic->father_status->title ?? "-" }}</td>
                                 </tr>
                                 <tr>
                                     <td>உடன் பிறந்தோர்</td>
                                     <td>:</td>
-                                    <td>YOUNGER SISTER.</td>
+                                    <td>{{ $data['profile']->basic->siblings ?? "-" }}</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -184,12 +184,12 @@
                                 <tr>
                                     <td>தாய் நிலை</td>
                                     <td>:</td>
-                                    <td>உண்டு</td>
+                                    <td>{{ $data['profile']->basic->mother_status->title ?? "-" }}</td>
                                 </tr>
                                 <tr>
                                     <td>சமூக நிலை</td>
                                     <td>:</td>
-                                    <td>நடுத்தரம்</td>
+                                    <td>{{ $data['profile']->basic->social_type->title ?? "-" }}</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -204,22 +204,22 @@
                                 <tr>
                                     <td>நட்சத்திரம்</td>
                                     <td>:</td>
-                                    <td>கும்பம்-அவிட்டம்</td>
+                                    <td>{{ $data['profile']->jathagam->rasi_nakshatra->title ?? "-" }}</td>
                                 </tr>
                                 <tr>
                                     <td>பாதம்</td>
                                     <td>:</td>
-                                    <td>பாதம் 4</td>
+                                    <td>{{ $data['profile']->jathagam->nakshatra_patham->title ?? "-" }}</td>
                                 </tr>
                                 <tr>
                                     <td>லக்னம்</td>
                                     <td>:</td>
-                                    <td>கன்னி</td>
+                                    <td>{{ $data['profile']->jathagam->lagnam->title ?? "-" }}</td>
                                 </tr>
                                 <tr>
                                     <td>ஜாதகம்</td>
                                     <td>:</td>
-                                    <td>ராகு கேது ஜாதகம்</td>
+                                    <td>{{ $data['profile']->jathagam->jathagam->title ?? "-" }}</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -230,134 +230,133 @@
                                 <tr>
                                     <td>பிறந்த தேதி</td>
                                     <td>:</td>
-                                    <td>17-02-1988</td>
+                                    <td>{{ $data['profile']->jathagam->date_of_birth ?? "-" }}</td>
                                 </tr>
                                 <tr>
                                     <td>பிறந்த தேதி</td>
                                     <td>:</td>
-                                    <td>9:37:P.M.</td>
+                                    <td>{{ $data['profile']->jathagam->time_of_birth ?? "-" }}</td>
                                 </tr>
                                 <tr>
                                     <td>பிறந்த கிழமை</td>
                                     <td>:</td>
-                                    <td>புதன் கிழமை</td>
+                                    <td>{{ $data['profile']->jathagam->date_of_birth ?? "-" }}</td>
                                 </tr>
                                 <tr>
                                     <td>பிறந்த ஊர்</td>
                                     <td>:</td>
-                                    <td>COIMBATORE</td>
+                                    <td>{{ $data['profile']->jathagam->place_of_birth ?? "-" }}</td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
                 </div>
 
-                <div class="form-row align-items-center div-astro mt-2">
-                    <div class="col-12 col-md-5 mb-1">
-                        <table class="tablehoro" border="0" cellpadding="0" cellspacing="0" align="center">
+                <div class="row div-astro mt-2">
+                    <div class="col-md-6 mb-1">
+                        <table class="tablehoro" border="0" cellpadding="0" cellspacing="0"
+                            align="center">
                             <tr>
                                 <td>
-                                    <p>5, 10</p>
+                                    <p>{{ $data['profile']->jathagam->rasi_title['1'] ?? '' }}</p>
                                 </td>
                                 <td>
-                                    <p>6</p>
+                                    <p>{{ $data['profile']->jathagam->rasi_title['2'] ?? '' }}</p>
                                 </td>
                                 <td>
-                                    <p></p>
+                                    <p>{{ $data['profile']->jathagam->rasi_title['3'] ?? '' }}</p>
                                 </td>
                                 <td>
-                                    <p></p>
+                                    <p>{{ $data['profile']->jathagam->rasi_title['4'] ?? '' }}</p>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <p>2, 3</p>
+                                    <p>{{ $data['profile']->jathagam->rasi_title['5'] ?? '' }}</p>
                                 </td>
                                 <td rowspan="2" colspan="2">
-                                    <img src="https://ganeshkongumatrimony.com/assets/img/Logo.png" border="0"
-                                        class="h-70px w-auto"><br>
-                                    <strong>இராசி</strong>
+                                    <img src="https://ganeshkongumatrimony.com/assets/img/icons/android-icon-72x72.png"
+                                        border="0" class="h-50px w-auto"><br>
+                                    <strong>Rasi</strong>
                                 </td>
                                 <td>
-                                    <p></p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <p>8, 11</p>
-                                </td>
-                                <td>
-                                    <p></p>
+                                    <p>{{ $data['profile']->jathagam->rasi_title['6'] ?? '' }}</p>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <p>4, 7</p>
+                                    <p>{{ $data['profile']->jathagam->rasi_title['7'] ?? '' }}</p>
                                 </td>
                                 <td>
-                                    <p></p>
+                                    <p>{{ $data['profile']->jathagam->rasi_title['8'] ?? '' }}</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p>{{ $data['profile']->jathagam->rasi_title['9'] ?? '' }}</p>
                                 </td>
                                 <td>
-                                    <p></p>
+                                    <p>{{ $data['profile']->jathagam->rasi_title['10'] ?? '' }}</p>
                                 </td>
                                 <td>
-                                    <p>1, 9</p>
+                                    <p>{{ $data['profile']->jathagam->rasi_title['11'] ?? '' }}</p>
+                                </td>
+                                <td>
+                                    <p>{{ $data['profile']->jathagam->rasi_title['12'] ?? '' }}</p>
                                 </td>
                             </tr>
                         </table>
                     </div>
-                    <div class="col-12 col-md-2">
-                        <div id="qrcode" class="text-center"></div>
-                    </div>
-                    <div class="col-12 col-md-5">
-                        <table class="tablehoro" border="0" cellpadding="0" cellspacing="0" align="center">
+                    <div class="col-md-6 mb-1">
+                        <table class="tablehoro" border="0" cellpadding="0" cellspacing="0"
+                            align="center">
                             <tr>
                                 <td>
-                                    <p>11</p>
+                                    <p>{{ $data['profile']->jathagam->navamsam_title['1'] ?? '' }}</p>
                                 </td>
                                 <td>
-                                    <p>4, 6</p>
+                                    <p>{{ $data['profile']->jathagam->navamsam_title['2'] ?? '' }}</p>
                                 </td>
                                 <td>
-                                    <p></p>
+                                    <p>{{ $data['profile']->jathagam->navamsam_title['3'] ?? '' }}</p>
                                 </td>
                                 <td>
-                                    <p>7</p>
+                                    <p>{{ $data['profile']->jathagam->navamsam_title['4'] ?? '' }}</p>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <p></p>
+                                    <p>{{ $data['profile']->jathagam->navamsam_title['5'] ?? '' }}</p>
                                 </td>
                                 <td rowspan="2" colspan="2">
-                                    <img src="https://ganeshkongumatrimony.com/assets/img/Logo.png" border="0"
-                                        class="h-70px w-auto"><br>
-                                    <strong>நவாம்சம்</strong>
+                                    <img src="https://ganeshkongumatrimony.com/assets/img/icons/android-icon-72x72.png"
+                                        border="0" class="h-50px w-auto"><br>
+                                    <strong>Navamsam</strong>
                                 </td>
                                 <td>
-                                    <p>1, 5, 8</p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <p>9</p>
-                                </td>
-                                <td>
-                                    <p></p>
+                                    <p>{{ $data['profile']->jathagam->navamsam_title['6'] ?? '' }}</p>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <p></p>
+                                    <p>{{ $data['profile']->jathagam->navamsam_title['7'] ?? '' }}</p>
                                 </td>
                                 <td>
-                                    <p>2, 3, 10</p>
+                                    <p>{{ $data['profile']->jathagam->navamsam_title['8'] ?? '' }}</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p>{{ $data['profile']->jathagam->navamsam_title['9'] ?? '' }}</p>
                                 </td>
                                 <td>
-                                    <p></p>
+                                    <p>{{ $data['profile']->jathagam->navamsam_title['10'] ?? '' }}</p>
                                 </td>
                                 <td>
-                                    <p></p>
+                                    <p>{{ $data['profile']->jathagam->navamsam_title['11'] ?? '' }}</p>
+                                </td>
+                                <td>
+                                    <p>{{ $data['profile']->jathagam->navamsam_title['12'] ?? '' }}</p>
                                 </td>
                             </tr>
                         </table>
@@ -372,7 +371,7 @@
                                     <td>ஜனன கால தசா இருப்பு</td>
                                     <td>:</td>
                                     <td>
-                                        செவ்வாய் - வருடம் 11 மாதம் 26 நாள்
+                                        <td>{{ $data['profile']->jathagam->birth_dasa_remaining ?? "-" }}</td>
                                     </td>
                                 </tr>
                             </tbody>
@@ -388,12 +387,12 @@
                                 <tr>
                                     <td>படிப்பு - விவரங்கள்</td>
                                     <td>:</td>
-                                    <td>B.Tech.,M.S.[USA]Doing Doctorate..</td>
+                                    <td>{{ $data['profile']->basic->education->title ?? "-" }}</td>
                                 </tr>
                                 <tr>
                                     <td>மாத வருமானம்</td>
                                     <td>:</td>
-                                    <td>600000</td>
+                                    <td>{{ $data['profile']->basic->monthly_income ?? "-" }}</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -404,12 +403,12 @@
                                 <tr>
                                     <td>பணியின் விவரம்</td>
                                     <td>:</td>
-                                    <td>DATA ANALYST அமெரிக்கா</td>
+                                    <td>{{ $data['profile']->basic->work->title ?? "-" }}</td>
                                 </tr>
                                 <tr>
                                     <td>பணியிடம்</td>
                                     <td>:</td>
-                                    <td>வெளிநாடு </td>
+                                    <td>{{ $data['profile']->basic->work_place->title ?? "-" }}</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -424,7 +423,9 @@
                                 <tr>
                                     <td>சொத்து விபரம்</td>
                                     <td>:</td>
-                                    <td style="word-break:break-word;">AGRI.FARM.IN</td>
+                                    <td style="word-break:break-word;">
+                                        {{ $data['profile']->basic->asset_details ?? "-" }}
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -439,31 +440,24 @@
                                 <tr>
                                     <td>பொருந்தும் நட்சத்திரங்கள்</td>
                                     <td>:</td>
-                                    <td style="word-break:break-word;">KARTHIGAI, THIRUVADHIRAI கன்னி-உத்திரம்
-                                        ,HASTHAM,SWATHI,VISHAGAM,ANUSHAM,MAGAM,UTHIRADAM,THIRUVONAM,</td>
+                                    <td style="word-break:break-word;">
+                                        {{ $data['profile']->expectation_jathagam_title ?? "-" }}
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>எதிர்பார்ப்பு</td>
                                     <td>:</td>
-                                    <td style="word-break:break-word;">WORKING IN USA, [preferably TEXAS ]</td>
+                                    <td style="word-break:break-word;">
+                                        {{ $data['profile']->expectation ?? "-" }}
+                                    </td>
                                 </tr>
-                                <tr>
-                                    <td colspan="3" style="color:#000;">ராகு கேது ஜாதகம்</td>
-                                </tr>
+                                
                             </tbody>
                         </table>
                     </div>
                 </div>
 
-                <div class="row">
-                    <div class="col">
-                        <img class="w-100"
-                            src="https://ganeshkongumatrimony.com/uploads/all/UYHaY9UlwGQuyVdp7Qgo1WJ2WHV7XnsHjOHl5aLB.png">
-                        <p class="print-footer text-justify text-black px-3">குறிப்பு : எமது நிறுவனம் கொங்கு திருமண
-                            அமைப்பாளர்கள் குழு உதவியுடன் செயல்படுகிறது. இரு வீட்டாரும் நன்கு விசாரித்து சுபம் பேசி
-                            முடிக்கவும். திருமணம் உறுதியானவுடன், சேவை கட்டணம் வசதிக்கேற்ப பெறப்படும்.</p>
-                    </div>
-                </div>
+              
             </div>
         </div>
     </div>

@@ -5,9 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Casts\Json;
+use App\Models\Common\MasterModel;
 use Carbon\Carbon;
 
-class profileJathagam extends Model
+class profileJathagam extends MasterModel
 {
     use HasFactory;
     protected $fillable = [
@@ -74,9 +75,9 @@ class profileJathagam extends Model
     {
         $return = [];
 
-        // foreach($this->rasi as $key => $rasi) {
-        //    $return[$key] = Rasi::find($rasi)->pluck('title')->implode(", ");
-        // }
+        foreach($this->rasi as $key => $rasi) {
+           $return[$key] = Rasi::find($rasi)?->pluck('title')?->implode(", ");
+        }
         return $return;
     }
 
@@ -84,9 +85,9 @@ class profileJathagam extends Model
     {
         $return = [];
 
-        // foreach($this->navamsam as $key => $navamsam) {
-        //    $return[$key] = Navamsam::find($navamsam )->pluck('title')->implode(", ");
-        // }
+        foreach($this->navamsam as $key => $navamsam) {
+           $return[$key] = Navamsam::find($navamsam)?->pluck('title')?->implode(", ");
+        }
         return $return;
     }
 }

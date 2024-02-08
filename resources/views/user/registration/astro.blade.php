@@ -525,9 +525,9 @@
                 <td>
                     <p></p>
                     <div class="form-group mb-3">
-                        <label class="form-label" for="nava_12"></label>
+                        <label class="form-label" for="navamsam_12"></label>
                         <div class="input-group">
-                            <select type="select" name="nava_12[]" id="nava_12"
+                            <select type="select" name="navamsam_12[]" id="navamsam_12"
                                 class="form-control aiz-selectpicker " multiple "" data-live-search="true"
                                 -data-width="auto">
                                 <option style="display:none" value="">-- Select --</option>
@@ -545,9 +545,9 @@
                 <td>
                     <p></p>
                     <div class="form-group mb-3">
-                        <label class="form-label" for="nava_1"></label>
+                        <label class="form-label" for="navamsam_1"></label>
                         <div class="input-group">
-                            <select type="select" name="nava_1[]" id="nava_1"
+                            <select type="select" name="navamsam_1[]" id="navamsam_1"
                                 class="form-control aiz-selectpicker " multiple "" data-live-search="true"
                                 -data-width="auto">
                                 <option style="display:none" value="">-- Select --</option>
@@ -565,9 +565,9 @@
                 <td>
                     <p></p>
                     <div class="form-group mb-3">
-                        <label class="form-label" for="nava_2"></label>
+                        <label class="form-label" for="navamsam_2"></label>
                         <div class="input-group">
-                            <select type="select" name="nava_2[]" id="nava_2"
+                            <select type="select" name="navamsam_2[]" id="navamsam_2"
                                 class="form-control aiz-selectpicker " multiple "" data-live-search="true"
                                 -data-width="auto">
                                 <option style="display:none" value="">-- Select --</option>
@@ -585,9 +585,9 @@
                 <td>
                     <p></p>
                     <div class="form-group mb-3">
-                        <label class="form-label" for="nava_3"></label>
+                        <label class="form-label" for="navamsam_3"></label>
                         <div class="input-group">
-                            <select type="select" name="nava_3[]" id="nava_3"
+                            <select type="select" name="navamsam_3[]" id="navamsam_3"
                                 class="form-control aiz-selectpicker " multiple "" data-live-search="true"
                                 -data-width="auto">
                                 <option style="display:none" value="">-- Select --</option>
@@ -607,9 +607,9 @@
                 <td>
                     <p></p>
                     <div class="form-group mb-3">
-                        <label class="form-label" for="nava_11"></label>
+                        <label class="form-label" for="navamsam_11"></label>
                         <div class="input-group">
-                            <select type="select" name="nava_11[]" id="nava_11"
+                            <select type="select" name="navamsam_11[]" id="navamsam_11"
                                 class="form-control aiz-selectpicker " multiple "" data-live-search="true"
                                 -data-width="auto">
                                 <option style="display:none" value="">-- Select --</option>
@@ -630,9 +630,9 @@
                 <td>
                     <p></p>
                     <div class="form-group mb-3">
-                        <label class="form-label" for="nava_4"></label>
+                        <label class="form-label" for="navamsam_4"></label>
                         <div class="input-group">
-                            <select type="select" name="nava_4[]" id="nava_4"
+                            <select type="select" name="navamsam_4[]" id="navamsam_4"
                                 class="form-control aiz-selectpicker " multiple "" data-live-search="true"
                                 -data-width="auto">
                                 <option style="display:none" value="">-- Select --</option>
@@ -652,9 +652,9 @@
                 <td>
                     <p></p>
                     <div class="form-group mb-3">
-                        <label class="form-label" for="nava_10"></label>
+                        <label class="form-label" for="navamsam_10"></label>
                         <div class="input-group">
-                            <select type="select" name="nava_10[]" id="nava_10"
+                            <select type="select" name="navamsam_10[]" id="navamsam_10"
                                 class="form-control aiz-selectpicker " multiple "" data-live-search="true"
                                 -data-width="auto">
                                 <option style="display:none" value="">-- Select --</option>
@@ -672,9 +672,9 @@
                 <td>
                     <p></p>
                     <div class="form-group mb-3">
-                        <label class="form-label" for="nava_5"></label>
+                        <label class="form-label" for="navamsam_5"></label>
                         <div class="input-group">
-                            <select type="select" name="nava_5[]" id="nava_5"
+                            <select type="select" name="navamsam_5[]" id="navamsam_5"
                                 class="form-control aiz-selectpicker " multiple "" data-live-search="true"
                                 -data-width="auto">
                                 <option style="display:none" value="">-- Select --</option>
@@ -694,9 +694,9 @@
                 <td>
                     <p></p>
                     <div class="form-group mb-3">
-                        <label class="form-label" for="nava_9"></label>
+                        <label class="form-label" for="navamsam_9"></label>
                         <div class="input-group">
-                            <select type="select" name="nava_9[]" id="nava_9"
+                            <select type="select" name="navamsam_9[]" id="navamsam_9"
                                 class="form-control aiz-selectpicker " multiple "" data-live-search="true"
                                 -data-width="auto">
                                 <option style="display:none" value="">-- Select --</option>
@@ -714,9 +714,9 @@
                 <td>
                     <p></p>
                     <div class="form-group mb-3">
-                        <label class="form-label" for="nava_8"></label>
+                        <label class="form-label" for="navamsam_8"></label>
                         <div class="input-group">
-                            <select type="select" name="nava_8[]" id="nava_8"
+                            <select type="select" name="navamsam_8[]" id="navamsam_8"
                                 class="form-control aiz-selectpicker " multiple "" data-live-search="true"
                                 -data-width="auto">
                                 <option style="display:none" value="">-- Select --</option>
@@ -734,9 +734,9 @@
                 <td>
                     <p></p>
                     <div class="form-group mb-3">
-                        <label class="form-label" for="nava_7"></label>
+                        <label class="form-label" for="navamsam_7"></label>
                         <div class="input-group">
-                            <select type="select" name="nava_7[]" id="nava_7"
+                            <select type="select" name="navamsam_7[]" id="navamsam_7"
                                 class="form-control aiz-selectpicker " multiple "" data-live-search="true"
                                 -data-width="auto">
                                 <option style="display:none" value="">-- Select --</option>
@@ -754,9 +754,9 @@
                 <td>
                     <p></p>
                     <div class="form-group mb-3">
-                        <label class="form-label" for="nava_6"></label>
+                        <label class="form-label" for="navamsam_6"></label>
                         <div class="input-group">
-                            <select type="select" name="nava_6[]" id="nava_6"
+                            <select type="select" name="navamsam_6[]" id="navamsam_6"
                                 class="form-control aiz-selectpicker " multiple "" data-live-search="true"
                                 -data-width="auto">
                                 <option style="display:none" value="">-- Select --</option>
