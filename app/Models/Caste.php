@@ -10,4 +10,9 @@ class Caste extends MasterModel
 {
     use HasFactory;
     protected $guarded = [];
+
+    public function religion()
+    {
+        return $this->belongsTo(Religion::class);
+    }
 }

@@ -27,7 +27,7 @@ class MasterController extends Controller
     public function index()
     {
         $page_data = $this->pageData;
-        $modal_data =$this->modal->paginate(5);
+        $modal_data =$this->modal->paginate(15);
         return view($this->pageData['view'], compact('modal_data', 'page_data'));
     }
 
@@ -39,6 +39,10 @@ class MasterController extends Controller
             'active' => ['nullable'],
         ]);
 
+        $validator->setAttributeNames([
+            'title' => $this->pageData['name'],
+        ]);
+
         if ($validator->fails()) {
             return response()->json([
                 'status' => 400,
@@ -47,9 +51,9 @@ class MasterController extends Controller
         } else {
            $this->modal->create([
                 'title' => $request->title,
-                'active' => $request->active == true ? '1' : '0',
+                'active' => $request->active == 'true' ? '1' : '0',
             ]);
-            
+
             return response()->json([
                 'status' => 700,
                 'message' => $this->pageData['title'].' Added Successfully',
@@ -78,10 +82,14 @@ class MasterController extends Controller
 
     public function update(Request $request, $id)
     {
-        
+
         $validator = Validator::make($request->all(), [
             'title' => ['required', 'max:255', 'unique:'.$this->pageData['tables'].',title,'.$id.',id'],
             'active' => ['nullable'],
+        ]);
+
+        $validator->setAttributeNames([
+            'title' => $this->pageData['name'],
         ]);
 
         if ($validator->fails()) {
@@ -93,11 +101,12 @@ class MasterController extends Controller
           //  Code Readable 0 and 1 declare constant and use
             $input = [
                 'title' => $request->title,
-                'active' => $request->active == true ? '1' : '0',
+                'active' => $request->active == 'true' ? '1' : '0',
             ];
+
             $modal_data =$this->modal->find($id);
             $modal_data->update($input);
-          
+
             return response()->json([
                 'status' => 700,
                 'message' => $this->pageData['title'].' Updated Successfully',
@@ -111,13 +120,13 @@ class MasterController extends Controller
         $modal_data =$this->modal->find($request->modal_data_id);
         if ($modal_data) {
             $modal_data->delete();
-            
+
             return response()->json([
                 'status' => 200,
                 'message' => $this->pageData['title'].' Deleted'
             ]);
         } else {
-           
+
             return response()->json([
                 'status' => 404,
                 'message' => $this->pageData['title'].' Not Found'

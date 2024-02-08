@@ -12,28 +12,30 @@
                     </button>
                 </div>
                 <div class="card-body table-body">
-                    <div class="table-data">
+                    <div class="table-data table-responsive">
                         <table class="table table-bordered table-striped">
                             <thead>
                                 <tr>
                                     <th width="7%">S No.</th>
-                                    <th>{{ $page_data['title'] }}</th>
+                                    <th width="10%">Actions</th>
+                                    <th>{{ $page_data['name'] }}</th>
                                     <th>Status</th>
-                                    <th>Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach ($modal_data as $data_record)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
+                                        <td>
+                                            <button class="btn-icon btn text-primary  editMaster btn-light"
+                                                value="{{ $data_record->id }}"><i class="fa fa-pencil" aria-hidden="true"></i>
+                                            </button>
+                                            <button class="btn btn-icon text-danger deleteMaster btn-light"
+                                                value="{{ $data_record->id }}"><i class="fa fa-ban" aria-hidden="true"></i>
+                                            </button>
+                                        </td>
                                         <td>{{ $data_record->title }}</td>
                                         <td>{{ $data_record->active == 1 ? 'Active' : 'Inactive' }}</td>
-                                        <td>
-                                            <button class="btn btn-primary editMaster btn-sm"
-                                                value="{{ $data_record->id }}">Edit</button>
-                                            <button class="btn btn-danger deleteAssetsValue btn-sm"
-                                                value="{{ $data_record->id }}">Delete</button>
-                                        </td>
                                     </tr>
                                 @endforeach
                             </tbody>
@@ -49,8 +51,7 @@
 
     <!-- Modal -->
     <!--Add{{ $page_data['name'] }} -->
-    <div class="modal fade" id="createMaster"
-        token="{{ csrf_token() }}">
+    <div class="modal fade" id="createMaster" token="{{ csrf_token() }}">
 
         {{-- use csrf view service provider --}}
         <div class="modal-dialog modal-lg">
@@ -85,15 +86,15 @@
             </div>
         </div>
     </div>
-    <!--End Add AssetsValue-->
+    <!--End Add Master-->
 
-    <!--Edit AssetsValue-->
+    <!--Edit Master-->
     <div class="modal fade" id="editMaster" token="{{ csrf_token() }}">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <!-- Modal Header -->
                 <div class="modal-header">
-                    <h4 class="modal-title">Edit{{ $page_data['name'] }}</h4>
+                    <h4 class="modal-title">Edit {{ $page_data['name'] }}</h4>
                     <button type="button" class="close btn btn-icon" data-bs-dismiss="modal">&times;</button>
                 </div>
 
@@ -116,13 +117,13 @@
                         <!-- /.card-body -->
                     </div>
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary updateAssetsValue">Update</button>
+                        <button type="submit" class="btn btn-primary updateMaster">Update</button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
-    <!--End Edit AssetsValue-->
+    <!--End Edit Master-->
 @endsection
 @push('script')
     <script>
@@ -130,7 +131,7 @@
             $(document).on('click', '.createMaster', function(e) {
                 e.preventDefault();
                 var title = $('input[name=title]').val();
-                var active = $('input[name=active]').val();
+                var active = $('input[name=active]').prop('checked');
                 $('#title_err').addClass('d-none');
                 $.ajax({
                     type: 'POST',
@@ -141,7 +142,7 @@
                     data: {
                         'title': title,
                         'active': active,
-                        '_method' : 'POST'
+                        '_method': 'POST'
                     },
                     success: function(response) {
                         if (response.status == 400) {
@@ -163,15 +164,14 @@
                     }
                 });
             });
-            //Edit AssetsValue
+            //Edit Master
             $(document).on('click', '.editMaster', function(e) {
-
                 e.preventDefault();
                 var modal_data_id = $(this).val();
                 $("#editMaster").modal('show');
                 $.ajax({
                     type: "GET",
-                    url: "{{ $page_data['prefix_url'] }}/" + modal_data_id+"/edit",
+                    url: "{{ $page_data['prefix_url'] }}/" + modal_data_id + "/edit",
                     dataType: "JSON",
                     success: function(response) {
                         if (response.status == 404) {
@@ -190,21 +190,21 @@
                     }
                 });
             });
-            //Update AssetsValue
-            $(document).on('click', '.updateAssetsValue', function(e) {
+            //Update Master
+            $(document).on('click', '.updateMaster', function(e) {
                 e.preventDefault();
                 var modal_data_id = $('#edit_id').val()
                 $('#title_err').addClass('d-none');
                 $.ajax({
                     type: 'PUT',
-                        url: "{{ $page_data['prefix_url'] }}/" + modal_data_id,
+                    url: "{{ $page_data['prefix_url'] }}/" + modal_data_id,
                     headers: {
                         'X-CSRF-TOKEN': $('#editMaster').attr('token')
                     },
                     data: {
                         'title': $('#edit_title').val(),
-                        'active': $('#edit_active').val(),
-                        '_method' : 'PUT'
+                        'active': $('#edit_active').prop('checked'),
+                        '_method': 'PUT'
 
                     },
                     success: function(response) {
@@ -229,21 +229,21 @@
                 });
             });
             //Delete{{ $page_data['name'] }}
-            $(document).on('click', '.deleteAssetsValue', function(e) {
+            $(document).on('click', '.deleteMaster', function(e) {
 
                 e.preventDefault();
                 var modal_data_id = $(this).val()
                 if (confirm("Are your sure want to delete {{ $page_data['title'] }}??")) {
                     $.ajax({
                         type: 'POST',
-                        url: "{{ $page_data['prefix_url'] }}/"+ modal_data_id,
+                        url: "{{ $page_data['prefix_url'] }}/" + modal_data_id,
                         dataType: "JSON",
                         headers: {
-                        'X-CSRF-TOKEN': '{{ csrf_token() }}'
-                    },
+                            'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                        },
                         data: {
                             'modal_data_id': modal_data_id,
-                            '_method' : 'DELETE'
+                            '_method': 'DELETE'
 
                         },
                         success: function(response) {

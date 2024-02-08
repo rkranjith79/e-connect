@@ -17,7 +17,8 @@
                             <thead>
                                 <tr>
                                     <th width="7%">S No.</th>
-                                    <th>Sub Caste</th>
+                                    <th>{{ $page_data['lookup_id'] }}</th>
+                                    <th>{{ $page_data['name'] }}</th>
                                     <th>Status</th>
                                     <th>Actions</th>
                                 </tr>
@@ -26,6 +27,7 @@
                                 @foreach ($sub_castes as $sub_caste)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
+                                        <td>{{ $sub_caste->caste->title }}</td>
                                         <td>{{ $sub_caste->title }}</td>
                                         <td>{{ $sub_caste->active == 1 ? 'Active' : 'Inactive' }}</td>
                                         <td>
@@ -56,7 +58,7 @@
 
                 <!-- Modal Header -->
                 <div class="modal-header">
-                    <h4 class="modal-title">Add Sub Caste</h4>
+                    <h4 class="modal-title">Add {{ $page_data['name'] }}</h4>
                     <button type="button" class="close btn btn-icon" data-dismiss="modal">&times;</button>
                 </div>
                 <!-- Modal body -->
@@ -64,9 +66,19 @@
                     <div class="modal-body">
                         <div class="card-body">
                             <div class="form-group">
-                                <label for="name">Sub Caste</label>
+                                <label for="caste_id">{{ $page_data['lookup_id'] }}</label>
+                                <select name="caste_id" id="caste_id" class="form-control">
+                                    <option value="">Select {{ $page_data['lookup_id'] }}</option>
+                                    @foreach ($castes as $caste)
+                                        <option value="{{ $caste->id }}">{{ $caste->title }}</option>
+                                    @endforeach
+                                </select>
+                                    <span><small class="errorMsg" id="caste_id_err"></small></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="name">{{ $page_data['name'] }}</label>
                                 <input type="text" class="form-control" id="name" name="title"
-                                    placeholder="Sub Caste">
+                                    placeholder="{{ $page_data['name'] }}">
                                 <span><small class="errorMsg" id="title_err"></small></span>
                             </div>
                             <div class="col-md-6 mb-3 form-group">
@@ -100,10 +112,20 @@
                     <div class="modal-body">
                         <div class="card-body">
                             <div class="form-group">
+                                <label for="caste_id">Caste</label>
+                                <select name="caste_id" id="edit_caste_id" class="form-control">
+                                    <option value="">Select {{ $page_data['lookup_id'] }}</option>
+                                    @foreach ($castes as $caste)
+                                        <option value="{{ $caste->id }}">{{ $caste->title }}</option>
+                                    @endforeach
+                                </select>
+                                <span><small class="errorMsg" id="edit_caste_id_err"></small></span>
+                            </div>
+                            <div class="form-group">
                                 <input type="hidden" name="id" id="edit_id">
-                                <label for="name">Sub Caste</label>
+                                <label for="name">{{ $page_data['name'] }}</label>
                                 <input type="text" class="form-control" id="edit_title" name="title"
-                                    placeholder="Sub Caste">
+                                    placeholder="{{ $page_data['name'] }}">
                                 <span><small class="errorMsg" id="edit_title_err"></small></span>
                             </div>
                             <div class="col-md-6 mb-3 form-group">
@@ -129,7 +151,9 @@
                 e.preventDefault();
                 var title = $('input[name=title]').val();
                 var active = $('input[name=active]').val();
+                var caste_id = $('select[name=caste_id]').val();
                 $('#title_err').addClass('d-none');
+                $('#caste_id_err').addClass('d-none');
                 $.ajax({
                     type: 'POST',
                     url: $('#createSubCaste').attr('save-action'),
@@ -139,10 +163,12 @@
                     data: {
                         'title': title,
                         'active': active,
+                        'caste_id': caste_id
                     },
                     success: function(response) {
                         if (response.status == 400) {
                             $.each(response.errors, function(key, err_value) {
+                                console.log(key);
                                 $('#' + key + '_err').removeClass('d-none');
                                 $('#' + key + '_err').addClass('text-danger');
                                 $('#' + key + '_err').html(err_value);
@@ -178,7 +204,8 @@
                             $('success_message').text(response.message);
                         } else {
                             $('#edit_id').val(response.sub_caste.id),
-                                $('#edit_title').val(response.sub_caste.title)
+                            $('#edit_caste_id').val(response.sub_caste.caste_id),
+                            $('#edit_title').val(response.sub_caste.title)
                             if (response.sub_caste.active == 1) {
                                 $('#edit_active').prop('checked', true)
                             } else {
@@ -202,6 +229,7 @@
                     data: {
                         'title': $('#edit_title').val(),
                         'active': $('#edit_active').val(),
+                        'caste_id': $('#edit_caste_id').val(),
                     },
                     success: function(response) {
                         if (response.status == 400) {
@@ -229,7 +257,7 @@
 
                 e.preventDefault();
                 var sub_caste_id = $(this).val()
-                if (confirm('Are your sure want to delete Sub Caste??')) {
+                if (confirm('Are your sure want to delete {{ $page_data['lookup_id'] }}??')) {
                     $.ajax({
                         type: 'GET',
                         url: "{{ route('admin.sub_caste.delete') }}",

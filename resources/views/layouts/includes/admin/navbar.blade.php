@@ -1,7 +1,7 @@
 <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
     <div class="navbar-brand-wrapper d-flex justify-content-center">
         <div class="navbar-brand-inner-wrapper d-flex justify-content-between align-items-center w-10">
-            <a class="navbar-brand brand-logo" href="index.html">
+            <a class="navbar-brand brand-logo" href="{{ route('admin.dashboard') }}">
                 <img src="{{asset('img/logo-e-connet.png')}}" alt="logo" style="height: 90px" />
             </a>
             <a class="navbar-brand brand-logo-mini" href="index.html">
@@ -27,7 +27,7 @@
             </li>
         </ul>
         <ul class="navbar-nav navbar-nav-right">
-            <li class="nav-item dropdown me-1">
+            {{-- <li class="nav-item dropdown me-1">
                 <a class="nav-link count-indicator dropdown-toggle d-flex justify-content-center align-items-center"
                     id="messageDropdown" href="#" data-bs-toggle="dropdown">
                     <i class="mdi mdi-message-text mx-0"></i>
@@ -73,7 +73,7 @@
                     </a>
                 </div>
             </li>
-            <li class="nav-item dropdown me-4">
+            {<li class="nav-item dropdown me-4">
                 <a class="nav-link count-indicator dropdown-toggle d-flex align-items-center justify-content-center notification-dropdown"
                     id="notificationDropdown" href="#" data-bs-toggle="dropdown">
                     <i class="mdi mdi-bell mx-0"></i>
@@ -121,17 +121,17 @@
                         </div>
                     </a>
                 </div>
-            </li>
+            </li> --}}
             <li class="nav-item nav-profile dropdown">
                 <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" id="profileDropdown">
                     <img src="{{asset('admin/images/faces/face5.jpg')}}" alt="profile" />
                     <span class="nav-profile-name">{{ Auth::user()->name ?? '' }}</span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
-                    <a class="dropdown-item">
+                    {{-- <a class="dropdown-item">
                         <i class="mdi mdi-settings text-primary"></i>
                         Settings
-                    </a>
+                    </a> --}}
                     <a class="dropdown-item" href="{{ route('logout') }}"
                         onclick="event.preventDefault();
                                   document.getElementById('logout-form').submit();">
