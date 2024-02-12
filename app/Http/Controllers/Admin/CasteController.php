@@ -6,10 +6,11 @@ use App\Http\Controllers\Controller;
 use App\Models\Caste;
 use App\Http\Controllers\Admin\Common\MasterController;
 use App\Models\Religion;
+use App\Models\SubCaste;
 
 class CasteController extends MasterController
 {
-    public $pageData = [], $modal;
+    public $pageData = [], $lookup = [], $modal;
 
     public function __construct()
     {
@@ -18,7 +19,10 @@ class CasteController extends MasterController
         $this->pageData['view'] = "admin.common_master.index";
         $this->pageData['tables'] = "castes";
         $this->pageData['prefix_url'] = "caste";
-        $this->pageData['lookup'][] = ["id" => "religion_id", "title" => "Religion", "model" => new Religion(), "table" => "religions"];
+        //If Table and Model exists consider as select or else consider as textbox
+        $this->lookup = [
+            ["id" => "religion_id", "title" => "Religion", "model" => new Religion(), "table" => "religions"],
+        ];
         $this->modal = new Caste;
     }
 }

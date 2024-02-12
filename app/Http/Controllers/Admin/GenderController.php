@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Admin\Common\MasterController;
 use App\Http\Controllers\Controller;
 use App\Models\Gender;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
-class GenderController extends Controller
+class GenderController extends MasterController
 {
     public $pageData = [], $modal;
 

@@ -10,4 +10,9 @@ class State extends MasterModel
 {
     use HasFactory;
     protected $guarded = [];
+
+    public function country()
+    {
+        return $this->belongsTo(Country::class);
+    }
 }

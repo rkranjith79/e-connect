@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Admin\Common;
+
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -10,7 +11,7 @@ use Illuminate\Support\Str;
 
 class MasterController extends Controller
 {
-    public $pageData = [], $modal;
+    public $pageData = [], $lookup = [], $modal;
 
 
     // public function dynamicRoute($modalName)
@@ -26,16 +27,18 @@ class MasterController extends Controller
 
     public function index()
     {
+        $this->pageData['lookup_data'] = $this->getLookupModalDetails();
         $page_data = $this->pageData;
-        $modal_data =$this->modal->paginate(15);
-        return view($this->pageData['view'], compact('modal_data', 'page_data'));
+        $modal_data = $this->modal->paginate(15);
+        $lookup_fields = $this->lookup;
+        return view($this->pageData['view'], compact('modal_data', 'page_data', 'lookup_fields'));
     }
 
     public function store(Request $request)
     {
         //use try catch and DB::transaction  commit and rollback need add
         $validator = Validator::make($request->all(), [
-            'title' => ['required', 'max:255', 'unique:'.$this->pageData['tables']],
+            'title' => ['required', 'max:255', 'unique:' . $this->pageData['tables']],
             'active' => ['nullable'],
         ]);
 
@@ -49,21 +52,21 @@ class MasterController extends Controller
                 'errors' => $validator->messages(),
             ]);
         } else {
-           $this->modal->create([
+            $this->modal->create([
                 'title' => $request->title,
                 'active' => $request->active == 'true' ? '1' : '0',
             ]);
 
             return response()->json([
-                'status' => 700,
-                'message' => $this->pageData['title'].' Added Successfully',
+                'status' => 200,
+                'message' => $this->pageData['title'] . ' Added Successfully',
             ]);
         }
     }
 
     public function edit($id)
     {
-        $modal_data =$this->modal->find($id);
+        $modal_data = $this->modal->find($id);
         if ($modal_data) {
             return response()->json([
                 'status' => 200,
@@ -73,7 +76,7 @@ class MasterController extends Controller
             //create the 404 page also
             return response()->json([
                 'status' => 404,
-                'message' => $this->pageData['title'].' Not found'
+                'message' => $this->pageData['title'] . ' Not found'
             ]);
         }
         //use try catch
@@ -82,9 +85,8 @@ class MasterController extends Controller
 
     public function update(Request $request, $id)
     {
-
         $validator = Validator::make($request->all(), [
-            'title' => ['required', 'max:255', 'unique:'.$this->pageData['tables'].',title,'.$id.',id'],
+            'title' => ['required', 'max:255', 'unique:' . $this->pageData['tables'] . ',title,' . $id . ',id'],
             'active' => ['nullable'],
         ]);
 
@@ -98,18 +100,18 @@ class MasterController extends Controller
                 'errors' => $validator->messages(),
             ]);
         } else {
-          //  Code Readable 0 and 1 declare constant and use
+            //  Code Readable 0 and 1 declare constant and use
             $input = [
                 'title' => $request->title,
                 'active' => $request->active == 'true' ? '1' : '0',
             ];
 
-            $modal_data =$this->modal->find($id);
+            $modal_data = $this->modal->find($id);
             $modal_data->update($input);
 
             return response()->json([
-                'status' => 700,
-                'message' => $this->pageData['title'].' Updated Successfully',
+                'status' => 200,
+                'message' => $this->pageData['title'] . ' Updated Successfully',
             ]);
         }
     }
@@ -117,20 +119,31 @@ class MasterController extends Controller
     public function destroy(Request $request)
     {
         // variable declaration should be camelcase.
-        $modal_data =$this->modal->find($request->modal_data_id);
+        $modal_data = $this->modal->find($request->modal_data_id);
         if ($modal_data) {
             $modal_data->delete();
 
             return response()->json([
                 'status' => 200,
-                'message' => $this->pageData['title'].' Deleted'
+                'message' => $this->pageData['title'] . ' Deleted'
             ]);
         } else {
 
             return response()->json([
                 'status' => 404,
-                'message' => $this->pageData['title'].' Not Found'
+                'message' => $this->pageData['title'] . ' Not Found'
             ]);
         }
+    }
+
+    public function getLookupModalDetails()
+    {
+        $lookup_data = [];
+        foreach ($this->lookup as $item) {
+            if (isset($item['model'])) {
+                $lookup_data[$item['id']] =  $item['model']->pluck('title', 'id')->toArray();
+            }
+        }
+        return $lookup_data;
     }
 }

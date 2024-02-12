@@ -9,4 +9,9 @@ class District extends MasterModel
 {
     use HasFactory;
     protected $guarded = [];
+
+    public function state()
+    {
+        return $this->belongsTo(State::class);
+    }
 }

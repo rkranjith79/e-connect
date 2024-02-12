@@ -28,7 +28,8 @@
                                         <td>{{ $loop->iteration }}</td>
                                         <td>
                                             <button class="btn-icon btn text-primary  editMaster btn-light"
-                                                value="{{ $data_record->id }}"><i class="fa fa-pencil" aria-hidden="true"></i>
+                                                value="{{ $data_record->id }}"><i class="fa fa-pencil"
+                                                    aria-hidden="true"></i>
                                             </button>
                                             <button class="btn btn-icon text-danger deleteMaster btn-light"
                                                 value="{{ $data_record->id }}"><i class="fa fa-ban" aria-hidden="true"></i>
@@ -63,9 +64,32 @@
                     <button type="button" class="close btn btn-icon" data-dismiss="modal">&times;</button>
                 </div>
                 <!-- Modal body -->
-                <form method="POST" action="">
+                <form method="POST" action="" id="addForm">
                     <div class="modal-body">
                         <div class="card-body">
+                            @isset($lookup_fields)
+                                @foreach ($lookup_fields as $item)
+                                    @if (isset($item['model']))
+                                        <div class="form-group">
+                                            <label for="{{ $item['title'] }}">{{ $item['title'] }}</label>
+                                            <select name="{{ $item['id'] }}" id="{{ $item['id'] }}" class="form-control">
+                                                <option value="">Select {{ $item['title'] }}</option>
+                                                @foreach ($page_data['lookup_data'][$item['id']] as $key => $value)
+                                                    <option value="{{ $key }}">{{ $value }}</option>
+                                                @endforeach
+                                            </select>
+                                            <span><small class="errorMsg" id="{{ $item['id'] }}_err"></small></span>
+                                        </div>
+                                    @else
+                                        <div class="form-group">
+                                            <label for="name">{{ $item['title'] }}</label>
+                                            <input type="text" class="form-control" id="{{ $item['id'] }}"
+                                                name="{{ $item['id'] }}" placeholder="{{ $item['title'] }}">
+                                            <span><small class="errorMsg" id="{{ $item['title'] }}_err"></small></span>
+                                        </div>
+                                    @endif
+                                @endforeach
+                            @endisset
                             <div class="form-group">
                                 <label for="name">{{ $page_data['name'] }}</label>
                                 <input type="text" class="form-control" id="name" name="title"
@@ -99,7 +123,8 @@
                 </div>
 
                 <!-- Modal body -->
-                <form method="POST" action="">
+                <form action="" id="editForm">
+                    {{-- @method('PUT') --}}
                     <div class="modal-body">
                         <div class="card-body">
                             <div class="form-group">
@@ -130,20 +155,21 @@
         $(document).ready(function() {
             $(document).on('click', '.createMaster', function(e) {
                 e.preventDefault();
-                var title = $('input[name=title]').val();
-                var active = $('input[name=active]').prop('checked');
-                $('#title_err').addClass('d-none');
+                var formData = $("#addForm").serialize(); // Serialize the form data
+                var formData = new FormData(document.getElementById('addForm'));
+                formData.delete('active');
+                formData.append('active', $('input[name=active]').prop('checked'));
+
+                $('.errorMsg').addClass('d-none');
                 $.ajax({
                     type: 'POST',
                     url: "{{ $page_data['prefix_url'] }}",
                     headers: {
                         'X-CSRF-TOKEN': $('#createMaster').attr('token')
                     },
-                    data: {
-                        'title': title,
-                        'active': active,
-                        '_method': 'POST'
-                    },
+                    data: formData,
+                    contentType: false, // Set content type to false for FormData
+                    processData: false, // Do not process the data, let FormData handle it
                     success: function(response) {
                         if (response.status == 400) {
                             $.each(response.errors, function(key, err_value) {
@@ -194,19 +220,22 @@
             $(document).on('click', '.updateMaster', function(e) {
                 e.preventDefault();
                 var modal_data_id = $('#edit_id').val()
-                $('#title_err').addClass('d-none');
+                var formData = $("#editForm").serialize(); // Serialize the form data
+                var formData = new FormData(document.getElementById('editForm'));
+                formData.delete('active');
+                formData.append('active', $('input[name=active]').prop('checked'));
+                formData.append('_method', 'PUT');
+                console.log(formData);
+                $('#errorMsg').addClass('d-none');
                 $.ajax({
-                    type: 'PUT',
+                    type: 'POST',
                     url: "{{ $page_data['prefix_url'] }}/" + modal_data_id,
                     headers: {
                         'X-CSRF-TOKEN': $('#editMaster').attr('token')
                     },
-                    data: {
-                        'title': $('#edit_title').val(),
-                        'active': $('#edit_active').prop('checked'),
-                        '_method': 'PUT'
-
-                    },
+                    data: formData,
+                    contentType: false, // Set content type to false for FormData
+                    processData: false, // Do not process the data, let FormData handle it
                     success: function(response) {
                         if (response.status == 400) {
                             $.each(response.errors, function(key, err_value) {
@@ -228,7 +257,7 @@
                     }
                 });
             });
-            //Delete{{ $page_data['name'] }}
+            //Delete Master
             $(document).on('click', '.deleteMaster', function(e) {
 
                 e.preventDefault();
