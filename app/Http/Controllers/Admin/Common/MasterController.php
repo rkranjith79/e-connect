@@ -36,27 +36,29 @@ class MasterController extends Controller
 
     public function store(Request $request)
     {
-        //use try catch and DB::transaction  commit and rollback need add
-        $validator = Validator::make($request->all(), [
+        $validationFields = [
             'title' => ['required', 'max:255', 'unique:' . $this->pageData['tables']],
             'active' => ['nullable'],
-        ]);
+        ];
 
-        $validator->setAttributeNames([
-            'title' => $this->pageData['name'],
-        ]);
+        $validationAttributes = ['title' => $this->pageData['name']];
 
+        foreach ($this->lookup as $value) {
+            $validationFields[$value['id']] = ['required'];
+            $validationAttributes[$value['id']] = $value['title'];
+        }
+        //use try catch and DB::transaction  commit and rollback need add
+        $validator = Validator::make($request->all(), $validationFields);
+
+        $validator->setAttributeNames($validationAttributes);
         if ($validator->fails()) {
             return response()->json([
-                'status' => 400,
+                'status' => 422,
                 'errors' => $validator->messages(),
             ]);
         } else {
-            $this->modal->create([
-                'title' => $request->title,
-                'active' => $request->active == 'true' ? '1' : '0',
-            ]);
-
+            $input = $validator->getData();
+            $this->modal->create($input);
             return response()->json([
                 'status' => 200,
                 'message' => $this->pageData['title'] . ' Added Successfully',
@@ -66,7 +68,12 @@ class MasterController extends Controller
 
     public function edit($id)
     {
-        $modal_data = $this->modal->find($id);
+        $columns = ['title', 'active','id'];
+
+        foreach ($this->lookup as $value) {
+            $columns[] = $value['id'];
+        }
+        $modal_data = $this->modal->find($id, $columns);
         if ($modal_data) {
             return response()->json([
                 'status' => 200,
@@ -85,14 +92,20 @@ class MasterController extends Controller
 
     public function update(Request $request, $id)
     {
-        $validator = Validator::make($request->all(), [
+        $validationFields = [
             'title' => ['required', 'max:255', 'unique:' . $this->pageData['tables'] . ',title,' . $id . ',id'],
             'active' => ['nullable'],
-        ]);
+        ];
 
-        $validator->setAttributeNames([
-            'title' => $this->pageData['name'],
-        ]);
+        $validationAttributes = ['title' => $this->pageData['name']];
+
+        foreach ($this->lookup as $value) {
+            $validationFields[$value['id']] = ['required'];
+            $validationAttributes[$value['id']] = $value['title'];
+        }
+        $validator = Validator::make($request->all(), $validationFields);
+
+        $validator->setAttributeNames($validationAttributes);
 
         if ($validator->fails()) {
             return response()->json([
@@ -101,11 +114,7 @@ class MasterController extends Controller
             ]);
         } else {
             //  Code Readable 0 and 1 declare constant and use
-            $input = [
-                'title' => $request->title,
-                'active' => $request->active == 'true' ? '1' : '0',
-            ];
-
+            $input = $validator->getData();
             $modal_data = $this->modal->find($id);
             $modal_data->update($input);
 

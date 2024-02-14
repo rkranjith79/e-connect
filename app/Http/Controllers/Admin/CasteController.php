@@ -21,7 +21,7 @@ class CasteController extends MasterController
         $this->pageData['prefix_url'] = "caste";
         //If Table and Model exists consider as select or else consider as textbox
         $this->lookup = [
-            ["id" => "religion_id", "title" => "Religion", "model" => new Religion(), "table" => "religions"],
+            ["id" => "religion_id", "title" => "Religion", "model" => new Religion(), "table" => "religions", "relationship" => "religion"],
         ];
         $this->modal = new Caste;
     }

@@ -14,4 +14,9 @@ class MasterModel extends Model
     {
         return $query->where('active', true); // Adjust the column name as needed
     }
+
+    public function setActiveAttribute($value)
+    {
+        $this->attributes['active'] = $value == 'true' ? 1 : 0;
+    }
 }
