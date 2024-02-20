@@ -19,5 +19,9 @@ class SubCasteController extends MasterController
         $this->pageData['tables'] = "sub_castes";
         $this->pageData['prefix_url'] = "sub_caste";
         $this->modal = new SubCaste;
+        //If Table and Model exists consider as select or else consider as textbox
+        $this->lookup = [
+            ["id" => "caste_id", "title" => "Caste", "model" => new Caste(), "table" => "castes", "relationship" => "caste"],
+        ];
     }
 }

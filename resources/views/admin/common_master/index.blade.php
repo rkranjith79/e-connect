@@ -18,24 +18,42 @@
                                 <tr>
                                     <th width="7%">S No.</th>
                                     <th width="10%">Actions</th>
-                                    <th>{{ $page_data['name'] }}</th>
-                                    <th>Status</th>
+                                    <th width="20%">{{ $page_data['name'] }}</th>
+                                    @isset($lookup_fields)
+                                        @foreach ($lookup_fields as $item)
+                                            @if (isset($item['relationship']))
+                                                <th width="20%">{{ $item['title'] }}</th>
+                                            @else
+                                                <th width="20%">{{ $item['title'] }}</th>
+                                            @endif
+                                        @endforeach
+                                    @endisset
+                                    <th width="30%">Status</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach ($modal_data as $data_record)
                                     <tr>
-                                        <td>{{ $loop->iteration }}</td>
+                                        <td>{{ ($modal_data->currentPage() - 1) * $modal_data->perPage() + $loop->iteration }}</td>
                                         <td>
-                                            <button class="btn-icon btn text-primary  editMaster btn-light"
+                                            <button class="btn-icon btn editMaster ms-1"
                                                 value="{{ $data_record->id }}"><i class="fa fa-pencil"
                                                     aria-hidden="true"></i>
                                             </button>
-                                            <button class="btn btn-icon text-danger deleteMaster btn-light"
-                                                value="{{ $data_record->id }}"><i class="fa fa-ban" aria-hidden="true"></i>
+                                            <button class="btn btn-icon deleteMaster"
+                                                value="{{ $data_record->id }}"><i class="fas fa-trash-alt" aria-hidden="true"></i>
                                             </button>
                                         </td>
                                         <td>{{ $data_record->title }}</td>
+                                        @isset($lookup_fields)
+                                            @foreach ($lookup_fields as $item)
+                                                @if (isset($item['relationship']))
+                                                    <td>{{ $data_record->{$item['relationship']}->title ?? '' }}</td>
+                                                @else
+                                                    <td>{{ $data_record->{$item['id']} }}</td>
+                                                @endif
+                                            @endforeach
+                                        @endisset
                                         <td>{{ $data_record->active == 1 ? 'Active' : 'Inactive' }}</td>
                                     </tr>
                                 @endforeach
@@ -124,11 +142,34 @@
 
                 <!-- Modal body -->
                 <form action="" id="editForm">
-                    {{-- @method('PUT') --}}
                     <div class="modal-body">
                         <div class="card-body">
+                            <input type="hidden" name="id" id="edit_id">
+                            @isset($lookup_fields)
+                                @foreach ($lookup_fields as $item)
+                                    @if (isset($item['model']))
+                                        <div class="form-group">
+                                            <label for="{{ $item['title'] }}">{{ $item['title'] }}</label>
+                                            <select name="{{ $item['id'] }}" id="edit_{{ $item['id'] }}"
+                                                class="form-control">
+                                                <option value="">Select {{ $item['title'] }}</option>
+                                                @foreach ($page_data['lookup_data'][$item['id']] as $key => $value)
+                                                    <option value="{{ $key }}">{{ $value }}</option>
+                                                @endforeach
+                                            </select>
+                                            <span><small class="errorMsg" id="edit_{{ $item['id'] }}_err"></small></span>
+                                        </div>
+                                    @else
+                                        <div class="form-group">
+                                            <label for="name">{{ $item['title'] }}</label>
+                                            <input type="text" class="form-control" id="{{ $item['id'] }}"
+                                                name="{{ $item['id'] }}" placeholder="{{ $item['title'] }}">
+                                            <span><small class="errorMsg" id="{{ $item['title'] }}_err"></small></span>
+                                        </div>
+                                    @endif
+                                @endforeach
+                            @endisset
                             <div class="form-group">
-                                <input type="hidden" name="id" id="edit_id">
                                 <label for="name">{{ $page_data['name'] }}</label>
                                 <input type="text" class="form-control" id="edit_title" name="title"
                                     placeholder="{{ $page_data['name'] }}">
@@ -171,7 +212,7 @@
                     contentType: false, // Set content type to false for FormData
                     processData: false, // Do not process the data, let FormData handle it
                     success: function(response) {
-                        if (response.status == 400) {
+                        if (response.status == 422) {
                             $.each(response.errors, function(key, err_value) {
                                 $('#' + key + '_err').removeClass('d-none');
                                 $('#' + key + '_err').addClass('text-danger');
@@ -181,7 +222,6 @@
                             $('#success_message').addClass('alert alert-success');
                             $('#success_message').text(response.message);
                             $("#createMaster .close").click();
-                            $('#createMaster').find('input').val('');
                             setTimeout(function() {
                                 $("#success_message").hide();
                             }, 2000);
@@ -205,13 +245,18 @@
                             $('success_message').addClass("alert alert-danger");
                             $('success_message').text(response.message);
                         } else {
-                            $('#edit_id').val(response.modal_data.id),
-                                $('#edit_title').val(response.modal_data.title)
-                            if (response.modal_data.active == 1) {
-                                $('#edit_active').prop('checked', true)
-                            } else {
-                                $('#edit_active').prop('checked', false)
-                            }
+                            // console.log(response.modal_data);
+                            $.each(response.modal_data, function(key, value) {
+                                if (key == 'active') {
+                                    if (value == 1) {
+                                        $('#edit_' + key).prop('checked', true)
+                                    } else {
+                                        $('#edit_' + key).prop('checked', false)
+                                    }
+                                } else {
+                                    $('#edit_' + key).val(value);
+                                }
+                            });
                         }
                     }
                 });
@@ -223,9 +268,8 @@
                 var formData = $("#editForm").serialize(); // Serialize the form data
                 var formData = new FormData(document.getElementById('editForm'));
                 formData.delete('active');
-                formData.append('active', $('input[name=active]').prop('checked'));
+                formData.append('active', $('#edit_active').prop('checked'));
                 formData.append('_method', 'PUT');
-                console.log(formData);
                 $('#errorMsg').addClass('d-none');
                 $.ajax({
                     type: 'POST',

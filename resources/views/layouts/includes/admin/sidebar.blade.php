@@ -9,7 +9,6 @@
         ['name' => 'Countries', 'href' => route('admin.country.index'), 'icon' => 'mdi-star'],
         ['name' => 'States', 'href' => route('admin.state.index'), 'icon' => 'mdi-star'],
         ['name' => 'Districts', 'href' => route('admin.district.index'), 'icon' => 'mdi-star'],
-
         ['name' => 'Educations', 'href' => route('admin.education.index'), 'icon' => 'mdi-star'],
         ['name' => 'Expectations', 'href' => route('admin.expectation.index'), 'icon' => 'mdi-star'],
         ['name' => 'Genders', 'href' => route('admin.gender.index'), 'icon' => 'mdi-star'],
@@ -32,13 +31,7 @@
         ['name' => 'Nakshatra Patham', 'href' => route('admin.nakshatra_patham.index'), 'icon' => 'mdi-star'],
         ['name' => 'Navamsam', 'href' => route('admin.navamsam.index'), 'icon' => 'mdi-star'],
         ['name' => 'Rasi', 'href' => route('admin.rasi.index'), 'icon' => 'mdi-star'],
-
-
-
-
-
-
-
+        ['name' => 'Site Configurations', 'href' => route('admin.site_configuration.index'), 'icon' => 'mdi-star'],
 
     ];
 @endphp

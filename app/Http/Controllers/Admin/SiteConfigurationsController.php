@@ -1,20 +1,28 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Models\SiteConfigurations;
 use Illuminate\Http\Request;
 
 class SiteConfigurationsController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    public $pageData = [], $modal;
+
+    public function __construct()
+    {
+        $this->pageData['title'] = "Site Configurations";
+        $this->pageData['name'] = "Site Configuration";
+        $this->pageData['view'] = "admin.site_configuration.index";
+        $this->pageData['tables'] = "site_configurations";
+        $this->pageData['prefix_url'] = "site_configuration";
+        $this->modal = new SiteConfigurations();
+    }
     public function index()
     {
-        //
+        $siteConfigurations = $this->modal->paginate(5);
+        return view('admin.site_configuration.index', compact(['siteConfigurations']));
     }
 
     /**
