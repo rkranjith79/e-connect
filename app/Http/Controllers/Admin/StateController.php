@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\State;
 use App\Http\Controllers\Admin\Common\MasterController;
+use App\Models\Country;
 
 class StateController extends MasterController
 {
@@ -18,5 +19,8 @@ class StateController extends MasterController
         $this->pageData['tables'] = "states";
         $this->pageData['prefix_url'] = "state";
         $this->modal = new State;
+        $this->lookup = [
+            ["id" => "country_id", "title" => "Country", "model" => new Country(), "table" => "countries", "relationship" => "country"],
+        ];
     }
 }

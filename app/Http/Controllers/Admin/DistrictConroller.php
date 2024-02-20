@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Admin\Common\MasterController;
 use App\Models\District;
+use App\Models\State;
 
 class DistrictConroller extends MasterController
 {
@@ -17,5 +18,8 @@ class DistrictConroller extends MasterController
         $this->pageData['tables'] = "districts";
         $this->pageData['prefix_url'] = "district";
         $this->modal = new District();
+        $this->lookup = [
+            ["id" => "state_id", "title" => "State", "model" => new State(), "table" => "states", "relationship" => "state"],
+        ];
     }
 }
