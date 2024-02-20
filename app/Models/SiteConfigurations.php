@@ -2,11 +2,16 @@
 
 namespace App\Models;
 
+use App\Models\Common\MasterModel;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class SiteConfigurations extends Model
+class SiteConfigurations extends MasterModel
 {
-    use HasFactory,SoftDeletes;
+    use HasFactory, SoftDeletes;
+    protected $guarded = [];
+    
+    protected $casts = [
+        'attributes' => "object"
+    ];
 }

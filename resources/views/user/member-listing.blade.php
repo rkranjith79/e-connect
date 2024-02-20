@@ -1,5 +1,5 @@
 @extends('layouts.user')
-
+  
 @section('content')
     <section class="py-4 py-lg-5 bg-white">
         <div class="container">

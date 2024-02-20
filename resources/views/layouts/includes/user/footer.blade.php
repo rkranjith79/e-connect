@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col text-center mx-auto">
                 <div class="logo">
-                    <a href="index.html" class="d-inline-block py-15px">
+                    <a href="{{ url('/') }}" class="d-inline-block py-15px">
                         <img src="{{ asset('img/logo-e-connet.png') }}"
                             alt="E-Connect Matrimony" class="mw-100 h-150px">
                     </a>
@@ -17,30 +17,66 @@
             <h4 class="text-uppercase text-primary fs-14 border-bottom border-primary pb-4 mb-4">Contacts</h4>
             <div class="row no-gutters">
                 <div class="col-xl-3 col-md-12 mb-2">
+                    @if (!empty(config('siteconfigrations')['address_1']))
                     <div class="mb-3">
                         <i class="fas fa-map-marker-alt mr-2"></i>
-                        <span>Address</span>
+                        <span>{{ config('siteconfigrations')['address_1']['label'] ?? "--" }}</span>
                     </div>
-                    <div>10/13, கருப்பண கவுண்டர் லேஅவுட் 2 வீதி, புது ராமகிருஷ்ண புரம், திருப்பூர்</div>
+                    <div>{{ config('siteconfigrations')['address_1']['attributes']->value ?? "--" }}</div>
+                    @endif
+
+                    @if (!empty(config('siteconfigrations')['address_2']))
+                    <div class="mb-3">
+                        <i class="fas fa-map-marker-alt mr-2"></i>
+                        <span>{{ config('siteconfigrations')['address_2']['label'] ?? "--" }}</span>
+                    </div>
+                    <div>{{ config('siteconfigrations')['address_2']['attributes']->value ?? "--" }}</div>
+                    @endif
+
+
+                    @if (!empty(config('siteconfigrations')['address_3']))
+                    <div class="mb-3">
+                        <i class="fas fa-map-marker-alt mr-2"></i>
+                        <span>{{ config('siteconfigrations')['address_3']['label'] ?? "--" }}</span>
+                    </div>
+                    <div>{{ config('siteconfigrations')['address_3']['attributes']->value ?? "--" }}</div>
+                    @endif
+
+                    @if (!empty(config('siteconfigrations')['address_4']))
+                    <div class="mb-3">
+                        <i class="fas fa-map-marker-alt mr-2"></i>
+                        <span>{{ config('siteconfigrations')['address_4']['label'] ?? "--" }}</span>
+                    </div>
+                    <div>{{ config('siteconfigrations')['address_4']['attributes']->value ?? "--" }}</div>
+                    @endif
                 </div>
+                
+                @if (!empty(config('siteconfigrations')['address_4']))
                 <div class="col-xl-3 col-md-6 mb-2">
                     <div class="mb-3">
                         <i class="fas fa-envelope mr-2"></i>
-                        <span>Email</span>
+                        <span>{{ config('siteconfigrations')['email']['label'] ?? "--" }}</span>
                     </div>
-                    <div><a href="cdn-cgi/l/email-protection.html#791e1214180d0b10141617000d0c09391e14181015571a1614461e1214261c010d1c0b171815"
-                            target="_blank" class="text-reset"><span class="__cf_email__"
-                                data-cfemail="ddbab6b0bca9afb4b0b2b3a4a9a8ad9dbab0bcb4b1f3beb2b0">[email&#160;protected]</span></a>
+                    <div>
+                        {{ config('siteconfigrations')['email']['attributes']->value ?? "--" }}
                     </div>
                 </div>
+                @endif
+
+
+                @if (!empty(config('siteconfigrations')['phone']))
                 <div class="col-xl-3 col-md-6 mb-2">
                     <div class="mb-3">
-                        <i class="fas fa-phone-alt mr-2"></i>
-                        <span>Phone</span>
+                        <i class="fas fa-envelope mr-2"></i>
+                        <span>{{ config('siteconfigrations')['phone']['label'] ?? "--" }}</span>
                     </div>
-                    <div><a href="tel:9025382525?gkm_external" target="_blank"
-                            class="text-reset">9025382525</a></div>
+                    <div>
+                        {{ config('siteconfigrations')['phone']['attributes']->value ?? "--" }}
+                    </div>
                 </div>
+                @endif
+
+
                 <div class="col-xl-3 col-md-6 mb-2">
                     <div>
                         <i class="fas fa-link mr-2"></i>
@@ -86,7 +122,7 @@
                 <div>
                     <ul class="list-unstyled">
                         <li class="my-3">
-                            <a href="terms-conditions99d2.html?gkm_external" target="_blank"
+                            <a href="{{ route('user.information', ['id' => 1]) }}" target="_blank"
                                 class="text-reset">Terms and Conditions</a>
                         </li>
                         <li class="my-3">
@@ -137,7 +173,17 @@
             <div class="row">
                 <div class="col-lg-6">
                     <div class="lh-1">
-                        <p>©2024 E-Connect Matrimony<br></p>
+                        @if (!empty(config('siteconfigrations')['copy_rights']))
+                        <div class="col-xl-3 col-md-6 mb-2">
+                            <div class="mb-3">
+                                <i class="fas fa-envelope mr-2"></i>
+                                <span>{{ config('siteconfigrations')['copy_rights']['label'] ?? "--" }}</span>
+                            </div>
+                            <div>
+                                {{ config('siteconfigrations')['copy_rights']['attributes']->value ?? "--" }}
+                            </div>
+                        </div>
+                        @endif
                     </div>
                 </div>
             </div>
