@@ -32,6 +32,8 @@
         ['name' => 'Navamsam', 'href' => route('admin.navamsam.index'), 'icon' => 'mdi-star'],
         ['name' => 'Rasi', 'href' => route('admin.rasi.index'), 'icon' => 'mdi-star'],
         ['name' => 'Site Configurations', 'href' => route('admin.site_configuration.index'), 'icon' => 'mdi-star'],
+        ['name' => 'Information', 'href' => route('admin.information_admin.index'), 'icon' => 'mdi-star'],
+
 
     ];
 @endphp

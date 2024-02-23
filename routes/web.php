@@ -64,6 +64,8 @@ Route::name('admin.')->prefix('admin')->middleware(['auth', 'isAdmin'])->group(f
     Route::resource('lagnam', App\Http\Controllers\Admin\LagnamController::class);
     Route::resource('jathagam', App\Http\Controllers\Admin\JathagamController::class);
     Route::resource('site_configuration', App\Http\Controllers\Admin\SiteConfigurationsController::class);
+    Route::resource('information_admin', App\Http\Controllers\Admin\InformationController::class);
+
 });
 
 

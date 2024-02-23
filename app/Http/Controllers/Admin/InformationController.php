@@ -1,12 +1,21 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use App\Models\Information;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Validator;
 
 class InformationController extends Controller
 {
+    public $pageData = [];
+
+    public function __construct()
+    {
+        $this->pageData['title'] = "Informations";
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +23,9 @@ class InformationController extends Controller
      */
     public function index()
     {
-        //
+        $page_data = $this->pageData;
+        $informations = Information::paginate(10);
+        return view('admin.information.list', compact('informations', 'page_data'));
     }
 
     /**
@@ -24,7 +35,8 @@ class InformationController extends Controller
      */
     public function create()
     {
-        //
+        $page_data = $this->pageData;
+        return view('admin.information.add', compact('page_data'));
     }
 
     /**
@@ -35,7 +47,31 @@ class InformationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'title' => ['required', 'max:255', 'unique:informations,id,'.$request->id],
+            'code' => ['required', 'max:255', 'unique:informations,id,'.$request->id],
+            'content' => ['nullable'],
+            'id' => ['nullable'],
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'status' => 400,
+                'errors' => $validator->messages(),
+            ]);
+        } else {
+            $information = new Information();
+            $information->updateorCreate(['id' => $request->id], [
+                'title' => $request->title,
+                'code' => $request->code,
+                'content' => $request->content
+            ]);
+            return response()->json([
+                'success'=>true,
+                'status' => 700,
+                'message' => 'User Added Successfully',
+            ]);
+        }
     }
 
     /**
@@ -55,9 +91,12 @@ class InformationController extends Controller
      * @param  \App\Models\Information  $information
      * @return \Illuminate\Http\Response
      */
-    public function edit(Information $information)
+    public function edit($information_id)
     {
-        //
+        $information = Information::findOrFail($information_id);
+        $page_data = $this->pageData;
+        $form_data = $information->toArray();
+        return view('admin.information.add', compact('form_data', 'page_data'));
     }
 
     /**
