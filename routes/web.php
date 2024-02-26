@@ -64,6 +64,7 @@ Route::name('admin.')->prefix('admin')->middleware(['auth', 'isAdmin'])->group(f
     Route::resource('lagnam', App\Http\Controllers\Admin\LagnamController::class);
     Route::resource('jathagam', App\Http\Controllers\Admin\JathagamController::class);
     Route::resource('site_configuration', App\Http\Controllers\Admin\SiteConfigurationsController::class);
+    Route::post('site_configuration/create_code', [App\Http\Controllers\Admin\SiteConfigurationsController::class, 'storeCode'])->name('site_configuration.store_code');
 });
 
 

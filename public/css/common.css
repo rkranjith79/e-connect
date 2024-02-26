@@ -34,3 +34,7 @@ select.form-control {
 .editMaster:hover i {
     color: rgb(0, 110, 255);
 }
+
+.form-control{
+    border: 1px solid #c5bebe;
+}

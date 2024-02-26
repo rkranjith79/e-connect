@@ -3,8 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\SiteConfigurations;
+use App\Models\SiteConfiguration;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class SiteConfigurationsController extends Controller
 {
@@ -17,76 +18,73 @@ class SiteConfigurationsController extends Controller
         $this->pageData['view'] = "admin.site_configuration.index";
         $this->pageData['tables'] = "site_configurations";
         $this->pageData['prefix_url'] = "site_configuration";
-        $this->modal = new SiteConfigurations();
+        $this->modal = new SiteConfiguration();
     }
     public function index()
     {
-        $siteConfigurations = $this->modal->paginate(5);
-        return view('admin.site_configuration.index', compact(['siteConfigurations']));
+        $modal_data = $this->modal->get();
+        $page_data = $this->pageData;
+        return view('admin.site_configuration.index', compact(['page_data', 'modal_data']));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //
+        return view('admin.site_configuration.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+        $input = $request->all();
+        foreach ($input['label'] as $key => $value) {
+            $label = $input['label'][$key];
+            $code = $input['code'][$key];
+            $attributes['value'] = $input['value'][$key];
+            $this->modal->updateOrCreate(
+                ['code' => $code],
+                ['label' => $label, 'attributes' => $attributes]
+            );
+        }
+        return redirect()->route('admin.site_configuration.index');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\SiteConfigurations  $siteConfigurations
-     * @return \Illuminate\Http\Response
-     */
-    public function show(SiteConfigurations $siteConfigurations)
+    public function storeCode(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'code' => ['required'],
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'status' => 404,
+                'errors' => $validator->messages(),
+            ]);
+        } else {
+            SiteConfiguration::create([
+                'code' => $request->code,
+            ]);
+            return response()->json([
+                'status' => 700,
+                'message' => 'Code Added Successfully',
+            ]);
+        }
+    }
+
+    public function show(SiteConfiguration $SiteConfigurations)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\SiteConfigurations  $siteConfigurations
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(SiteConfigurations $siteConfigurations)
+    public function edit(SiteConfiguration $siteConfigurations)
     {
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\SiteConfigurations  $siteConfigurations
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, SiteConfigurations $siteConfigurations)
+    public function update(Request $request, SiteConfiguration $siteConfigurations)
     {
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\SiteConfigurations  $siteConfigurations
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(SiteConfigurations $siteConfigurations)
+    public function destroy(SiteConfiguration $siteConfigurations)
     {
         //
     }
