@@ -251,10 +251,11 @@
                                         <p class="mb-0">ஜாதகம் : <span class="font-weight-bold">{{ $profile->jathagam->jathagam->title ?? '-' }}</span></p>
                                         <p class="mb-0">ஊர் : <span class="font-weight-bold">{{ $profile->basic->district->title ?? '-' }}</span></p>
                                         <div class="text-center mt-2">
-                                            <a class="btn btn-circle btn-sm btn-primary mr-1" href="p/53tnc1s.html"
-                                                onclick="">ப்ரொபைல்</a>
-                                            <a class="btn btn-circle btn-sm btn-primary ml-1" href="j/53tnc1s.html"
-                                                target="_blank" onclick="">ஜாதகம்</a>
+                                            <a href="{{ route('user.profile', ['id' => $profile->id]) }}" 
+                                                class="btn btn-circle btn-sm btn-primary mr-1">
+                                                ப்ரொபைல்</a>
+                                            <a href="{{ route('user.jathagam', ['id' => $profile->id]) }}" 
+                                                class="btn btn-circle btn-sm btn-primary mr-1">ஜாதகம்</a>
                                         </div>
                                     </div>
                                 </div>
@@ -285,10 +286,11 @@
                                     <p class="mb-0">ஜாதகம் : <span class="font-weight-bold">{{ $profile->jathagam->jathagam->title ?? '-' }}</span></p>
                                     <p class="mb-0">ஊர் : <span class="font-weight-bold">{{ $profile->basic->district->title ?? '-' }}</span></p>
                                     <div class="text-center mt-2">
-                                        <a class="btn btn-circle btn-sm btn-primary mr-1" href="p/53tnc1s.html"
-                                            onclick="">ப்ரொபைல்</a>
-                                        <a class="btn btn-circle btn-sm btn-primary ml-1" href="j/53tnc1s.html"
-                                            target="_blank" onclick="">ஜாதகம்</a>
+                                        <a href="{{ route('user.profile', ['id' => $profile->id]) }}" 
+                                            class="btn btn-circle btn-sm btn-primary mr-1">
+                                            ப்ரொபைல்</a>
+                                        <a href="{{ route('user.jathagam', ['id' => $profile->id]) }}" 
+                                            class="btn btn-circle btn-sm btn-primary mr-1">ஜாதகம்</a>
                                     </div>
                                 </div>
                             </div>

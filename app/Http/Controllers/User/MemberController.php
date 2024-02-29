@@ -98,8 +98,46 @@ class MemberController extends Controller
         return view('user.jathagam', compact('data'));
     }
 
-    public function search()
+    /*
+    exp_maritalstatus array()
+    */
+    public function search(Request $request)
     {
+
+        $member_id = $request->member_id ?? null;
+        $age_from = $request->age_from ?? null;
+        $age_to = $request->age_to ?? null;
+        $exp_maritalstatus = $request->exp_maritalstatus ?? null; 
+        $splcategory = $request->splcategory ?? null;
+        $body_type = $request->body_type ?? null;
+        $color = $request->color ?? null;
+        $caste = $request->caste ?? null;
+        $sub_caste = $request->sub_caste ?? null;
+        $education = $request->education ?? null;
+        $work = $request->work ?? null;
+        $exp_work_place = $request->exp_work_place ?? null;
+
+        $country = $request->country ?? null;
+        $state = $request->state ?? null;
+        $district = $request->district ?? null;
+        $rasi_nakshatra = $request->rasi_nakshatra ?? null;
+        $lagnam = $request->lagnam ?? null;
+        $exp_jathagam = $request->exp_jathagam ?? null;
+
+        // /dd($exp_maritalstatus);
+        $profile = new Profile;
+        $profile = $profile->when(!empty($exp_maritalstatus) , function ($q) use($exp_maritalstatus) {
+            $q->whereIn("expectation_marital_status_id", array_filter ((array) $exp_maritalstatus));
+        });
+        
+        $results = $profile->get();
+        
+        
+        
+        
+        
+        
+
         return view('user.profile-search');
     }
 
