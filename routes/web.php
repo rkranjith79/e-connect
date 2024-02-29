@@ -68,7 +68,6 @@ Route::name('admin.')->prefix('admin')->middleware(['auth', 'isAdmin'])->group(f
     Route::resource('information_admin', App\Http\Controllers\Admin\InformationController::class);
 });
 
-
 Route::name('user.')->group(function () {
     Route::get('/member-listing', [App\Http\Controllers\User\MemberController::class, 'listing'])->name('member-listing');
     Route::get('/jathagam/{id?}', [App\Http\Controllers\User\MemberController::class, 'jathagam'])->name('jathagam');
