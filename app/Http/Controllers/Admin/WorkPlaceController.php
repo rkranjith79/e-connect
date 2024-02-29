@@ -18,5 +18,8 @@ class WorkPlaceController extends MasterController
         $this->pageData['tables'] = "work_places";
         $this->pageData['prefix_url'] = "work_place";
         $this->modal = new WorkPlace;
+        $this->lookup = [
+            ["id" => "language_tamil", "title" => trans('fields.' . $this->pageData['prefix_url'], [], 'ta')],
+        ];
     }
 }

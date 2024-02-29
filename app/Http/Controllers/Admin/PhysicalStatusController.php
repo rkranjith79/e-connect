@@ -17,5 +17,8 @@ class PhysicalStatusController extends MasterController
         $this->pageData['tables'] = "physical_statuses";
         $this->pageData['prefix_url'] = "physical_status";
         $this->modal = new PhysicalStatus;
+        $this->lookup = [
+            ["id" => "language_tamil", "title" => trans('fields.' . $this->pageData['prefix_url'], [], 'ta')],
+        ];
     }
 }

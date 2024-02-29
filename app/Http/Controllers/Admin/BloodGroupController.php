@@ -23,5 +23,8 @@ class BloodGroupController extends MasterController
         $this->pageData['tables'] = "blood_groups";
         $this->pageData['prefix_url'] = "blood_group";
         $this->modal = new BloodGroup;
+        $this->lookup = [
+            ["id" => "language_tamil", "title" => trans('fields.' . $this->pageData['prefix_url'], [], 'ta')],
+        ];
     }
 }

@@ -17,5 +17,8 @@ class ColorController extends MasterController
         $this->pageData['tables'] = "colors";
         $this->pageData['prefix_url'] = "color";
         $this->modal = new Color;
+        $this->lookup = [
+            ["id" => "language_tamil", "title" => trans('fields.' . $this->pageData['prefix_url'], [], 'ta')],
+        ];
     }
 }

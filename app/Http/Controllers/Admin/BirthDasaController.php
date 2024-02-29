@@ -23,5 +23,8 @@ class BirthDasaController extends MasterController
         $this->pageData['tables'] = "birth_dasas";
         $this->pageData['prefix_url'] = "birth_dasa";
         $this->modal = new BirthDasa;
+        $this->lookup = [
+            ["id" => "language_tamil", "title" => trans('fields.' . $this->pageData['prefix_url'], [], 'ta')],
+        ];
     }
 }

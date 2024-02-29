@@ -21,6 +21,7 @@ class StateController extends MasterController
         $this->modal = new State;
         $this->lookup = [
             ["id" => "country_id", "title" => "Country", "model" => new Country(), "table" => "countries", "relationship" => "country"],
+            ["id" => "language_tamil", "title" => trans('fields.' . $this->pageData['prefix_url'], [], 'ta')],
         ];
     }
 }

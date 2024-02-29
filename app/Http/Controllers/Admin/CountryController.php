@@ -23,5 +23,8 @@ class CountryController extends MasterController
         $this->pageData['tables'] = "countries";
         $this->pageData['prefix_url'] = "country";
         $this->modal = new Country;
+        $this->lookup = [
+            ["id" => "language_tamil", "title" => trans('fields.' . $this->pageData['prefix_url'], [], 'ta')],
+        ];
     }
 }

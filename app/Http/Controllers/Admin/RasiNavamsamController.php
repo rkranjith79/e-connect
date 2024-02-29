@@ -18,5 +18,8 @@ class RasiNavamsamController extends MasterController
         $this->pageData['tables'] = "rasi_navamsams";
         $this->pageData['prefix_url'] = "rasi_navamsam";
         $this->modal = new RasiNavamsam;
+        $this->lookup = [
+            ["id" => "language_tamil", "title" => trans('fields.' . $this->pageData['prefix_url'], [], 'ta')],
+        ];
     }
 }

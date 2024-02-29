@@ -18,5 +18,8 @@ class SocialTypeController extends MasterController
         $this->pageData['tables'] = "social_types";
         $this->pageData['prefix_url'] = "social_type";
         $this->modal = new SocialType;
+        $this->lookup = [
+            ["id" => "language_tamil", "title" => trans('fields.' . $this->pageData['prefix_url'], [], 'ta')],
+        ];
     }
 }

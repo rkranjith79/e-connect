@@ -20,5 +20,8 @@ class GenderController extends MasterController
         $this->pageData['tables'] = "genders";
         $this->pageData['prefix_url'] = "gender";
         $this->modal = new Gender;
+        $this->lookup = [
+            ["id" => "language_tamil", "title" => trans('fields.' . $this->pageData['prefix_url'], [], 'ta')],
+        ];
     }
 }

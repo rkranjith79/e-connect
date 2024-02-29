@@ -24,5 +24,8 @@ class AssetsValueController extends MasterController
         $this->pageData['tables'] = "assets_values";
         $this->pageData['prefix_url'] = "assets_value";
         $this->modal = new AssetsValue;
+        $this->lookup = [
+            ["id" => "language_tamil", "title" => trans('fields.' . $this->pageData['prefix_url'], [], 'ta')],
+        ];
     }
 }

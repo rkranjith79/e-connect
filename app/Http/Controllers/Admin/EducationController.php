@@ -24,5 +24,8 @@ class EducationController extends MasterController
         $this->pageData['tables'] = "educations";
         $this->pageData['prefix_url'] = "education";
         $this->modal = new Education;
+        $this->lookup = [
+            ["id" => "language_tamil", "title" => trans('fields.' . $this->pageData['prefix_url'], [], 'ta')],
+        ];
     }
 }

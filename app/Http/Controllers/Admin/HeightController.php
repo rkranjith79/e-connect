@@ -17,5 +17,8 @@ class HeightController extends MasterController
         $this->pageData['tables'] = "heights";
         $this->pageData['prefix_url'] = "height";
         $this->modal = new Height;
+        $this->lookup = [
+            ["id" => "language_tamil", "title" => trans('fields.' . $this->pageData['prefix_url'], [], 'ta')],
+        ];
     }
 }

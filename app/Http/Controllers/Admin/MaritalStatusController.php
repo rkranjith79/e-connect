@@ -17,5 +17,8 @@ class MaritalStatusController extends MasterController
         $this->pageData['tables'] = "marital_statuses";
         $this->pageData['prefix_url'] = "marital_status";
         $this->modal = new MaritalStatus;
+        $this->lookup = [
+            ["id" => "language_tamil", "title" => trans('fields.' . $this->pageData['prefix_url'], [], 'ta')],
+        ];
     }
 }
