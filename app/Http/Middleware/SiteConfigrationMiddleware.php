@@ -2,7 +2,7 @@
 
 namespace App\Http\Middleware;
 
-use App\Models\SiteConfigurations;
+use App\Models\SiteConfiguration;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -20,7 +20,7 @@ class SiteConfigrationMiddleware
     {
 
         config([
-            'siteconfigrations' => SiteConfigurations::all()->keyBy('code')->toArray()
+            'siteconfigrations' => SiteConfiguration::all()->keyBy('code')->toArray()
         ]);
 
        // dd(config('siteconfigrations'));

@@ -64,10 +64,9 @@ Route::name('admin.')->prefix('admin')->middleware(['auth', 'isAdmin'])->group(f
     Route::resource('lagnam', App\Http\Controllers\Admin\LagnamController::class);
     Route::resource('jathagam', App\Http\Controllers\Admin\JathagamController::class);
     Route::resource('site_configuration', App\Http\Controllers\Admin\SiteConfigurationsController::class);
+    Route::post('site_configuration/create_code', [App\Http\Controllers\Admin\SiteConfigurationsController::class, 'storeCode'])->name('site_configuration.store_code');
     Route::resource('information_admin', App\Http\Controllers\Admin\InformationController::class);
-
 });
-
 
 Route::name('user.')->group(function () {
     Route::get('/member-listing', [App\Http\Controllers\User\MemberController::class, 'listing'])->name('member-listing');
@@ -77,5 +76,4 @@ Route::name('user.')->group(function () {
     Route::get('/registers', [App\Http\Controllers\User\ProfileController::class, 'register'])->name('registers');
     Route::post('/profile_store', [App\Http\Controllers\User\ProfileController::class, 'store'])->name('profile_store');
     Route::get('/information/{id?}', [App\Http\Controllers\User\InformationController::class, 'index'])->name('information');
-
 });

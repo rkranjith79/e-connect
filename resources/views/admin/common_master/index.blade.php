@@ -34,14 +34,14 @@
                             <tbody>
                                 @foreach ($modal_data as $data_record)
                                     <tr>
-                                        <td>{{ ($modal_data->currentPage() - 1) * $modal_data->perPage() + $loop->iteration }}</td>
+                                        <td>{{ ($modal_data->currentPage() - 1) * $modal_data->perPage() + $loop->iteration }}
+                                        </td>
                                         <td>
-                                            <button class="btn-icon btn editMaster ms-1"
-                                                value="{{ $data_record->id }}"><i class="fa fa-pencil"
-                                                    aria-hidden="true"></i>
+                                            <button class="btn-icon btn editMaster ms-1" value="{{ $data_record->id }}"><i
+                                                    class="fa fa-pencil" aria-hidden="true"></i>
                                             </button>
-                                            <button class="btn btn-icon deleteMaster"
-                                                value="{{ $data_record->id }}"><i class="fas fa-trash-alt" aria-hidden="true"></i>
+                                            <button class="btn btn-icon deleteMaster" value="{{ $data_record->id }}"><i
+                                                    class="fas fa-trash-alt" aria-hidden="true"></i>
                                             </button>
                                         </td>
                                         <td>{{ $data_record->title }}</td>
@@ -333,6 +333,16 @@
                         }
                     });
                 }
+            });
+            $(document).on('click', '.close', function(e) {
+                $('.errorMsg').html('');
+                $('input, select').each(function() {
+                    if ($(this).is('input')) {
+                        $(this).val('');
+                    } else if ($(this).is('select')) {
+                        $(this).prop('selectedIndex', 0);
+                    }
+                });
             });
         });
     </script>
