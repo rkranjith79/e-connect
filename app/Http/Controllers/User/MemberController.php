@@ -58,9 +58,14 @@ class MemberController extends Controller
         return view('user.index', compact('data'));
     }
 
-    public function listing()
+    public function listing($profile = null)
     {
-        $data['profiles'] = Profile::selectColumns()->get();
+        if(!empty($profile)) {
+            $data['profiles'] = $profile->get();
+        } else {
+            $data['profiles'] = Profile::selectColumns()->get();
+        }
+            
         $data['select'] = [
             "genders" => $this->getPublishedData(Gender::class),
             "marital_statuses" => $this->getPublishedData(MaritalStatus::class),
@@ -89,6 +94,7 @@ class MemberController extends Controller
             "rasis" => $this->getPublishedData(Rasi::class),
             "navamsams" => $this->getPublishedData(Navamsam::class),
         ];
+
         return view("user.member.member-listing", compact('data'));
     }
 
@@ -101,7 +107,7 @@ class MemberController extends Controller
     /*
     exp_maritalstatus array()
     */
-    public function search(Request $request)
+    public function search(Request $request) 
     {
 
         $member_id = $request->member_id ?? null;
@@ -126,19 +132,50 @@ class MemberController extends Controller
 
         // /dd($exp_maritalstatus);
         $profile = new Profile;
-        $profile = $profile->when(!empty($exp_maritalstatus) , function ($q) use($exp_maritalstatus) {
-            $q->whereIn("expectation_marital_status_id", array_filter ((array) $exp_maritalstatus));
-        });
-        
-        $results = $profile->get();
-        
-        
-        
-        
-        
-        
-
-        return view('user.profile-search');
+        $profile = $profile->when(!empty($exp_maritalstatus) , function ($q) use ($exp_maritalstatus) {
+                        $q->whereIn("expectation_marital_status_id", array_filter((array) $exp_maritalstatus));
+                    })->when(!empty($body_type) , function ($q) use($body_type) {
+                        $q->whereIn("body_type_id", array_filter((array) $body_type));
+                    })->when(!empty($color) , function ($q) use($color) {
+                        $q->whereIn("color_id", array_filter((array) $color));
+                    })->when(!empty($splcategory) , function ($q) use($splcategory) {
+                        $q->whereIn("physical_status_id", array_filter((array) $splcategory));
+                    })->whereHas(
+                        "basic", function($q) use
+                        ($caste, $sub_caste, $education, $work, $country, $state, $district)
+                        {
+                            $q->when(!empty($caste) , function ($q) use($caste) {
+                                $q->whereIn('caste_id', array_filter((array) $caste));
+                            })->when(!empty($sub_caste) , function ($q) use($sub_caste) {
+                                $q->whereIn('sub_caste_id', array_filter((array) $sub_caste));
+                            })->when(!empty($education) , function ($q) use($education) {
+                                $q->whereIn('education_id', array_filter((array) $education));
+                            })->when(!empty($work) , function ($q) use($work) {
+                                $q->whereIn('work_id', array_filter((array) $work));
+                            })->when(!empty($state) , function ($q) use($state) {
+                                $q->whereIn('state_id', array_filter((array) $state));
+                            })->when(!empty($country) , function ($q) use($country) {
+                                $q->whereIn('country_id', array_filter((array) $country));
+                            })->when(!empty($district) , function ($q) use($district) {
+                                $q->whereIn('district_id', array_filter((array) $district));
+                            })                        
+                            ;
+                    })->whereHas(
+                            "jathagam", function($q) use
+                            ($rasi_nakshatra, $lagnam, $education)
+                            {
+                                $q->when(!empty($rasi_nakshatra) , function ($q) use($rasi_nakshatra) {
+                                    $q->whereIn('rasi_nakshatra_id', array_filter((array) $rasi_nakshatra));
+                                })->when(!empty($lagnam) , function ($q) use($lagnam) {
+                                    $q->whereIn('lagnam_id', array_filter((array) $lagnam));
+                                })->when(!empty($education) , function ($q) use($education) {
+                                    $q->whereIn('education_id', array_filter((array) $education));
+                                })                        
+                                ;
+                            })
+                    
+                    ;
+        return $this->listing($profile);
     }
 
     public function profile($id = 1)
