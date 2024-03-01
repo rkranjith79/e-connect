@@ -89,7 +89,7 @@
                                 @foreach ($lookup_fields as $item)
                                     @if (isset($item['model']))
                                         <div class="form-group">
-                                            <label for="{{ $item['title'] }}">{{ $item['title'] }}</label>
+                                            <label for="{{ $item['id'] }}">{{ $item['title'] }}</label>
                                             <select name="{{ $item['id'] }}" id="{{ $item['id'] }}" class="form-control">
                                                 <option value="">Select {{ $item['title'] }}</option>
                                                 @foreach ($page_data['lookup_data'][$item['id']] as $key => $value)
@@ -100,7 +100,7 @@
                                         </div>
                                     @else
                                         <div class="form-group">
-                                            <label for="name">{{ $item['title'] }}</label>
+                                            <label for="{{ $item['id'] }}">{{ $item['title'] }}</label>
                                             <input type="text" class="form-control" id="{{ $item['id'] }}"
                                                 name="{{ $item['id'] }}" placeholder="{{ $item['title'] }}">
                                             <span><small class="errorMsg" id="{{ $item['title'] }}_err"></small></span>
@@ -109,8 +109,8 @@
                                 @endforeach
                             @endisset
                             <div class="form-group">
-                                <label for="name">{{ $page_data['name'] }}</label>
-                                <input type="text" class="form-control" id="name" name="title"
+                                <label for="title">{{ $page_data['name'] }}</label>
+                                <input type="text" class="form-control" id="title" name="title"
                                     placeholder="{{ $page_data['name'] }}">
                                 <span><small class="errorMsg" id="title_err"></small></span>
                             </div>
@@ -149,7 +149,7 @@
                                 @foreach ($lookup_fields as $item)
                                     @if (isset($item['model']))
                                         <div class="form-group">
-                                            <label for="{{ $item['title'] }}">{{ $item['title'] }}</label>
+                                            <label for="edit_{{ $item['title'] }}">{{ $item['title'] }}</label>
                                             <select name="{{ $item['id'] }}" id="edit_{{ $item['id'] }}"
                                                 class="form-control">
                                                 <option value="">Select {{ $item['title'] }}</option>
@@ -161,8 +161,8 @@
                                         </div>
                                     @else
                                         <div class="form-group">
-                                            <label for="name">{{ $item['title'] }}</label>
-                                            <input type="text" class="form-control" id="{{ $item['id'] }}"
+                                            <label for="edit_{{ $item['id'] }}">{{ $item['title'] }}</label>
+                                            <input type="text" class="form-control" id="edit_{{ $item['id'] }}"
                                                 name="{{ $item['id'] }}" placeholder="{{ $item['title'] }}">
                                             <span><small class="errorMsg" id="{{ $item['title'] }}_err"></small></span>
                                         </div>
@@ -170,7 +170,7 @@
                                 @endforeach
                             @endisset
                             <div class="form-group">
-                                <label for="name">{{ $page_data['name'] }}</label>
+                                <label for="edit_title">{{ $page_data['name'] }}</label>
                                 <input type="text" class="form-control" id="edit_title" name="title"
                                     placeholder="{{ $page_data['name'] }}">
                                 <span><small class="errorMsg" id="edit_title_err"></small></span>

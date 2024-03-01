@@ -23,5 +23,8 @@ class JathagamController extends MasterController
         $this->pageData['tables'] = "jathagams";
         $this->pageData['prefix_url'] = "jathagam";
         $this->modal = new Jathagam;
+        $this->lookup = [
+            ["id" => "language_tamil", "title" => trans('fields.' . $this->pageData['prefix_url'], [], 'ta')],
+        ];
     }
 }

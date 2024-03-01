@@ -20,6 +20,7 @@ class DistrictConroller extends MasterController
         $this->modal = new District();
         $this->lookup = [
             ["id" => "state_id", "title" => "State", "model" => new State(), "table" => "states", "relationship" => "state"],
+            ["id" => "language_tamil", "title" => trans('fields.' . $this->pageData['prefix_url'], [], 'ta')],
         ];
     }
 }

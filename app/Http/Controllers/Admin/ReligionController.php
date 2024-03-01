@@ -16,8 +16,10 @@ class ReligionController extends MasterController
         $this->pageData['view'] = "admin.common_master.index";
         $this->pageData['tables'] = "religions";
         $this->pageData['prefix_url'] = "religion";
-
         $this->modal = new Religion;
+        $this->lookup = [
+            ["id" => "language_tamil", "title" => trans('fields.' . $this->pageData['prefix_url'], [], 'ta')],
+        ];
     }
 
 }

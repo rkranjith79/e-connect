@@ -22,6 +22,7 @@ class SubCasteController extends MasterController
         //If Table and Model exists consider as select or else consider as textbox
         $this->lookup = [
             ["id" => "caste_id", "title" => "Caste", "model" => new Caste(), "table" => "castes", "relationship" => "caste"],
+            ["id" => "language_tamil", "title" => trans('fields.' . $this->pageData['prefix_url'], [], 'ta')],
         ];
     }
 }

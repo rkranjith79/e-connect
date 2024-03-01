@@ -17,5 +17,8 @@ class BodyTypeController extends MasterController
         $this->pageData['tables'] = "body_types";
         $this->pageData['prefix_url'] = "body_type";
         $this->modal = new BodyType;
+        $this->lookup = [
+            ["id" => "language_tamil", "title" => trans('fields.' . $this->pageData['prefix_url'], [], 'ta')],
+        ];
     }
 }

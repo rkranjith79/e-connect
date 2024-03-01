@@ -17,5 +17,8 @@ class WeightController extends MasterController
         $this->pageData['tables'] = "weights";
         $this->pageData['prefix_url'] = "weight";
         $this->modal = new Weight;
+        $this->lookup = [
+            ["id" => "language_tamil", "title" => trans('fields.' . $this->pageData['prefix_url'], [], 'ta')],
+        ];
     }
 }

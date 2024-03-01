@@ -23,5 +23,8 @@ class ParentStatusController extends MasterController
         $this->pageData['tables'] = "parent_statuses";
         $this->pageData['prefix_url'] = "parent_status";
         $this->modal = new ParentStatus;
+        $this->lookup = [
+            ["id" => "language_tamil", "title" => trans('fields.' . $this->pageData['prefix_url'], [], 'ta')],
+        ];
     }
 }

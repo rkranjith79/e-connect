@@ -18,5 +18,8 @@ class NakshatraPathamController extends MasterController
         $this->pageData['tables'] = "nakshatra_pathams";
         $this->pageData['prefix_url'] = "nakshatra_patham";
         $this->modal = new NakshatraPatham();
+        $this->lookup = [
+            ["id" => "language_tamil", "title" => trans('fields.' . $this->pageData['prefix_url'], [], 'ta')],
+        ];
     }
 }

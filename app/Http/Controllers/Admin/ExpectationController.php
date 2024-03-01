@@ -24,5 +24,8 @@ class ExpectationController extends MasterController
         $this->pageData['tables'] = "expections";
         $this->pageData['prefix_url'] = "expection";
         $this->modal = new Expectation;
+        $this->lookup = [
+            ["id" => "language_tamil", "title" => trans('fields.' . $this->pageData['prefix_url'], [], 'ta')],
+        ];
     }
 }

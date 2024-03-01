@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Lagnam;
 use App\Http\Controllers\Admin\Common\MasterController;
 
-class LagnamController extends Controller
+class LagnamController extends MasterController
 {
     public $pageData = [], $modal;
 
@@ -18,5 +18,8 @@ class LagnamController extends Controller
         $this->pageData['tables'] = "lagnams";
         $this->pageData['prefix_url'] = "lagnam";
         $this->modal = new Lagnam;
+        $this->lookup = [
+            ["id" => "language_tamil", "title" => trans('fields.' . $this->pageData['prefix_url'], [], 'ta')],
+        ];
     }
 }

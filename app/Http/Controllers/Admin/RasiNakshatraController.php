@@ -18,5 +18,8 @@ class RasiNakshatraController extends MasterController
         $this->pageData['tables'] = "rasi_nakshatras";
         $this->pageData['prefix_url'] = "rasi_nakshatra";
         $this->modal = new RasiNakshatra;
+        $this->lookup = [
+            ["id" => "language_tamil", "title" => trans('fields.' . $this->pageData['prefix_url'], [], 'ta')],
+        ];
     }
 }

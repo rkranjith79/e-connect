@@ -18,5 +18,8 @@ class RasiController extends MasterController
         $this->pageData['tables'] = "rasis";
         $this->pageData['prefix_url'] = "rasi";
         $this->modal = new Rasi();
+        $this->lookup = [
+            ["id" => "language_tamil", "title" => trans('fields.' . $this->pageData['prefix_url'], [], 'ta')],
+        ];
     }
 }
