@@ -5,25 +5,38 @@
                 <div class="col-lg-5 col">
                     <ul class="list-inline d-flex justify-content-between justify-content-lg-start mb-0">
                         <li class="list-inline-item">
-                            <a href="index.html" id="cur_lang" data-lang="T"
-                                class="text-reset font-weight-bold">
+                            <a href="{{ route('language.set', ['locale'=> 'en']) }}" id="cur_lang_en" data-lang="T"
+                                class="text-reset 
+                                {{App::currentLocale() != 'en' ?: 'text-success font-weight-bold'}}
+                                ">
                                 <span>English</span>
                             </a>
                         </li>
+
+                        <li class="list-inline-item pl-3">
+                            <a href="{{ route('language.set', ['locale'=> 'ta']) }}" id="cur_lang_ta" data-lang="T"
+                                class="text-reset 
+                                {{App::currentLocale() != 'ta' ?: 'text-success font-weight-bold'}}
+
+                                ">
+                                <span>தமிழ்</span>
+                            </a>
+                        </li>
+
                     </ul>
                 </div>
                 <div class="col-lg-7 col">
                     <ul class="list-inline mb-0 d-flex align-items-center justify-content-end ">
                         <li class="list-inline-item mr-3 pr-3 border-right text-reset text-center">
-                            <span>உதவி மையம்</span>
-                            <span><a href="tel:9025382525">9025382525</a></span>
+                            <span> {{ __getSiteConfigration('help_line', 'label') }} </span>
+                            <span><a href="tel:{{ __getSiteConfigration('help_line') }}"> {{ __getSiteConfigration('help_line', 'value') }}</a></span>
                         </li>
                         <li class="list-inline-item text-center">
-                            <a class="text-reset" href="{{ route('admin.dashboard') }}">உள் நுழைய</a>
+                            <a class="text-reset" href="{{ route('admin.dashboard') }}">{{ trans("site.login") }}</a>
                         </li>
                         <li class="list-inline-item">
                             <a class="btn btn-sm btn-primary text-white fw-600 py-1 border"
-                                href="{{ route('user.registers') }}">பதிவு</a>
+                                href="{{ route('user.registers') }}">{{ trans("site.registration") }}</a>
                         </li>
                     </ul>
                 </div>
@@ -51,46 +64,19 @@
                         <li class="d-inline-block d-lg-flex pb-1 bg-primary-grad">
                             <a class="nav-link text-uppercase fw-700 fs-15 d-flex align-items-center bg-white py-2"
                                 href="{{ url('/') }}">
-                                <span class="text-primary-grad mb-n1">Home</span>
+                                <span class="text-primary-grad mb-n1">{{ trans("site.home") }}</span>
                             </a>
                         </li>
                         <li class="d-inline-block d-lg-flex pb-1 ">
                             <a class="nav-link text-uppercase fw-700 fs-15 d-flex align-items-center bg-white py-2"
                                 href="{{ route('user.member-listing') }}">
-                                <span class="text-primary-grad mb-n1">View Profiles</span>
+                                <span class="text-primary-grad mb-n1">{{ trans("site.view_profile") }}</span>
                             </a>
                         </li>
                         <li class="d-inline-block d-lg-flex pb-1 ">
                             <a class="nav-link text-uppercase fw-700 fs-15 d-flex align-items-center bg-white py-2"
                                 href="{{ route('user.search') }}">
-                                <span class="text-primary-grad mb-n1">Search</span>
-                            </a>
-                        </li>
-
-                        <li class="d-inline-block d-lg-flex pb-1 ">
-                            <a class="nav-link text-uppercase fw-700 fs-15 d-flex align-items-center bg-white py-2"
-                                href="{{ route('user.jathagam') }}">
-                                <span class="text-primary-grad mb-n1">Jathagam</span>
-                            </a>
-                        </li>
-
-                        <li class="d-inline-block d-lg-flex pb-1 ">
-                            <a class="nav-link text-uppercase fw-700 fs-15 d-flex align-items-center bg-white py-2"
-                                href="{{ route('user.profile') }}">
-                                <span class="text-primary-grad mb-n1">profile</span>
-                            </a>
-                        </li>
-
-                        <li class="d-inline-block d-lg-flex pb-1 ">
-                            <a class="nav-link text-uppercase fw-700 fs-15 d-flex align-items-center bg-white py-2"
-                                href="packages.html">
-                                <span class="text-primary-grad mb-n1">Premium Plans</span>
-                            </a>
-                        </li>
-                        <li class="d-inline-block d-lg-flex pb-1 ">
-                            <a class="nav-link text-uppercase fw-700 fs-15 d-flex align-items-center bg-white py-2"
-                                href="events.html">
-                                <span class="text-primary-grad mb-n1">Events</span>
+                                <span class="text-primary-grad mb-n1">{{ trans("site.search") }}</span>
                             </a>
                         </li>
                     </ul>

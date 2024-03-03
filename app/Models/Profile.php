@@ -48,47 +48,47 @@ class Profile extends MasterModel
 
     public function color()
     {
-        return $this->belongsTo(Color::class);
+        return $this->belongsTo(Color::class)->Translated();
     }
 
     public function blood_group()
     {
-        return $this->belongsTo(BloodGroup::class);
+        return $this->belongsTo(BloodGroup::class)->Translated();
     }
     
     public function body_type()
     {
-        return $this->belongsTo(BodyType::class);
+        return $this->belongsTo(BodyType::class)->Translated();
     }
 
     public function weight()
     {
-        return $this->belongsTo(Weight::class);
+        return $this->belongsTo(Weight::class)->Translated();
     }
 
     public function height()
     {
-        return $this->belongsTo(Height::class);
+        return $this->belongsTo(Height::class)->Translated();
     }
 
     public function physical_status()
     {
-        return $this->belongsTo(PhysicalStatus::class);
+        return $this->belongsTo(PhysicalStatus::class)->Translated();
     }
 
     public function gender()
     {
-        return $this->belongsTo(Gender::class);
+        return $this->belongsTo(Gender::class)->Translated();
     }
 
     public function marital_status()
     {
-        return $this->belongsTo(MaritalStatus::class);
+        return $this->belongsTo(MaritalStatus::class)->Translated();
     }
 
     public function registered_by()
     {
-        return $this->belongsTo(RegisteredBy::class);
+        return $this->belongsTo(RegisteredBy::class)->Translated();
     } 
     
     public function basic()
@@ -135,17 +135,17 @@ class Profile extends MasterModel
 
     public function getExpectationJathagamTitleAttribute()
     {
-        return Jathagam::find($this->expectation_jathagam_id)->pluck('title')->implode(", ");
+        return Jathagam::find($this->expectation_jathagam_id)->Translated()?->pluck('title')->implode(", ");
     }
 
     public function getExpectationMaritalStatusTitleAttribute()
     {
-        return Jathagam::find($this->expectation_marital_status_id)->pluck('title')->implode(", ");
+        return Jathagam::find($this->expectation_marital_status_id)->Translated()?->pluck('title')->implode(", ");
     }
 
     public function getExpectationWorkPlaceTitleAttribute()
     {
-        return Jathagam::find($this->expectation_work_place_id)->pluck('title')->implode(", ");
+        return Jathagam::find($this->expectation_work_place_id)->Translated()?->pluck('title')->implode(", ");
     }
 
     

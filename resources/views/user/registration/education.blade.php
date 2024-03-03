@@ -1,8 +1,8 @@
-<h4 class="section-title">Education & Career</h4>
+<h4 class="section-title">{{ trans("fields.section_education") }}</h4>
 <div class="row">
     <div class="col-sm-3">
         <div class="form-group mb-3">
-            <label class="form-label" for="education_id">Education<span
+            <label class="form-label" for="education_id">{{ trans("fields.education") }}<span
                     class="require-star">*</span></label>
             <div class="input-group">
                 <div class="input-group-prepend"><span class="input-group-text"><i
@@ -25,7 +25,7 @@
 
     <div class="col-sm-3">
         <div class="form-group mb-3">
-            <label class="form-label" for="education_details">Education Details<span
+            <label class="form-label" for="education_details">{{ trans("fields.education_details") }}<span
                     class="require-star">*</span></label>
             <div class="input-group">
                 <div class="input-group-prepend"><span class="input-group-text"><i
@@ -39,7 +39,7 @@
     </div>
     <div class="col-sm-3">
         <div class="form-group mb-3">
-            <label class="form-label" for="work_id">Work<span
+            <label class="form-label" for="work_id">{{ trans("fields.work") }}<span
                     class="require-star">*</span></label>
             <div class="input-group">
                 <div class="input-group-prepend"><span class="input-group-text"><i
@@ -62,7 +62,7 @@
 
     <div class="col-sm-3">
         <div class="form-group mb-3">
-            <label class="form-label" for="work_details">Work Details<span
+            <label class="form-label" for="work_details">{{ trans("fields.work_details") }}<span
                     class="require-star">*</span></label>
             <div class="input-group">
                 <div class="input-group-prepend"><span class="input-group-text"><i
@@ -76,7 +76,7 @@
     </div>
     <div class="col-sm-3 div-work-place">
         <div class="form-group mb-3">
-            <label class="form-label" for="work_place_id">Work Place<span
+            <label class="form-label" for="work_place_id">{{ trans("fields.work_place") }}<span
                     class="require-star">*</span></label>
             <div class="input-group">
                 <div class="input-group-prepend"><span class="input-group-text"><i
@@ -98,7 +98,7 @@
     </div>
     <div class="col-sm-3">
         <div class="form-group mb-3">
-            <label class="form-label" for="monthly_income">Monthly Income<span
+            <label class="form-label" for="monthly_income">{{ trans("fields.monthly_income") }}<span
                     class="require-star">*</span></label>
             <div class="input-group">
                 <div class="input-group-prepend"><span class="input-group-text"><i

@@ -1,8 +1,8 @@
-<h4 class="section-title">Contact Details</h4>
+<h4 class="section-title">{{ trans("fields.section_contact") }}</h4>
 <div class="row">
     <div class="col-sm-3">
         <div class="form-group mb-3">
-            <label class="form-label" for="phone">Contact Number<span class="require-star">*</span></label>
+            <label class="form-label" for="phone">{{ trans("fields.phone") }}<span class="require-star">*</span></label>
             <div class="input-group">
                 <div class="input-group-prepend"><span class="input-group-text"><i class="fas fa-phone-alt"></i></span>
                 </div>
@@ -15,7 +15,7 @@
     </div>
     <div class="col-sm-3">
         <div class="form-group mb-3">
-            <label class="form-label" for="whatsapp">Whatsapp Number<span class="require-star">*</span></label>
+            <label class="form-label" for="whatsapp">{{ trans("fields.whatsapp") }}<span class="require-star">*</span></label>
             <div class="input-group">
                 <div class="input-group-prepend"><span class="input-group-text"><i
                             class="fas fab fa-whatsapp"></i></span></div>
@@ -28,7 +28,7 @@
     </div>
     <div class="col-sm-6 div-address">
         <div class="form-group mb-3">
-            <label class="form-label" for="address">Address<span class="require-star">*</span></label>
+            <label class="form-label" for="address">{{ trans("fields.address") }}<span class="require-star">*</span></label>
             <textarea class="form-control required" id="address" name="address" rows="3" maxlength="300"></textarea>
             <small class="form-text text-muted text-help"></small>
             <span class="invalid-feedback"></span>
@@ -37,7 +37,7 @@
 
     <div class="col-sm-4">
         <div class="form-group mb-3">
-            <label class="form-label" for="country_id">Country<span class="require-star">*</span></label>
+            <label class="form-label" for="country_id">{{ trans("fields.country") }}<span class="require-star">*</span></label>
             <div class="input-group">
                 <div class="input-group-prepend"><span class="input-group-text"><i class="fas fa-globe-asia"></i></span>
                 </div>
@@ -57,7 +57,7 @@
     </div>
     <div class="col-sm-4">
         <div class="form-group mb-3">
-            <label class="form-label" for="state_id">State<span class="require-star">*</span></label>
+            <label class="form-label" for="state_id">{{ trans("fields.state") }}<span class="require-star">*</span></label>
             <div class="input-group">
                 <div class="input-group-prepend"><span class="input-group-text"><i
                             class="fas fa-map-marker-alt"></i></span></div>
@@ -78,7 +78,7 @@
 
     <div class="col-sm-4">
         <div class="form-group mb-3">
-            <label class="form-label" for="district_id">District<span class="require-star">*</span></label>
+            <label class="form-label" for="district_id">{{ trans("fields.district") }}<span class="require-star">*</span></label>
             <div class="input-group">
                 <div class="input-group-prepend"><span class="input-group-text"><i
                             class="fas fa-map-marker-alt"></i></span></div>
@@ -98,7 +98,7 @@
 
     <div class="col-sm-4 div-country-others">
         <div class="form-group mb-3">
-            <label class="form-label" for="country_others">Country Name<span class="require-star">*</span></label>
+            <label class="form-label" for="country_others">{{ trans("fields.country") }}<span class="require-star">*</span></label>
             <div class="input-group">
                 <div class="input-group-prepend"><span class="input-group-text"><i
                             class="fas fa-map-marker-alt"></i></span></div>
@@ -111,7 +111,7 @@
     </div>
     <div class="col-sm-4 div-state-others">
         <div class="form-group mb-3">
-            <label class="form-label" for="state_others">State Name<span class="require-star">*</span></label>
+            <label class="form-label" for="state_others">{{ trans("fields.state") }}<span class="require-star">*</span></label>
             <div class="input-group">
                 <div class="input-group-prepend"><span class="input-group-text"><i
                             class="fas fa-map-marker-alt"></i></span></div>
@@ -125,7 +125,7 @@
 
     <div class="col-sm-4 div-district-others">
         <div class="form-group mb-3">
-            <label class="form-label" for="district_others">District Name<span class="require-star">*</span></label>
+            <label class="form-label" for="district_others">{{ trans("fields.district") }}<span class="require-star">*</span></label>
             <div class="input-group">
                 <div class="input-group-prepend"><span class="input-group-text"><i
                             class="fas fa-map-marker-alt"></i></span></div>

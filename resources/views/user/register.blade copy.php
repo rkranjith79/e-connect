@@ -36,7 +36,7 @@ style="background-image: url(https://ganeshkongumatrimony.com/uploads/all/iajOd7
                     <form class="form-default" id="registration_form" role="form"
                          method="POST">
 @csrf
-                         <h4 class="section-title">Upload Photo & Jathagam</h4>
+                         <h4 class="section-title">{{ __("fields.photo_file") }}</h4>
                         <div class="form-row">
                             <div class="col-md-6 div-photo text-center">
                                 <div class="form-group mx-auto">
