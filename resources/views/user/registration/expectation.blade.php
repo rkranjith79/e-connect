@@ -1,8 +1,8 @@
-<h4 class="section-title">Expectation</h4>
+<h4 class="section-title">{{ trans("fields.section_expectation") }}</h4>
 <div class="form-row">
     <div class="col-sm-4">
         <div class="form-group mb-3">
-            <label class="form-label" for="expectation_jathagam_id">Jathagam<span
+            <label class="form-label" for="expectation_jathagam_id">{{ trans("fields.expectation_jathagam") }}<span
                     class="require-star">*</span></label>
             <div class="input-group">
                 <div class="input-group-prepend"><span class="input-group-text"><i
@@ -24,7 +24,7 @@
     </div>
     <div class="col-sm-4">
         <div class="form-group mb-3">
-            <label class="form-label" for="expectation_marital_status_id">Marital Status<span
+            <label class="form-label" for="expectation_marital_status_id">{{ trans("fields.expectation_marital_status") }}<span
                     class="require-star">*</span></label>
             <div class="input-group">
                 <div class="input-group-prepend"><span class="input-group-text"><i
@@ -47,7 +47,7 @@
     </div>
     <div class="col-sm-4">
         <div class="form-group mb-3">
-            <label class="form-label" for="expectation_work_place_id">Work Place<span
+            <label class="form-label" for="expectation_work_place_id">{{ trans("fields.expectation_work_place") }}<span
                     class="require-star">*</span></label>
             <div class="input-group">
                 <div class="input-group-prepend"><span class="input-group-text"><i
@@ -71,7 +71,7 @@
 <div class="form-row">
     <div class="col-sm-6">
         <div class="form-group mb-3">
-            <label class="form-label" for="expectation_nakshatra">Matching Nakshatras<span
+            <label class="form-label" for="expectation_nakshatra">{{ trans("fields.expectation_nakshatra") }}<span
                     class="require-star">*</span></label>
             <textarea class="form-control required" id="expectation_nakshatra" name="exp_nakshatra" rows="3"
                 maxlength="300"></textarea>
@@ -81,7 +81,7 @@
     </div>
     <div class="col-sm-6">
         <div class="form-group mb-3">
-            <label class="form-label" for="expectation">Expectation<span
+            <label class="form-label" for="expectation">{{ trans("fields.expectation") }}<span
                     class="require-star">*</span></label>
             <textarea class="form-control required" id="expectation" name="expectation" rows="3" maxlength="300"></textarea>
             <small class="form-text text-muted text-help"></small>

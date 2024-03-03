@@ -20,6 +20,17 @@ Route::get('/',  [App\Http\Controllers\User\MemberController::class, 'index'])->
 
 Auth::routes();
 
+Route::get('/language/{locale}', function (string $locale) {
+    if (! in_array($locale, ['en', 'ta'])) {
+        abort(400);
+    }
+    \Illuminate\Support\Facades\App::setLocale($locale);
+    session()->put('locale', $locale);
+
+    return redirect()->back();
+})->name("language.set");
+
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::name('admin.')->prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {

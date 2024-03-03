@@ -48,62 +48,62 @@ class ProfileBasic extends MasterModel
 
     public function education()
     {
-        return $this->belongsTo(Education::class);
+        return $this->belongsTo(Education::class)->Translated();
     } 
 
     public function work()
     {
-        return $this->belongsTo(Work::class);
+        return $this->belongsTo(Work::class)->Translated();
     } 
 
     public function caste()
     {
-        return $this->belongsTo(Caste::class);
+        return $this->belongsTo(Caste::class)->Translated();
     } 
 
     public function sub_caste()
     {
-        return $this->belongsTo(SubCaste::class);
+        return $this->belongsTo(SubCaste::class)->Translated();
     }
     
     public function work_place()
     {
-        return $this->belongsTo(WorkPlace::class);
+        return $this->belongsTo(WorkPlace::class)->Translated();
     }
     
     public function country()
     {
-        return $this->belongsTo(Country::class);
+        return $this->belongsTo(Country::class)->Translated();
     }
     
     public function state()
     {
-        return $this->belongsTo(State::class);
+        return $this->belongsTo(State::class)->Translated();
     }
     
     public function district()
     {
-        return $this->belongsTo(District::class);
+        return $this->belongsTo(District::class)->Translated();
     }
     
     public function father_status()
     {
-        return $this->belongsTo(ParentStatus::class);
+        return $this->belongsTo(ParentStatus::class)->Translated();
     }
 
     public function mother_status()
     {
-        return $this->belongsTo(ParentStatus::class);
+        return $this->belongsTo(ParentStatus::class)->Translated();
     }
     
     public function social_type()
     {
-        return $this->belongsTo(SocialType::class);
+        return $this->belongsTo(SocialType::class)->Translated();
     }
     
     public function asset_value()
     {
-        return $this->belongsTo(AssetsValue::class);
+        return $this->belongsTo(AssetsValue::class)->Translated();
     }   
 
 }

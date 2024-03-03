@@ -36,22 +36,22 @@ class profileJathagam extends MasterModel
 
     public function rasi_nakshatra()
     {
-        return $this->belongsTo(RasiNakshatra::class);
+        return $this->belongsTo(RasiNakshatra::class)->Translated();
     }
     
     public function lagnam()
     {
-        return $this->belongsTo(Lagnam::class);
+        return $this->belongsTo(Lagnam::class)->Translated();
     }
 
     public function jathagam()
     {
-        return $this->belongsTo(Jathagam::class);
+        return $this->belongsTo(Jathagam::class)->Translated();
     }
 
     public function nakshatra_patham()
     {
-        return $this->belongsTo(NakshatraPatham::class);
+        return $this->belongsTo(NakshatraPatham::class)->Translated();
     }
 
     public function getAgeAttribute()
@@ -76,7 +76,7 @@ class profileJathagam extends MasterModel
         $return = [];
 
         foreach($this->rasi as $key => $rasi) {
-           $return[$key] = Rasi::find($rasi)?->pluck('title')?->implode(", ");
+           $return[$key] = Rasi::find($rasi)?->Translated()?->pluck('title')?->implode(", ");
         }
         return $return;
     }
@@ -86,7 +86,7 @@ class profileJathagam extends MasterModel
         $return = [];
 
         foreach($this->navamsam as $key => $navamsam) {
-           $return[$key] = Navamsam::find($navamsam)?->pluck('title')?->implode(", ");
+           $return[$key] = Navamsam::find($navamsam)?->Translated()?->pluck('title')?->implode(", ");
         }
         return $return;
     }

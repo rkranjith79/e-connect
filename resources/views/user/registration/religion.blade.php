@@ -1,8 +1,8 @@
-<h4 class="section-title">Religious & Social Background</h4>
+<h4 class="section-title">{{ trans("fields.section_religion") }}</h4>
 <div class="row">
     <div class="col-sm-3">
         <div class="form-group mb-3">
-            <label class="form-label" for="religion_id">Religion<span class="require-star">*</span></label>
+            <label class="form-label" for="religion_id">{{ trans("fields.religion") }}<span class="require-star">*</span></label>
             <div class="input-group">
                 <div class="input-group-prepend"><span class="input-group-text"><i class="fas fa-caret-down"></i></span>
                 </div>
@@ -23,7 +23,7 @@
 
     <div class="col-sm-3">
         <div class="form-group mb-3">
-            <label class="form-label" for="caste_id">Caste<span class="require-star">*</span></label>
+            <label class="form-label" for="caste_id">{{ trans("fields.caste") }}<span class="require-star">*</span></label>
             <div class="input-group">
                 <div class="input-group-prepend"><span class="input-group-text"><i class="fas fa-caret-down"></i></span>
                 </div>
@@ -43,7 +43,7 @@
     </div>
     <div class="col-sm-3">
         <div class="form-group mb-3">
-            <label class="form-label" for="sub_caste_id">Sub Caste<span class="require-star">*</span></label>
+            <label class="form-label" for="sub_caste_id">{{ trans("fields.sub_caste") }}<span class="require-star">*</span></label>
             <div class="input-group">
                 <div class="input-group-prepend"><span class="input-group-text"><i class="fas fa-caret-down"></i></span>
                 </div>
@@ -64,7 +64,7 @@
 
     <div class="col-sm-3">
         <div class="form-group mb-3">
-            <label class="form-label" for="temple">Temple<span class="require-star">*</span></label>
+            <label class="form-label" for="temple">{{ trans("fields.temple") }}<span class="require-star">*</span></label>
             <div class="input-group">
                 <div class="input-group-prepend"><span class="input-group-text"><i class="fas fa-keyboard"></i></span>
                 </div>

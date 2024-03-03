@@ -2,12 +2,11 @@
 
 namespace App\Http\Middleware;
 
-use App\Models\SiteConfiguration;
 use Closure;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\App;
 
-class SiteConfigrationMiddleware
+class LocalizationMiddleware
 {
     /**
      * Handle an incoming request.
@@ -18,15 +17,9 @@ class SiteConfigrationMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-
-        config([
-            'siteconfigrations' => SiteConfiguration::all()->keyBy('code')->toArray()
-        ]);
-
-        \Illuminate\Support\Facades\App::setLocale("ta");
-
-       // dd(config('siteconfigrations'));
-
+        if (session()->has('locale')) {
+            App::setlocale(session()->get('locale'));
+        }
         return $next($request);
     }
 }

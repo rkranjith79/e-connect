@@ -48,8 +48,6 @@ class ProfileController extends Controller
     public function register()
     {
         //dd((new gender)::published()->pluck('title','id'));   
-
-
         $record = [
             "genders" => $this->getPublishedData(Gender::class),
             "marital_statuses" => $this->getPublishedData(MaritalStatus::class),
@@ -373,6 +371,6 @@ class ProfileController extends Controller
     }
     function getPublishedData($model)
     {
-        return $model::published()->pluck('title', 'id')->toArray();
+        return $model::published()->translated()->pluck('title', 'id')->toArray();
     }
 }

@@ -1,8 +1,8 @@
-<h4 class="section-title">Family Details</h4>
+<h4 class="section-title">{{ trans("fields.section_family") }}</h4>
 <div class="row">
     <div class="col-sm-3">
         <div class="form-group mb-3">
-            <label class="form-label" for="father_name">Father Name<span
+            <label class="form-label" for="father_name">{{ trans("fields.father_name") }}<span
                     class="require-star">*</span></label>
             <div class="input-group">
                 <div class="input-group-prepend"><span class="input-group-text"><i
@@ -16,7 +16,7 @@
     </div>
     <div class="col-sm-3">
         <div class="form-group mb-3">
-            <label class="form-label" for="father_status_id">Father Status<span
+            <label class="form-label" for="father_status_id">{{ trans("fields.father_status") }}<span
                     class="require-star">*</span></label>
             <div class="input-group">
                 <div class="input-group-prepend"><span class="input-group-text"><i
@@ -38,7 +38,7 @@
     </div>
     <div class="col-sm-3 div-father-occu">
         <div class="form-group mb-3">
-            <label class="form-label" for="father_occupation">Father Occupation<span
+            <label class="form-label" for="father_occupation">{{ trans("fields.father_occupation") }}<span
                     class="require-star">*</span></label>
             <div class="input-group">
                 <div class="input-group-prepend"><span class="input-group-text"><i
@@ -52,7 +52,7 @@
     </div>
     <div class="col-sm-3">
         <div class="form-group mb-3">
-            <label class="form-label" for="mother_name">Mother Name<span
+            <label class="form-label" for="mother_name">{{ trans("fields.mother_name") }}<span
                     class="require-star">*</span></label>
             <div class="input-group">
                 <div class="input-group-prepend"><span class="input-group-text"><i
@@ -66,7 +66,7 @@
     </div>
     <div class="col-sm-3">
         <div class="form-group mb-3">
-            <label class="form-label" for="mother_status_id">Mother Status<span
+            <label class="form-label" for="mother_status_id">{{ trans("fields.mother_status") }}<span
                     class="require-star">*</span></label>
             <div class="input-group">
                 <div class="input-group-prepend"><span class="input-group-text"><i
@@ -88,7 +88,7 @@
     </div>
     <div class="col-sm-3 div-mother-occu">
         <div class="form-group mb-3">
-            <label class="form-label" for="mother_occupation">Mother Occupation<span
+            <label class="form-label" for="mother_occupation">{{ trans("fields.mother_occupation") }}<span
                     class="require-star">*</span></label>
             <div class="input-group">
                 <div class="input-group-prepend"><span class="input-group-text"><i
@@ -102,7 +102,7 @@
     </div>
     <div class="col-sm-3">
         <div class="form-group mb-3">
-            <label class="form-label" for="social_type_id">Social Type<span
+            <label class="form-label" for="social_type_id">{{ trans("fields.social_type") }}<span
                     class="require-star">*</span></label>
             <div class="input-group">
                 <div class="input-group-prepend"><span class="input-group-text"><i
@@ -124,7 +124,7 @@
     </div>
     <div class="col-sm-3">
         <div class="form-group mb-3">
-            <label class="form-label" for="native">Native<span
+            <label class="form-label" for="native">{{ trans("fields.native") }}<span
                     class="require-star">*</span></label>
             <div class="input-group">
                 <div class="input-group-prepend"><span class="input-group-text"><i
@@ -138,7 +138,7 @@
     </div>
     <div class="col-sm-6">
         <div class="form-group mb-3">
-            <label class="form-label" for="siblings">Siblings<span
+            <label class="form-label" for="siblings">{{ trans("fields.siblings") }}<span
                     class="require-star">*</span></label>
             <div class="input-group">
                 <div class="input-group-prepend"><span class="input-group-text"><i

@@ -74,6 +74,8 @@ class MasterController extends Controller
             $columns[] = $value['id'];
         }
         $modal_data = $this->modal->find($id, $columns);
+
+        
         if ($modal_data) {
             return response()->json([
                 'status' => 200,
@@ -150,7 +152,7 @@ class MasterController extends Controller
         $lookup_data = [];
         foreach ($this->lookup as $item) {
             if (isset($item['model'])) {
-                $lookup_data[$item['id']] =  $item['model']->pluck('title', 'id')->toArray();
+                $lookup_data[$item['id']] =  $item['model']->select(['title', 'language_tamil','active', 'id'])->pluck('title', 'id')->toArray();
             }
         }
         return $lookup_data;

@@ -186,6 +186,6 @@ class MemberController extends Controller
     
     function getPublishedData($model)
     {
-        return $model::published()->pluck('title', 'id')->toArray();
+        return $model::published()->translated()->pluck('title', 'id')->toArray();
     }
 }

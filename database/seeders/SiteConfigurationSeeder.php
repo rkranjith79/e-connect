@@ -25,6 +25,8 @@ class SiteConfigurationSeeder extends Seeder
             ['label' => 'Phone', 'code' => 'phone', 'attributes' => ['value' => 'phone']],
             ['label' => 'Email', 'code' => 'email', 'attributes' => ['value' => 'email']],
             ['label' => 'Phone 2', 'code' => 'phone_2', 'attributes' => ['value' => 'phone_2']],
+            ['label' => 'Help Line', 'code' => 'help_line', 'attributes' => ['value' => 'phone_2', 'language_tamil_value' => 'phone_2', 'language_tamil_label' => 'Help Line Tamil']],
+            
         ];
 
         foreach ($siteConfigurations as $siteConfiguration) {
