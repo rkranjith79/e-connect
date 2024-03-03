@@ -8,7 +8,7 @@
             </button>
         </div>
         <div class="card-body px-0 pt-1">
-            <form id="filter-form" action="{{ route('user.search') }}" method="get">
+            <form id="filter-form" action="{{ route('user.advancedSearch') }}" method="GET">
                 <div class="accordion" id="accordionPersonal">
                     <h4 class="btn btn-primary" data-toggle="collapse" data-target="#collapsePersonal" aria-expanded="true" aria-controls="collapsePersonal">
                         தனிப்பட்ட விவரங்கள் <i class="fas fa-chevron-down float-right"></i>

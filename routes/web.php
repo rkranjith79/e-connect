@@ -71,6 +71,7 @@ Route::name('admin.')->prefix('admin')->middleware(['auth', 'isAdmin'])->group(f
 Route::name('user.')->group(function () {
     Route::get('/member-listing', [App\Http\Controllers\User\MemberController::class, 'listing'])->name('member-listing');
     Route::get('/jathagam/{id?}', [App\Http\Controllers\User\MemberController::class, 'jathagam'])->name('jathagam');
+    Route::get('/profile-advanced-search', [App\Http\Controllers\User\MemberController::class, 'advancedSearch'])->name('advancedSearch');
     Route::get('/profile-search', [App\Http\Controllers\User\MemberController::class, 'search'])->name('search');
     Route::get('/profile/{id?}', [App\Http\Controllers\User\MemberController::class, 'profile'])->name('profile');
     Route::get('/registers', [App\Http\Controllers\User\ProfileController::class, 'register'])->name('registers');

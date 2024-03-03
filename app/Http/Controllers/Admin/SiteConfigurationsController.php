@@ -50,7 +50,7 @@ class SiteConfigurationsController extends Controller
     public function storeCode(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'code' => ['required'],
+            'code' => ['required', 'max:255', 'unique:' . $this->pageData['tables']],
         ]);
 
         if ($validator->fails()) {

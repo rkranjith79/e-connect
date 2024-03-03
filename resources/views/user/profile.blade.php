@@ -7,10 +7,10 @@
                 <div class="col-lg-4">
                     <div class="card">
                         <div class="card-body text-white text-center bg-primary">
-                            <img src="{{ $data['profile']->photo }}"
+                            <img src="{{ $data['profile']->photo ?? null }}"
                                 class="img-fit w-auto h-220px mw-100"
                                 onerror="this.onerror=null;this.src='{{asset('img/avatar-place.png')}}';">
-                            <h3 class="text-white fw-500">{{ $data['profile']->title }}</h3>
+                            <h3 class="text-white fw-500">{{ $data['profile']->title ?? "-" }}</h3>
                             <h5 class="text-white fw-500">GK4573</h5>
                             <div class="row gutters-5">
                                 <div class="col">
@@ -73,7 +73,7 @@
                                                     <tr>
                                                         <td>Name</td>
                                                         <td>:</td>
-                                                        <td>{{ $data['profile']->title }}</td>
+                                                        <td>{{ $data['profile']->title ?? "-" }}</td>
                                                     </tr>
                                                     <tr>
                                                         <td>Gender</td>
