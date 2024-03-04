@@ -20,6 +20,8 @@ return [
     'view_profile_button_2' => 'View Profile',
     'view_jathagam_button_2' => 'View Jathagam',
     
+    'view_search_button_2' => 'Search',
+
     //Footer
     'contacts' => 'Contacts',
     'quick_links' => 'Quick Links',
