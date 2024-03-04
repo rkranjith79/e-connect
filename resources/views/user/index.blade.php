@@ -200,27 +200,17 @@
                                     <div class="text-center mt-2">
                                         <a href="{{ route('user.profile', ['id' => $profile->id]) }}"
                                             class="btn btn-circle btn-sm btn-primary mr-1">
-<<<<<<< HEAD
                                             {{ trans("site.view_profile_button_2") }}</a>
                                         <a href="{{ route('user.jathagam', ['id' => $profile->id]) }}" 
                                             class="btn btn-circle btn-sm btn-primary mr-1">{{ trans("site.view_jathagam_button_2") }}</a>
-=======
-                                            ப்ரொபைல்</a>
-                                        <a href="{{ route('user.jathagam', ['id' => $profile->id]) }}"
-                                            class="btn btn-circle btn-sm btn-primary mr-1">ஜாதகம்</a>
->>>>>>> d95feb6489f70f812f53680ee0d55568c2d20d95
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-<<<<<<< HEAD
                     
                     @endforeach
                 </div>
-=======
-                @endforeach
->>>>>>> d95feb6489f70f812f53680ee0d55568c2d20d95
             </div>
 
 

@@ -42,7 +42,7 @@ class SiteConfigurationSeeder extends Seeder
 
 
         ];
-
+        DB::table('site_configurations')->truncate();
         foreach ($siteConfigurations as $siteConfiguration) {
             DB::table('site_configurations')->insert([
                 'label' => $siteConfiguration['label'],
