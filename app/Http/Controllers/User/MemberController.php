@@ -198,5 +198,4 @@ class MemberController extends Controller
 
         return $data;
     }
-
 }
