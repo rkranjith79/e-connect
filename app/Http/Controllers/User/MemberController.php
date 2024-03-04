@@ -54,6 +54,7 @@ class MemberController extends Controller
     {
         $data['grooms'] = Profile::selectColumns()->groom()->get();
         $data['brides'] = Profile::selectColumns()->bride()->get();
+        $data['select'] = $this->getlookupData();
 
         return view('user.index', compact('data'));
     }
@@ -79,7 +80,7 @@ class MemberController extends Controller
 
     public function search()
     {
-        $data = $this->getlookupData();
+        $data['select'] = $this->getlookupData();
         return view('user.profile-search', compact('data'));
     }
 
@@ -167,7 +168,7 @@ class MemberController extends Controller
     }
     function getlookupData()
     {
-        $data['select'] = [
+        $data = [
             "genders" => $this->getPublishedData(Gender::class),
             "marital_statuses" => $this->getPublishedData(MaritalStatus::class),
             "registered_bies" => $this->getPublishedData(RegisteredBy::class),
