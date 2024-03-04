@@ -1,7 +1,7 @@
 <?php
 
 function __getSiteConfigration($key, $return_key = "value") {
-    
+
    $siteConfigration = config('siteconfigrations')[$key] ?? [];
    $siteConfigrationAttributes = $siteConfigration['attributes'] ?? [];
     if($return_key == "value") {
@@ -14,7 +14,7 @@ function __getSiteConfigration($key, $return_key = "value") {
           
             return optional($siteConfigrationAttributes)?->language_tamil_label;
         }
-        return $siteConfigration['label'];
+        return $siteConfigration['label'] ?? null;
     }
     
     return optional($siteConfigrationAttributes)?->$return_key ?? '';

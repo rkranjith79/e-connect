@@ -103,7 +103,7 @@
                                             <label for="{{ $item['id'] }}">{{ $item['title'] }}</label>
                                             <input type="text" class="form-control" id="{{ $item['id'] }}"
                                                 name="{{ $item['id'] }}" placeholder="{{ $item['title'] }}">
-                                            <span><small class="errorMsg" id="{{ $item['title'] }}_err"></small></span>
+                                            <span><small class="errorMsg" id="{{ $item['id'] }}_err"></small></span>
                                         </div>
                                     @endif
                                 @endforeach
@@ -164,7 +164,7 @@
                                             <label for="edit_{{ $item['id'] }}">{{ $item['title'] }}</label>
                                             <input type="text" class="form-control" id="edit_{{ $item['id'] }}"
                                                 name="{{ $item['id'] }}" placeholder="{{ $item['title'] }}">
-                                            <span><small class="errorMsg" id="{{ $item['title'] }}_err"></small></span>
+                                            <span><small class="errorMsg" id="edit_{{ $item['id'] }}_err"></small></span>
                                         </div>
                                     @endif
                                 @endforeach

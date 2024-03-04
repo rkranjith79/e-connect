@@ -1,5 +1,5 @@
 @extends('layouts.user')
-  
+
 @section('content')
     <section class="py-4 py-lg-5 bg-white">
         <div class="container">
@@ -30,10 +30,10 @@
                                                     class="profile-thumb"
                                                     onerror="this.onerror=null;this.src='{{ $profile->photo }}';">
                                                 <div class="mt-2">
-                                                    <a href="{{ route('user.profile', ['id' => $profile->id]) }}" 
+                                                    <a href="{{ route('user.profile', ['id' => $profile->id]) }}"
                                                         class="btn btn-primary btn-sm mr-1"><i class="fas fa-user"></i>
                                                         ப்ரொபைல்</a>
-                                                    <a href="{{ route('user.jathagam', ['id' => $profile->id]) }}" 
+                                                    <a href="{{ route('user.jathagam', ['id' => $profile->id]) }}"
                                                             class="btn btn-primary btn-sm ml-1">ஜாதகம் <i
                                                             class="fas fa-file-invoice"></i></a>
                                                     <a href="https://wa.me/?text=பதிவு எண் : GK4227%0aபெயர் : யாழினி (மருத்துவர்)%0aMDS (Pediatric Dentistry)%0aவயது : 26%0aபிறந்த ஊர் : ஈரோடு%0aதொழில் : MDS (Pediatric Dentistry) final year ( வெளிநாடு  செல்ல சம்மதம் )%0aமாத வருமானம் : 0%0aதுலாம்-ஸ்வாதி%0aபரிகார செவ்வாய் ஜாதகம்%0aசொத்து விபரம்  : நேரில்%0ahttps://ganeshkongumatrimony.com/p/589buen"
@@ -49,7 +49,7 @@
                                             </span>
                                             <div class="px-2 px-md-4 pt-4 pb-2 listing-profile flex-grow-1">
                                                 <h2 class="h6 fw-600 fs-18 text-primary text-truncate mb-1">
-                                                    {{ $profile->title ?? "-"}} 
+                                                    {{ $profile->title ?? "-"}}
                                                     <span class="float-right text-primary">GK4227</span></h2>
                                                 <div class="form-row pb-1">
                                                     <div class="col-md-6">
@@ -152,7 +152,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                @empty 
+                                @empty
                                  <h2>No Data Available :)</h2>
                                 @endforelse
                             </div>
