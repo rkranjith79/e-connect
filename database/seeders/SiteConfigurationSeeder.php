@@ -26,7 +26,21 @@ class SiteConfigurationSeeder extends Seeder
             ['label' => 'Email', 'code' => 'email', 'attributes' => ['value' => 'email']],
             ['label' => 'Phone 2', 'code' => 'phone_2', 'attributes' => ['value' => 'phone_2']],
             ['label' => 'Help Line', 'code' => 'help_line', 'attributes' => ['value' => 'phone_2', 'language_tamil_value' => 'phone_2', 'language_tamil_label' => 'Help Line Tamil']],
+            ['label' => 'Whatsapp Group', 'code' => 'whatsapp_group', 'attributes' => ['value' => 'Whatsapp Group']],
+            ['label' => 'Whatsapp Group', 'code' => 'play_store_link', 'attributes' => ['value' => 'Whatsapp Group']],
+            ['label' => 'Whatsapp Group', 'code' => 'telegram_link', 'attributes' => ['value' => 'Whatsapp Group']],
+            ['label' => 'Whatsapp Group', 'code' => 'instagram_link', 'attributes' => ['value' => 'Whatsapp Group']],
+
+            ['label' => 'Whatsapp Group', 'code' => 'facebook_link', 'attributes' => ['value' => 'Whatsapp Group']],
+            ['label' => 'Whatsapp Group', 'code' => 'app_store_link', 'attributes' => ['value' => 'Whatsapp Group']],
+            ['label' => 'Whatsapp Group', 'code' => 'youtube_link', 'attributes' => ['value' => 'Whatsapp Group']],
+
             
+
+
+
+
+
         ];
 
         foreach ($siteConfigurations as $siteConfiguration) {

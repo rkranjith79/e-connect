@@ -77,5 +77,6 @@ return [
     'section_asset' => 'சொத்து மற்றும் பவுன் விவரங்கள்',
     'section_astro' => 'ஜாதக விவரங்கள்',
     'section_expectation' => 'எதிர்பார்ப்பு',
+    'age' => 'வயது'
 ];
 ?>
