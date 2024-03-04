@@ -79,7 +79,9 @@ return [
     'section_astro' => 'Astro Details',
     'section_asset' => 'Assets and Pavun Details',
     'section_expectation' => 'Expectation',
-    'age' => 'Age'
+    'age' => 'Age',
+    'member_id' => 'Member Id'
+
 
 ];
 ?>

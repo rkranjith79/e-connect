@@ -14,7 +14,10 @@
         </div>
 
         <div class="mb-2">
-            <h4 class="text-uppercase text-primary fs-14 border-bottom border-primary pb-4 mb-4">Contacts</h4>
+            <h4 class="text-uppercase text-primary fs-14 border-bottom border-primary pb-4 mb-4">
+                
+                {{ trans('site.contacts') }}
+            </h4>
             <div class="row no-gutters">
                 <div class="col-xl-3 col-md-12 mb-2">
                     @for ($i = 0; $i < 5; $i++)
@@ -52,7 +55,12 @@
                         <span>{{ __getSiteConfigration('whatsapp_group', 'label') }}</span>
                     </div>
                     <div>
-                        {{ __getSiteConfigration('whatsapp_group') }}
+                        <img src="{{ asset('img/social/whatsapp.png')}}"
+                        class="w-150px w-md-200px custom-social-btn">
+                        <a href="{{ __getSiteConfigration('whatsapp_group') }}"
+                            target="_blank">
+                        
+                        </a>
                     </div>
                 </div>
                 @endif
@@ -68,21 +76,24 @@
                 </h4>
                 <div>
                     <ul class="list-unstyled">
+
                         <li class="my-3">
-                            <a href="index99d2.html?gkm_external" target="_blank" class="text-reset">Home</a>
+                            <a href="{{ url('/') }}" class="text-reset">
+                                {{ trans("site.home") }}
+                            </a>
                         </li>
-                        <li class="my-3">
-                            <a href="users/login.html?gkm_external" target="_blank" class="text-reset">View
-                                Profiles</a>
+                        <li class="my-3 ">
+                            <a href="{{ route('user.member-listing') }}" class="text-reset">
+                                {{ trans("site.view_profile") }}
+                            </a>
                         </li>
-                        <li class="my-3">
-                            <a href="packages99d2.html?gkm_external" target="_blank"
-                                class="text-reset">Premium Plans</a>
+                        <li class="my-3 ">
+                            <a href="{{ route('user.search') }}" class="text-reset">
+                                {{ trans("site.search") }}
+                            </a>
                         </li>
-                        <li class="my-3">
-                            <a href="happy-stories99d2.html?gkm_external" target="_blank"
-                                class="text-reset">Happy Stories</a>
-                        </li>
+
+                      
                     </ul>
                 </div>
             </div>
@@ -98,7 +109,7 @@
                                 class="text-reset">Terms and Conditions</a>
                         </li>
                         <li class="my-3">
-                            <a href="privacy-policy99d2.html?gkm_external" target="_blank"
+                            <a href="{{ route('user.information', ['id' => 2]) }}" target="_blank"
                                 class="text-reset">Privacy Policy</a>
                         </li>
                     </ul>
@@ -112,61 +123,61 @@
                 </h4>
                 <div class="row text-center">
                     @if (!empty(__getSiteConfigration('play_store_link')))
-                        <div class="col-6">
+                        <div class="col-4">
                             <a href="{{ __getSiteConfigration('play_store_link') }}"
                             target="_blank">
                             <img src="{{ asset('img/social/play_store.png')}}"
-                                class="w-150px w-md-200px">
+                                class="w-150px w-md-200px custom-social-btn">
                             </a>
                         </div>
                     @endif
 
                     @if (!empty(__getSiteConfigration('app_store_link')))
-                        <div class="col-6">
+                        <div class="col-4">
                             <a href="{{ __getSiteConfigration('app_store_link') }}"
                             target="_blank">
                             <img src="{{ asset('img/social/app_store.png')}}"
-                                class="w-150px w-md-200px">
+                                class="w-150px w-md-200px custom-social-btn">
                             </a>
                         </div>
                     @endif
                     
                     @if (!empty(__getSiteConfigration('telegram_link')))
-                        <div class="col-6">
+                        <div class="col-4">
                             <a href="{{ __getSiteConfigration('telegram_link') }}"
                             target="_blank">
                             <img src="{{ asset('img/social/telegram.png')}}"
-                                class="w-150px w-md-200px">
+                                class="w-150px w-md-200px custom-social-btn">
                             </a>
                         </div>
                     @endif
 
                     @if (!empty(__getSiteConfigration('instagram_link')))
-                        <div class="col-6">
+                        <div class="col-4">
                             <a href="{{ __getSiteConfigration('instagram_link') }}"
                             target="_blank">
                             <img src="{{ asset('img/social/instagram.png')}}"
-                                class="w-150px w-md-200px">
+                                class="w-150px w-md-200px custom-instagram-btn">
                             </a>
                         </div>
                     @endif
 
                     @if (!empty(__getSiteConfigration('facebook_link')))
-                        <div class="col-6">
+                        <div class="col-4">
                             <a href="{{ __getSiteConfigration('facebook_link') }}"
                             target="_blank">
                             <img src="{{ asset('img/social/facebook.png')}}"
-                                class="w-150px w-md-200px">
+                                class="w-150px w-md-200px custom-facebook-btn">
                             </a>
                         </div>
                     @endif
 
                     @if (!empty(__getSiteConfigration('youtube_link')))
-                    <div class="col-6">
+                    <div class="col-4">
                         <a href="{{ __getSiteConfigration('youtube_link') }}"
                         target="_blank">
                         <img src="{{ asset('img/social/youtube.png')}}"
-                        class="w-150px w-md-200px">
+                        class="w-150px w-md-200px custom-social-btn">
                         </a>
                     </div>
                 @endif
@@ -197,3 +208,19 @@
 
     </div>
 </footer>
+
+<style>
+     .custom-social-btn {
+        border-radius: 30PX;
+    HEIGHT: 64px;
+    }
+    .custom-instagram-btn {
+        border-radius: 30PX;
+    HEIGHT: 64px;
+    }
+    .custom-facebook-btn {
+    background: white;
+    padding: 10px 22px;
+    border-radius: 26px;
+    }
+</style>
