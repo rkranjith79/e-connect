@@ -80,8 +80,10 @@ return [
     'section_asset' => 'Assets and Pavun Details',
     'section_expectation' => 'Expectation',
     'age' => 'Age',
-    'member_id' => 'Member Id'
+    'member_id' => 'Member Id',
 
-
+    //In search
+    'age_from' => 'Age From',
+    'age_to' => 'Age To',
 ];
 ?>

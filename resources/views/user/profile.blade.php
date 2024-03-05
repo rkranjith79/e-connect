@@ -11,8 +11,8 @@
                                 class="img-fit w-auto h-220px mw-100"
                                 onerror="this.onerror=null;this.src='{{asset('img/avatar-place.png')}}';">
                             <h3 class="text-white fw-500">{{ $data['profile']->title ?? "-" }}</h3>
-                            <h5 class="text-white fw-500">GK4573</h5>
-                            <div class="row gutters-5">
+                            <h5 class="text-white fw-500">{{ $data['profile']->code ?? "-" }}</h5>
+                            {{-- <div class="row gutters-5">
                                 <div class="col">
                                     <a href="javascript:void(0);" onclick="express_interest(2327)"
                                         class="btn btn-block btn-profile-action px-1">
@@ -43,13 +43,13 @@
                                         <span id="contact_id_2327">View Contact</span>
                                     </a>
                                 </div>
-                            </div>
+                            </div> --}}
                             <div class="row gutters-5">
                                 <div class="col">
-                                    <a href="https://ganeshkongumatrimony.com/j/1pefa5d"
+                                    <a href="{{ route('user.jathagam', ['id' => $profile->id]) }}"
                                         class="btn btn-block btn-profile-action text-center" target="_blank">
                                         <i class="fas fa-file-invoice"></i>
-                                        View Jathagam
+                                        {{ trans('site.view_jathagam_button') }}
                                     </a>
                                 </div>
                             </div>
@@ -61,27 +61,27 @@
                         <div class="card-body">
                             <div class="nav nav-tabs border-0 mb-3">
                                 <a class="btn btn-circle btn-sm btn-primary mr-1 active" data-toggle="tab"
-                                    href="#reg-form">Profile Information</a>
+                                    href="#reg-form">{{ trans('site.basic_information') }}</a>
                             </div>
                             <div class="tab-content">
                                 <div class="tab-pane fade show active view-profile" id="reg-form">
-                                    <h4 class="section-title">Basic Information</h4>
+                                    <h4 class="section-title">{{ trans('site.basic_information') }}</h4>
                                     <div class="form-row">
                                         <div class="col-md-6">
                                             <table>
                                                 <tbody>
                                                     <tr>
-                                                        <td>Name</td>
+                                                        <td>{{ trans('fields.name') }}</td>
                                                         <td>:</td>
                                                         <td>{{ $data['profile']->title ?? "-" }}</td>
                                                     </tr>
                                                     <tr>
-                                                        <td>Gender</td>
+                                                        <td>{{ trans('fields.gender') }}</td>
                                                         <td>:</td>
                                                         <td>{{ $data['profile']->gender->title ?? "-" }}</td>
                                                     </tr>
                                                     <tr>
-                                                        <td>Age</td>
+                                                        <td>{{ trans('fields.age') }}</td>
                                                         <td>:</td>
                                                         <td>{{ $data['profile']->jathagam->age ?? "-" }}</td>
                                                     </tr>
@@ -92,12 +92,12 @@
                                             <table>
                                                 <tbody>
                                                     <tr>
-                                                        <td>Marital Status</td>
+                                                        <td>{{ trans('fields.marital_status') }}</td>
                                                         <td>:</td>
                                                         <td>{{ $data['profile']->marital_status->title ?? "-" }}</td>
                                                     </tr>
                                                     <tr>
-                                                        <td>Registered By</td>
+                                                        <td>{{ trans('fields.registered_by') }}</td>
                                                         <td>:</td>
                                                         <td>{{ $data['profile']->registered_by->title ?? "-" }}</td>
                                                     </tr>
@@ -106,23 +106,23 @@
                                         </div>
                                     </div>
 
-                                    <h4 class="section-title">Personal Details</h4>
+                                    <h4 class="section-title">{{ trans('site.basic_information') }}</h4>
                                     <div class="form-row">
                                         <div class="col-md-6">
                                             <table>
                                                 <tbody>
                                                     <tr>
-                                                        <td>Physical Status</td>
+                                                        <td>{{ trans('fields.physical_status') }}</td>
                                                         <td>:</td>
                                                         <td>{{ $data['profile']->physical_status->title ?? "-" }}</td>
                                                     </tr>
                                                     <tr>
-                                                        <td>Height</td>
+                                                        <td>{{ trans('fields.height') }}</td>
                                                         <td>:</td>
                                                         <td>{{ $data['profile']->height->title ?? "-" }}</td>
                                                     </tr>
                                                     <tr>
-                                                        <td>Weight</td>
+                                                        <td>{{ trans('fields.weight') }}</td>
                                                         <td>:</td>
                                                         <td>{{ $data['profile']->weight->title ?? "-" }}</td>
                                                     </tr>
@@ -133,17 +133,17 @@
                                             <table>
                                                 <tbody>
                                                     <tr>
-                                                        <td>Body Type</td>
+                                                        <td>{{ trans('fields.body_type') }}</td>
                                                         <td>:</td>
                                                         <td>{{ $data['profile']->body_type->title ?? "-" }}</td>
                                                     </tr>
                                                     <tr>
-                                                        <td>Color</td>
+                                                        <td>{{ trans('fields.color') }}</td>
                                                         <td>:</td>
                                                         <td>{{ $data['profile']->color->title ?? "-" }}</td>
                                                     </tr>
                                                     <tr>
-                                                        <td>Blood Group</td>
+                                                        <td>{{ trans('fields.blood_group') }}</td>
                                                         <td>:</td>
                                                         <td>{{ $data['profile']->blood_group->title ?? "-" }}</td>
                                                     </tr>
@@ -152,23 +152,23 @@
                                         </div>
                                     </div>
 
-                                    <h4 class="section-title">Religious &amp; Social Background</h4>
+                                    <h4 class="section-title">{{ trans('site.religion_information_view_page') }}</h4>
                                     <div class="form-row">
                                         <div class="col">
                                             <table>
                                                 <tbody>
                                                     <tr>
-                                                        <td>Caste</td>
+                                                        <td>{{ trans('fields.caste') }}</td>
                                                         <td>:</td>
                                                         <td>{{ $data['profile']->basic->caste->title ?? "-" }}</td>
                                                     </tr>
                                                     <tr>
-                                                        <td>Sub-Caste</td>
+                                                        <td>{{ trans('fields.sub_caste') }}</td>
                                                         <td>:</td>
                                                         <td>{{ $data['profile']->basic->sub_caste->title ?? "-" }}</td>
                                                     </tr>
                                                     <tr>
-                                                        <td>Temple</td>
+                                                        <td>{{ trans('fields.temple') }}</td>
                                                         <td>:</td>
                                                         <td>{{ $data['profile']->basic->temple ?? "-" }}</td>
                                                     </tr>
@@ -177,18 +177,18 @@
                                         </div>
                                     </div>
 
-                                    <h4 class="section-title">Education &amp; Career</h4>
+                                    <h4 class="section-title">{{ trans('site.education_information_view_page') }}</h4>
                                     <div class="form-row">
                                         <div class="col-md-6">
                                             <table>
                                                 <tbody>
                                                     <tr>
-                                                        <td>Education</td>
+                                                        <td>{{ trans('fields.education') }}</td>
                                                         <td>:</td>
                                                         <td>{{ $data['profile']->basic->education->title ?? "-" }}</td>
                                                     </tr>
                                                     <tr>
-                                                        <td>Education Details</td>
+                                                        <td>{{ trans('fields.education_details') }}</td>
                                                         <td>:</td>
                                                         <td>{{ $data['profile']->basic->education_details ?? "-" }}</td>
                                                     </tr>
@@ -199,22 +199,22 @@
                                             <table>
                                                 <tbody>
                                                     <tr>
-                                                        <td>Work</td>
+                                                        <td>{{ trans('fields.work') }}</td>
                                                         <td>:</td>
                                                         <td>{{ $data['profile']->basic->work->title ?? "-" }}</td>
                                                     </tr>
                                                     <tr>
-                                                        <td>Work Details</td>
+                                                        <td>{{ trans('fields.work_details') }}</td>
                                                         <td>:</td>
                                                         <td>{{ $data['profile']->basic->work_details ?? "-" }}</td>
                                                     </tr>
                                                     <tr>
-                                                        <td>Work Place</td>
+                                                        <td>{{ trans('fields.work_place') }}</td>
                                                         <td>:</td>
                                                         <td>{{ $data['profile']->basic->work_place->title ?? "-" }}</td>
                                                     </tr>
                                                     <tr>
-                                                        <td>Monthly Income</td>
+                                                        <td>{{ trans('fields.monthly_income') }}</td>
                                                         <td>:</td>
                                                         <td>{{ $data['profile']->basic->monthly_income ?? "-" }}</td>
                                                     </tr>
@@ -223,18 +223,18 @@
                                         </div>
                                     </div>
 
-                                    <h4 class="section-title">Location</h4>
+                                    <h4 class="section-title">{{ trans('site.native_information') }}</h4>
                                     <div class="form-row">
                                         <div class="col-md-6">
                                             <table>
                                                 <tbody>
                                                     <tr>
-                                                        <td>Country</td>
+                                                        <td>{{ trans('fields.country') }}</td>
                                                         <td>:</td>
                                                         <td>{{ $data['profile']->basic->country->title ?? "-" }}</td>
                                                     </tr>
                                                     <tr>
-                                                        <td>State</td>
+                                                        <td>{{ trans('fields.state') }}</td>
                                                         <td>:</td>
                                                         <td>{{ $data['profile']->basic->state->title ?? "-" }}</td>
                                                     </tr>
@@ -245,7 +245,7 @@
                                             <table>
                                                 <tbody>
                                                     <tr>
-                                                        <td>District</td>
+                                                        <td>{{ trans('fields.district') }}</td>
                                                         <td>:</td>
                                                         <td>{{ $data['profile']->basic->district->title ?? "-" }}</td>
                                                     </tr>
@@ -254,18 +254,18 @@
                                         </div>
                                     </div>
 
-                                    <h4 class="section-title">Family Details</h4>
+                                    <h4 class="section-title">{{ trans('site.family_information') }}</h4>
                                     <div class="form-row">
                                         <div class="col-md-6">
                                             <table>
                                                 <tbody>
                                                     <tr>
-                                                        <td>Father Status</td>
+                                                        <td>{{ trans('fields.father_status') }}</td>
                                                         <td>:</td>
                                                         <td>{{ $data['profile']->basic->father_status->title ?? "-" }}</td>
                                                     </tr>
                                                     <tr>
-                                                        <td>Social Type</td>
+                                                        <td>{{ trans('fields.social_type') }}</td>
                                                         <td>:</td>
                                                         <td>{{ $data['profile']->basic->social_type->title ?? "-" }}</td>
                                                     </tr>
@@ -276,12 +276,12 @@
                                             <table>
                                                 <tbody>
                                                     <tr>
-                                                        <td>Mother Status</td>
+                                                        <td>{{ trans('fields.mother_status') }}</td>
                                                         <td>:</td>
                                                         <td>{{ $data['profile']->basic->mother_status->title ?? "-" }}</td>
                                                     </tr>
                                                     <tr>
-                                                        <td>Siblings</td>
+                                                        <td>{{ trans('fields.siblings') }}</td>
                                                         <td>:</td>
                                                         <td>{{ $data['profile']->basic->siblings ?? "-" }}</td>
                                                     </tr>
@@ -290,25 +290,25 @@
                                         </div>
                                     </div>
 
-                                    <h4 class="section-title">Assets and Pavun Details</h4>
+                                    <h4 class="section-title">{{ trans('site.asset_informtion') }}</h4>
                                     <div class="form-row">
                                         <div class="col">
                                             <table>
                                                 <tbody>
                                                     <tr>
-                                                        <td>Assets Value</td>
+                                                        <td>{{ trans('fields.asset_details') }}</td>
                                                         <td>:</td>
                                                         <td>{{ $data['profile']->basic->asset_value->title ?? "-" }}</td>
                                                     </tr>
                                                     <tr>
-                                                        <td>Assets Details (Land House Rent)</td>
+                                                        <td>{{ trans('fields.asset_details') }}</td>
                                                         <td>:</td>
                                                         <td style="word-break:break-word;">
                                                             {{ $data['profile']->basic->asset_details ?? "-" }}
                                                         </td>
                                                     </tr>
                                                     <tr>
-                                                        <td>Seimurai (Gold, Car Details)</td>
+                                                        <td>{{ trans('fields.seimurai') }}</td>
                                                         <td>:</td>
                                                         <td style="word-break:break-word;">
                                                             {{ $data['profile']->basic->seimurai ?? "-" }}
@@ -319,28 +319,28 @@
                                         </div>
                                     </div>
 
-                                    <h4 class="section-title">Astro Details</h4>
+                                    <h4 class="section-title">{{ trans('site.jathagam_information') }}</h4>
                                     <div class="form-row">
                                         <div class="col-md-6">
                                             <table>
                                                 <tbody>
                                                     <tr>
-                                                        <td>Rasi - Nakshatra</td>
+                                                        <td>{{ trans('fields.rasi_nakshatra') }}</td>
                                                         <td>:</td>
                                                         <td>{{ $data['profile']->jathagam->rasi_nakshatra->title ?? "-" }}</td>
                                                     </tr>
                                                     <tr>
-                                                        <td>Nakshatra Patham</td>
+                                                        <td>{{ trans('fields.nakshatra_patham') }}</td>
                                                         <td>:</td>
                                                         <td>{{ $data['profile']->jathagam->nakshatra_patham->title ?? "-" }}</td>
                                                     </tr>
                                                     <tr>
-                                                        <td>Lagnam</td>
+                                                        <td>{{ trans('fields.lagnam') }}</td>
                                                         <td>:</td>
                                                         <td>{{ $data['profile']->jathagam->lagnam->title ?? "-" }}</td>
                                                     </tr>
                                                     <tr>
-                                                        <td>Jathagam</td>
+                                                        <td>{{ trans('fields.jathagam') }}</td>
                                                         <td>:</td>
                                                         <td>{{ $data['profile']->jathagam->jathagam->title ?? "-" }}</td>
                                                     </tr>
@@ -351,22 +351,22 @@
                                             <table>
                                                 <tbody>
                                                     <tr>
-                                                        <td>Date of Birth</td>
+                                                        <td>{{ trans('fields.age') }}</td>
                                                         <td>:</td>
-                                                        <td>{{ $data['profile']->jathagam->date_of_birth ?? "-" }}</td>
+                                                        <td>{{ $data['profile']->jathagam->age ?? "-" }}</td>
                                                     </tr>
                                                     <tr>
-                                                        <td>Time of Birth</td>
+                                                        <td>{{ trans('fields.time_of_birth') }}</td>
                                                         <td>:</td>
                                                         <td>{{ $data['profile']->jathagam->time_of_birth ?? "-" }}</td>
                                                     </tr>
                                                     <tr>
-                                                        <td>Day of Birth</td>
+                                                        <td>{{ trans('fields.date_of_birth') }}</td>
                                                         <td>:</td>
                                                         <td>{{ $data['profile']->jathagam->date_of_birth ?? "-" }}</td>
                                                     </tr>
                                                     <tr>
-                                                        <td>Place of Birth</td>
+                                                        <td>{{ trans('fields.place_of_birth') }}</td>
                                                         <td>:</td>
                                                         <td>{{ $data['profile']->jathagam->place_of_birth ?? "-" }}</td>
                                                     </tr>
@@ -400,7 +400,7 @@
                                                     <td rowspan="2" colspan="2">
                                                         <img src="https://ganeshkongumatrimony.com/assets/img/icons/android-icon-72x72.png"
                                                             border="0" class="h-50px w-auto"><br>
-                                                        <strong>Rasi</strong>
+                                                        <strong>{{ trans('fields.rasi') }}</strong>
                                                     </td>
                                                     <td>
                                                         <p>{{ $data['profile']->jathagam->rasi_title['6'] ?? '' }}</p>
@@ -454,7 +454,7 @@
                                                     <td rowspan="2" colspan="2">
                                                         <img src="https://ganeshkongumatrimony.com/assets/img/icons/android-icon-72x72.png"
                                                             border="0" class="h-50px w-auto"><br>
-                                                        <strong>Navamsam</strong>
+                                                        <strong>{{ trans('fields.navamsam') }}</strong>
                                                     </td>
                                                     <td>
                                                         <p>{{ $data['profile']->jathagam->navamsam_title['6'] ?? '' }}</p>
@@ -491,7 +491,7 @@
                                             <table>
                                                 <tbody>
                                                     <tr>
-                                                        <td>Birth Dasa Remaining</td>
+                                                        <td>{{ trans('fields.birth_dasa_remaining') }}</td>
                                                         <td>:</td>
                                                         <td>{{ $data['profile']->jathagam->birth_dasa_remaining ?? "-" }}</td>
                                                     </tr>
@@ -500,35 +500,35 @@
                                         </div>
                                     </div>
 
-                                    <h4 class="section-title">Expectation</h4>
+                                    <h4 class="section-title">{{ trans('fields.expectation') }}</h4>
                                     <div class="form-row">
                                         <div class="col">
                                             <table>
                                                 <tbody>
                                                     <tr>
-                                                        <td>Jathagam</td>
+                                                        <td>{{ trans('fields.expectation_jathagam') }}</td>
                                                         <td>:</td>
                                                         <td>{{ $data['profile']->expectation_jathagam_title ?? "-" }}</td>
                                                     </tr>
                                                     <tr>
-                                                        <td>Marital Status</td>
+                                                        <td>{{ trans('fields.expectation_marital_status') }}</td>
                                                         <td>:</td>
                                                         <td>{{ $data['profile']->expectation_marital_status_title ?? "-" }}</td>
                                                     </tr>
                                                     <tr>
-                                                        <td>Work Place</td>
+                                                        <td>{{ trans('fields.expectation_work_place') }}</td>
                                                         <td>:</td>
                                                         <td>{{ $data['profile']->expectation_work_place_title ?? "-" }}</td>
                                                     </tr>
                                                     <tr>
-                                                        <td>Matching Nakshatras</td>
+                                                        <td>{{ trans('fields.expectation_nakshatra') }}</td>
                                                         <td>:</td>
                                                         <td style="word-break:break-word;">
                                                             {{ $data['profile']->expectation_nakshatra ?? "-" }}
                                                         </td>
                                                     </tr>
                                                     <tr>
-                                                        <td>Expectation</td>
+                                                        <td>{{ trans('fields.expectation') }}</td>
                                                         <td>:</td>
                                                         <td style="word-break:break-word;">
                                                             {{ $data['profile']->expectation ?? "-" }}
