@@ -448,5 +448,86 @@ class AllMasterSeeder extends Seeder
             ]);
         }
 
+        $asset_vlaues = [
+            ['english' => 'Below 50 lakhs', 'tamil' => '50 லட்சத்திற்கு கீழ்.'],
+            ['english' => '50 lakhs - 01 crores', 'tamil' => '50 லட்சம் - 01 கோடி.'],
+            ['english' => '01 crores -  2.5 crores', 'tamil' => '01 கோடி - 2.5 கோடி.'],
+            ['english' => '2.5 crores - 05 crores', 'tamil' => '2.5 கோடி - 05 கோடி.'],
+            ['english' => '05 crores - 7 crores', 'tamil' => '05 கோடி - 7 கோடி.']
+        ];
+        DB::table('assets_values')->truncate();
+        foreach ($asset_vlaues as $asset_vlaue) {
+            DB::table('assets_values')->insert([
+                'title' => $asset_vlaue['english'],
+                'language_tamil' => $asset_vlaue['tamil'],
+            ]);
+        }
+    
+        $birth_dosas = [
+            ['english' => 'Sun', 'tamil' => 'சூரியன்.'],
+            ['english' => 'Moon', 'tamil' => 'சந்திரன்.'],
+            ['english' => 'Mars', 'tamil' => 'செவ்வாய்.'],
+            ['english' => 'Raagu', 'tamil' => 'ராகு.'],
+            ['english' => 'Jupiter', 'tamil' => 'குரு.'],
+            ['english' => 'Saturn', 'tamil' => 'சனி.'],
+            ['english' => 'Mercury', 'tamil' => 'புதன்.'],
+            ['english' => 'Kethu', 'tamil' => 'கேது.'],
+            ['english' => 'Venus', 'tamil' => 'சுக்கிரன்.']
+        ];
+        
+        DB::table('birth_dasas')->truncate();
+        foreach ($birth_dosas as $birth_dosa) {
+            DB::table('birth_dasas')->insert([
+                'title' => $birth_dosa['english'],
+                'language_tamil' => $birth_dosa['tamil'],
+            ]);
+        }
+
+        $jathagams = [
+            ['english' => 'No Dhosam', 'tamil' => 'சுத்த ஜாதகம்.'],
+            ['english' => 'Sevvai Jathagam', 'tamil' => 'செவ்வாய் ஜாதகம்.'],
+            ['english' => 'Parigara Sevvai Jathagam', 'tamil' => 'பரிகார செவ்வாய் ஜாதகம்.'],
+            ['english' => 'Raagu Kethu Jathagam', 'tamil' => 'ராகு கேது ஜாதகம்.'],
+            ['english' => 'Raagu Kethu, Sevvai', 'tamil' => 'ராகு கேது, செவ்வாய்.'],
+            ['english' => 'No Jathagam Match', 'tamil' => 'சுத்த ஜாதகம் பொருந்தும்.'],
+            ['english' => 'Sevvai Jathagam Match', 'tamil' => 'செவ்வாய் ஜாதகம் பொருந்தும்.'],
+            ['english' => 'Raagu Kethu, Sevvai Match', 'tamil' => 'ராகு கேது, செவ்வாய் பொருந்தும்.'],
+            ['english' => 'Raagu Kethu Jathagam Match', 'tamil' => 'ராகு கேது ஜாதகம் பொருந்தும்.'],
+            ['english' => 'No Horoscope / Do not view horoscope', 'tamil' => 'ஜாதகம் இல்லை  / ஜாதகம்  பார்ப்பதில்லை.'],
+            ['english' => "Don't Know", 'tamil' => 'தெரியவில்லை.']
+        ];
+
+        DB::table('jathagams')->truncate();
+        foreach ($jathagams as $jathagam) {
+            DB::table('jathagams')->insert([
+                'title' => $jathagam['english'],
+                'language_tamil' => $jathagam['tamil'],
+            ]);
+        }
+
+        $lagnams = [
+            ['english' => 'Aries', 'tamil' => 'மேஷம்.'],
+            ['english' => 'Taurus', 'tamil' => 'ரிஷபம்.'],
+            ['english' => 'Gemini', 'tamil' => 'மிதுனம்.'],
+            ['english' => 'Cancer', 'tamil' => 'கடகம்.'],
+            ['english' => 'Leo', 'tamil' => 'சிம்மம்.'],
+            ['english' => 'Virgo', 'tamil' => 'கன்னி.'],
+            ['english' => 'Libra', 'tamil' => 'துலாம்.'],
+            ['english' => 'Scorpio', 'tamil' => 'விருச்சிகம்.'],
+            ['english' => 'Sagittarious', 'tamil' => 'தனுசு.'],
+            ['english' => 'Capricorn', 'tamil' => 'மகரம்.'],
+            ['english' => "Aquarious", 'tamil' => 'கும்பம்.'],
+            ['english' => "Pisces", 'tamil' => 'மீனம்.'],
+            ['english' => "Don't Know", 'tamil' => 'தெரியவில்லை.']
+        ];
+
+        DB::table('lagnams')->truncate();
+        foreach ($lagnams as $lagnam) {
+            DB::table('lagnams')->insert([
+                'title' => $lagnam['english'],
+                'language_tamil' => $lagnam['tamil'],
+            ]);
+        }
+
     }
 }
