@@ -75,7 +75,7 @@ class MasterController extends Controller
         }
         $modal_data = $this->modal->find($id, $columns);
 
-        
+
         if ($modal_data) {
             return response()->json([
                 'status' => 200,

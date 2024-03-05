@@ -37,9 +37,11 @@ use App\Models\State;
 use App\Models\SubCaste;
 use App\Models\Work;
 use App\Models\WorkPlace;
+use App\Traits\LookupTrait;
 
 class ProfileController extends Controller
 {
+    use LookupTrait;
     /**
      * Display a listing of the resource.
      *
@@ -47,7 +49,7 @@ class ProfileController extends Controller
      */
     public function register()
     {
-        //dd((new gender)::published()->pluck('title','id'));   
+        //dd((new gender)::published()->pluck('title','id'));
         $record = [
             "genders" => $this->getPublishedData(Gender::class),
             "marital_statuses" => $this->getPublishedData(MaritalStatus::class),
@@ -75,7 +77,7 @@ class ProfileController extends Controller
             "nakshatra_pathams" => $this->getPublishedData(NakshatraPatham::class),
             "rasis" => $this->getPublishedData(Rasi::class),
             "navamsams" => $this->getPublishedData(Navamsam::class),
-            
+
         ];
         return view('user.registration.index', compact('record'));
     }
@@ -92,13 +94,13 @@ class ProfileController extends Controller
 
     public function store(Request $request)
     {
-        
-       
-        
-        // Use Request Validation 
+
+
+
+        // Use Request Validation
         //dd($request->time_of_birth);
         $validator = Validator::make($request->all(), [
-            'photo_file' => ['required', 'image', 'mimes:jpeg,jpg,png', 'max:2048'], 
+            'photo_file' => ['required', 'image', 'mimes:jpeg,jpg,png', 'max:2048'],
             'jathagam_file' => ['required', 'image', 'mimes:jpeg,jpg,png', 'max:2048'],
             'title' => ['required', 'max:100'],
             'email' => ['required', 'unique:users', 'max:100'],
@@ -112,17 +114,17 @@ class ProfileController extends Controller
             'weight_id' => ['required'],
             'height_id' => ['required'],
             'blood_group_id' => ['required'],
-            
-            
+
+
             'temple' => ['required', 'max:100'],
             'religion_id' => ['required'],
             'caste_id' => ['required'],
             'sub_caste_id' => ['required'],
             'work_id' => ['required'],
             'education_details' => ['required', 'max:100'],
-            
+
             'work_place_id' => ['required'],
-                       
+
             'work_details' => ['required', 'max:100'],
             'whatsapp' => ['required', 'max:100'],
             'phone' => ['required', 'max:100'],
@@ -155,7 +157,7 @@ class ProfileController extends Controller
             'asset_value_id' => ['required'],
             'asset_details' => ['required', 'max:1000'],
             'seimurai' => ['required', 'max:1000'],
-            
+
             'rasi_nakshatra_id' => ['required'],
             'lagnam_id' => ['required'],
             'jathagam_id' => ['required'],
@@ -163,7 +165,7 @@ class ProfileController extends Controller
             'date_of_birth' => ['required', 'date'],
             'time_of_birth' => ['required', 'date_format:h:i'],
             'place_of_birth' => ['required', 'max:200'],
-            
+
             'birth_dasa_remaining_year' => ['required', 'max:200'],
             'birth_dasa_remaining_month' => ['required', 'max:200'],
             'birth_dasa_remaining_day' => ['required', 'max:200'],
@@ -198,11 +200,11 @@ class ProfileController extends Controller
             "expectation_work_place_id"  => ['nullable'],
             "expectation_nakshatra"  => ['nullable'],
             "expectation"  => ['nullable'],
-    
+
         ]);
-        
-        
-        
+
+
+
         //No need this
         if ($validator->fails()) {
             return response()->json([
@@ -210,7 +212,7 @@ class ProfileController extends Controller
                 'errors' => $validator->messages(),
             ]);
         }
-        
+
         $rasi = [];
         $navamsam = [];
         for($i=1; $i<=12; $i++) {
@@ -219,11 +221,11 @@ class ProfileController extends Controller
         };
 
         $photo_file_path = $jathagam_file_path = "";
-        
+
         if( $request->hasFile('photo_file') ) {
             $file = $request->file('photo_file');
             $photo_file_path = $file->getClientOriginalName();
-            $file->storeAs('public/photos', $photo_file_path);  
+            $file->storeAs('public/photos', $photo_file_path);
         }
 
         if( $request->hasFile('jathagam_file') ) {
@@ -238,7 +240,7 @@ class ProfileController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
-        
+
         $profile = Profile::create([
             "title" => $request->title,
             "email" => $request->email,
@@ -368,9 +370,5 @@ class ProfileController extends Controller
     public function destroy(Profile $profile)
     {
         //
-    }
-    function getPublishedData($model)
-    {
-        return $model::published()->translated()->pluck('title', 'id')->toArray();
     }
 }

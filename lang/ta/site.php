@@ -16,6 +16,9 @@ return [
 
    'view_profile_button_2' => 'விவரம்',
    'view_jathagam_button_2' => 'ஜாதகம்',
+
+   'view_search_button_2' => 'தேடல்',
+
    
    //Footer
    'contacts' => 'தொடர்புகள்',
