@@ -457,7 +457,7 @@ class AllMasterSeeder extends Seeder
         ];
         DB::table('assets_values')->truncate();
         foreach ($asset_vlaues as $asset_vlaue) {
-            DB::table('heights')->insert([
+            DB::table('assets_values')->insert([
                 'title' => $asset_vlaue['english'],
                 'language_tamil' => $asset_vlaue['tamil'],
             ]);
@@ -477,7 +477,7 @@ class AllMasterSeeder extends Seeder
         
         DB::table('birth_dasas')->truncate();
         foreach ($birth_dosas as $birth_dosa) {
-            DB::table('heights')->insert([
+            DB::table('birth_dasas')->insert([
                 'title' => $birth_dosa['english'],
                 'language_tamil' => $birth_dosa['tamil'],
             ]);
@@ -499,13 +499,13 @@ class AllMasterSeeder extends Seeder
 
         DB::table('jathagams')->truncate();
         foreach ($jathagams as $jathagam) {
-            DB::table('heights')->insert([
+            DB::table('jathagams')->insert([
                 'title' => $jathagam['english'],
                 'language_tamil' => $jathagam['tamil'],
             ]);
         }
 
-        $jathagams = [
+        $lagnams = [
             ['english' => 'Aries', 'tamil' => 'மேஷம்.'],
             ['english' => 'Taurus', 'tamil' => 'ரிஷபம்.'],
             ['english' => 'Gemini', 'tamil' => 'மிதுனம்.'],
@@ -520,5 +520,14 @@ class AllMasterSeeder extends Seeder
             ['english' => "Pisces", 'tamil' => 'மீனம்.'],
             ['english' => "Don't Know", 'tamil' => 'தெரியவில்லை.']
         ];
+
+        DB::table('lagnams')->truncate();
+        foreach ($lagnams as $lagnam) {
+            DB::table('lagnams')->insert([
+                'title' => $lagnam['english'],
+                'language_tamil' => $lagnam['tamil'],
+            ]);
+        }
+
     }
 }
