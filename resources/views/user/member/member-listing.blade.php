@@ -11,7 +11,7 @@
                         </div>
                         <div class="col-xl-9">
                             <div class="d-flex">
-                                <h1 class="h4 fw-600 mb-3 text-body">All Active Members</h1>
+                                <h1 class="h4 fw-600 mb-3 text-body">{{ trans('site.all_member_listing') }}</h1>
                                 <div class="d-xl-none ml-auto mb-1 ml-xl-3 mr-0 align-self-end">
                                     <button type="button" class="btn btn-icon p-0" data-toggle="class-toggle"
                                         data-target=".aiz-filter-sidebar">
@@ -32,14 +32,11 @@
                                                 <div class="mt-2">
                                                     <a href="{{ route('user.profile', ['id' => $profile->id]) }}"
                                                         class="btn btn-primary btn-sm mr-1"><i class="fas fa-user"></i>
-                                                        ப்ரொபைல்</a>
+                                                        {{ trans('site.view_profile_button') }}</a>
                                                     <a href="{{ route('user.jathagam', ['id' => $profile->id]) }}"
-                                                            class="btn btn-primary btn-sm ml-1">ஜாதகம் <i
+                                                            class="btn btn-primary btn-sm ml-1">{{ trans('site.view_jathagam_button') }} <i
                                                             class="fas fa-file-invoice"></i></a>
-                                                    <a href="https://wa.me/?text=பதிவு எண் : GK4227%0aபெயர் : யாழினி (மருத்துவர்)%0aMDS (Pediatric Dentistry)%0aவயது : 26%0aபிறந்த ஊர் : ஈரோடு%0aதொழில் : MDS (Pediatric Dentistry) final year ( வெளிநாடு  செல்ல சம்மதம் )%0aமாத வருமானம் : 0%0aதுலாம்-ஸ்வாதி%0aபரிகார செவ்வாய் ஜாதகம்%0aசொத்து விபரம்  : நேரில்%0ahttps://ganeshkongumatrimony.com/p/589buen"
-                                                        target="_blank"
-                                                        class="btn btn-sm btn-success btn-circle px-2 lh-1 ml-2 d-md-none"><i
-                                                            class="fab fa-whatsapp"></i></a>
+                                                   
                                                 </div>
                                             </div>
                                         </div>
@@ -56,22 +53,22 @@
                                                         <table>
                                                             <tbody>
                                                                 <tr>
-                                                                    <td>வயது</td>
+                                                                    <td>{{ trans('fields.age') }}</td>
                                                                     <td>:</td>
                                                                     <td>{{ $profile->jathagam->age ?? "-"}}</td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td>நிலை</td>
+                                                                    <td>{{ trans('fields.marital_status') }}</td>
                                                                     <td>:</td>
                                                                     <td>{{ $profile->marital_status->title ?? "-"}}</td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td>படிப்பு</td>
+                                                                    <td>{{ trans('fields.education') }}</td>
                                                                     <td>:</td>
                                                                     <td>{{ $profile->basic->education->title ?? "-"}}</td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td>பணி</td>
+                                                                    <td0>{{ trans('fields.work') }}</td>
                                                                     <td>:</td>
                                                                     <td>{{ $profile->basic->work->title ?? "-"}}</td>
                                                                 </tr>
@@ -82,22 +79,22 @@
                                                         <table>
                                                             <tbody>
                                                                 <tr>
-                                                                    <td>சாதி</td>
+                                                                    <td>{{ trans('fields.caste') }}</td>
                                                                     <td>:</td>
                                                                     <td>{{ $profile->basic->caste->title ?? "-"}}</td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td>குலம்</td>
+                                                                    <td>{{ trans('fields.sub_caste') }}</td>
                                                                     <td>:</td>
                                                                     <td>{{ $profile->basic->sub_caste->title ?? "-"}}</td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td>நட்சத்திரம்</td>
+                                                                    <td>{{ trans('fields.rasi_nakshatra') }}</td>
                                                                     <td>:</td>
                                                                     <td>{{ $profile->jathagam->rasi_nakshatra->title ?? "-"}}</td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td>ஜாதகம்</td>
+                                                                    <td>{{ trans('fields.jathagam') }}</td>
                                                                     <td>:</td>
                                                                     <td>{{ $profile->jathagam->jathagam->title ?? "-"}}</td>
                                                                 </tr>
@@ -105,7 +102,7 @@
                                                         </table>
                                                     </div>
                                                 </div>
-                                                <div class="row gutters-5 text-center">
+                                                {{-- <div class="row gutters-5 text-center">
                                                     <div class="col">
                                                         <a href="javascript:void(0);" onclick="package_alert()"
                                                             class="text-dark c-pointer">
@@ -148,12 +145,12 @@
                                                             <span class="d-block fs-10">Share</span>
                                                         </a>
                                                     </div>
-                                                </div>
+                                                </div> --}}
                                             </div>
                                         </div>
                                     </div>
                                 @empty
-                                 <h2>No Data Available :)</h2>
+                                 <h2>{{ trans('site.no_data_available') }}</h2>
                                 @endforelse
                             </div>
                             <div class="aiz-pagination">
