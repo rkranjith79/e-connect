@@ -36,6 +36,7 @@
                             </div>
                             <form class="form-default" id="registration_form" role="form" method="POST" enctype="multipart/form-data">>
                                 @csrf
+                                @include('user.registration.profile_file')
                                 @include('user.registration.basic')
                                 @include('user.registration.personal')
                                 @include('user.registration.religion')
@@ -45,7 +46,7 @@
                                 @include('user.registration.asset')
                                 @include('user.registration.astro')
                                 @include('user.registration.expectation')
-                                            
+
                                 <div class="mt-3 text-center">
                                     <label class="aiz-checkbox">
                                         <input type="checkbox" name="tandc" required checked disabled>
@@ -77,7 +78,7 @@
         function submitForm() {
             var formData = $("#registration_form").serialize(); // Serialize the form data
 
-            var formData = new FormData(document.getElementById('registration_form'));  
+            var formData = new FormData(document.getElementById('registration_form'));
 
             formData.append('photo_file', $('input[name=photo_file]')[0].files[0]);
             formData.append('jathagam_file', $('input[name=jathagam_file]')[0].files[0]);
@@ -91,7 +92,7 @@
                 data: formData,
                   contentType: false, // Set content type to false for FormData
             processData: false, // Do not process the data, let FormData handle it
-          
+
                 success: function(response) {
                     if (response.success) {
                         $("#myForm")[0].reset(); // Reset the form

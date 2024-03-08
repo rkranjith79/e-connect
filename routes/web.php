@@ -88,4 +88,5 @@ Route::name('user.')->group(function () {
     Route::get('/registers', [App\Http\Controllers\User\ProfileController::class, 'register'])->name('registers');
     Route::post('/profile_store', [App\Http\Controllers\User\ProfileController::class, 'store'])->name('profile_store');
     Route::get('/information/{id?}', [App\Http\Controllers\User\InformationController::class, 'index'])->name('information');
+    Route::get('/profile-edit/{id?}', [App\Http\Controllers\User\ProfileController::class, 'edit'])->name('profile_edit');
 });
