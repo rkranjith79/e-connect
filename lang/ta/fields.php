@@ -78,6 +78,11 @@ return [
     'section_astro' => 'ஜாதக விவரங்கள்',
     'section_expectation' => 'எதிர்பார்ப்பு',
     'age' => 'வயது',
-    'member_id' => 'உறுப்பினர் எண்'
+    'member_id' => 'உறுப்பினர் எண்',
+
+    //In search
+    'age_from' => 'வயது முதல்',
+    'age_to' => 'வயது வரை',
+
 ];
 ?>

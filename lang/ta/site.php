@@ -28,6 +28,21 @@ return [
 
    //Home Page
    'new_members' => 'புதிய உறுப்பினர்கள்',
-   'new_members_sub' => 'மேட்ரிமோனியில் பதிவுசெய்யப்பட்ட ஒவ்வொரு பயனரும் 100% சரிபார்க்கப்பட்டுள்ளனர்.'
+   'new_members_sub' => 'மேட்ரிமோனியில் பதிவுசெய்யப்பட்ட ஒவ்வொரு பயனரும் 100% சரிபார்க்கப்பட்டுள்ளனர்.',
+
+   //Member Listing Page
+   'all_member_listing' => 'அனைத்து செயலில் உள்ள உறுப்பினர்கள்',
+   'no_data_available' => 'தரவு எதுவும் இல்லை :)',
+   'advanced_search' => 'மேம்பட்ட தேடல்',
+
+   //Member Listing Sidebar
+   'basic_information' => 'தனிப்பட்ட விவரங்கள்',
+   'religion_information' => 'மதம், படிப்பு, தொழில்',
+   'native_information' => 'இருப்பிடம்',
+   'jathagam_information' => 'ஜாதக விவரங்கள்',
+   'religion_information_view_page' => 'மத &amp; சமூக பின்புலம்',
+   'education_information_view_page' => 'கல்வி &amp; தொழில்',
+   'family_information' => 'குடும்ப விவரங்கள்',
+   'asset_informtion'=> 'சொத்து விவரங்கள்',
 ];
 ?>

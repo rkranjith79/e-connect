@@ -30,6 +30,21 @@ return [
 
     //Home Page
     'new_members' => 'New Members',
-    'new_members_sub' => 'Every user registered on Ganesh Kongu Matrimony is verified 100%.'
+    'new_members_sub' => 'Every user registered on Ganesh Kongu Matrimony is verified 100%.',
+
+    //Member Listing Page
+   'all_member_listing' => 'All Active Members',
+   'no_data_available' => 'No Data Available :)',
+   'advanced_search' => 'Advanced Search',
+
+   //Member Listing Sidebar
+   'basic_information' => 'Personal details',
+   'religion_information' => 'Religion, Education, Profession',
+   'native_information' => 'Location details',
+   'jathagam_information' => 'Horoscope details',
+   'religion_information_view_page' => 'Religious &amp; Social Background',
+   'education_information_view_page' => 'Education &amp; Career',
+   'family_information' => 'Family Details',
+   'asset_informtion'=> 'Asset Details',
 ];
 ?>
