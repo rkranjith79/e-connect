@@ -57,8 +57,7 @@ return [
     'birth_dasa_remaining' => 'ஜனன கால தசா இருப்பு',
     
     'seimurai' => 'செய்முறை (பவுன், கார் விவரம்)',
-    'asset_details'=> 'Assets Details (Land House
-    Rent)',
+    'asset_details'=> 'சொத்து விவரங்கள் (நில வீடு வாடகை)',
     'education_details' => 'கல்வி விவரங்கள்',
     'expectation_jathagam' => 'எதிர்பார்ப்பு ஜாதகம்',
     'expectation_marital_status' => 'எதிர்பார்ப்பு திருமண நிலை',
