@@ -75,8 +75,13 @@ class profileJathagam extends MasterModel
     {
         $return = [];
 
+        $this->rasi =  $this->rasi;
+
         foreach($this->rasi as $key => $rasi) {
-           $return[$key] = Rasi::find($rasi)?->Translated()?->pluck('title')?->implode(", ");
+            $rasi = array_filter((array)($rasi));
+            if(!empty($rasi)) {
+                $return[$key] = Rasi::find($rasi)?->Translated()?->pluck('title')?->implode(", ");
+            }
         }
         return $return;
     }
@@ -85,8 +90,13 @@ class profileJathagam extends MasterModel
     {
         $return = [];
 
+        $this->navamsam = array_filter((array) $this->navamsam);
+
+
         foreach($this->navamsam as $key => $navamsam) {
-           $return[$key] = Navamsam::find($navamsam)?->Translated()?->pluck('title')?->implode(", ");
+            $navamsam = array_filter((array)($navamsam));
+            if(!empty($navamsam))
+                $return[$key] = Navamsam::find($navamsam)?->Translated()?->pluck('title')?->implode(", ");
         }
         return $return;
     }

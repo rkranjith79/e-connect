@@ -7,6 +7,7 @@ use App\Models\User;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\AssetsValue;
 use App\Models\BloodGroup;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Hash;
@@ -77,6 +78,7 @@ class ProfileController extends Controller
             "nakshatra_pathams" => $this->getPublishedData(NakshatraPatham::class),
             "rasis" => $this->getPublishedData(Rasi::class),
             "navamsams" => $this->getPublishedData(Navamsam::class),
+            "asset_values" => $this->getPublishedData(AssetsValue::class),
 
         ];
         return view('user.registration.index', compact('record'));
@@ -242,6 +244,7 @@ class ProfileController extends Controller
         ]);
 
         $profile = Profile::create([
+            "language_tamil" => $request->title,
             "title" => $request->title,
             "email" => $request->email,
             "color_id" => $request->color_id,
