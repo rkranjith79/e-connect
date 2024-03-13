@@ -38,6 +38,7 @@ use App\Models\SubCaste;
 use App\Models\Work;
 use App\Models\WorkPlace;
 use App\Traits\LookupTrait;
+use Illuminate\Support\Facades\Auth;
 
 class ProfileController extends Controller
 {
@@ -346,7 +347,7 @@ class ProfileController extends Controller
      */
     public function edit(Profile $profile)
     {
-        return view('user.profile_edit.index');
+        return view('user.profile.edit');
     }
 
     /**
@@ -370,5 +371,10 @@ class ProfileController extends Controller
     public function destroy(Profile $profile)
     {
         //
+    }
+
+    public function changePassword()
+    {
+        return view('user.profile.change_password');
     }
 }
