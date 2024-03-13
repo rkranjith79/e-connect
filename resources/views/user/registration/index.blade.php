@@ -1,29 +1,10 @@
 @extends('layouts.user')
 
 @section('content')
-<style>
-    #form_content label.form-label {
-    color: #000;
-}
-#form_content label.form-label {
-    text-shadow: 1px 2px 12px #5e5252;
-}
-#form_content .section-title {
-    color: #fff;
-    text-align: center;
-    font-weight: bold;
-    background: var(--hov-primary);
-    background: linear-gradient(225deg, var(--primary) 0%, var(--secondary) 100%);
-    border-radius: 5px;
-    padding: 3px 0;
-    margin: 10px 0;
-    font-size: 1.25rem;
-}
-</style>
     <div class="py-4 py-lg-5 bg-cover bg-center d-flex align-items-center position-relative"
-    style="background-image: url(https://ganeshkongumatrimony.com/uploads/all/iajOd79XuUcPqOVehemGLDHv8YBk3wj2tn4H4M0w.jpg)">
+        style="background-image: url(https://ganeshkongumatrimony.com/uploads/all/iajOd79XuUcPqOVehemGLDHv8YBk3wj2tn4H4M0w.jpg)">
 
-                <span class="mask"></span>
+        <span class="mask"></span>
         <div class="container-fluid">
             <div id="form_content" class="row">
                 <div class="col-12 col-xl-10 mx-auto">
@@ -34,9 +15,13 @@
                                 <p>Register yourself in our website to access thousands of profiles and find your
                                     life partner.</p>
                             </div>
-                            <form class="form-default" id="registration_form" role="form" method="POST" enctype="multipart/form-data">>
+                            <form class="form-default" id="registration_form" role="form" method="POST"
+                                enctype="multipart/form-data">>
                                 @csrf
-                                @include('user.registration.profile_file')
+                                <div class="form-row">
+                                    @include('user.registration.profile_photo')
+                                    @include('user.registration.profile_horoscope')
+                                </div>
                                 @include('user.registration.basic')
                                 @include('user.registration.personal')
                                 @include('user.registration.religion')
@@ -90,8 +75,8 @@
                     'X-CSRF-TOKEN': '{{ csrf_token() }}'
                 },
                 data: formData,
-                  contentType: false, // Set content type to false for FormData
-            processData: false, // Do not process the data, let FormData handle it
+                contentType: false, // Set content type to false for FormData
+                processData: false, // Do not process the data, let FormData handle it
 
                 success: function(response) {
                     if (response.success) {

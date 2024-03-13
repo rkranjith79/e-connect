@@ -112,6 +112,26 @@
                 width: 100%
             }
         }
+
+        #form_content label.form-label {
+            color: #000;
+        }
+
+        /* #form_content label.form-label {
+            text-shadow: 1px 2px 12px #5e5252;
+        } */
+
+        #form_content .section-title {
+            color: #fff;
+            text-align: center;
+            font-weight: bold;
+            background: var(--hov-primary);
+            background: linear-gradient(225deg, var(--primary) 0%, var(--secondary) 100%);
+            border-radius: 5px;
+            padding: 3px 0;
+            margin: 10px 0;
+            font-size: 1.25rem;
+        }
     </style>
     <!--  -->
     <!-- preloading area end -->
@@ -132,8 +152,7 @@
 
         <div class="close-layer"></div>
         <!-- Go to Top -->
-        <button id="goTop" class="btn btn-primary btn-icon btn-circle"><i
-                class="fas fa-angle-up"></i></button>
+        <button id="goTop" class="btn btn-primary btn-icon btn-circle"><i class="fas fa-angle-up"></i></button>
     </div>
 
 
