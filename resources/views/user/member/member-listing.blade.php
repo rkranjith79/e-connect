@@ -68,7 +68,7 @@
                                                                     <td>{{ $profile->basic->education->title ?? "-"}}</td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td0>{{ trans('fields.work') }}</td>
+                                                                    <td>{{ trans('fields.work') }}</td>
                                                                     <td>:</td>
                                                                     <td>{{ $profile->basic->work->title ?? "-"}}</td>
                                                                 </tr>

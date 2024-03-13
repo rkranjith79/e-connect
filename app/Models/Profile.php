@@ -13,6 +13,7 @@ class Profile extends MasterModel
     protected $guarded = [];
 
     protected $fillable = [
+        "language_tamil",
         "blood_group_id",  
         "title",
         "color_id",
@@ -135,19 +136,20 @@ class Profile extends MasterModel
 
     public function getExpectationJathagamTitleAttribute()
     {
-        return Jathagam::find($this->expectation_jathagam_id)->Translated()?->pluck('title')->implode(", ");
+        if(!empty($this->expectation_jathagam_id))
+            return Jathagam::where('id', $this->expectation_jathagam_id)->Translated()?->pluck('title')->implode(", ");
     }
 
     public function getExpectationMaritalStatusTitleAttribute()
     {
-        return Jathagam::find($this->expectation_marital_status_id)->Translated()?->pluck('title')->implode(", ");
+        if(!empty($this->expectation_marital_status_id))
+        return Jathagam::where('id', $this->expectation_marital_status_id)->Translated()?->pluck('title')->implode(", ");
     }
 
     public function getExpectationWorkPlaceTitleAttribute()
     {
-        return Jathagam::find($this->expectation_work_place_id)->Translated()?->pluck('title')->implode(", ");
+        if(!empty($this->expectation_work_place_id))
+        return Jathagam::where('id', $this->expectation_work_place_id)->Translated()?->pluck('title')->implode(", ");
     }
-
-    
     
 }

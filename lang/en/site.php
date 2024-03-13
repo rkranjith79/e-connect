@@ -48,7 +48,6 @@ return [
    'asset_informtion'=> 'Asset Details',
 
    //Advanced Search page
-
    'quick_search' => 'Quick Search',
    'id_search' => 'ID Search'
 ];
