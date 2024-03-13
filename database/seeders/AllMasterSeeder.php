@@ -322,6 +322,7 @@ class AllMasterSeeder extends Seeder
             DB::table('castes')->insert([
                 'title' => $caste['english'],
                 'language_tamil' => $caste['tamil'],
+                'religion_id' => '1'
             ]);
         }
 
@@ -336,6 +337,7 @@ class AllMasterSeeder extends Seeder
             DB::table('sub_castes')->insert([
                 'title' => $subcaste['english'],
                 'language_tamil' => $subcaste['tamil'],
+                'caste_id' => '1',
             ]);
         }
 
@@ -528,6 +530,202 @@ class AllMasterSeeder extends Seeder
                 'language_tamil' => $lagnam['tamil'],
             ]);
         }
+
+        $religions = [
+            ['english' => 'Hindu', 'tamil' => 'இந்து.'],
+            ['english' => 'Christian', 'tamil' => 'கிறிஸ்துவர்.'],
+            ['english' => 'Muslim', 'tamil' => 'முஸ்லிம்.'],
+        ];
+
+        DB::table('religions')->truncate();
+        foreach ($religions as $religion) {
+            DB::table('religions')->insert([
+                'title' => $religion['english'],
+                'language_tamil' => $religion['tamil'],
+            ]);
+        }
+
+        $parent_statuses = [
+            ['english' => 'Alive', 'tamil' => 'உண்டு.'],
+            ['english' => 'Late', 'tamil' => 'லேட்.'],
+            ['english' => 'Dont Know', 'tamil' => 'தெரியவில்லை.'],
+        ];
+
+        DB::table('parent_statuses')->truncate();
+        foreach ($parent_statuses as $parent_status) {
+            DB::table('parent_statuses')->insert([
+                'title' => $parent_status['english'],
+                'language_tamil' => $parent_status['tamil'],
+            ]);
+        }
+
+        $rasi_nakshatras = [ 
+            ['english' => 'Aries-Ashwini', 'tamil' => 'மேஷம்-அஸ்வினி.'],
+            ['english' => 'Aries-Bharani', 'tamil' => 'மேஷம்-பரணி.'],
+            ['english' => 'Aries-Krithigai', 'tamil' => 'மேஷம்-கிருத்திகை.'],
+            ['english' => 'Taurus-Krithigai', 'tamil' => 'ரிஷபம்-கிருத்திகை.'],
+        ];
+
+        DB::table('rasi_nakshatras')->truncate();
+        foreach ($rasi_nakshatras as $rasi_nakshatram) {
+            DB::table('rasi_nakshatras')->insert([
+                'title' => $rasi_nakshatram['english'],
+                'language_tamil' => $rasi_nakshatram['tamil'],
+            ]);
+        }
+
+        $rasi_navamsams = [
+            ['english' => 'Lagnam', 'tamil' => 'லக்னம்.'],
+            ['english' => 'Sun', 'tamil' => 'சூரியன்.'],
+            ['english' => 'Moon', 'tamil' => 'சந்திரன்.'],
+            ['english' => 'செவ்வாய்', 'tamil' => 'Mars.'],
+            ['english' => 'Raagu', 'tamil' => 'ராகு.'],
+            ['english' => 'Jupiter', 'tamil' => 'குரு.'],
+            ['english' => 'Saturn', 'tamil' => 'சனி.'],
+            ['english' => 'Mercury', 'tamil' => 'புதன்.'],
+            ['english' => 'Kethu', 'tamil' => 'கேது.'],
+            ['english' => 'Venus', 'tamil' => 'சுக்கிரன்.'],
+            ['english' => 'Maanthi', 'tamil' => 'மாந்தி.'],
+            ['english' => 'Mars (V)', 'tamil' => 'செவ்வாய் (வ).'],
+            ['english' => 'Jupiter (V)', 'tamil' => 'குரு (வ).'],
+            ['english' => 'Saturn (V)', 'tamil' => 'சனி (வ).'],
+            ['english' => 'Mercury (V)', 'tamil' => 'புதன் (வ).'],
+            ['english' => 'Venus (V)', 'tamil' => 'சுக்கிரன் (வ).']
+        ];
+
+        DB::table('rasi_navamsams')->truncate();
+        foreach ($rasi_navamsams as $rasi_navamsam) {
+            DB::table('rasi_navamsams')->insert([
+                'title' => $rasi_navamsam['english'],
+                'language_tamil' => $rasi_navamsam['tamil'],
+            ]);
+        }
+
+        $social_types = [
+            ['english' => 'Lower Middle Class', 'tamil' => 'வசதி குறைவு.'],
+            ['english' => 'Middle', 'tamil' => 'நடுத்தரம்.'],
+            ['english' => 'V.I.P.', 'tamil' => 'வி.ஐ.பி.'],
+            ['english' => 'V.V.I.P.', 'tamil' => 'வி.வி.ஐ.பி.'],
+            ['english' => 'Royal', 'tamil' => 'ராயல்.'],
+            ['english' => 'Dont Know', 'tamil' => 'தெரியவில்லை.']
+        ];
+
+        DB::table('social_types')->truncate();
+        foreach ($social_types as $social_type) {
+            DB::table('social_types')->insert([
+                'title' => $social_type['english'],
+                'language_tamil' => $social_type['tamil'],
+            ]);
+        }
+
+        $works = [
+            ['english' => 'Agriculture', 'tamil' => 'விவசாயம்.'],
+            ['english' => 'Doctor', 'tamil' => 'மருத்துவர்.'],
+            ['english' => 'Govt job', 'tamil' => 'அரசு வேலை.'],
+            ['english' => 'Not at work', 'tamil' => 'பணியில் இல்லை.'],
+            ['english' => 'Private work', 'tamil' => 'தனியார் வேலை.'],
+            ['english' => 'Self Employed', 'tamil' => 'சுயதொழில்.'],
+            ['english' => 'Software', 'tamil' => 'சாப்ட்வேர்.'],
+            ['english' => 'Student', 'tamil' => 'படித்துக் கொண்டிருக்கிறார்.'],
+            ['english' => 'Others', 'tamil' => 'Others.'],
+            ['english' => 'Dont Know', 'tamil' => 'தெரியவில்லை.'],
+        ];
+
+        DB::table('works')->truncate();
+        foreach ($works as $work) {
+            DB::table('works')->insert([
+                'title' => $work['english'],
+                'language_tamil' => $work['tamil'],
+            ]);
+        }
+
+        $physical_statuses = [
+            ['english' => 'Physically Challenged', 'tamil' => 'மாற்றுத் திறனாளி.'],
+        ];
+
+        DB::table('physical_statuses')->truncate();
+        foreach ($physical_statuses as $physical_status) {
+            DB::table('physical_statuses')->insert([
+                'title' => $physical_status['english'],
+                'language_tamil' => $physical_status['tamil'],
+            ]);
+        }
+
+        $marital_statuses = [
+            ['english' => 'First Marriage', 'tamil' => 'முதல் மணம்.'],
+        ];
+
+        DB::table('marital_statuses')->truncate();
+        foreach ($marital_statuses as $marital_status) {
+            DB::table('marital_statuses')->insert([
+                'title' => $marital_status['english'],
+                'language_tamil' => $marital_status['tamil'],
+            ]);
+        }
+
+        $registered_bies = [
+            ['english' => 'Self', 'tamil' => 'ஜாதகர்.'],
+        ];
+
+        DB::table('registered_bies')->truncate();
+        foreach ($registered_bies as $registered_by) {
+            DB::table('registered_bies')->insert([
+                'title' => $registered_by['english'],
+                'language_tamil' => $registered_by['tamil'],
+            ]);
+        }
+
+        $body_types = [
+            ['english' => 'Slim Body Type', 'tamil' => 'மெலிதான உடல் அமைப்பு.'],
+        ];
+
+        DB::table('body_types')->truncate();
+        foreach ($body_types as $body_type) {
+            DB::table('body_types')->insert([
+                'title' => $body_type['english'],
+                'language_tamil' => $body_type['tamil'],
+            ]);
+        }
+
+        $colors =  [
+            ['english' => 'Dark', 'tamil' => 'கருப்பு.'],
+         ];
+
+         DB::table('colors')->truncate();
+         foreach ($colors as $color) {
+             DB::table('colors')->insert([
+                 'title' => $color['english'],
+                 'language_tamil' => $color['tamil'],
+             ]);
+         }
+
+         $work_places = [
+            ['english' => 'Tamil Nadu', 'tamil' => 'தமிழ்நாடு.'],
+         ];
+
+         DB::table('work_places')->truncate();
+         foreach ($work_places as $work_place) {
+             DB::table('work_places')->insert([
+                 'title' => $work_place['english'],
+                 'language_tamil' => $work_place['tamil'],
+             ]);
+         }
+
+         $nakshatra_pathams = [
+            ['english' => 'Patham 1', 'tamil' => 'பாதம் 1.'],
+         ];
+
+         DB::table('nakshatra_pathams')->truncate();
+         foreach ($nakshatra_pathams as $nakshatra_patham) {
+             DB::table('nakshatra_pathams')->insert([
+                 'title' => $nakshatra_patham['english'],
+                 'language_tamil' => $nakshatra_patham['tamil'],
+             ]);
+         }
+
+         $navamsams = [
+            ['english' => 'Patham 1', 'tamil' => 'பாதம் 1.']
+         ];
 
     }
 }

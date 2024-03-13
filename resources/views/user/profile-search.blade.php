@@ -10,15 +10,15 @@
                     <div class="card profile-search">
                         <div class="card-body px-3">
                             <div class="mb-3 text-center">
-                                <h4 class="text-primary mb-2">Profile Search</h4>
+                                <h4 class="text-primary mb-2">{{ trans('site.advanced_search') }}</h4>
                                 <div
                                     class="nav nav-tabs aiz-nav-tabs bottom-bordered active-primary justify-content-center border-0">
                                     <a class="text-dark fw-600 fs-15 px-2 px-md-3 py-2 active" data-toggle="tab"
-                                        href="#quick">Quick Search</a>
+                                        href="#quick">{{ trans('site.quick_search') }}</a>
                                     <a class="text-dark fw-600 fs-15 px-2 px-md-3 py-2" data-toggle="tab"
-                                        href="#id_search">ID Search</a>
+                                        href="#id_search">{{ trans('site.id_search') }}</a>
                                     <a class="text-dark fw-600 fs-15 px-2 px-md-3 py-2" data-toggle="tab"
-                                        href="#advance">Advance Search</a>
+                                        href="#advance">{{ trans('site.advanced_search') }}</a>
                                 </div>
                             </div>
                             <div class="tab-content">
@@ -30,7 +30,7 @@
                                                     <div class="col-6">
                                                         <div class="form-group mb-3">
                                                             <div class="form-group mb-3">
-                                                                <label class="form-label" for="age_from">வயது முதல்</label>
+                                                                <label class="form-label" for="age_from">{{ trans('fields.age_from') }}</label>
                                                                 <div class="input-group">
                                                                     <div class="input-group-prepend"><span
                                                                             class="input-group-text"><i
@@ -56,7 +56,7 @@
                                                     <div class="col-6">
                                                         <div class="form-group mb-3">
                                                             <div class="form-group mb-3">
-                                                                <label class="form-label" for="age_to">வயது வரை</label>
+                                                                <label class="form-label" for="age_to">{{ trans('fields.age_to') }}</label>
                                                                 <div class="input-group">
                                                                     <div class="input-group-prepend"><span
                                                                             class="input-group-text"><i
@@ -67,11 +67,10 @@
                                                                         data-live-search="true" -data-width="auto">
                                                                         <option style="display:none" value="">--
                                                                             Select --</option>
-                                                                        @for ($i = 18; $i <= 59; $i++)
+                                                                        @for ($i = 18; $i <= 60; $i++)
                                                                             <option value="{{ $i }}">
                                                                                 {{ $i }}</option>
                                                                         @endfor
-                                                                        <option selected value="60">60</option>
                                                                     </select>
                                                                 </div>
                                                                 <small class="form-text text-muted text-help"></small>
@@ -83,7 +82,7 @@
                                             </div>
                                             <div class="col-sm-6">
                                                 <div class="form-group mb-3">
-                                                    <label class="form-label" for="exp_maritalstatus">திருமண நிலை</label>
+                                                    <label class="form-label" for="exp_maritalstatus">{{ trans('fields.marital_status') }}</label>
                                                     <div class="input-group">
                                                         <div class="input-group-prepend"><span class="input-group-text"><i
                                                                     class="fas fa-caret-down"></i></span></div>
@@ -105,7 +104,7 @@
                                         <div class="form-row">
                                             <div class="col-sm-4">
                                                 <div class="form-group mb-3">
-                                                    <label class="form-label" for="caste">சாதி</label>
+                                                    <label class="form-label" for="caste">{{ trans('fields.caste') }}</label>
                                                     <div class="input-group">
                                                         <div class="input-group-prepend"><span class="input-group-text"><i
                                                                     class="fas fa-caret-down"></i></span></div>
@@ -126,7 +125,7 @@
                                             </div>
                                             <div class="col-sm-4">
                                                 <div class="form-group mb-3">
-                                                    <label class="form-label" for="sub_caste">குலம்</label>
+                                                    <label class="form-label" for="sub_caste">{{ trans('fields.sub_caste') }}</label>
                                                     <div class="input-group">
                                                         <div class="input-group-prepend"><span class="input-group-text"><i
                                                                     class="fas fa-caret-down"></i></span></div>
@@ -147,7 +146,7 @@
                                             </div>
                                             <div class="col-sm-4">
                                                 <div class="form-group mb-3">
-                                                    <label class="form-label" for="exp_jathagam">ஜாதகம்</label>
+                                                    <label class="form-label" for="exp_jathagam">{{ trans('fields.jathagam') }}</label>
                                                     <div class="input-group">
                                                         <div class="input-group-prepend"><span class="input-group-text"><i
                                                                     class="fas fa-caret-down"></i></span></div>
@@ -169,7 +168,7 @@
                                         </div>
 
                                         <div class="text-center mb-3">
-                                            <button type="submit" class="btn btn-primary btn-circle">Search <i
+                                            <button type="submit" class="btn btn-primary btn-circle">{{ trans('site.search') }} <i
                                                     class="fas fa-search"></i></button>
                                         </div>
                                     </form>
@@ -179,7 +178,7 @@
                                         <div class="form-row">
                                             <div class="col-sm-6 mx-auto">
                                                 <div class="form-group mb-3">
-                                                    <label class="form-label" for="member_id">உறுப்பினர் எண்</label>
+                                                    <label class="form-label" for="member_id">{{ trans('fields.member_id') }}</label>
                                                     <div class="input-group">
                                                         <div class="input-group-prepend"><span class="input-group-text"><i
                                                                     class="fas fa-id-card"></i></span></div>
@@ -192,18 +191,18 @@
                                             </div>
                                         </div>
                                         <div class="text-center mb-3">
-                                            <button type="submit" class="btn btn-primary btn-circle">Search <i
+                                            <button type="submit" class="btn btn-primary btn-circle">{{ trans('site.search') }} <i
                                                     class="fas fa-search"></i></button>
                                         </div>
                                     </form>
                                 </div>
                                 <div class="tab-pane show" id="advance">
                                     <form action="{{ route('user.member-listing') }}" method="GET">
-                                        <h4 class="section-title">தனிப்பட்ட விவரங்கள்</h4>
+                                        <h4 class="section-title">{{ trans('fields.section_personal') }}</h4>
                                         <div class="form-row">
                                             <div class="col-sm-6">
                                                 <div class="form-group mb-3">
-                                                    <label class="form-label" for="name">பெயர்</label>
+                                                    <label class="form-label" for="name">{{ trans('fields.name') }}</label>
                                                     <div class="input-group">
                                                         <div class="input-group-prepend"><span class="input-group-text"><i
                                                                     class="fas fa-user"></i></span></div>
@@ -219,8 +218,7 @@
                                                     <div class="col-6">
                                                         <div class="form-group mb-3">
                                                             <div class="form-group mb-3">
-                                                                <label class="form-label" for="age_from">வயது
-                                                                    முதல்</label>
+                                                                <label class="form-label" for="age_from">{{ trans('fields.age_from') }}</label>
                                                                 <div class="input-group">
                                                                     <div class="input-group-prepend"><span
                                                                             class="input-group-text"><i
@@ -246,7 +244,7 @@
                                                     <div class="col-6">
                                                         <div class="form-group mb-3">
                                                             <div class="form-group mb-3">
-                                                                <label class="form-label" for="age_to">வயது வரை</label>
+                                                                <label class="form-label" for="age_to">{{ trans('fields.age_to') }}</label>
                                                                 <div class="input-group">
                                                                     <div class="input-group-prepend"><span
                                                                             class="input-group-text"><i
@@ -273,7 +271,7 @@
                                             </div>
                                             <div class="col-sm-6">
                                                 <div class="form-group mb-3">
-                                                    <label class="form-label" for="exp_maritalstatus">திருமண நிலை</label>
+                                                    <label class="form-label" for="exp_maritalstatus">{{ trans('fields.marital_status') }}</label>
                                                     <div class="input-group">
                                                         <div class="input-group-prepend"><span class="input-group-text"><i
                                                                     class="fas fa-caret-down"></i></span></div>
@@ -293,7 +291,7 @@
                                             </div>
                                             <div class="col-sm-6">
                                                 <div class="form-group mb-3">
-                                                    <label class="form-label" for="splcategory">உடல் நிலை</label>
+                                                    <label class="form-label" for="splcategory">{{ trans('fields.physical_status') }}</label>
                                                     <div class="input-group">
                                                         <div class="input-group-prepend"><span class="input-group-text"><i
                                                                     class="fas fa-caret-down"></i></span></div>
@@ -313,7 +311,7 @@
                                             </div>
                                             <div class="col-sm-6">
                                                 <div class="form-group mb-3">
-                                                    <label class="form-label" for="body_type">உடல் அமைப்பு</label>
+                                                    <label class="form-label" for="body_type">{{ trans('fields.body_type') }}</label>
                                                     <div class="input-group">
                                                         <div class="input-group-prepend"><span class="input-group-text"><i
                                                                     class="fas fa-caret-down"></i></span></div>
@@ -333,7 +331,7 @@
                                             </div>
                                             <div class="col-sm-6">
                                                 <div class="form-group mb-3">
-                                                    <label class="form-label" for="color">நிறம்</label>
+                                                    <label class="form-label" for="color">{{ trans('fields.color') }}</label>
                                                     <div class="input-group">
                                                         <div class="input-group-prepend"><span class="input-group-text"><i
                                                                     class="fas fa-caret-down"></i></span></div>
@@ -353,11 +351,11 @@
                                             </div>
                                         </div>
 
-                                        <h4 class="section-title">மதம், படிப்பு மற்றும் தொழில் விவரங்கள்</h4>
+                                        <h4 class="section-title">{{ trans('fields.section_religion') }}</h4>
                                         <div class="form-row">
                                             <div class="col-sm-6">
                                                 <div class="form-group mb-3">
-                                                    <label class="form-label" for="caste">சாதி</label>
+                                                    <label class="form-label" for="caste">{{ trans('fields.caste') }}</label>
                                                     <div class="input-group">
                                                         <div class="input-group-prepend"><span class="input-group-text"><i
                                                                     class="fas fa-caret-down"></i></span></div>
@@ -377,7 +375,7 @@
                                             </div>
                                             <div class="col-sm-6">
                                                 <div class="form-group mb-3">
-                                                    <label class="form-label" for="sub_caste">குலம்</label>
+                                                    <label class="form-label" for="sub_caste">{{ trans('fields.sub_caste') }}</label>
                                                     <div class="input-group">
                                                         <div class="input-group-prepend"><span class="input-group-text"><i
                                                                     class="fas fa-caret-down"></i></span></div>
@@ -397,7 +395,7 @@
                                             </div>
                                             <div class="col-sm-6">
                                                 <div class="form-group mb-3">
-                                                    <label class="form-label" for="education">படிப்பு</label>
+                                                    <label class="form-label" for="education">{{ trans('fields.education') }}</label>
                                                     <div class="input-group">
                                                         <div class="input-group-prepend"><span class="input-group-text"><i
                                                                     class="fas fa-graduation-cap"></i></span></div>
@@ -417,7 +415,7 @@
                                             </div>
                                             <div class="col-sm-6">
                                                 <div class="form-group mb-3">
-                                                    <label class="form-label" for="work">பணி</label>
+                                                    <label class="form-label" for="work">{{ trans('fields.work') }}</label>
                                                     <div class="input-group">
                                                         <div class="input-group-prepend"><span class="input-group-text"><i
                                                                     class="fas fa-caret-down"></i></span></div>
@@ -437,7 +435,7 @@
                                             </div>
                                             <div class="col-sm-6">
                                                 <div class="form-group mb-3">
-                                                    <label class="form-label" for="exp_work_place">பணியிடம்</label>
+                                                    <label class="form-label" for="exp_work_place">{{ trans('fields.work_place') }}</label>
                                                     <div class="input-group">
                                                         <div class="input-group-prepend"><span class="input-group-text"><i
                                                                     class="fas fa-caret-down"></i></span></div>
@@ -458,11 +456,11 @@
                                         </div>
 
 
-                                        <h4 class="section-title">இருப்பிடம்</h4>
+                                        <h4 class="section-title">{{ trans('fields.native') }}</h4>
                                         <div class="form-row">
                                             <div class="col-sm-4">
                                                 <div class="form-group mb-3">
-                                                    <label class="form-label" for="country">நாடு</label>
+                                                    <label class="form-label" for="country">{{ trans('fields.country') }}</label>
                                                     <div class="input-group">
                                                         <div class="input-group-prepend"><span class="input-group-text"><i
                                                                     class="fas fa-globe-asia"></i></span></div>
@@ -482,7 +480,7 @@
                                             </div>
                                             <div class="col-sm-4">
                                                 <div class="form-group mb-3">
-                                                    <label class="form-label" for="state">மாநிலம்</label>
+                                                    <label class="form-label" for="state">{{ trans('fields.state') }}</label>
                                                     <div class="input-group">
                                                         <div class="input-group-prepend"><span class="input-group-text"><i
                                                                     class="fas fa-map-marker-alt"></i></span></div>
@@ -502,7 +500,7 @@
                                             </div>
                                             <div class="col-sm-4">
                                                 <div class="form-group mb-3">
-                                                    <label class="form-label" for="district">மாவட்டம்</label>
+                                                    <label class="form-label" for="district">{{ trans('fields.district') }}</label>
                                                     <div class="input-group">
                                                         <div class="input-group-prepend"><span class="input-group-text"><i
                                                                     class="fas fa-map-marker-alt"></i></span></div>
@@ -522,12 +520,11 @@
                                             </div>
                                         </div>
 
-                                        <h4 class="section-title">ஜாதக விவரங்கள்</h4>
+                                        <h4 class="section-title">{{ trans('fields.section_astro') }}</h4>
                                         <div class="form-row">
                                             <div class="col-sm-4">
                                                 <div class="form-group mb-3">
-                                                    <label class="form-label" for="rasi_nakshatra">இராசி -
-                                                        நட்சத்திரம்</label>
+                                                    <label class="form-label" for="rasi_nakshatra">{{ trans('fields.rasi_nakshatra') }}</label>
                                                     <div class="input-group">
                                                         <div class="input-group-prepend"><span class="input-group-text"><i
                                                                     class="fas fa-caret-down"></i></span></div>
@@ -547,7 +544,7 @@
                                             </div>
                                             <div class="col-sm-4">
                                                 <div class="form-group mb-3">
-                                                    <label class="form-label" for="lagnam">லக்னம்</label>
+                                                    <label class="form-label" for="lagnam">{{ trans('fields.lagnam') }}</label>
                                                     <div class="input-group">
                                                         <div class="input-group-prepend"><span
                                                                 class="input-group-text"><i
@@ -568,7 +565,7 @@
                                             </div>
                                             <div class="col-sm-4">
                                                 <div class="form-group mb-3">
-                                                    <label class="form-label" for="exp_jathagam">ஜாதகம்</label>
+                                                    <label class="form-label" for="exp_jathagam">{{ trans('fields.jathagam') }}</label>
                                                     <div class="input-group">
                                                         <div class="input-group-prepend"><span
                                                                 class="input-group-text"><i
@@ -590,7 +587,7 @@
                                         </div>
 
                                         <div class="text-center mb-3">
-                                            <button type="submit" class="btn btn-primary btn-circle">Search <i
+                                            <button type="submit" class="btn btn-primary btn-circle">{{ trans('site.advanced_search') }} <i
                                                     class="fas fa-search"></i></button>
                                         </div>
                                     </form>
