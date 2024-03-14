@@ -11,7 +11,7 @@
                     <option style="display:none" value="">-- Select --</option>
                     @isset($record['religions'])
                     @foreach ($record['religions'] as $value => $label)
-                        <option value="{{ $value }}">{{ $label }}</option>
+                        <option value="{{ $value }}" @selected(old('religion_id') ?? ($profileBasic->religion_id ?? '') == $value)>{{ $label }}</option>
                     @endforeach
                 @endisset
                 </select>
@@ -32,7 +32,7 @@
                     <option style="display:none" value="">-- Select --</option>
                     @isset($record['castes'])
                         @foreach ($record['castes'] as $value => $label)
-                            <option value="{{ $value }}">{{ $label }}</option>
+                            <option value="{{ $value }}" @selected(old('caste_id') ?? ($profileBasic->caste_id ?? '') == $value)>{{ $label }}</option>
                         @endforeach
                     @endisset
                 </select>
@@ -52,7 +52,7 @@
                     <option style="display:none" value="">-- Select --</option>
                     @isset($record['sub_castes'])
                         @foreach ($record['sub_castes'] as $value => $label)
-                            <option value="{{ $value }}">{{ $label }}</option>
+                            <option value="{{ $value }}" @selected(old('sub_caste_id') ?? ($profileBasic->sub_caste_id ?? '') == $value)>{{ $label }}</option>
                         @endforeach
                     @endisset
                 </select>
@@ -68,7 +68,7 @@
             <div class="input-group">
                 <div class="input-group-prepend"><span class="input-group-text"><i class="fas fa-keyboard"></i></span>
                 </div>
-                <input type="text" class="form-control required " value="" id="temple" name="temple"
+                <input type="text" class="form-control required " value="{{ old('temple') ?? ($profileBasic->temple ?? '') }}" id="temple" name="temple"
                     maxlength="255">
             </div>
             <small class="form-text text-muted text-help"></small>
