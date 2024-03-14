@@ -20,13 +20,12 @@ class AdminMiddleware
             if (Auth::user()->is_admin) {
                  return $next($request);            
             } else {
-                return redirect('member-listing');
+                return redirect('user/member-listing');
             }
         } else {
             if (! $request->expectsJson()) {
                 return route('login');
             }
-        }       
-        
+        }        
     }
 }
