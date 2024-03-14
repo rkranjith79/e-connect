@@ -13,9 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/user-login', function () {
+    return view('user.login');
+})->name('user-login');
 Route::get('/',  [App\Http\Controllers\User\MemberController::class, 'index'])->name('index');
 
 Auth::routes();
@@ -30,7 +30,7 @@ Route::get('/language/{locale}', function (string $locale) {
     return redirect()->back();
 })->name("language.set");
 
-
+Route::get('/registers', [App\Http\Controllers\User\ProfileController::class, 'register'])->name('registers');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::name('admin.')->prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
@@ -79,13 +79,12 @@ Route::name('admin.')->prefix('admin')->middleware(['auth', 'isAdmin'])->group(f
     Route::resource('information_admin', App\Http\Controllers\Admin\InformationController::class);
 });
 
-Route::name('user.')->group(function () {
+Route::name('user.')->prefix('user')->middleware(['auth'])->group(function () {
     Route::get('/member-listing', [App\Http\Controllers\User\MemberController::class, 'listing'])->name('member-listing');
     Route::get('/jathagam/{id?}', [App\Http\Controllers\User\MemberController::class, 'jathagam'])->name('jathagam');
     Route::get('/profile-advanced-search', [App\Http\Controllers\User\MemberController::class, 'advancedSearch'])->name('advancedSearch');
     Route::get('/profile-search', [App\Http\Controllers\User\MemberController::class, 'search'])->name('search');
-    Route::get('/profile/{id?}', [App\Http\Controllers\User\MemberController::class, 'profile'])->name('profile');
-    Route::get('/registers', [App\Http\Controllers\User\ProfileController::class, 'register'])->name('registers');
+    Route::get('/profile/{id?}', [App\Http\Controllers\User\MemberController::class, 'profile'])->name('profile');    
     Route::post('/profile_store', [App\Http\Controllers\User\ProfileController::class, 'store'])->name('profile_store');
     Route::get('/information/{id?}', [App\Http\Controllers\User\InformationController::class, 'index'])->name('information');
     Route::get('/profile-edit', [App\Http\Controllers\User\ProfileController::class, 'edit'])->name('profile_edit');
