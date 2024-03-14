@@ -7,6 +7,7 @@ use App\Models\User;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\AssetsValue;
 use App\Models\BloodGroup;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Hash;
@@ -38,6 +39,7 @@ use App\Models\SubCaste;
 use App\Models\Work;
 use App\Models\WorkPlace;
 use App\Traits\LookupTrait;
+use Illuminate\Support\Facades\Auth;
 
 class ProfileController extends Controller
 {
@@ -77,6 +79,7 @@ class ProfileController extends Controller
             "nakshatra_pathams" => $this->getPublishedData(NakshatraPatham::class),
             "rasis" => $this->getPublishedData(Rasi::class),
             "navamsams" => $this->getPublishedData(Navamsam::class),
+            "asset_values" => $this->getPublishedData(AssetsValue::class),
 
         ];
         return view('user.registration.index', compact('record'));
@@ -242,6 +245,7 @@ class ProfileController extends Controller
         ]);
 
         $profile = Profile::create([
+            "language_tamil" => $request->title,
             "title" => $request->title,
             "email" => $request->email,
             "color_id" => $request->color_id,
@@ -346,7 +350,9 @@ class ProfileController extends Controller
      */
     public function edit(Profile $profile)
     {
-        return view('user.profile_edit.index');
+        $profile = Auth::user()->profile;
+        dd($profile);
+        return view('user.profile.edit');
     }
 
     /**
@@ -370,5 +376,10 @@ class ProfileController extends Controller
     public function destroy(Profile $profile)
     {
         //
+    }
+
+    public function changePassword()
+    {
+        return view('user.profile.change_password');
     }
 }

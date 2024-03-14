@@ -1005,11 +1005,11 @@ body {
         stop-color: rgba(36, 136, 34, 1);
     }
 
-label.form-label {
+/* label.form-label {
   text-shadow: 1px 2px 12px #000000;
-}
+} */
 
-label.form-label {
+.home-slider-area label.form-label {
   color: #fff;
 }
 

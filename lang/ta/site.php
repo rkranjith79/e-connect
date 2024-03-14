@@ -44,5 +44,9 @@ return [
    'education_information_view_page' => 'கல்வி &amp; தொழில்',
    'family_information' => 'குடும்ப விவரங்கள்',
    'asset_informtion'=> 'சொத்து விவரங்கள்',
+
+   //Advanced Search page
+   'quick_search' => 'மேம்பட்ட தேடல்',
+   'id_search' => 'ID தேடல்'
 ];
 ?>

@@ -47,7 +47,7 @@
                                             <div class="px-2 px-md-4 pt-4 pb-2 listing-profile flex-grow-1">
                                                 <h2 class="h6 fw-600 fs-18 text-primary text-truncate mb-1">
                                                     {{ $profile->title ?? "-"}}
-                                                    <span class="float-right text-primary">GK4227</span></h2>
+                                                    <span class="float-right text-primary"></span></h2>
                                                 <div class="form-row pb-1">
                                                     <div class="col-md-6">
                                                         <table>
@@ -68,7 +68,7 @@
                                                                     <td>{{ $profile->basic->education->title ?? "-"}}</td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td0>{{ trans('fields.work') }}</td>
+                                                                    <td>{{ trans('fields.work') }}</td>
                                                                     <td>:</td>
                                                                     <td>{{ $profile->basic->work->title ?? "-"}}</td>
                                                                 </tr>

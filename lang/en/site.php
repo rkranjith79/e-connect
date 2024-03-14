@@ -30,7 +30,7 @@ return [
 
     //Home Page
     'new_members' => 'New Members',
-    'new_members_sub' => 'Every user registered on Ganesh Kongu Matrimony is verified 100%.',
+    'new_members_sub' => 'Every user registered on Matrimony is verified 100%.',
 
     //Member Listing Page
    'all_member_listing' => 'All Active Members',
@@ -46,5 +46,9 @@ return [
    'education_information_view_page' => 'Education &amp; Career',
    'family_information' => 'Family Details',
    'asset_informtion'=> 'Asset Details',
+
+   //Advanced Search page
+   'quick_search' => 'Quick Search',
+   'id_search' => 'ID Search'
 ];
 ?>
