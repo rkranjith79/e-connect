@@ -1,8 +1,7 @@
 @extends('layouts.user')
-
 @section('content')
     <div class="py-6 py-lg-8 bg-cover bg-center d-flex align-items-center position-relative"
-        style="background-image: url(uploads/all/iajOd79XuUcPqOVehemGLDHv8YBk3wj2tn4H4M0w.jpg)">
+        style="background-image: url({{asset('img/2.png')}})">
         <span class="mask"></span>
         <div class="container">
             <div class="row">
@@ -13,9 +12,8 @@
                                 <h1 class="h3 text-primary mb-2">Login to your account</h1>
                                 <h6 class="text-danger">Language changed to English</h6>
                             </div>
-
-                            <form id="login-form" method="POST" action="https://ganeshkongumatrimony.com/login">
-                                <input type="hidden" name="_token" value="rQN6A8GwY20IPFkQzkWCjUsLgEVr63pYkYPy790g">
+                            <form method="POST" action="{{ route('login') }}">
+                            @csrf                                
                                 <div class="row div-email">
                                     <div class="col-12">
                                         <div class="form-group mb-3">
@@ -25,10 +23,15 @@
                                                 <div class="input-group-prepend"><span class="input-group-text"><i
                                                             class="fas fa-user"></i></span></div>
                                                 <input type="text" class="form-control required " autofocus ""
-                                                    value="" id="email" name="email" maxlength="255">
+                                                    value="" id="email" name="email" maxlength="255" required>
                                             </div>
                                             <small class="form-text text-muted text-help"></small>
                                             <span class="invalid-feedback"></span>
+                                            @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                                         </div>
                                     </div>
                                     <div class="col-12">
@@ -39,7 +42,7 @@
                                                 <div class="input-group-prepend"><span class="input-group-text"><i
                                                             class="fas fa-key"></i></span></div>
                                                 <input type="password" class="form-control required " value=""
-                                                    id="password" name="password" maxlength="100"><button id="toggle-pwd"
+                                                    id="password" name="password" maxlength="100" required><button id="toggle-pwd"
                                                     type="button"><i class="fa fa-eye"></i></button><span class="">
                                             </div>
                                             <small class="form-text text-muted text-help"></small>
@@ -62,7 +65,7 @@
                                     </div>
                                 </div>
 
-                                <div class="my-3">
+                                <div class="my-3">                                
                                     <button type="submit" class="btn btn-block btn-primary">Login to your
                                         Account</button>
                                 </div>
@@ -70,7 +73,7 @@
 
                             <div class="text-center">
                                 <p class="text-muted mb-0">Don&#039;t have an account?</p>
-                                <a href="register.html">Create an account</a>
+                                <a href="{{route('registers')}}">Create an account</a>
                             </div>
                         </div>
                     </div>

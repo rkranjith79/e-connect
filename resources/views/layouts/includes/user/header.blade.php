@@ -32,11 +32,11 @@
                             <span><a href="tel:{{ __getSiteConfigration('help_line') }}"> {{ __getSiteConfigration('help_line', 'value') }}</a></span>
                         </li>
                         <li class="list-inline-item text-center">
-                            <a class="text-reset" href="{{ route('admin.dashboard') }}">{{ trans("site.login") }}</a>
+                            <a class="text-reset" href="{{ route('user-login') }}">{{ trans("site.login") }}</a>
                         </li>
                         <li class="list-inline-item">
                             <a class="btn btn-sm btn-primary text-white fw-600 py-1 border"
-                                href="{{ route('user.registers') }}">{{ trans("site.registration") }}</a>
+                                href="{{ route('registers') }}">{{ trans("site.registration") }}</a>
                         </li>
                     </ul>
                 </div>
