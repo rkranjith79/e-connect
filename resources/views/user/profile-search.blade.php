@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="py-6 py-lg-8 bg-cover bg-center d-flex align-items-center position-relative"
-        style="background-image: url(https://ganeshkongumatrimony.com/uploads/all/iajOd79XuUcPqOVehemGLDHv8YBk3wj2tn4H4M0w.jpg)">
+        style="background-image: url('{{ asset('img/uploads/2.png') }}')">
         <span class="mask"></span>
         <div class="container">
             <div class="row">

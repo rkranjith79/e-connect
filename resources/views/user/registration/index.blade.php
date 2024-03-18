@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="py-4 py-lg-5 bg-cover bg-center d-flex align-items-center position-relative"
-        style="background-image: url(https://ganeshkongumatrimony.com/uploads/all/iajOd79XuUcPqOVehemGLDHv8YBk3wj2tn4H4M0w.jpg)">
+    style="background-image: url('{{ asset('img/uploads/2.png') }}')">
 
         <span class="mask"></span>
         <div class="container-fluid">
@@ -50,7 +50,7 @@
 
                                 <div class="text-center">
                                     <p class="text-muted mb-0">Already have an account?</p>
-                                    <a href="https://ganeshkongumatrimony.com/login">Login to your account</a>
+                                    <a href="https://econnectmatrimony.com/login">Login to your account</a>
                                 </div>
                             </form>
                         </div>
@@ -80,6 +80,7 @@
 
                 success: function(response) {
                     if (response.success) {
+                        window.location.replace("{{ route('user.member-listing') }}"); 
                         $("#myForm")[0].reset(); // Reset the form
                         $("#successMessage").show(); // Show success message
                         clearErrors(); // Clear any previous error messages

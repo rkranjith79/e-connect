@@ -34,14 +34,7 @@ class SiteConfigurationSeeder extends Seeder
             ['label' => 'Whatsapp Group', 'code' => 'facebook_link', 'attributes' => ['value' => 'Whatsapp Group']],
             ['label' => 'Whatsapp Group', 'code' => 'app_store_link', 'attributes' => ['value' => 'Whatsapp Group']],
             ['label' => 'Whatsapp Group', 'code' => 'youtube_link', 'attributes' => ['value' => 'Whatsapp Group']],
-
-            
-
-
-
-
-
-        ];
+       ];
         DB::table('site_configurations')->truncate();
         foreach ($siteConfigurations as $siteConfiguration) {
             DB::table('site_configurations')->insert([

@@ -15,7 +15,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call(UserTableAdminSeeder::class);
-        $this->call(SiteConfigurationSeeder::class);
-        //$this->call(AllMasterSeeder::class);
+        //$this->call(SiteConfigurationSeeder::class); //don't run this seeder, This is not a live data
+        $this->call(AllMasterSeeder::class);
     }
 }

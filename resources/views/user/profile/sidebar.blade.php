@@ -8,13 +8,13 @@
     <div class="aiz-user-sidenav rounded overflow-hidden">
         <div class="px-4 text-center mb-4">
             <span class="avatar avatar-md mb-3">
-                <img src="https://ganeshkongumatrimony.com/uploads/profile_images/GtzeTt7nQfm7peOmALRDMuCjmISsTeU4NyIPdQIQ.png"
-                    onerror="this.onerror=null;this.src='https://ganeshkongumatrimony.com/assets/img/avatar-place.png';">
+                <img src="https://econnectmatrimony.com/uploads/profile_images/GtzeTt7nQfm7peOmALRDMuCjmISsTeU4NyIPdQIQ.png"
+                    onerror="this.onerror=null;this.src='https://econnectmatrimony.com/img/avatar-place.png';">
             </span>
             <h4 class="h5 fw-600">KAVI KALIDASS </h4>
         </div>
         <div class="text-center mb-3 px-3">
-            <a href="https://ganeshkongumatrimony.com/p/2hseiew" class="btn btn-block btn-soft-primary"><i
+            <a href="#" class="btn btn-block btn-soft-primary"><i
                     class="fas fa-user"></i> My Profile</a>
         </div>
 

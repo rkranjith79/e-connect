@@ -26,7 +26,8 @@
 <section class="mb-4">
 	<div class="container">
         <div class="card p-4 bg-white rounded shadow-sm overflow-hidden mw-100 text-left">
-            {{ $data['information']['content'] ?? '-' }}
+            
+            {!! $data['information']['content'] ?? '-' !!}
 		</div>
 	</div>
 </section>
