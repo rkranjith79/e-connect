@@ -18,9 +18,10 @@ class AdminMiddleware
     public function handle(Request $request, Closure $next){
         if(Auth::user()) {
             if (Auth::user()->is_admin) {
-                 return $next($request);
+                return route('admin.dashboard');
             } else {
-                return redirect('user/member-listing');
+                dd(Auth::user()->is_admin );
+                return route('user.member-listing');
             }
         } else {
             if (! $request->expectsJson()) {

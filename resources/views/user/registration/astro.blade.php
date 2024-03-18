@@ -107,7 +107,8 @@
             <p class="mb-0 form-label" style="margin-bottom: 8px !important;">
                 {{ trans('fields.time_of_birth') }} <span class="require-star">*</span></p>
             <div class="input-group">
-                <input type="time" class="form-control required " value="{{ @old('time_of_birth') ?? ($profileJathagam->time_of_birth ?? '') }}" id="time_of_birth"
+                <input type="time" class="form-control required "
+                    value="{{ @old('time_of_birth') ?? ($profileJathagam->time_of_birth ?? '') }}" id="time_of_birth"
                     name="time_of_birth">
             </div>
             <small class="form-text text-muted text-help"></small>
@@ -123,8 +124,9 @@
             <div class="input-group">
                 <div class="input-group-prepend"><span class="input-group-text"><i
                             class="fas fa-map-marker-alt"></i></span></div>
-                <input type="text" class="form-control required " value="{{ @old('place_of_birth') ?? ($profileJathagam->place_of_birth ?? '') }}" id="place_of_birth"
-                    name="place_of_birth" maxlength="255">
+                <input type="text" class="form-control required "
+                    value="{{ @old('place_of_birth') ?? ($profileJathagam->place_of_birth ?? '') }}"
+                    id="place_of_birth" name="place_of_birth" maxlength="255">
             </div>
             <small class="form-text text-muted text-help"></small>
             <span class="invalid-feedback"></span>
@@ -132,7 +134,8 @@
     </div>
     <div class="col-sm-3 div-astro">
         <div class="form-group mb-3">
-            <label class="form-label" for="birth_dasa_id">{{ trans('fields.birth_dasa') }}</label>
+            <label class="form-label" for="birth_dasa_id">{{ trans('fields.birth_dasa') }}<span
+                    class="require-star">*</span></label>
             <div class="input-group">
                 <div class="input-group-prepend"><span class="input-group-text"><i
                             class="fas fa-caret-down"></i></span></div>
@@ -164,7 +167,8 @@
                             -data-size="5">
                             <option value="">Year</option>
                             @for ($i = 0; $i <= 20; $i++)
-                                <option value="{{ $i }}" @selected(@old('birth_dasa_remaining_year') ?? ($profileJathagam->birth_dasa_remaining_year ?? '') == $i)>{{ $i }}</option>
+                                <option value="{{ $i }}" @selected(@old('birth_dasa_remaining_year') ?? ($profileJathagam->birth_dasa_remaining_year ?? '') == $i)>{{ $i }}
+                                </option>
                             @endfor
                         </select>
                     </div>
@@ -180,7 +184,8 @@
                             -data-size="5">
                             <option value="">Month</option>
                             @for ($i = 0; $i <= 12; $i++)
-                                <option value="{{ $i }}" @selected(@old('birth_dasa_remaining_month') ?? ($profileJathagam->birth_dasa_remaining_month ?? '') == $i)>{{ $i }}</option>
+                                <option value="{{ $i }}" @selected(@old('birth_dasa_remaining_month') ?? ($profileJathagam->birth_dasa_remaining_month ?? '') == $i)>{{ $i }}
+                                </option>
                             @endfor
                         </select>
                     </div>
@@ -196,7 +201,8 @@
                             -data-size="5">
                             <option value="">Day</option>
                             @for ($i = 0; $i <= 31; $i++)
-                                <option value="{{ $i }}" @selected(@old('birth_dasa_remaining_day') ?? ($profileJathagam->birth_dasa_remaining_day ?? '') == $i)>{{ $i }}</option>
+                                <option value="{{ $i }}" @selected(@old('birth_dasa_remaining_day') ?? ($profileJathagam->birth_dasa_remaining_day ?? '') == $i)>{{ $i }}
+                                </option>
                             @endfor
                         </select>
                     </div>
@@ -225,7 +231,8 @@
                                 <option style="display:none" value="">-- Select --</option>
                                 @isset($record['rasis'])
                                     @foreach ($record['rasis'] as $value => $label)
-                                        <option value="{{ $value }}" @selected(in_array($value, @old('rasi_12') ?? ($profileJathagam->rasi->{"12"} ?? [])))>{{ $label }}</option>
+                                        <option value="{{ $value }}" @selected(in_array($value, @old('rasi_12') ?? ($profileJathagam->rasi->{"12"} ?? [])))>
+                                            {{ $label }}</option>
                                     @endforeach
                                 @endisset
                             </select>
@@ -245,7 +252,8 @@
                                 <option style="display:none" value="">-- Select --</option>
                                 @isset($record['rasis'])
                                     @foreach ($record['rasis'] as $value => $label)
-                                        <option value="{{ $value }}" @selected(in_array($value, @old('rasi_1') ?? ($profileJathagam->rasi->{"1"} ?? [])))>{{ $label }}</option>
+                                        <option value="{{ $value }}" @selected(in_array($value, @old('rasi_1') ?? ($profileJathagam->rasi->{"1"} ?? [])))>
+                                            {{ $label }}</option>
                                     @endforeach
                                 @endisset
                             </select>
@@ -265,7 +273,8 @@
                                 <option style="display:none" value="">-- Select --</option>
                                 @isset($record['rasis'])
                                     @foreach ($record['rasis'] as $value => $label)
-                                        <option value="{{ $value }}" @selected(in_array($value, @old('rasi_2') ?? ($profileJathagam->rasi->{"2"} ?? [])))>{{ $label }}</option>
+                                        <option value="{{ $value }}" @selected(in_array($value, @old('rasi_2') ?? ($profileJathagam->rasi->{"2"} ?? [])))>
+                                            {{ $label }}</option>
                                     @endforeach
                                 @endisset
                             </select>
@@ -285,7 +294,8 @@
                                 <option style="display:none" value="">-- Select --</option>
                                 @isset($record['rasis'])
                                     @foreach ($record['rasis'] as $value => $label)
-                                        <option value="{{ $value }}" @selected(in_array($value, @old('rasi_3') ?? ($profileJathagam->rasi->{"3"} ?? [])))>{{ $label }}</option>
+                                        <option value="{{ $value }}" @selected(in_array($value, @old('rasi_3') ?? ($profileJathagam->rasi->{"3"} ?? [])))>
+                                            {{ $label }}</option>
                                     @endforeach
                                 @endisset
                             </select>
@@ -307,7 +317,8 @@
                                 <option style="display:none" value="">-- Select --</option>
                                 @isset($record['rasis'])
                                     @foreach ($record['rasis'] as $value => $label)
-                                        <option value="{{ $value }}" @selected(in_array($value, @old('rasi_11') ?? ($profileJathagam->rasi->{"11"} ?? [])))>{{ $label }}</option>
+                                        <option value="{{ $value }}" @selected(in_array($value, @old('rasi_11') ?? ($profileJathagam->rasi->{"11"} ?? [])))>
+                                            {{ $label }}</option>
                                     @endforeach
                                 @endisset
                             </select>
@@ -330,7 +341,8 @@
                                 <option style="display:none" value="">-- Select --</option>
                                 @isset($record['rasis'])
                                     @foreach ($record['rasis'] as $value => $label)
-                                        <option value="{{ $value }}" @selected(in_array($value, @old('rasi_4') ?? ($profileJathagam->rasi->{"4"} ?? [])))>{{ $label }}</option>
+                                        <option value="{{ $value }}" @selected(in_array($value, @old('rasi_4') ?? ($profileJathagam->rasi->{"4"} ?? [])))>
+                                            {{ $label }}</option>
                                     @endforeach
                                 @endisset
                             </select>
@@ -352,7 +364,8 @@
                                 <option style="display:none" value="">-- Select --</option>
                                 @isset($record['rasis'])
                                     @foreach ($record['rasis'] as $value => $label)
-                                        <option value="{{ $value }}" @selected(in_array($value, @old('rasi_10') ?? ($profileJathagam->rasi->{"10"} ?? [])))>{{ $label }}</option>
+                                        <option value="{{ $value }}" @selected(in_array($value, @old('rasi_10') ?? ($profileJathagam->rasi->{"10"} ?? [])))>
+                                            {{ $label }}</option>
                                     @endforeach
                                 @endisset
                             </select>
@@ -372,7 +385,8 @@
                                 <option style="display:none" value="">-- Select --</option>
                                 @isset($record['rasis'])
                                     @foreach ($record['rasis'] as $value => $label)
-                                        <option value="{{ $value }}" @selected(in_array($value, @old('rasi_5') ?? ($profileJathagam->rasi->{"5"} ?? [])))>{{ $label }}</option>
+                                        <option value="{{ $value }}" @selected(in_array($value, @old('rasi_5') ?? ($profileJathagam->rasi->{"5"} ?? [])))>
+                                            {{ $label }}</option>
                                     @endforeach
                                 @endisset
                             </select>
@@ -394,7 +408,8 @@
                                 <option style="display:none" value="">-- Select --</option>
                                 @isset($record['rasis'])
                                     @foreach ($record['rasis'] as $value => $label)
-                                        <option value="{{ $value }}" @selected(in_array($value, @old('rasi_9') ?? ($profileJathagam->rasi->{"9"} ?? [])))>{{ $label }}</option>
+                                        <option value="{{ $value }}" @selected(in_array($value, @old('rasi_9') ?? ($profileJathagam->rasi->{"9"} ?? [])))>
+                                            {{ $label }}</option>
                                     @endforeach
                                 @endisset
                             </select>
@@ -414,7 +429,8 @@
                                 <option style="display:none" value="">-- Select --</option>
                                 @isset($record['rasis'])
                                     @foreach ($record['rasis'] as $value => $label)
-                                        <option value="{{ $value }}" @selected(in_array($value, @old('rasi_8') ?? ($profileJathagam->rasi->{"8"} ?? [])))>{{ $label }}</option>
+                                        <option value="{{ $value }}" @selected(in_array($value, @old('rasi_8') ?? ($profileJathagam->rasi->{"8"} ?? [])))>
+                                            {{ $label }}</option>
                                     @endforeach
                                 @endisset
                             </select>
@@ -434,7 +450,8 @@
                                 <option style="display:none" value="">-- Select --</option>
                                 @isset($record['rasis'])
                                     @foreach ($record['rasis'] as $value => $label)
-                                        <option value="{{ $value }}" @selected(in_array($value, @old('rasi_7') ?? ($profileJathagam->rasi->{"7"} ?? [])))>{{ $label }}</option>
+                                        <option value="{{ $value }}" @selected(in_array($value, @old('rasi_7') ?? ($profileJathagam->rasi->{"7"} ?? [])))>
+                                            {{ $label }}</option>
                                     @endforeach
                                 @endisset
                             </select>
@@ -454,7 +471,8 @@
                                 <option style="display:none" value="">-- Select --</option>
                                 @isset($record['rasis'])
                                     @foreach ($record['rasis'] as $value => $label)
-                                        <option value="{{ $value }}" @selected(in_array($value, @old('rasi_6') ?? ($profileJathagam->rasi->{"6"} ?? [])))>{{ $label }}</option>
+                                        <option value="{{ $value }}" @selected(in_array($value, @old('rasi_6') ?? ($profileJathagam->rasi->{"6"} ?? [])))>
+                                            {{ $label }}</option>
                                     @endforeach
                                 @endisset
                             </select>
@@ -480,7 +498,8 @@
                                 <option style="display:none" value="">-- Select --</option>
                                 @isset($record['rasis'])
                                     @foreach ($record['rasis'] as $value => $label)
-                                        <option value="{{ $value }}">{{ $label }}</option>
+                                        <option value="{{ $value }}" @selected(in_array($value, @old('navamsam_12') ?? ($profileJathagam->navamsam->{"12"} ?? [])))>
+                                            {{ $label }}</option>
                                     @endforeach
                                 @endisset
                             </select>
@@ -500,7 +519,8 @@
                                 <option style="display:none" value="">-- Select --</option>
                                 @isset($record['navamsams'])
                                     @foreach ($record['navamsams'] as $value => $label)
-                                        <option value="{{ $value }}">{{ $label }}</option>
+                                        <option value="{{ $value }}" @selected(in_array($value, @old('navamsam_1') ?? ($profileJathagam->navamsam->{"1"} ?? [])))>
+                                            {{ $label }}</option>
                                     @endforeach
                                 @endisset
                             </select>
@@ -520,7 +540,8 @@
                                 <option style="display:none" value="">-- Select --</option>
                                 @isset($record['navamsams'])
                                     @foreach ($record['navamsams'] as $value => $label)
-                                        <option value="{{ $value }}">{{ $label }}</option>
+                                        <option value="{{ $value }}" @selected(in_array($value, @old('navamsam_2') ?? ($profileJathagam->navamsam->{"2"} ?? [])))>
+                                            {{ $label }}</option>
                                     @endforeach
                                 @endisset
                             </select>
@@ -540,7 +561,8 @@
                                 <option style="display:none" value="">-- Select --</option>
                                 @isset($record['navamsams'])
                                     @foreach ($record['navamsams'] as $value => $label)
-                                        <option value="{{ $value }}">{{ $label }}</option>
+                                        <option value="{{ $value }}" @selected(in_array($value, @old('navamsam_3') ?? ($profileJathagam->navamsam->{"3"} ?? [])))>
+                                            {{ $label }}</option>
                                     @endforeach
                                 @endisset
                             </select>
@@ -562,7 +584,8 @@
                                 <option style="display:none" value="">-- Select --</option>
                                 @isset($record['navamsams'])
                                     @foreach ($record['navamsams'] as $value => $label)
-                                        <option value="{{ $value }}">{{ $label }}</option>
+                                        <option value="{{ $value }}" @selected(in_array($value, @old('navamsam_11') ?? ($profileJathagam->navamsam->{"11"} ?? [])))>
+                                            {{ $label }}</option>
                                     @endforeach
                                 @endisset
                             </select>
@@ -585,7 +608,8 @@
                                 <option style="display:none" value="">-- Select --</option>
                                 @isset($record['navamsams'])
                                     @foreach ($record['navamsams'] as $value => $label)
-                                        <option value="{{ $value }}">{{ $label }}</option>
+                                        <option value="{{ $value }}" @selected(in_array($value, @old('navamsam_4') ?? ($profileJathagam->navamsam->{"4"} ?? [])))>
+                                            {{ $label }}</option>
                                     @endforeach
                                 @endisset
                             </select>
@@ -607,7 +631,8 @@
                                 <option style="display:none" value="">-- Select --</option>
                                 @isset($record['navamsams'])
                                     @foreach ($record['navamsams'] as $value => $label)
-                                        <option value="{{ $value }}">{{ $label }}</option>
+                                        <option value="{{ $value }}" @selected(in_array($value, @old('navamsam_10') ?? ($profileJathagam->navamsam->{"10"} ?? [])))>
+                                            {{ $label }}</option>
                                     @endforeach
                                 @endisset
                             </select>
@@ -627,7 +652,8 @@
                                 <option style="display:none" value="">-- Select --</option>
                                 @isset($record['navamsams'])
                                     @foreach ($record['navamsams'] as $value => $label)
-                                        <option value="{{ $value }}">{{ $label }}</option>
+                                        <option value="{{ $value }}" @selected(in_array($value, @old('navamsam_5') ?? ($profileJathagam->navamsam->{"5"} ?? [])))>
+                                            {{ $label }}</option>
                                     @endforeach
                                 @endisset
                             </select>
@@ -649,7 +675,8 @@
                                 <option style="display:none" value="">-- Select --</option>
                                 @isset($record['navamsams'])
                                     @foreach ($record['navamsams'] as $value => $label)
-                                        <option value="{{ $value }}">{{ $label }}</option>
+                                        <option value="{{ $value }}" @selected(in_array($value, @old('navamsam_9') ?? ($profileJathagam->navamsam->{"9"} ?? [])))>
+                                            {{ $label }}</option>
                                     @endforeach
                                 @endisset
                             </select>
@@ -669,7 +696,8 @@
                                 <option style="display:none" value="">-- Select --</option>
                                 @isset($record['navamsams'])
                                     @foreach ($record['navamsams'] as $value => $label)
-                                        <option value="{{ $value }}">{{ $label }}</option>
+                                        <option value="{{ $value }}" @selected(in_array($value, @old('navamsam_8') ?? ($profileJathagam->navamsam->{"8"} ?? [])))>
+                                            {{ $label }}</option>
                                     @endforeach
                                 @endisset
                             </select>
@@ -689,7 +717,8 @@
                                 <option style="display:none" value="">-- Select --</option>
                                 @isset($record['navamsams'])
                                     @foreach ($record['navamsams'] as $value => $label)
-                                        <option value="{{ $value }}">{{ $label }}</option>
+                                        <option value="{{ $value }}" @selected(in_array($value, @old('navamsam_7') ?? ($profileJathagam->navamsam->{"7"} ?? [])))>
+                                            {{ $label }}</option>
                                     @endforeach
                                 @endisset
                             </select>
@@ -709,7 +738,8 @@
                                 <option style="display:none" value="">-- Select --</option>
                                 @isset($record['navamsams'])
                                     @foreach ($record['navamsams'] as $value => $label)
-                                        <option value="{{ $value }}">{{ $label }}</option>
+                                        <option value="{{ $value }}" @selected(in_array($value, @old('navamsam_6') ?? ($profileJathagam->navamsam->{"6"} ?? [])))>
+                                            {{ $label }}</option>
                                     @endforeach
                                 @endisset
                             </select>

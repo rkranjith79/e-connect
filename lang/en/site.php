@@ -19,7 +19,7 @@ return [
 
     'view_profile_button_2' => 'View Profile',
     'view_jathagam_button_2' => 'View Jathagam',
-    
+
     'view_search_button_2' => 'Search',
 
     //Footer
@@ -42,8 +42,8 @@ return [
    'religion_information' => 'Religion, Education, Profession',
    'native_information' => 'Location details',
    'jathagam_information' => 'Horoscope details',
-   'religion_information_view_page' => 'Religious &amp; Social Background',
-   'education_information_view_page' => 'Education &amp; Career',
+   'religion_information_view_page' => 'Religious & Social Background',
+   'education_information_view_page' => 'Education & Career',
    'family_information' => 'Family Details',
    'asset_informtion'=> 'Asset Details',
 

@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <div class="aiz-main-wrapper d-flex flex-column bg-white">        
+    <div class="aiz-main-wrapper d-flex flex-column bg-white">
         <div class="print-content" id="full-profile">
             <div id="reg-form" class="view-profile">
                 <div class="row">
@@ -88,7 +88,7 @@
                     </div>
                 </div>
 
-                <h4 class="section-title">{{ trans('fields.religion_information') }}</h4>
+                <h4 class="section-title">{{ trans('fields.section_religion') }}</h4>
                 <div class="form-row">
                     <div class="col-6">
                         <table>
@@ -418,13 +418,13 @@
                                         {{ $data['profile']->expectation ?? "-" }}
                                     </td>
                                 </tr>
-                                
+
                             </tbody>
                         </table>
                     </div>
                 </div>
 
-              
+
             </div>
         </div>
     </div>

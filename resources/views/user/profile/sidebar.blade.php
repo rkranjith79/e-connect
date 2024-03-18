@@ -8,13 +8,13 @@
     <div class="aiz-user-sidenav rounded overflow-hidden">
         <div class="px-4 text-center mb-4">
             <span class="avatar avatar-md mb-3">
-                <img src="https://ganeshkongumatrimony.com/uploads/profile_images/GtzeTt7nQfm7peOmALRDMuCjmISsTeU4NyIPdQIQ.png"
-                    onerror="this.onerror=null;this.src='https://ganeshkongumatrimony.com/assets/img/avatar-place.png';">
+                <img src="{{ Auth::user()->profile->photo }}" alt="Profile Photo"
+                    onerror="this.onerror=null;this.src='{{ asset('img/avatar-place.png')}}';">
             </span>
-            <h4 class="h5 fw-600">KAVI KALIDASS </h4>
+            <h4 class="h5 fw-600">{{ Auth::User()->profile->title }}</h4>
         </div>
         <div class="text-center mb-3 px-3">
-            <a href="https://ganeshkongumatrimony.com/p/2hseiew" class="btn btn-block btn-soft-primary"><i
+            <a href="{{ route('user.profile', ['id' => $profile->id]) }}" class="btn btn-block btn-soft-primary"><i
                     class="fas fa-user"></i> My Profile</a>
         </div>
 
@@ -46,8 +46,8 @@
                 <i class="fas fa-sign-out-alt"></i>
                 <span>Logout</span>
 
-                <form id="logout-form" action="" method="POST" style="display: none;">
-                    <input type="hidden" name="_token" value="6Rd5cNFIBI2WvQ5bns1BM35bSTQkeptH2mmRFxoh">
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    @csrf
                 </form>
             </a>
         </div>

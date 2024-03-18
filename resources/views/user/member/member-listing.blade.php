@@ -36,7 +36,7 @@
                                                     <a href="{{ route('user.jathagam', ['id' => $profile->id]) }}"
                                                             class="btn btn-primary btn-sm ml-1">{{ trans('site.view_jathagam_button') }} <i
                                                             class="fas fa-file-invoice"></i></a>
-                                                   
+
                                                 </div>
                                             </div>
                                         </div>

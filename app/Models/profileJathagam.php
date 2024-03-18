@@ -38,7 +38,7 @@ class profileJathagam extends MasterModel
     {
         return $this->belongsTo(RasiNakshatra::class)->Translated();
     }
-    
+
     public function lagnam()
     {
         return $this->belongsTo(Lagnam::class)->Translated();
@@ -59,15 +59,20 @@ class profileJathagam extends MasterModel
         return Carbon::parse($this->attributes['date_of_birth'])->age;
     }
 
+    public function getJathagamAttribute()
+    {
+        return asset("storage/jathagam/" . $this->attributes['jathagam_file']);
+    }
+
     public function getBirthDasaRemainingAttribute()
     {
         return (
-              $this->attributes['birth_dasa_remaining_year'] 
-                ." Year(s) ".
-                $this->attributes['birth_dasa_remaining_month'] 
-                ." Month(s)  ".
-                $this->attributes['birth_dasa_remaining_day'] 
-                ." Day(s) "
+            $this->attributes['birth_dasa_remaining_year']
+            . " Year(s) " .
+            $this->attributes['birth_dasa_remaining_month']
+            . " Month(s)  " .
+            $this->attributes['birth_dasa_remaining_day']
+            . " Day(s) "
         );
     }
 
@@ -77,10 +82,10 @@ class profileJathagam extends MasterModel
 
         $this->rasi =  $this->rasi;
 
-        foreach($this->rasi as $key => $rasi) {
+        foreach ($this->rasi as $key => $rasi) {
             $rasi = array_filter((array)($rasi));
-            if(!empty($rasi)) {
-                $return[$key] = Rasi::find($rasi)?->Translated()?->pluck('title')?->implode(", ");
+            if (!empty($rasi)) {
+                $return[$key] = Rasi::whereIn('id',$rasi)?->Translated()?->pluck('title')?->implode(", ");
             }
         }
         return $return;
@@ -93,10 +98,10 @@ class profileJathagam extends MasterModel
         $this->navamsam = array_filter((array) $this->navamsam);
 
 
-        foreach($this->navamsam as $key => $navamsam) {
+        foreach ($this->navamsam as $key => $navamsam) {
             $navamsam = array_filter((array)($navamsam));
-            if(!empty($navamsam))
-                $return[$key] = Navamsam::find($navamsam)?->Translated()?->pluck('title')?->implode(", ");
+            if (!empty($navamsam))
+                $return[$key] = Navamsam::whereIn('id', $navamsam)?->Translated()?->pluck('title')?->implode(", ");
         }
         return $return;
     }

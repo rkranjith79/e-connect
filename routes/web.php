@@ -84,9 +84,10 @@ Route::name('user.')->prefix('user')->middleware(['auth'])->group(function () {
     Route::get('/jathagam/{id?}', [App\Http\Controllers\User\MemberController::class, 'jathagam'])->name('jathagam');
     Route::get('/profile-advanced-search', [App\Http\Controllers\User\MemberController::class, 'advancedSearch'])->name('advancedSearch');
     Route::get('/profile-search', [App\Http\Controllers\User\MemberController::class, 'search'])->name('search');
-    Route::get('/profile/{id?}', [App\Http\Controllers\User\MemberController::class, 'profile'])->name('profile');    
+    Route::get('/profile/{id?}', [App\Http\Controllers\User\MemberController::class, 'profile'])->name('profile');
     Route::post('/profile_store', [App\Http\Controllers\User\ProfileController::class, 'store'])->name('profile_store');
     Route::get('/information/{id?}', [App\Http\Controllers\User\InformationController::class, 'index'])->name('information');
-    Route::get('/profile-edit', [App\Http\Controllers\User\ProfileController::class, 'edit'])->name('profile_edit');
+    Route::get('/profile-edit/{profile?}', [App\Http\Controllers\User\ProfileController::class, 'edit'])->name('profile_edit');
     Route::get('/change-password', [App\Http\Controllers\User\ProfileController::class, 'changePassword'])->name('change_password');
+    Route::put('/profile-update/{id}', [App\Http\Controllers\User\ProfileController::class, 'update'])->name('profile_update');
 });

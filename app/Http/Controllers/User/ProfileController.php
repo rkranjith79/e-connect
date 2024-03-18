@@ -40,6 +40,7 @@ use App\Models\Work;
 use App\Models\WorkPlace;
 use App\Traits\LookupTrait;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class ProfileController extends Controller
 {
@@ -280,13 +281,18 @@ class ProfileController extends Controller
             "date_of_birth" => $request->date_of_birth,
             "time_of_birth" => $request->time_of_birth,
             "place_of_birth" => $request->place_of_birth,
-            "birth_dasa_id" => $request->birth_dasa,
+            "birth_dasa_id" => $request->birth_dasa_id,
             "birth_dasa_remaining_year" => $request->birth_dasa_remaining_year,
             "birth_dasa_remaining_month" => $request->birth_dasa_remaining_month,
             "birth_dasa_remaining_day" => $request->birth_dasa_remaining_day,
             "rasi" => $rasi,
             "navamsam" => $navamsam,
             "jathagam_file" => $jathagam_file_path
+        ]);
+
+        return response()->json([
+            'status' => 200,
+            'message' => "Profile Created Successfully",
         ]);
     }
 
@@ -319,7 +325,7 @@ class ProfileController extends Controller
      */
     public function edit(Profile $profile)
     {
-        $profile = Auth::user()->profile;
+        $profile = !empty($profile->id ?? '') ? $profile : Auth::user()->profile;
         $profileBasic = ProfileBasic::where('profile_id', $profile->id)->first();
         $profileJathagam = profileJathagam::where('profile_id', $profile->id)->first();
         $record = $this->getlookupData();
@@ -333,15 +339,13 @@ class ProfileController extends Controller
      * @param  \App\Models\Profile  $profile
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Profile $profile)
+    public function update(Request $request, $id)
     {
         $validator = Validator::make($request->all(), [
-            'photo_file' => ['required', 'image', 'mimes:jpeg,jpg,png', 'max:2048'],
-            'jathagam_file' => ['required', 'image', 'mimes:jpeg,jpg,png', 'max:2048'],
+            'photo_file' => ['nullable', 'image', 'mimes:jpeg,jpg,png', 'max:2048'],
+            'jathagam_file' => ['nullable', 'image', 'mimes:jpeg,jpg,png', 'max:2048'],
             'title' => ['required', 'max:100'],
-            'email' => ['required', 'unique:users', 'max:100'],
             'gender_id' => ['required'],
-            'password' => ['required', 'max:200'],
             'marital_status_id' => ['required'],
             'registered_by_id' => ['required'],
             'color_id' => ['required'],
@@ -351,22 +355,18 @@ class ProfileController extends Controller
             'height_id' => ['required'],
             'blood_group_id' => ['required'],
 
-
             'temple' => ['required', 'max:100'],
             'religion_id' => ['required'],
             'caste_id' => ['required'],
             'sub_caste_id' => ['required'],
             'work_id' => ['required'],
             'education_details' => ['required', 'max:100'],
-
             'work_place_id' => ['required'],
-
             'work_details' => ['required', 'max:100'],
             'whatsapp' => ['required', 'max:100'],
             'phone' => ['required', 'max:100'],
             'address' => ['required', 'max:1000'],
             'monthly_income' => ['required', 'max:100'],
-
 
             'country_id' => ['required'],
             'state_id' => ['required'],
@@ -375,8 +375,6 @@ class ProfileController extends Controller
             'state_others' => ['required', 'max:100'],
             'district_id' => ['required'],
             'district_others' => ['required', 'max:100'],
-
-
 
             'father_name' => ['required', 'max:100'],
             'mother_name' => ['required', 'max:100'],
@@ -399,7 +397,7 @@ class ProfileController extends Controller
             'jathagam_id' => ['required'],
             'nakshatra_patham_id' => ['required'],
             'date_of_birth' => ['required', 'date'],
-            'time_of_birth' => ['required', 'date_format:h:i'],
+            'time_of_birth' => ['required', 'date_format:h:i:s'],
             'place_of_birth' => ['required', 'max:200'],
 
             'birth_dasa_remaining_year' => ['required', 'max:200'],
@@ -438,6 +436,118 @@ class ProfileController extends Controller
             "expectation"  => ['nullable'],
 
         ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'status' => 400,
+                'errors' => $validator->messages(),
+            ]);
+        } else {
+            $rasi = [];
+            $navamsam = [];
+            for ($i = 1; $i <= 12; $i++) {
+                $rasi[$i] = $request->{'rasi_' . $i};
+                $navamsam[$i] = $request->{'navamsam_' . $i};
+            };
+
+            $photo_file_path = $jathagam_file_path = "";
+            $profile = Profile::findOrFail($request->id);
+            $profileBasic = ProfileBasic::where('profile_id', $profile->id)->first();
+            $profileJathagam = profileJathagam::where('profile_id', $profile->id)->first();
+
+            $profile->update([
+                "language_tamil" => $request->title,
+                "title" => $request->title,
+                "color_id" => $request->color_id,
+                "body_type_id" => $request->body_type_id,
+                "blood_group_id" => $request->blood_group_id,
+                "weight_id" => $request->weight_id,
+                "height_id" => $request->height_id,
+                "physical_status_id" => $request->physical_status_id,
+                "registered_by_id" => $request->registered_by_id,
+                "marital_status_id" => $request->marital_status_id,
+                "gender_id" => $request->gender_id,
+                "expectation_jathagam_id" => $request->expectation_jathagam_id,
+                "expectation_marital_status_id" => $request->expectation_marital_status_id,
+                "expectation_work_place_id" => $request->expectation_work_place_id,
+                "expectation_nakshatra" => $request->expectation_nakshatra,
+                "expectation" => $request->expectation,
+                "active" => $request->active == true ? '1' : '0',
+            ]);
+
+            if ($request->hasFile('photo_file')) {
+                $file = $request->file('photo_file');
+                $photo_file_path = $file->getClientOriginalName();
+                $file->storeAs('public/photos', $photo_file_path);
+                $profile->update([
+                    "photo_file" => $photo_file_path,
+                ]);
+            }
+
+            $profileBasic->update([
+                "temple" => $request->temple,
+                "caste_id" => $request->caste_id,
+                "sub_caste_id" => $request->sub_caste_id,
+                "education_details" => $request->education_details,
+                "work_id" => $request->work_id,
+                "work_details" => $request->work_details,
+                "monthly_income" => $request->monthly_income,
+                "phone" => $request->phone,
+                "whatsapp" => $request->whatsapp,
+                "address" => $request->address,
+                "country_id" => $request->country_id,
+                "state_id" => $request->state_id,
+                "district_id" => $request->district_id,
+                "country_others" => $request->country_others,
+                "state_others" => $request->state_others,
+                "district_others" => $request->district_others,
+                "father_status_id" => $request->father_status_id,
+                "mother_status_id" => $request->mother_status_id,
+                "social_type_id" => $request->social_type_id,
+                "father_name" => $request->father_name,
+                "mother_name" => $request->mother_name,
+                "native" => $request->native,
+                "siblings" => $request->siblings,
+                "asset_value_id" => $request->asset_value_id,
+                "asset_details" => $request->asset_details,
+                "seimurai" => $request->seimurai,
+                "religion_id" => $request->religion_id,
+                "education_id" => $request->education_id,
+                "work_place_id" => $request->work_place_id,
+                "father_occupation" => $request->father_occupation,
+                "mother_occupation" => $request->mother_occupation
+            ]);
+
+            $profileJathagam->update([
+                "rasi_nakshatra_id" => $request->rasi_nakshatra_id,
+                "lagnam_id" => $request->lagnam_id,
+                "jathagam_id" => $request->jathagam_id,
+                "nakshatra_patham_id" => $request->nakshatra_patham_id,
+                "date_of_birth" => $request->date_of_birth,
+                "time_of_birth" => $request->time_of_birth,
+                "place_of_birth" => $request->place_of_birth,
+                "birth_dasa_id" => $request->birth_dasa_id,
+                "birth_dasa_remaining_year" => $request->birth_dasa_remaining_year,
+                "birth_dasa_remaining_month" => $request->birth_dasa_remaining_month,
+                "birth_dasa_remaining_day" => $request->birth_dasa_remaining_day,
+                "rasi" => $rasi,
+                "navamsam" => $navamsam,
+            ]);
+
+            if ($request->hasFile('jathagam_file')) {
+                $file = $request->file('jathagam_file');
+                $jathagam_file_path = $file->getClientOriginalName();
+                $file->storeAs('public/jathagam', $jathagam_file_path);
+                $profileJathagam->update([
+                    "jathagam_file" => $jathagam_file_path
+                ]);
+            }
+
+            return response()->json([
+                'status' => 200,
+                'message' => "Profile Updated Successfully",
+            ]);
+        }
     }
 
     /**

@@ -58,7 +58,7 @@
                     <option style="display:none" value="">-- Select --</option>
                     @isset($record['genders'])
                         @foreach ($record['genders'] as $value => $label)
-                            <option value="{{ $value }}" @selected( old('gender_id') ?? ($profile->gender_id ?? '') == $value)>{{ $label }}</option>
+                            <option value="{{ $value }}" @selected(old('gender_id') ?? ($profile->gender_id ?? '') == $value)>{{ $label }}</option>
                         @endforeach
                     @endisset
                 </select>
@@ -78,8 +78,9 @@
                     class="form-control aiz-selectpicker required " data-live-search="true" -data-width="auto">
                     <option style="display:none" value="">-- Select --</option>
                     @isset($record['marital_statuses'])
+                        <option>Select</option>
                         @foreach ($record['marital_statuses'] as $value => $label)
-                            <option value="{{ $value }}" @selected( old('marital_status_id') ?? ($profile->marital_status_id ?? '') == $value)>{{ $label }}</option>
+                            <option value="{{ $value }}" @selected(old('marital_status_id') ?? ($profile->marital_status_id ?? '') == $value)>{{ $label }}</option>
                         @endforeach
                     @endisset
                 </select>
@@ -95,7 +96,8 @@
             <div class="input-group">
                 <div class="input-group-prepend"><span class="input-group-text"><i class="fas fa-pen"></i></span>
                 </div>
-                <input type="text" class="form-control required " value="{{ old('marital_details') ?? ($profile->marital_details ?? '') }}" id="marital_details"
+                <input type="text" class="form-control required "
+                    value="{{ old('marital_details') ?? ($profile->marital_details ?? '') }}" id="marital_details"
                     name="marital_details" maxlength="255">
             </div>
             <small class="form-text text-muted text-help"></small>
@@ -109,7 +111,8 @@
             <div class="input-group">
                 <div class="input-group-prepend"><span class="input-group-text"><i class="fas fa-pen"></i></span>
                 </div>
-                <input type="text" class="form-control required " value="{{ old('children_details') ?? ($profile->children_details ?? '') }}" id="children_details"
+                <input type="text" class="form-control required "
+                    value="{{ old('children_details') ?? ($profile->children_details ?? '') }}" id="children_details"
                     name="children_details" maxlength="255">
             </div>
             <small class="form-text text-muted text-help"></small>
@@ -128,7 +131,7 @@
                     <option style="display:none" value="">-- Select --</option>
                     @isset($record['registered_bies'])
                         @foreach ($record['registered_bies'] as $value => $label)
-                            <option value="{{ $value }}" @selected( old('registered_by_id') ?? ($profile->registered_by_id ?? '') == $value)>{{ $label }}</option>
+                            <option value="{{ $value }}" @selected(old('registered_by_id') ?? ($profile->registered_by_id ?? '') == $value)>{{ $label }}</option>
                         @endforeach
                     @endisset
                 </select>
