@@ -79,8 +79,8 @@
                 processData: false, // Do not process the data, let FormData handle it
 
                 success: function(response) {
-                    if (response.success) {
-                        window.location.replace("{{ route('user.member-listing') }}"); 
+                    if (response.status == 200 ) {
+                        window.location.href = "{{ route('user.member-listing') }}"; 
                         $("#myForm")[0].reset(); // Reset the form
                         $("#successMessage").show(); // Show success message
                         clearErrors(); // Clear any previous error messages
