@@ -89,4 +89,5 @@ Route::name('user.')->prefix('user')->middleware(['auth'])->group(function () {
     Route::get('/information/{id?}', [App\Http\Controllers\User\InformationController::class, 'index'])->name('information');
     Route::get('/profile-edit', [App\Http\Controllers\User\ProfileController::class, 'edit'])->name('profile_edit');
     Route::get('/change-password', [App\Http\Controllers\User\ProfileController::class, 'changePassword'])->name('change_password');
+    Route::post('/update-password', [App\Http\Controllers\User\ProfileController::class, 'updatePassword'])->name('update_password');
 });

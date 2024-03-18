@@ -40,10 +40,12 @@ use App\Models\Work;
 use App\Models\WorkPlace;
 use App\Traits\LookupTrait;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Foundation\Auth\ResetsPasswords;
 
 class ProfileController extends Controller
 {
     use LookupTrait;
+    use ResetsPasswords;
     /**
      * Display a listing of the resource.
      *
@@ -380,6 +382,29 @@ class ProfileController extends Controller
 
     public function changePassword()
     {
-        return view('user.profile.change_password');
+        $email = Auth::user()->email;      
+        return view('user.profile.change_password', compact('email'));
+    }
+
+    public function updatePassword(Request $request)
+    {                
+        $validator = Validator::make($request->all(), [
+            'email' => 'required',
+            'password' => 'required|min:8|confirmed',
+        ]);
+        
+        if ($validator->fails()) {            
+            return redirect()->route('user.change_password')->withErrors($validator)->withInput();
+        }        
+        $user = Auth::user();
+        $email = Auth::user()->email;
+        if($email == $request->email ){                
+            $user->password = Hash::make($request->password);
+            $user->save();
+            return redirect()->route('user.change_password')->with('success', 'Password changed successfully.');
+        } else {
+            return redirect()->route('user.change_password')->with('error', 'Email Password Mismatch.');
+        }
+        
     }
 }
