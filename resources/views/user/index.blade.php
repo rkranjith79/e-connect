@@ -160,7 +160,7 @@
                                         <p class="mb-0">{{ trans("fields.education") }} : <span class="font-weight-bold">{{ $profile->basic->education->title ?? '-' }}</span></p>
                                         <p class="mb-0">{{ trans("fields.rasi") }} : <span class="font-weight-bold">{{ $profile->jathagam->rasi_nakshatra->title ?? '-' }}</span></p>
                                         <p class="mb-0">{{ trans("fields.jathagam") }} : <span class="font-weight-bold">{{ $profile->jathagam->jathagam->title ?? '-' }}</span></p>
-                                        <p class="mb-0">{{ trans("fields.distict") }}  : <span class="font-weight-bold">{{ $profile->basic->district->title ?? '-' }}</span></p>
+                                        <p class="mb-0">{{ trans("fields.district") }}  : <span class="font-weight-bold">{{ $profile->basic->district->title ?? '-' }}</span></p>
                                         <div class="text-center mt-2">
                                             <a href="{{ route('user.profile', ['id' => $profile->id]) }}" 
                                                 class="btn btn-circle btn-sm btn-primary mr-1">
@@ -194,7 +194,7 @@
                                     <p class="mb-0">{{ trans("fields.education") }} : <span class="font-weight-bold">{{ $profile->basic->education->title ?? '-' }}</span></p>
                                     <p class="mb-0">{{ trans("fields.rasi") }} : <span class="font-weight-bold">{{ $profile->jathagam->rasi_nakshatra->title ?? '-' }}</span></p>
                                     <p class="mb-0">{{ trans("fields.jathagam") }} : <span class="font-weight-bold">{{ $profile->jathagam->jathagam->title ?? '-' }}</span></p>
-                                    <p class="mb-0">{{ trans("fields.distict") }}  : <span class="font-weight-bold">{{ $profile->basic->district->title ?? '-' }}</span></p>
+                                    <p class="mb-0">{{ trans("fields.district") }}  : <span class="font-weight-bold">{{ $profile->basic->district->title ?? '-' }}</span></p>
                                     <div class="text-center mt-2">
                                         <a href="{{ route('user.profile', ['id' => $profile->id]) }}"
                                             class="btn btn-circle btn-sm btn-primary mr-1">

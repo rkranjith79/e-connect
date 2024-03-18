@@ -18,7 +18,7 @@
                             style="box-shadow: 0 -25px 50px -12px rgb(0 0 0 / 25%); background-color:#fff3!important">
                             <div class="row">
                                 <div class="col mx-auto">
-                                    <form action="https://ganeshkongumatrimony.com/member-listing" method="get">
+                                    <form action="https://econnectmatrimony.com/member-listing" method="get">
                                         <div class="row gutters-5">
                                             <div class="col-lg">
                                                 <div class="form-group mb-3">
@@ -237,7 +237,7 @@
                     data-dots='true' data-infinite='true' data-autoplay='true'>
                     <div class="carousel-box">
                         <div class="member-block position-relative overflow-hidden">
-                            <img data-lazy="https://ganeshkongumatrimony.com/uploads/profile_images/CIYP6R4iIcBNrskZcZXBBXfeS2u4iZLXjy8eYla4.jpg"
+                            <img data-lazy="https://econnectmatrimony.com/uploads/profile_images/CIYP6R4iIcBNrskZcZXBBXfeS2u4iZLXjy8eYla4.jpg"
                                 class="img-fit mw-100 h-300px">
                             <div class="w-100 p-3 z-1">
                                 <div class="text-center">
@@ -260,7 +260,7 @@
                     </div>
                     <div class="carousel-box">
                         <div class="member-block position-relative overflow-hidden">
-                            <img data-lazy="https://ganeshkongumatrimony.com/uploads/profile_images/tmEvqai7SskCI1GE7nRqGeMnRZ46l64mmjzZfONC.jpg"
+                            <img data-lazy="https://econnectmatrimony.com/uploads/profile_images/tmEvqai7SskCI1GE7nRqGeMnRZ46l64mmjzZfONC.jpg"
                                 class="img-fit mw-100 h-300px">
                             <div class="w-100 p-3 z-1">
                                 <div class="text-center">
@@ -283,7 +283,7 @@
                     </div>
                     <div class="carousel-box">
                         <div class="member-block position-relative overflow-hidden">
-                            <img data-lazy="https://ganeshkongumatrimony.com/uploads/profile_images/OhHEmneORWZBpi6YR8PEWD6Mig4UoBiEQLWAiaOH.jpg"
+                            <img data-lazy="https://econnectmatrimony.com/uploads/profile_images/OhHEmneORWZBpi6YR8PEWD6Mig4UoBiEQLWAiaOH.jpg"
                                 class="img-fit mw-100 h-300px">
                             <div class="w-100 p-3 z-1">
                                 <div class="text-center">
@@ -308,7 +308,7 @@
                     </div>
                     <div class="carousel-box">
                         <div class="member-block position-relative overflow-hidden">
-                            <img data-lazy="https://ganeshkongumatrimony.com/uploads/profile_images/FYSDLSEYgGNqsffUCvfGpKbMpWZmfX6a0f4OSPob.jpg"
+                            <img data-lazy="https://econnectmatrimony.com/uploads/profile_images/FYSDLSEYgGNqsffUCvfGpKbMpWZmfX6a0f4OSPob.jpg"
                                 class="img-fit mw-100 h-300px">
                             <div class="w-100 p-3 z-1">
                                 <div class="text-center">
@@ -333,7 +333,7 @@
                     </div>
                     <div class="carousel-box">
                         <div class="member-block position-relative overflow-hidden">
-                            <img data-lazy="https://ganeshkongumatrimony.com/uploads/profile_images/cGQSKZfy3QNiTnPkf5dfTVhm6OaQX8e2LPjj0TIp.jpg"
+                            <img data-lazy="https://econnectmatrimony.com/uploads/profile_images/cGQSKZfy3QNiTnPkf5dfTVhm6OaQX8e2LPjj0TIp.jpg"
                                 class="img-fit mw-100 h-300px">
                             <div class="w-100 p-3 z-1">
                                 <div class="text-center">
@@ -356,7 +356,7 @@
                     </div>
                     <div class="carousel-box">
                         <div class="member-block position-relative overflow-hidden">
-                            <img data-lazy="https://ganeshkongumatrimony.com/uploads/profile_images/srL5qoaIGFqe3uEdVvlwW6cg4bat3a64JZvRV8Mt21.png"
+                            <img data-lazy="https://econnectmatrimony.com/uploads/profile_images/srL5qoaIGFqe3uEdVvlwW6cg4bat3a64JZvRV8Mt21.png"
                                 class="img-fit mw-100 h-300px">
                             <div class="w-100 p-3 z-1">
                                 <div class="text-center">
@@ -382,7 +382,7 @@
                     </div>
                     <div class="carousel-box">
                         <div class="member-block position-relative overflow-hidden">
-                            <img data-lazy="https://ganeshkongumatrimony.com/uploads/profile_images/T3vc1wVFd2F3HiQfazwQebcK8xEW6J2uXcNCmH3R56.png"
+                            <img data-lazy="https://econnectmatrimony.com/uploads/profile_images/T3vc1wVFd2F3HiQfazwQebcK8xEW6J2uXcNCmH3R56.png"
                                 class="img-fit mw-100 h-300px">
                             <div class="w-100 p-3 z-1">
                                 <div class="text-center">
@@ -407,7 +407,7 @@
                     </div>
                     <div class="carousel-box">
                         <div class="member-block position-relative overflow-hidden">
-                            <img data-lazy="https://ganeshkongumatrimony.com/uploads/profile_images/uXjYCy64TRlGvXdvFLTDGigB8CRcGzBaN2nCj7YL3034.png"
+                            <img data-lazy="https://econnectmatrimony.com/uploads/profile_images/uXjYCy64TRlGvXdvFLTDGigB8CRcGzBaN2nCj7YL3034.png"
                                 class="img-fit mw-100 h-300px">
                             <div class="w-100 p-3 z-1">
                                 <div class="text-center">
@@ -431,7 +431,7 @@
                     </div>
                     <div class="carousel-box">
                         <div class="member-block position-relative overflow-hidden">
-                            <img data-lazy="https://ganeshkongumatrimony.com/assets/img/avatar-place.png"
+                            <img data-lazy="https://econnectmatrimony.com/img/avatar-place.png"
                                 class="img-fit mw-100 h-300px">
                             <div class="w-100 p-3 z-1">
                                 <div class="text-center">
@@ -454,7 +454,7 @@
                     </div>
                     <div class="carousel-box">
                         <div class="member-block position-relative overflow-hidden">
-                            <img data-lazy="https://ganeshkongumatrimony.com/uploads/profile_images/eqUALeZmiGDhB2U8dHpaOOREwp77hbdM9lyRe2JY27.png"
+                            <img data-lazy="https://econnectmatrimony.com/uploads/profile_images/eqUALeZmiGDhB2U8dHpaOOREwp77hbdM9lyRe2JY27.png"
                                 class="img-fit mw-100 h-300px">
                             <div class="w-100 p-3 z-1">
                                 <div class="text-center">
@@ -481,7 +481,7 @@
                     data-dots='true' data-infinite='true' data-autoplay='true'>
                     <div class="carousel-box">
                         <div class="member-block position-relative overflow-hidden">
-                            <img data-lazy="https://ganeshkongumatrimony.com/uploads/profile_images/FAVDaXLeNJhz4xMj1HRjomWRgyPTexpG5duxT7Zw.jpg"
+                            <img data-lazy="https://econnectmatrimony.com/uploads/profile_images/FAVDaXLeNJhz4xMj1HRjomWRgyPTexpG5duxT7Zw.jpg"
                                 class="img-fit mw-100 h-300px">
                             <div class="w-100 p-3 z-1">
                                 <div class="text-center">
@@ -504,7 +504,7 @@
                     </div>
                     <div class="carousel-box">
                         <div class="member-block position-relative overflow-hidden">
-                            <img data-lazy="https://ganeshkongumatrimony.com/uploads/profile_images/LiRALla76PEkch4RsOwwEa1VPVcTwI7TScut609m78.png"
+                            <img data-lazy="https://econnectmatrimony.com/uploads/profile_images/LiRALla76PEkch4RsOwwEa1VPVcTwI7TScut609m78.png"
                                 class="img-fit mw-100 h-300px">
                             <div class="w-100 p-3 z-1">
                                 <div class="text-center">
@@ -528,7 +528,7 @@
                     </div>
                     <div class="carousel-box">
                         <div class="member-block position-relative overflow-hidden">
-                            <img data-lazy="https://ganeshkongumatrimony.com/uploads/profile_images/dm91FvIQBB8VGgyJbjjCVN2jW1vBNy0zM88XKmmU.jpg"
+                            <img data-lazy="https://econnectmatrimony.com/uploads/profile_images/dm91FvIQBB8VGgyJbjjCVN2jW1vBNy0zM88XKmmU.jpg"
                                 class="img-fit mw-100 h-300px">
                             <div class="w-100 p-3 z-1">
                                 <div class="text-center">
@@ -553,7 +553,7 @@
                     </div>
                     <div class="carousel-box">
                         <div class="member-block position-relative overflow-hidden">
-                            <img data-lazy="https://ganeshkongumatrimony.com/uploads/profile_images/QAMVpmU6zStJdzvVHbQSXda67ppShrbA8IIEQDHX51.png"
+                            <img data-lazy="https://econnectmatrimony.com/uploads/profile_images/QAMVpmU6zStJdzvVHbQSXda67ppShrbA8IIEQDHX51.png"
                                 class="img-fit mw-100 h-300px">
                             <div class="w-100 p-3 z-1">
                                 <div class="text-center">
@@ -578,7 +578,7 @@
                     </div>
                     <div class="carousel-box">
                         <div class="member-block position-relative overflow-hidden">
-                            <img data-lazy="https://ganeshkongumatrimony.com/uploads/all/qjCI0e92BuHqaQBzOpEULSNb4w55P27jQiO6Tmt2.jpg"
+                            <img data-lazy="https://econnectmatrimony.com/uploads/all/qjCI0e92BuHqaQBzOpEULSNb4w55P27jQiO6Tmt2.jpg"
                                 class="img-fit mw-100 h-300px">
                             <div class="w-100 p-3 z-1">
                                 <div class="text-center">
@@ -603,7 +603,7 @@
                     </div>
                     <div class="carousel-box">
                         <div class="member-block position-relative overflow-hidden">
-                            <img data-lazy="https://ganeshkongumatrimony.com/uploads/profile_images/DNVRZibvsUdKuXKVLR0YSZ6BUPkewMo9Xyn7e5wU42.png"
+                            <img data-lazy="https://econnectmatrimony.com/uploads/profile_images/DNVRZibvsUdKuXKVLR0YSZ6BUPkewMo9Xyn7e5wU42.png"
                                 class="img-fit mw-100 h-300px">
                             <div class="w-100 p-3 z-1">
                                 <div class="text-center">
@@ -626,7 +626,7 @@
                     </div>
                     <div class="carousel-box">
                         <div class="member-block position-relative overflow-hidden">
-                            <img data-lazy="https://ganeshkongumatrimony.com/uploads/profile_images/d0RdFSDAP10NBaZOtABh5eySiu1BwRPvHUZpg9DO45.png"
+                            <img data-lazy="https://econnectmatrimony.com/uploads/profile_images/d0RdFSDAP10NBaZOtABh5eySiu1BwRPvHUZpg9DO45.png"
                                 class="img-fit mw-100 h-300px">
                             <div class="w-100 p-3 z-1">
                                 <div class="text-center">
@@ -651,7 +651,7 @@
                     </div>
                     <div class="carousel-box">
                         <div class="member-block position-relative overflow-hidden">
-                            <img data-lazy="https://ganeshkongumatrimony.com/uploads/profile_images/e28JcGHyW6BV9ELSjaND1uIbwg6yyZbQHm6JTtZD.jpg"
+                            <img data-lazy="https://econnectmatrimony.com/uploads/profile_images/e28JcGHyW6BV9ELSjaND1uIbwg6yyZbQHm6JTtZD.jpg"
                                 class="img-fit mw-100 h-300px">
                             <div class="w-100 p-3 z-1">
                                 <div class="text-center">
@@ -676,7 +676,7 @@
                     </div>
                     <div class="carousel-box">
                         <div class="member-block position-relative overflow-hidden">
-                            <img data-lazy="https://ganeshkongumatrimony.com/uploads/profile_images/l3UXPnf3XjjCiQi0nGOlPZZcfcMLs0By6SXEDTJB62.png"
+                            <img data-lazy="https://econnectmatrimony.com/uploads/profile_images/l3UXPnf3XjjCiQi0nGOlPZZcfcMLs0By6SXEDTJB62.png"
                                 class="img-fit mw-100 h-300px">
                             <div class="w-100 p-3 z-1">
                                 <div class="text-center">
@@ -700,7 +700,7 @@
                     </div>
                     <div class="carousel-box">
                         <div class="member-block position-relative overflow-hidden">
-                            <img data-lazy="https://ganeshkongumatrimony.com/uploads/profile_images/quWZLYFr2eFoomB6M3He3TmtqB7VUpx6dblX7Mef.jpg"
+                            <img data-lazy="https://econnectmatrimony.com/uploads/profile_images/quWZLYFr2eFoomB6M3He3TmtqB7VUpx6dblX7Mef.jpg"
                                 class="img-fit mw-100 h-300px">
                             <div class="w-100 p-3 z-1">
                                 <div class="text-center">

@@ -30,7 +30,7 @@
                             <span class="invalid-feedback"></span>
                         </div>
                         <div class="form-group">
-                            <textarea id="summernote" class="form-control" rows="15" height="500px" name="content">value="{{ $form_data['content'] ?? '' }}"</textarea>
+                            <textarea id="summernote" class="form-control" rows="15" height="500px" name="content">{{ $form_data['content'] ?? '' }}</textarea>
                             <small class="form-text text-muted text-help"></small>
                             <span class="invalid-feedback"></span>
                         </div>

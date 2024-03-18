@@ -50,7 +50,7 @@ return new class extends Migration
             $table->string('language_tamil');
         });
         Schema::table('informations', function (Blueprint $table) {
-            $table->string('language_tamil');
+            $table->string('language_tamil')->nullable();
         });
         Schema::table('jathagams', function (Blueprint $table) {
             $table->string('language_tamil');
