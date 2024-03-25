@@ -27,41 +27,41 @@
                 </div>
                 <div class="col-lg-7 col">
                     <ul class="list-inline mb-0 d-flex align-items-center justify-content-end ">
-                        <li class="list-inline-item mr-3 pr-3 border-right text-reset text-center">
-                            <span> {{ __getSiteConfigration('help_line', 'label') }} </span>
-                            <span><a href="tel:{{ __getSiteConfigration('help_line') }}">
-                                    {{ __getSiteConfigration('help_line', 'value') }}</a></span>
-                        </li>
-                        <li class="list-inline-item mx-4">
-                            <a href="{{ route('user.profile_edit') }}"
-                                class="d-flex align-items-center text-reset">
-                                <img class="size-30px rounded-circle img-fit mr-2" src="{{ Auth::user()->profile->photo }}" alt="Profile Photo"
-                    onerror="this.onerror=null;this.src='{{ asset('img/avatar-place.png')}}';">
-                                <span class="mr-1">
-                                    Hi,
-                                </span>
-                                <span class="text-primary-grad fw-700">
-                                    {{ Auth::user()->profile->title ?? '' }}
-                                </span>
-                            </a>
-                        </li>
-                        @if(Auth::user())
-                        <li class="list-inline-item text-center">
-                        <form method="POST" action="{{ route('logout') }}">
-                            @csrf
-                            <button class="btn btn-sm btn-primary text-white fw-600 py-1 border" type="submit">{{ trans("site.logout") }}</button>
-                        </form>
-                        </li>                       
+                        @if (Auth::user())
+                            <li class="list-inline-item mx-4">
+                                <a href="{{ route('user.profile_edit') }}" class="d-flex align-items-center text-reset">
+                                    <img class="size-30px rounded-circle img-fit mr-2"
+                                        src="{{ Auth::user()->profile->photo ?? '' }}" alt="Profile Photo"
+                                        onerror="this.onerror=null;this.src='{{ asset('img/avatar-place.png') }}';">
+                                    <span class="mr-1">
+                                        Hi,
+                                    </span>
+                                    <span class="text-primary-grad fw-700">
+                                        {{ Auth::user()->profile->title ?? '' }}
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="list-inline-item text-center">
+                                <form method="POST" action="{{ route('logout') }}">
+                                    @csrf
+                                    <button class="btn btn-sm btn-primary text-white fw-600 py-1 border"
+                                        type="submit">{{ trans('site.logout') }}</button>
+                                </form>
+                            </li>
                         @else
-                        <li class="list-inline-item text-center">
-                            <a class="text-reset " href="{{ route('user-login') }}">{{ trans("site.login") }}</a>
-                            <a class="text-reset" href="{{ route('user-login') }}">{{ trans('site.login') }}</a>
-                        </li>
-                        @endif                     
-                        <li class="list-inline-item">
-                            <a class="btn btn-sm btn-primary text-white fw-600 py-1 border"
-                                href="{{ route('registers') }}">{{ trans('site.registration') }}</a>
-                        </li>
+                            <li class="list-inline-item mr-3 pr-3 border-right text-reset text-center">
+                                <span> {{ __getSiteConfigration('help_line', 'label') }} </span>
+                                <span><a href="tel:{{ __getSiteConfigration('help_line') }}">
+                                        {{ __getSiteConfigration('help_line', 'value') }}</a></span>
+                            </li>
+                            <li class="list-inline-item text-center">
+                                <a class="text-reset " href="{{ route('user-login') }}">{{ trans('site.login') }}</a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a class="btn btn-sm btn-primary text-white fw-600 py-1 border"
+                                    href="{{ route('registers') }}">{{ trans('site.registration') }}</a>
+                            </li>
+                        @endif
                     </ul>
                 </div>
             </div>
