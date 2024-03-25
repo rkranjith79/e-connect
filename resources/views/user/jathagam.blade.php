@@ -9,7 +9,7 @@
                     <div class="col">
                         <div class="print-header text-center">
                             <img src="{{ $data['profile']->photo }}"
-                                alt="Ganesh Kongu Matrimony" class="w-auto h-80px">
+                                alt="E-connect Matrimony" class="w-auto h-80px">
                             <h6 class="font-weight-bold my-2">
                                 <span class="mx-2"><a href="tel:{{ $data['profile']->phone }}" class="text-dark"><i
                                             class="fas fa-phone-alt text-primary"></i> {{ $data['profile']->phone }}</a></span>
