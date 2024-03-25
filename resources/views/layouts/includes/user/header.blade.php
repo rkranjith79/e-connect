@@ -45,9 +45,19 @@
                                 </span>
                             </a>
                         </li>
+                        @if(Auth::user())
                         <li class="list-inline-item text-center">
+                        <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+                            <button class="btn btn-sm btn-primary text-white fw-600 py-1 border" type="submit">{{ trans("site.logout") }}</button>
+                        </form>
+                        </li>                       
+                        @else
+                        <li class="list-inline-item text-center">
+                            <a class="text-reset " href="{{ route('user-login') }}">{{ trans("site.login") }}</a>
                             <a class="text-reset" href="{{ route('user-login') }}">{{ trans('site.login') }}</a>
                         </li>
+                        @endif                     
                         <li class="list-inline-item">
                             <a class="btn btn-sm btn-primary text-white fw-600 py-1 border"
                                 href="{{ route('registers') }}">{{ trans('site.registration') }}</a>

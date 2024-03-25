@@ -5,6 +5,7 @@ return [
     'help_line' => 'Help Line',
     'login' => 'Login',
     'registration' => 'Registration',
+    'logout' => 'Logout',
 
     //Main Menu
     'home' => 'Home',

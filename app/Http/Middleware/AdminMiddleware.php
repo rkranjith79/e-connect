@@ -15,18 +15,13 @@ class AdminMiddleware
      * @param  \Closure(\Illuminate\Http\Request): (\Illuminate\Http\Response|\Illuminate\Http\RedirectResponse)  $next
      * @return \Illuminate\Http\Response|\Illuminate\Http\RedirectResponse
      */
-    public function handle(Request $request, Closure $next){
-        if(Auth::user()) {
-            if (Auth::user()->is_admin) {
-                return route('admin.dashboard');
-            } else {
-                dd(Auth::user()->is_admin );
-                return route('user.member-listing');
-            }
-        } else {
-            if (! $request->expectsJson()) {
-                return route('login');
-            }
-        }
+    public function handle(Request $request, Closure $next)
+    {
+        if (Auth::user()->is_admin != '1') {
+            // return redirect('/home')->with('message', 'Access Denied as you are not Admin');
+            return redirect('/');
+        } 
+
+        return $next($request);
     }
 }

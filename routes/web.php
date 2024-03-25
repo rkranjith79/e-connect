@@ -87,6 +87,7 @@ Route::name('user.')->prefix('user')->middleware(['auth'])->group(function () {
     Route::get('/information/{id?}', [App\Http\Controllers\User\InformationController::class, 'index'])->name('information');
     Route::get('/profile-edit/{profile?}', [App\Http\Controllers\User\ProfileController::class, 'edit'])->name('profile_edit');
     Route::get('/change-password', [App\Http\Controllers\User\ProfileController::class, 'changePassword'])->name('change_password');
+    Route::post('/update-password', [App\Http\Controllers\User\ProfileController::class, 'updatePassword'])->name('update_password');
     Route::put('/profile-update/{id}', [App\Http\Controllers\User\ProfileController::class, 'update'])->name('profile_update');
 });
 

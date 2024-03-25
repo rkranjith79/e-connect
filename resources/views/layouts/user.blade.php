@@ -177,12 +177,6 @@
             $('.package_update_alert_modal').modal('show');
         }
     </script>
-
-    <script type="text/javascript"></script>
-
-
-
+    @stack('scripts')
 </body>
-
-
 </html>
