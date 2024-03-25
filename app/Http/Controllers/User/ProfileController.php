@@ -137,7 +137,7 @@ class ProfileController extends Controller
             'jathagam_id' => ['required'],
             'nakshatra_patham_id' => ['required'],
             'date_of_birth' => ['required', 'date'],
-            'time_of_birth' => ['required', 'date_format:h:i'],
+            'time_of_birth' => ['required', 'date_format:h:i:s'],
             'place_of_birth' => ['required', 'max:200'],
 
             'birth_dasa_remaining_year' => ['required', 'max:200'],
@@ -476,6 +476,9 @@ class ProfileController extends Controller
             ]);
 
             if ($request->hasFile('photo_file')) {
+                if ($profile->photo_file) {
+                    Storage::delete('public/photos/' . $profile->photo_file);
+                }
                 $file = $request->file('photo_file');
                 $photo_file_path = $file->getClientOriginalName();
                 $file->storeAs('public/photos', $photo_file_path);
@@ -535,6 +538,9 @@ class ProfileController extends Controller
             ]);
 
             if ($request->hasFile('jathagam_file')) {
+                if ($profileJathagam->jathagam_file) {
+                    Storage::delete('public/jathagam/' . $profileJathagam->jathagam_file);
+                }
                 $file = $request->file('jathagam_file');
                 $jathagam_file_path = $file->getClientOriginalName();
                 $file->storeAs('public/jathagam', $jathagam_file_path);
