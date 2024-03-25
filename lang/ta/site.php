@@ -20,7 +20,7 @@ return [
 
    'view_search_button_2' => 'தேடல்',
 
-   
+
    //Footer
    'contacts' => 'தொடர்புகள்',
    'quick_links' => 'விரைவு இணைப்புகள்',
@@ -41,8 +41,8 @@ return [
    'religion_information' => 'மதம், படிப்பு, தொழில்',
    'native_information' => 'இருப்பிடம்',
    'jathagam_information' => 'ஜாதக விவரங்கள்',
-   'religion_information_view_page' => 'மத &amp; சமூக பின்புலம்',
-   'education_information_view_page' => 'கல்வி &amp; தொழில்',
+   'religion_information_view_page' => 'மத & சமூக பின்புலம்',
+   'education_information_view_page' => 'கல்வி தொழில்',
    'family_information' => 'குடும்ப விவரங்கள்',
    'asset_informtion'=> 'சொத்து விவரங்கள்',
 

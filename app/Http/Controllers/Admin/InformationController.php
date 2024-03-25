@@ -64,7 +64,9 @@ class InformationController extends Controller
             $information->updateorCreate(['id' => $request->id], [
                 'title' => $request->title,
                 'code' => $request->code,
-                'content' => $request->content
+                'content' => $request->content,
+                'attributes' => $information->attributes ?? [],
+                'language_tamil' => $request->title ?? ''
             ]);
             return response()->json([
                 'success'=>true,

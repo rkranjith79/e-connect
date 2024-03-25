@@ -4,7 +4,7 @@
 @section('content')
      
 <div class="py-4 py-lg-5 bg-cover bg-center d-flex align-items-center position-relative"
-style="background-image: url(https://ganeshkongumatrimony.com/uploads/all/iajOd79XuUcPqOVehemGLDHv8YBk3wj2tn4H4M0w.jpg)">
+style="background-image: url('{{ asset('img/uploads/2.png') }}')">
 <span class="mask"></span>
 <div class="container-fluid">
     <div id="form_content" class="row">
@@ -17,14 +17,14 @@ style="background-image: url(https://ganeshkongumatrimony.com/uploads/all/iajOd7
                             life partner.</p>
                         <form>
                             <label class="text-primary font-weight-bold pr-2">Language/மொழி</label>
-                            <a href="https://ganeshkongumatrimony.com/set_language/in"
+                            <a href="https://econnectmatrimony.com/set_language/in"
                                 class="text-reset font-weight-bold pr-2">
                                 <div class="aiz-radio aiz-radio-inline">
                                     <input type="radio" name="lang"> தமிழ்<span
                                         class="aiz-rounded-check"></span>
                                 </div>
                             </a>
-                            <a href="https://ganeshkongumatrimony.com/set_language/en"
+                            <a href="https://econnectmatrimony.com/set_language/en"
                                 class="text-reset font-weight-bold pl-2">
                                 <div class="aiz-radio aiz-radio-inline">
                                     <input type="radio" name="lang" checked> English<span
@@ -45,7 +45,7 @@ style="background-image: url(https://ganeshkongumatrimony.com/uploads/all/iajOd7
                                     <div class="input-group fileinput fileinput-new text-center"
                                         data-provides="fileinput">
                                         <div class="fileinput-new thumbnail img-raised">
-                                            <img src="https://ganeshkongumatrimony.com/uploads/profile_images/1.png"
+                                            <img src="https://econnectmatrimony.com/uploads/profile_images/1.png"
                                                 alt="photo">
                                         </div>
                                         <div
@@ -81,7 +81,7 @@ style="background-image: url(https://ganeshkongumatrimony.com/uploads/all/iajOd7
                                     <div class="input-group fileinput fileinput-new text-center"
                                         data-provides="fileinput">
                                         <div class="fileinput-new thumbnail img-raised">
-                                            <img src="https://ganeshkongumatrimony.com/uploads/jathagam_images/horoscope.jpg"
+                                            <img src="https://econnectmatrimony.com/uploads/jathagam_images/horoscope.jpg"
                                                 alt="jathagam_file">
                                         </div>
                                         <div
@@ -2174,7 +2174,7 @@ style="background-image: url(https://ganeshkongumatrimony.com/uploads/all/iajOd7
 
                         <div class="text-center">
                             <p class="text-muted mb-0">Already have an account?</p>
-                            <a href="https://ganeshkongumatrimony.com/login">Login to your account</a>
+                            <a href="https://econnectmatrimony.com/login">Login to your account</a>
                         </div>
                     </form>
                 </div>

@@ -36,7 +36,7 @@
                                                     <a href="{{ route('user.jathagam', ['id' => $profile->id]) }}"
                                                             class="btn btn-primary btn-sm ml-1">{{ trans('site.view_jathagam_button') }} <i
                                                             class="fas fa-file-invoice"></i></a>
-                                                   
+
                                                 </div>
                                             </div>
                                         </div>
@@ -139,7 +139,7 @@
                                                         </a>
                                                     </div>
                                                     <div class="col d-none d-md-block">
-                                                        <a href="https://wa.me/?text=பதிவு எண் : GK4227%0aபெயர் : யாழினி (மருத்துவர்)%0aMDS (Pediatric Dentistry)%0aவயது : 26%0aபிறந்த ஊர் : ஈரோடு%0aதொழில் : MDS (Pediatric Dentistry) final year ( வெளிநாடு  செல்ல சம்மதம் )%0aமாத வருமானம் : 0%0aதுலாம்-ஸ்வாதி%0aபரிகார செவ்வாய் ஜாதகம்%0aசொத்து விபரம்  : நேரில்%0ahttps://ganeshkongumatrimony.com/p/589buen"
+                                                        <a href="https://wa.me/?text=பதிவு எண் : GK4227%0aபெயர் : யாழினி (மருத்துவர்)%0aMDS (Pediatric Dentistry)%0aவயது : 26%0aபிறந்த ஊர் : ஈரோடு%0aதொழில் : MDS (Pediatric Dentistry) final year ( வெளிநாடு  செல்ல சம்மதம் )%0aமாத வருமானம் : 0%0aதுலாம்-ஸ்வாதி%0aபரிகார செவ்வாய் ஜாதகம்%0aசொத்து விபரம்  : நேரில்"
                                                             target="_blank" class="text-dark c-pointer">
                                                             <i class="fab fa-whatsapp fs-20 text-primary"></i>
                                                             <span class="d-block fs-10">Share</span>

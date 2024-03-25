@@ -398,7 +398,7 @@
                                                         <p>{{ $data['profile']->jathagam->rasi_title['5'] ?? '' }}</p>
                                                     </td>
                                                     <td rowspan="2" colspan="2">
-                                                        <img src="https://ganeshkongumatrimony.com/assets/img/icons/android-icon-72x72.png"
+                                                        <img src="https://econnectmatrimony.com/img/icons/android-icon-72x72.png"
                                                             border="0" class="h-50px w-auto"><br>
                                                         <strong>{{ trans('fields.rasi') }}</strong>
                                                     </td>
@@ -452,7 +452,7 @@
                                                         <p>{{ $data['profile']->jathagam->navamsam_title['5'] ?? '' }}</p>
                                                     </td>
                                                     <td rowspan="2" colspan="2">
-                                                        <img src="https://ganeshkongumatrimony.com/assets/img/icons/android-icon-72x72.png"
+                                                        <img src="https://econnectmatrimony.com/img/icons/android-icon-72x72.png"
                                                             border="0" class="h-50px w-auto"><br>
                                                         <strong>{{ trans('fields.navamsam') }}</strong>
                                                     </td>

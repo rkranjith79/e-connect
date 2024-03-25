@@ -2,6 +2,7 @@
 
 namespace App\Traits;
 
+use App\Models\AssetsValue;
 use App\Models\BloodGroup;
 use App\Models\BodyType;
 use App\Models\Caste;
@@ -70,7 +71,10 @@ trait LookupTrait
             "jathagams" => $this->getPublishedData(Jathagam::class),
             "nakshatra_pathams" => $this->getPublishedData(NakshatraPatham::class),
             "rasis" => $this->getPublishedData(Rasi::class),
+            "asset_values" => $this->getPublishedData(AssetsValue::class),
+
             "navamsams" => $this->getPublishedData(Navamsam::class),
+            "asset_values" => $this->getPublishedData(AssetsValue::class),
         ];
 
         return $data;
