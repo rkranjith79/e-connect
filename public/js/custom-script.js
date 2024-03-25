@@ -350,3 +350,24 @@ function SSMLoading(option, title = 'Loading...') {
 }
 
 */
+function dependencyDropDown( parent_id, child_id, data_id) {
+	
+	var child_id = child_id;
+	var parent_id = parent_id;
+	var data_id = data_id;
+	$('#'+child_id).selectpicker();
+	$('#'+parent_id).change(function(){
+		var selectedCountryId = $(this).val();            
+		$('#'+child_id).find('option').each(function() {                               
+			if ($(this).data(data_id) == selectedCountryId || selectedCountryId === "") { 				              
+				// $(this).prop('disabled', false);
+				$(this).show();
+			} else {
+				// $(this).prop('disabled', true);
+				$(this).hide();
+			}
+		});
+		$('#'+child_id).selectpicker("destroy");
+		$('#'+child_id).selectpicker('refresh');
+});
+}

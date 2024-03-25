@@ -37,6 +37,11 @@ trait LookupTrait
         return $model::published()->translated()->pluck('title', 'id')->toArray();
     }
 
+    function getPublishedCustomData($model, $ex_param)
+    {
+        return $model::published()->select('title', 'id', $ex_param)->translated()->get()->toArray();
+    }
+
     function getlookupData()
     {
         $data = [
@@ -57,8 +62,8 @@ trait LookupTrait
             "parant_status" => $this->getPublishedData(ParentStatus::class),
             "social_types" => $this->getPublishedData(SocialType::class),
             "blood_groups" => $this->getPublishedData(BloodGroup::class),
-            "castes" => $this->getPublishedData(Caste::class),
-            "sub_castes" => $this->getPublishedData(SubCaste::class),
+            "castes" => $this->getPublishedCustomData(Caste::class, $ex_param ='religion_id'),
+            "sub_castes" => $this->getPublishedCustomData(SubCaste::class, $ex_param ='caste_id'),
             "religions" => $this->getPublishedData(Religion::class),
             "rasi_nakshatras" => $this->getPublishedData(RasiNakshatra::class),
             "lagnams" => $this->getPublishedData(Lagnam::class),

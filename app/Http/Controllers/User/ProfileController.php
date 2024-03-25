@@ -53,37 +53,7 @@ class ProfileController extends Controller
      */
     public function register()
     {
-        //dd((new gender)::published()->pluck('title','id'));
-        $record = [
-            "genders" => $this->getPublishedData(Gender::class),
-            "marital_statuses" => $this->getPublishedData(MaritalStatus::class),
-            "registered_bies" => $this->getPublishedData(RegisteredBy::class),
-            "colors" => $this->getPublishedData(Color::class),
-            "body_types" => $this->getPublishedData(BodyType::class),
-            "physical_statuses" => $this->getPublishedData(PhysicalStatus::class),
-            "weights" => $this->getPublishedData(Weight::class),
-            "heights" => $this->getPublishedData(Height::class),
-            "educations" => $this->getPublishedData(Education::class),
-            "works" => $this->getPublishedData(Work::class),
-            "work_places" => $this->getPublishedData(WorkPlace::class),
-            "countries" => $this->getPublishedData(Country::class),
-            "states" => $this->getPublishedData(State::class),
-            "districts" => $this->getPublishedData(District::class),
-            "parant_status" => $this->getPublishedData(ParentStatus::class),
-            "social_types" => $this->getPublishedData(SocialType::class),
-            "blood_groups" => $this->getPublishedData(BloodGroup::class),
-            "castes" => $this->getPublishedData(Caste::class),
-            "sub_castes" => $this->getPublishedData(SubCaste::class),
-            "religions" => $this->getPublishedData(Religion::class),
-            "rasi_nakshatras" => $this->getPublishedData(RasiNakshatra::class),
-            "lagnams" => $this->getPublishedData(Lagnam::class),
-            "jathagams" => $this->getPublishedData(Jathagam::class),
-            "nakshatra_pathams" => $this->getPublishedData(NakshatraPatham::class),
-            "rasis" => $this->getPublishedData(Rasi::class),
-            "navamsams" => $this->getPublishedData(Navamsam::class),
-            "asset_values" => $this->getPublishedData(AssetsValue::class),
-
-        ];
+        $record = $this->getlookupData();
         return view('user.registration.index', compact('record'));
     }
 
@@ -220,24 +190,23 @@ class ProfileController extends Controller
 
         $rasi = [];
         $navamsam = [];
-        for($i=1; $i<=12; $i++) {
-            $rasi[$i] = $request->{'rasi_'.$i};
-            $navamsam[$i] = $request->{'navamsam_'.$i};
+        for ($i = 1; $i <= 12; $i++) {
+            $rasi[$i] = $request->{'rasi_' . $i};
+            $navamsam[$i] = $request->{'navamsam_' . $i};
         };
 
         $photo_file_path = $jathagam_file_path = "";
 
-        if( $request->hasFile('photo_file') ) {
+        if ($request->hasFile('photo_file')) {
             $file = $request->file('photo_file');
             $photo_file_path = $file->getClientOriginalName();
             $file->storeAs('public/photos', $photo_file_path);
         }
 
-        if( $request->hasFile('jathagam_file') ) {
+        if ($request->hasFile('jathagam_file')) {
             $file = $request->file('jathagam_file');
             $jathagam_file_path = $file->getClientOriginalName();
             $file->storeAs('public/jathagam', $jathagam_file_path);
-
         }
 
         $user = User::create([
@@ -353,8 +322,10 @@ class ProfileController extends Controller
     public function edit(Profile $profile)
     {
         $profile = Auth::user()->profile;
-        dd($profile);
-        return view('user.profile.edit');
+        $profileBasic = ProfileBasic::where('profile_id', $profile->id)->first();
+        $profileJathagam = profileJathagam::where('profile_id', $profile->id)->first();
+        $record = $this->getlookupData();
+        return view('user.profile.edit', compact(['profile', 'profileBasic', 'profileJathagam', 'record']));
     }
 
     /**
@@ -366,7 +337,109 @@ class ProfileController extends Controller
      */
     public function update(Request $request, Profile $profile)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'photo_file' => ['required', 'image', 'mimes:jpeg,jpg,png', 'max:2048'],
+            'jathagam_file' => ['required', 'image', 'mimes:jpeg,jpg,png', 'max:2048'],
+            'title' => ['required', 'max:100'],
+            'email' => ['required', 'unique:users', 'max:100'],
+            'gender_id' => ['required'],
+            'password' => ['required', 'max:200'],
+            'marital_status_id' => ['required'],
+            'registered_by_id' => ['required'],
+            'color_id' => ['required'],
+            'body_type_id' => ['required'],
+            'physical_status_id' => ['required'],
+            'weight_id' => ['required'],
+            'height_id' => ['required'],
+            'blood_group_id' => ['required'],
+
+
+            'temple' => ['required', 'max:100'],
+            'religion_id' => ['required'],
+            'caste_id' => ['required'],
+            'sub_caste_id' => ['required'],
+            'work_id' => ['required'],
+            'education_details' => ['required', 'max:100'],
+
+            'work_place_id' => ['required'],
+
+            'work_details' => ['required', 'max:100'],
+            'whatsapp' => ['required', 'max:100'],
+            'phone' => ['required', 'max:100'],
+            'address' => ['required', 'max:1000'],
+            'monthly_income' => ['required', 'max:100'],
+
+
+            'country_id' => ['required'],
+            'state_id' => ['required'],
+            'education_id' => ['required'],
+            'country_others' => ['required', 'max:100'],
+            'state_others' => ['required', 'max:100'],
+            'district_id' => ['required'],
+            'district_others' => ['required', 'max:100'],
+
+
+
+            'father_name' => ['required', 'max:100'],
+            'mother_name' => ['required', 'max:100'],
+            'father_status_id' => ['required'],
+            'father_occupation' => ['required', 'max:100'],
+            'mother_occupation' => ['required', 'max:100'],
+            'mother_status_id' => ['required'],
+            'siblings' => ['required', 'max:100'],
+
+
+            'social_type_id' => ['required'],
+            'native' => ['required', 'max:100'],
+
+            'asset_value_id' => ['required'],
+            'asset_details' => ['required', 'max:1000'],
+            'seimurai' => ['required', 'max:1000'],
+
+            'rasi_nakshatra_id' => ['required'],
+            'lagnam_id' => ['required'],
+            'jathagam_id' => ['required'],
+            'nakshatra_patham_id' => ['required'],
+            'date_of_birth' => ['required', 'date'],
+            'time_of_birth' => ['required', 'date_format:h:i'],
+            'place_of_birth' => ['required', 'max:200'],
+
+            'birth_dasa_remaining_year' => ['required', 'max:200'],
+            'birth_dasa_remaining_month' => ['required', 'max:200'],
+            'birth_dasa_remaining_day' => ['required', 'max:200'],
+            'birth_dasa_id' => ['required'],
+            'rasi_1' => ['nullable'],
+            'rasi_2' => ['nullable'],
+            'rasi_3' => ['nullable'],
+            'rasi_4' => ['nullable'],
+            'rasi_5' => ['nullable'],
+            'rasi_6' => ['nullable'],
+            'rasi_7' => ['nullable'],
+            'rasi_8' => ['nullable'],
+            'rasi_9' => ['nullable'],
+            'rasi_10' => ['nullable'],
+            'rasi_11' => ['nullable'],
+            'rasi_12' => ['nullable'],
+            'navamsam_1' => ['nullable'],
+            'navamsam_2' => ['nullable'],
+            'navamsam_3' => ['nullable'],
+            'navamsam_4' => ['nullable'],
+            'navamsam_5' => ['nullable'],
+            'navamsam_6' => ['nullable'],
+            'navamsam_7' => ['nullable'],
+            'navamsam_8' => ['nullable'],
+            'navamsam_9' => ['nullable'],
+            'navamsam_10' => ['nullable'],
+            'navamsam_11' => ['nullable'],
+            'navamsam_12' => ['nullable'],
+
+            "expectation_jathagam_id"  => ['nullable'],
+            "expectation_marital_status_id"  => ['nullable'],
+            "expectation_work_place_id"  => ['nullable'],
+            "expectation_nakshatra"  => ['nullable'],
+            "expectation"  => ['nullable'],
+
+        ]);
     }
 
     /**

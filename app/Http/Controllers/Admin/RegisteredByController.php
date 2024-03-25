@@ -14,7 +14,7 @@ class RegisteredByController extends MasterController
         $this->pageData['title'] = "Registered By";
         $this->pageData['name'] = "Registered By";
         $this->pageData['view'] = "admin.common_master.index";
-        $this->pageData['tables'] = "Registered_bies";
+        $this->pageData['tables'] = "registered_bies";
         $this->pageData['prefix_url'] = "registered_by";
         $this->modal = new RegisteredBy;
         $this->lookup = [

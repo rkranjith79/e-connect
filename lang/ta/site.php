@@ -4,6 +4,7 @@ return [
    //Top Bar
    'login' => 'உள்நுழைய',
    'registration' => 'பதிவு',
+   'logout' => 'வெளியேறு',
 
    //Main Menu
    'home' => 'முகப்பு',

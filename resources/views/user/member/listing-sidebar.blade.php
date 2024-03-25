@@ -163,7 +163,7 @@
                                             <option style="display:none" value="">--
                                                 Select --</option>
                                             @foreach ($data['select']['castes'] ?? [] as $value => $label)
-                                                <option value="{{ $value }}">{{ $label }}</option>
+                                                <option value="{{ $label['id'] }}">{{ $label['title'] }}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -180,7 +180,7 @@
                                             <option style="display:none" value="">--
                                                 Select --</option>
                                             @foreach ($data['select']['sub_castes'] ?? [] as $value => $label)
-                                                <option value="{{ $value }}">{{ $label }}</option>
+                                                <option value="{{ $label['id'] }}">{{ $label['title'] }}</option>
                                             @endforeach
                                         </select>
                                     </div>
