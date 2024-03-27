@@ -55,13 +55,17 @@ $( document ).ready( function () {
 		});
 	}
 });
+
+*/
 //Nav toggler
+$('.close-layer').on("click",nav_toggler);
 function nav_toggler() {
 	$('body').toggleClass('nav-open');
 	$('.close-layer').toggleClass('d-block');
 	$('.nav-toggle-icon span').toggleClass('hide');
 	return false;
 }
+/*
 //Dependent Options
 $('#splcategory').on("change", function() {
 	//Reset field
@@ -284,6 +288,7 @@ $('.tablehoro select').on("change", function() {
 	$.each($(this).val(), function( i, val ) {
 		in_text.push(planets[val-1]);
 	});
+
 	$(this).parents('td').find('p').text( in_text.join(', ') );
 });
 $('.tablehoro select').on("change", function() {

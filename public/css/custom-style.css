@@ -751,7 +751,7 @@ a[data-toggle="collapse"][aria-expanded="true"] .caret {
 }
 
 .mobile-sidebar[data-color="rose"] li.active > a {
-  background-color: #e91e63;
+  background-color: #3498db;
   box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(233, 30, 99, 0.4);
 }
 
@@ -959,20 +959,20 @@ body {
     }
 
     :root {
-  --primary: #d23b3b;
-  --hov-primary: #df1515;
+  --primary:  #FF9734;
+  --hov-primary:  #FF9734;
   --soft-primary: rgba(32, 122, 31, .15);
-  --secondary: #ff0000;
+  --secondary:  #FF9734;
   --soft-secondary: rgba(32, 122, 31, .15);
 }
 
 
 
 .text-primary-grad {
-  background: rgb(253, 41, 123);
+  background:  #FF9734;
   background: -moz-linear-gradient(0deg, rgba(36, 136, 34, 1) 0%, rgba(32, 122, 31, 1) 100%);
   /* background: -webkit-linear-gradient(0deg, rgba(36, 136, 34, 1) 0%, rgba(32, 122, 31, 1) 100%); */
-  background: linear-gradient(0deg, rgb(136 34 34) 0%, rgb(255 77 77) 100%);
+  background: linear-gradient(0deg, rgb(136 34 34) 0%, rgb(255, 151, 52) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
