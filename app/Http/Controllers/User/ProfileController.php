@@ -119,7 +119,7 @@ class ProfileController extends Controller
             'mother_name' => ['required', 'max:100'],
             'father_status_id' => ['required'],
             'father_occupation' => ['nullable', 'max:100'],
-            'mother_occupation' => ['required', 'max:100'],
+            'mother_occupation' => ['nullable', 'max:100'],
             'mother_status_id' => ['required'],
             'siblings' => ['required', 'max:100'],
 
