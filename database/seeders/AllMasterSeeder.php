@@ -253,7 +253,7 @@ class AllMasterSeeder extends Seeder
         ];
 
         DB::table('states')->truncate();
-        foreach ($countries as $state) {
+        foreach ($states as $state) {
             DB::table('states')->insert([
                 'title' => $state['english'],
                 'language_tamil' => $state['tamil'],
