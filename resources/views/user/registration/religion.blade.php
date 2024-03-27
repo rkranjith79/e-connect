@@ -51,8 +51,8 @@
                     data-live-search="true" -data-width="auto">
                     <option data-caste-id="" style="display:none" value="">-- Select --</option>
                     @isset($record['sub_castes'])
-                        @foreach ($record['sub_castes'] as $value => $label)                        
-                            <option value="{{ $label['id'] }}" data-caste-id="{{ $label['caste_id'] }}" @selected(old('sub_caste_id') ?? ($profileBasic->sub_caste_id ?? '') == $label['title'])>{{ $label['title'] }}</option>
+                        @foreach ($record['sub_castes'] as $value => $label)
+                            <option value="{{ $label['id'] }}" data-caste-id="{{ $label['caste_id'] }}" @selected(old('sub_caste_id') ?? ($profileBasic->sub_caste_id ?? '') == $label['id'])>{{ $label['title'] }}</option>
                         @endforeach
                     @endisset
                 </select>
@@ -78,17 +78,17 @@
 </div>
 @push('scripts')
 <script >
-        
+
     $(document).ready(function(){
 
-       // 
+       //
     //    $('#sub_caste_id').removeClass('aiz-selectpicker');
     //    $('#sub_caste_id').addClass('aiz-selectpicker').selectpicker('refresh');
         // $('#sub_caste_id').selectpicker("destroy");
         //  $('#sub_caste_id').selectpicker('refresh');
 
 
-      
+
     }).change();
 
     </script>

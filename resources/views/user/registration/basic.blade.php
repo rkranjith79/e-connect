@@ -78,7 +78,6 @@
                     class="form-control aiz-selectpicker required " data-live-search="true" -data-width="auto">
                     <option style="display:none" value="">-- Select --</option>
                     @isset($record['marital_statuses'])
-                        <option>Select</option>
                         @foreach ($record['marital_statuses'] as $value => $label)
                             <option value="{{ $value }}" @selected(old('marital_status_id') ?? ($profile->marital_status_id ?? '') == $value)>{{ $label }}</option>
                         @endforeach

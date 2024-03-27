@@ -111,10 +111,7 @@ class ProfileController extends Controller
             'country_id' => ['required'],
             'state_id' => ['required'],
             'education_id' => ['required'],
-            'country_others' => ['required', 'max:100'],
-            'state_others' => ['required', 'max:100'],
             'district_id' => ['required'],
-            'district_others' => ['required', 'max:100'],
 
 
 
@@ -139,7 +136,7 @@ class ProfileController extends Controller
             'jathagam_id' => ['required'],
             'nakshatra_patham_id' => ['required'],
             'date_of_birth' => ['required', 'date'],
-            'time_of_birth' => ['required', 'date_format:H:i'],
+            'time_of_birth' => ['required'],
             'place_of_birth' => ['required', 'max:200'],
 
             'birth_dasa_remaining_year' => ['required', 'max:200'],
@@ -254,9 +251,6 @@ class ProfileController extends Controller
             "country_id" => $request->country_id,
             "state_id" => $request->state_id,
             "district_id" => $request->district_id,
-            "country_others" => $request->country_others,
-            "state_others" => $request->state_others,
-            "district_others" => $request->district_others,
             "father_status_id" => $request->father_status_id,
             "mother_status_id" => $request->mother_status_id,
             "social_type_id" => $request->social_type_id,
@@ -377,16 +371,13 @@ class ProfileController extends Controller
             'country_id' => ['required'],
             'state_id' => ['required'],
             'education_id' => ['required'],
-            'country_others' => ['required', 'max:100'],
-            'state_others' => ['required', 'max:100'],
             'district_id' => ['required'],
-            'district_others' => ['required', 'max:100'],
 
             'father_name' => ['required', 'max:100'],
             'mother_name' => ['required', 'max:100'],
             'father_status_id' => ['required'],
-            'father_occupation' => ['required', 'max:100'],
-            'mother_occupation' => ['required', 'max:100'],
+            'father_occupation' => ['nullable', 'max:100'],
+            'mother_occupation' => ['nullable', 'max:100'],
             'mother_status_id' => ['required'],
             'siblings' => ['required', 'max:100'],
 
@@ -403,7 +394,7 @@ class ProfileController extends Controller
             'jathagam_id' => ['required'],
             'nakshatra_patham_id' => ['required'],
             'date_of_birth' => ['required', 'date'],
-            'time_of_birth' => ['required', 'date_format:H:i'],
+            'time_of_birth' => ['required'],
             'place_of_birth' => ['required', 'max:200'],
 
             'birth_dasa_remaining_year' => ['required', 'max:200'],
@@ -507,9 +498,6 @@ class ProfileController extends Controller
                 "country_id" => $request->country_id,
                 "state_id" => $request->state_id,
                 "district_id" => $request->district_id,
-                "country_others" => $request->country_others,
-                "state_others" => $request->state_others,
-                "district_others" => $request->district_others,
                 "father_status_id" => $request->father_status_id,
                 "mother_status_id" => $request->mother_status_id,
                 "social_type_id" => $request->social_type_id,

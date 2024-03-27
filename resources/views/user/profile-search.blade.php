@@ -197,7 +197,7 @@
                                     </form>
                                 </div>
                                 <div class="tab-pane show" id="advance">
-                                    <form action="{{ route('user.member-listing') }}" method="GET">
+                                    <form action="{{ route('user.advancedSearch') }}" method="GET">
                                         <h4 class="section-title">{{ trans('fields.section_personal') }}</h4>
                                         <div class="form-row">
                                             <div class="col-sm-6">

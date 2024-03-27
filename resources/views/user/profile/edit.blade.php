@@ -93,7 +93,6 @@
 
         function handleErrors(errors) {
             clearErrors();
-            var flag = false;
             $.each(errors, function(key, value) {
                 $("#" + key).addClass("is-invalid"); // Add 'is-invalid' class to the input
                 $("#" + key).removeClass('is-valid').addClass('is-invalid');

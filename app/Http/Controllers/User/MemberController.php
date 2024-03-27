@@ -66,7 +66,7 @@ class MemberController extends Controller
     */
     public function advancedSearch(Request $request)
     {
-
+        $name = $request->name ?? null;
         $member_id = $request->member_id ?? null;
         $age_from = $request->age_from ?? null;
         $age_to = $request->age_to ?? null;
@@ -87,9 +87,11 @@ class MemberController extends Controller
         $lagnam = $request->lagnam ?? null;
         $exp_jathagam = $request->exp_jathagam ?? null;
 
-        // /dd($exp_maritalstatus);
+        // dd($name);
         $profile = new Profile;
-        $profile = $profile->when(!empty($exp_maritalstatus), function ($q) use ($exp_maritalstatus) {
+        $profile = $profile->when(!empty($name), function ($q) use ($name) {
+            $q->where("title", "like", "%" . $name . "%");
+        })->when(!empty($exp_maritalstatus), function ($q) use ($exp_maritalstatus) {
             $q->whereIn("expectation_marital_status_id", array_filter((array) $exp_maritalstatus));
         })->when(!empty($body_type), function ($q) use ($body_type) {
             $q->whereIn("body_type_id", array_filter((array) $body_type));
@@ -118,26 +120,29 @@ class MemberController extends Controller
                     $q->whereIn('work_place_id', array_filter((array) $exp_work_place));
                 });
             }
-        )->whereHas(
-            "jathagam",
-            function ($q) use ($rasi_nakshatra, $lagnam, $exp_jathagam, $age_from, $age_to) {
-                $q->when(!empty($rasi_nakshatra), function ($q) use ($rasi_nakshatra) {
-                    $q->whereIn('rasi_nakshatra_id', array_filter((array) $rasi_nakshatra));
-                })->when(!empty($lagnam), function ($q) use ($lagnam) {
-                    $q->whereIn('lagnam_id', array_filter((array) $lagnam));
-                })->when(!empty($exp_jathagam), function ($q) use ($exp_jathagam) {
-                    $q->whereIn('jathagam_id', array_filter((array) $exp_jathagam));
-                })->when(!empty($exp_jathagam), function ($q) use ($exp_jathagam) {
-                    $q->whereIn('jathagam_id', array_filter((array) $exp_jathagam));
-                })->when(!empty($age_from), function ($q) use ($age_from) {
-                    $startDate = Carbon::now()->subYears($age_from)->format('Y-m-d');
-                    $q->where('date_of_birth', '>=', $startDate);
-                })->when(!empty($age_to), function ($q) use ($age_to) {
-                    $endDate = Carbon::now()->subYears($age_to)->format('Y-m-d');
-                    $q->where('date_of_birth', '<=', $endDate);
-                });
-            }
-        );
+        )
+            ->whereHas(
+                "jathagam",
+                function ($q) use ($rasi_nakshatra, $lagnam, $exp_jathagam, $age_from, $age_to) {
+                    $q->when(!empty($rasi_nakshatra), function ($q) use ($rasi_nakshatra) {
+                        $q->whereIn('rasi_nakshatra_id', array_filter((array) $rasi_nakshatra));
+                    })->when(!empty($lagnam), function ($q) use ($lagnam) {
+                        $q->whereIn('lagnam_id', array_filter((array) $lagnam));
+                    })->when(!empty($exp_jathagam), function ($q) use ($exp_jathagam) {
+                        $q->whereIn('jathagam_id', array_filter((array) $exp_jathagam));
+                    })->when(!empty($exp_jathagam), function ($q) use ($exp_jathagam) {
+                        $q->whereIn('jathagam_id', array_filter((array) $exp_jathagam));
+                    })
+                        ->when(!empty($age_from), function ($q) use ($age_from) {
+                            $startDate = Carbon::now()->subYears($age_from)->format('Y-m-d');
+                            $q->where('date_of_birth', '>=', $startDate);
+                        })->when(!empty($age_to), function ($q) use ($age_to) {
+                            $endDate = Carbon::now()->subYears($age_to)->format('Y-m-d');
+                            $q->where('date_of_birth', '<=', $endDate);
+                        });
+                }
+            );
+        // dd($profile->toSql());
         return $this->listing($profile);
     }
 
