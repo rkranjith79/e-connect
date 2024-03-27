@@ -4,24 +4,25 @@
             <div class="row align-items-center">
                 <div class="col-lg-5 col">
                     <ul class="list-inline d-flex justify-content-between justify-content-lg-start mb-0">
-                        <li class="list-inline-item">
-                            <a href="{{ route('language.set', ['locale' => 'en']) }}" id="cur_lang_en" data-lang="T"
-                                class="text-reset
-                                {{ App::currentLocale() != 'en' ?: 'text-success font-weight-bold' }}
+                        @if (App::currentLocale() != 'en')
+                            <li class="list-inline-item">
+                                <a href="{{ route('language.set', ['locale' => 'en']) }}" id="cur_lang_en" data-lang="T"
+                                    class="text-reset
+                                {{ App::currentLocale() == 'en' ?: 'text-success font-weight-bold' }}
                                 ">
-                                <span>English</span>
-                            </a>
-                        </li>
-
-                        <li class="list-inline-item pl-3">
-                            <a href="{{ route('language.set', ['locale' => 'ta']) }}" id="cur_lang_ta" data-lang="T"
-                                class="text-reset
-                                {{ App::currentLocale() != 'ta' ?: 'text-success font-weight-bold' }}
-
-                                ">
-                                <span>தமிழ்</span>
-                            </a>
-                        </li>
+                                    <span>English</span>
+                                </a>
+                            </li>
+                        @else
+                            <li class="list-inline-item pl-3">
+                                <a href="{{ route('language.set', ['locale' => 'ta']) }}" id="cur_lang_ta"
+                                    data-lang="T"
+                                    class="text-reset
+                                {{ App::currentLocale() == 'ta' ?: 'text-success font-weight-bold' }} ">
+                                    <span>தமிழ்</span>
+                                </a>
+                            </li>
+                        @endif
 
                     </ul>
                 </div>

@@ -165,7 +165,7 @@
                         <select type="select" name="birth_dasa_remaining_year" id="birth_dasa_remaining_year"
                             class="form-control aiz-selectpicker" data-live-search="true" -data-width="auto"
                             -data-size="5">
-                            <option value="">Year</option>
+                            <option style="display:none" value="" >Year</option>
                             @for ($i = 0; $i <= 20; $i++)
                                 <option value="{{ $i }}" @selected(@old('birth_dasa_remaining_year') ?? ($profileJathagam->birth_dasa_remaining_year ?? '') == $i)>{{ $i }}
                                 </option>
@@ -182,7 +182,7 @@
                         <select type="select" name="birth_dasa_remaining_month" id="birth_dasa_remaining_month"
                             class="form-control aiz-selectpicker" data-live-search="true" -data-width="auto"
                             -data-size="5">
-                            <option value="">Month</option>
+                            <option style="display:none" value="">Month</option>
                             @for ($i = 0; $i <= 12; $i++)
                                 <option value="{{ $i }}" @selected(@old('birth_dasa_remaining_month') ?? ($profileJathagam->birth_dasa_remaining_month ?? '') == $i)>{{ $i }}
                                 </option>
@@ -199,7 +199,7 @@
                         <select type="select" name="birth_dasa_remaining_day" id="birth_dasa_remaining_day"
                             class="form-control aiz-selectpicker" data-live-search="true" -data-width="auto"
                             -data-size="5">
-                            <option value="">Day</option>
+                            <option style="display:none" value="">Day</option>
                             @for ($i = 0; $i <= 31; $i++)
                                 <option value="{{ $i }}" @selected(@old('birth_dasa_remaining_day') ?? ($profileJathagam->birth_dasa_remaining_day ?? '') == $i)>{{ $i }}
                                 </option>
