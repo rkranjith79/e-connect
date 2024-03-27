@@ -37,8 +37,7 @@
     </div>
     <div class="col-sm-3 div-father-occu">
         <div class="form-group mb-3">
-            <label class="form-label" for="father_occupation">{{ trans('fields.father_occupation') }}<span
-                    class="require-star">*</span></label>
+            <label class="form-label" for="father_occupation">{{ trans('fields.father_occupation') }}</label>
             <div class="input-group">
                 <div class="input-group-prepend"><span class="input-group-text"><i class="fas fa-keyboard"></i></span>
                 </div>
