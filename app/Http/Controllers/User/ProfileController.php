@@ -171,7 +171,7 @@ class ProfileController extends Controller
             'navamsam_11' => ['nullable'],
             'navamsam_12' => ['nullable'],
 
-            "expectation_jathagam_id"  => ['nullable'],
+            "expectation_jathagam_id"  => ['required'],
             "expectation_marital_status_id"  => ['nullable'],
             "expectation_work_place_id"  => ['nullable'],
             "expectation_nakshatra"  => ['nullable'],
@@ -328,10 +328,14 @@ class ProfileController extends Controller
     public function edit(Profile $profile)
     {
         $profile = !empty($profile->id ?? '') ? $profile : Auth::user()->profile;
-        $profileBasic = ProfileBasic::where('profile_id', $profile->id)->first();
-        $profileJathagam = profileJathagam::where('profile_id', $profile->id)->first();
-        $record = $this->getlookupData();
-        return view('user.profile.edit', compact(['profile', 'profileBasic', 'profileJathagam', 'record']));
+        if (!empty($profile)) {
+            $profileBasic = ProfileBasic::where('profile_id', $profile->id)->first();
+            $profileJathagam = profileJathagam::where('profile_id', $profile->id)->first();
+            $record = $this->getlookupData();
+            return view('user.profile.edit', compact(['profile', 'profileBasic', 'profileJathagam', 'record']));
+        } else {
+            return view('pages.404');
+        }
     }
 
     /**
@@ -431,7 +435,7 @@ class ProfileController extends Controller
             'navamsam_11' => ['nullable'],
             'navamsam_12' => ['nullable'],
 
-            "expectation_jathagam_id"  => ['nullable'],
+            "expectation_jathagam_id"  => ['required'],
             "expectation_marital_status_id"  => ['nullable'],
             "expectation_work_place_id"  => ['nullable'],
             "expectation_nakshatra"  => ['nullable'],
@@ -587,13 +591,12 @@ class ProfileController extends Controller
         }
         $user = Auth::user();
         $email = Auth::user()->email;
-        if($email == $request->email ){
+        if ($email == $request->email) {
             $user->password = Hash::make($request->password);
             $user->save();
             return redirect()->route('user.change_password')->with('success', 'Password changed successfully.');
         } else {
             return redirect()->route('user.change_password')->with('error', 'Email Password Mismatch.');
         }
-
     }
 }

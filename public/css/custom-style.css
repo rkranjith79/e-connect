@@ -959,27 +959,27 @@ body {
     }
 
     :root {
-  --primary:  #FF9734;
-  --hov-primary:  #FF9734;
+  --primary:  #800080;
+  --hov-primary:  #800080;
   --soft-primary: rgba(32, 122, 31, .15);
-  --secondary:  #FF9734;
+  --secondary:  #800080;
   --soft-secondary: rgba(32, 122, 31, .15);
 }
 
 
 
 .text-primary-grad {
-  background:  #FF9734;
+  background:  #800080;
   background: -moz-linear-gradient(0deg, rgba(36, 136, 34, 1) 0%, rgba(32, 122, 31, 1) 100%);
   /* background: -webkit-linear-gradient(0deg, rgba(36, 136, 34, 1) 0%, rgba(32, 122, 31, 1) 100%); */
-  background: linear-gradient(0deg, rgb(136 34 34) 0%, rgb(255, 151, 52) 100%);
+  background: linear-gradient(0deg, rgb(253 153 153) 0%, rgb(128,0,128) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
     .btn-primary,
     .bg-primary-grad {
-        background: rgb(253, 41, 123);
+        background: rgb(128,0,128);
         background: -moz-linear-gradient(225deg, var(--primary) 0%, var(--secondary) 100%);
         background: -webkit-linear-gradient(225deg, var(--primary) 0%, var(--secondary) 100%);
         background: linear-gradient(225deg, var(--primary) 0%, var(--secondary) 100%);
