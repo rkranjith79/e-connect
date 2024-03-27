@@ -139,7 +139,7 @@ class ProfileController extends Controller
             'jathagam_id' => ['required'],
             'nakshatra_patham_id' => ['required'],
             'date_of_birth' => ['required', 'date'],
-            'time_of_birth' => ['required', 'date_format:h:i:s'],
+            'time_of_birth' => ['required', 'date_format:H:i'],
             'place_of_birth' => ['required', 'max:200'],
 
             'birth_dasa_remaining_year' => ['required', 'max:200'],
@@ -399,7 +399,7 @@ class ProfileController extends Controller
             'jathagam_id' => ['required'],
             'nakshatra_patham_id' => ['required'],
             'date_of_birth' => ['required', 'date'],
-            'time_of_birth' => ['required', 'date_format:h:i:s'],
+            'time_of_birth' => ['required', 'date_format:H:i'],
             'place_of_birth' => ['required', 'max:200'],
 
             'birth_dasa_remaining_year' => ['required', 'max:200'],
@@ -571,29 +571,29 @@ class ProfileController extends Controller
 
     public function changePassword()
     {
-        $email = Auth::user()->email;      
+        $email = Auth::user()->email;
         return view('user.profile.change_password', compact('email'));
     }
 
     public function updatePassword(Request $request)
-    {                
+    {
         $validator = Validator::make($request->all(), [
             'email' => 'required',
             'password' => 'required|min:8|confirmed',
         ]);
-        
-        if ($validator->fails()) {            
+
+        if ($validator->fails()) {
             return redirect()->route('user.change_password')->withErrors($validator)->withInput();
-        }        
+        }
         $user = Auth::user();
         $email = Auth::user()->email;
-        if($email == $request->email ){                
+        if($email == $request->email ){
             $user->password = Hash::make($request->password);
             $user->save();
             return redirect()->route('user.change_password')->with('success', 'Password changed successfully.');
         } else {
             return redirect()->route('user.change_password')->with('error', 'Email Password Mismatch.');
         }
-        
+
     }
 }

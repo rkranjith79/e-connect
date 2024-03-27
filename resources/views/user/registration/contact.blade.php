@@ -92,6 +92,7 @@
                             class="fas fa-map-marker-alt"></i></span></div>
                 <select type="select" name="district_id" id="district_id"
                     class="form-control aiz-selectpicker required " data-live-search="true" -data-width="auto">
+                    <option style="display:none" value="">-- Select --</option>
                     @isset($record['districts'])
                         @foreach ($record['districts'] as $value => $label)
                             <option value="{{ $value }}" @selected(@old('district_id') ?? ($profileBasic->district_id ?? '') == $value)>{{ $label }}</option>
@@ -143,8 +144,8 @@
                 <div class="input-group-prepend"><span class="input-group-text"><i
                             class="fas fa-map-marker-alt"></i></span></div>
                 <input type="text" class="form-control required "
-                    value="{{ @old('district_others') ?? ($profileBasic->district_others ?? '') }}" id="district_others"
-                    name="district_others" maxlength="255">
+                    value="{{ @old('district_others') ?? ($profileBasic->district_others ?? '') }}"
+                    id="district_others" name="district_others" maxlength="255">
             </div>
             <small class="form-text text-muted text-help"></small>
             <span class="invalid-feedback"></span>

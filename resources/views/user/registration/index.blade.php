@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="py-4 py-lg-5 bg-cover bg-center d-flex align-items-center position-relative"
-    style="background-image: url('{{ asset('img/uploads/2.png') }}')">
+        style="background-image: url('{{ asset('img/uploads/2.png') }}')">
 
         <span class="mask"></span>
         <div class="container-fluid">
@@ -16,8 +16,7 @@
                                     life partner.</p>
                             </div>
                             <form class="form-default" id="registration_form" role="form" method="POST"
-                                enctype="multipart/form-data">>
-                                @csrf
+                                enctype="multipart/form-data">
                                 <div class="form-row">
                                     @include('user.registration.profile_photo')
                                     @include('user.registration.profile_horoscope')
@@ -52,6 +51,9 @@
                                     <p class="text-muted mb-0">Already have an account?</p>
                                     <a href="https://econnectmatrimony.com/login">Login to your account</a>
                                 </div>
+                                <div id="error_list" class="alert-danger text-danger">
+
+                                </div>
                             </form>
                         </div>
                     </div>
@@ -79,8 +81,8 @@
                 processData: false, // Do not process the data, let FormData handle it
 
                 success: function(response) {
-                    if (response.status == 200 ) {
-                        window.location.href = "{{ route('user.member-listing') }}"; 
+                    if (response.status == 200) {
+                        window.location.href = "{{ route('user.member-listing') }}";
                         $("#myForm")[0].reset(); // Reset the form
                         $("#successMessage").show(); // Show success message
                         clearErrors(); // Clear any previous error messages
@@ -102,18 +104,19 @@
 
         function handleErrors(errors) {
             clearErrors();
-
+            //var errorMsg = "<ul>";
             $.each(errors, function(key, value) {
                 $("#" + key).addClass("is-invalid"); // Add 'is-invalid' class to the input
                 $("#" + key).removeClass('is-valid').addClass('is-invalid');
                 $("#" + key).parents('.input-group').removeClass('is-valid').addClass('is-invalid');
                 $("#" + key).parents('.form-control').removeClass('is-valid').addClass('is-invalid');
-
-
                 $("#" + key).parents('.form-group').find('.invalid-feedback').text(value[0]);
-
+                $("#" + key).focus();
+                //errorMsg += "<li>" + value[0] + "</li>";
                 // $("#" + key).after('<div class="invalid-feedback">' + value[0] + '</div>'); // Display the error message
             });
+            //errorMsg += "</ul>";
+            //$("#error_list").html(errorMsg);
         }
 
         function clearErrors() {
