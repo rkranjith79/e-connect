@@ -29,6 +29,7 @@ use App\Models\SubCaste;
 use App\Models\Weight;
 use App\Models\Work;
 use App\Models\WorkPlace;
+use App\Models\BirthDasa;
 
 trait LookupTrait
 {
@@ -72,7 +73,7 @@ trait LookupTrait
             "nakshatra_pathams" => $this->getPublishedData(NakshatraPatham::class),
             "rasis" => $this->getPublishedData(Rasi::class),
             "asset_values" => $this->getPublishedData(AssetsValue::class),
-
+            "birth_dasas" => $this->getPublishedData(BirthDasa::class),
             "navamsams" => $this->getPublishedData(Navamsam::class),
             "asset_values" => $this->getPublishedData(AssetsValue::class),
         ];

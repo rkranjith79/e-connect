@@ -9,8 +9,7 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="mb-3 text-center">
-                                <h1 class="h3 text-primary mb-2">Login to your account</h1>
-                                <h6 class="text-danger">Language changed to English</h6>
+                                <h1 class="h3 text-primary mb-2">Login to your account</h1>                                
                             </div>
                             <form method="POST" action="{{ route('login') }}">
                             @csrf                                
@@ -42,8 +41,7 @@
                                                 <div class="input-group-prepend"><span class="input-group-text"><i
                                                             class="fas fa-key"></i></span></div>
                                                 <input type="password" class="form-control required " value=""
-                                                    id="password" name="password" maxlength="100" required><button id="toggle-pwd"
-                                                    type="button"><i class="fa fa-eye"></i></button><span class="">
+                                                    id="password" name="password" maxlength="100" required><span class="">
                                             </div>
                                             <small class="form-text text-muted text-help"></small>
                                             <span class="invalid-feedback"></span>

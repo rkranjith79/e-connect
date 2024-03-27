@@ -142,8 +142,8 @@
                 <select type="select" name="birth_dasa_id" id="birth_dasa_id"
                     class="form-control aiz-selectpicker " data-live-search="true" -data-width="auto">
                     <option style="display:none" value="">-- Select --</option>
-                    @isset($record['districts'])
-                        @foreach ($record['districts'] as $value => $label)
+                    @isset($record['birth_dasas'])
+                        @foreach ($record['birth_dasas'] as $value => $label)
                             <option value="{{ $value }}" @selected(@old('birth_dasa_id') ?? ($profileJathagam->birth_dasa_id ?? '') == $value)>{{ $label }}</option>
                         @endforeach
                     @endisset
