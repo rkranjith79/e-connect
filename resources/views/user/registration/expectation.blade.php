@@ -3,11 +3,11 @@
     <div class="col-sm-4">
         <div class="form-group mb-3">
             <label class="form-label" for="expectation_jathagam_id">{{ trans('fields.expectation_jathagam') }}<span
-                    class="require-star">*</span></label>
+                class="require-star">*</span></label>
             <div class="input-group">
                 <div class="input-group-prepend"><span class="input-group-text"><i class="fas fa-caret-down"></i></span>
                 </div>
-                <select type="select" name="expectation_jathagam_id[]" id="exp_jathagam"
+                <select type="select" name="expectation_jathagam_id[]" id="expectation_jathagam_id"
                     class="form-control aiz-selectpicker required " multiple "" data-live-search="true"
                     -data-width="auto">
                     <option style="display:none" value="">-- Select --</option>
@@ -25,8 +25,7 @@
     <div class="col-sm-4">
         <div class="form-group mb-3">
             <label class="form-label"
-                for="expectation_marital_status_id">{{ trans('fields.expectation_marital_status') }}<span
-                    class="require-star">*</span></label>
+                for="expectation_marital_status_id">{{ trans('fields.expectation_marital_status') }}</label>
             <div class="input-group">
                 <div class="input-group-prepend"><span class="input-group-text"><i class="fas fa-caret-down"></i></span>
                 </div>
@@ -47,8 +46,7 @@
     </div>
     <div class="col-sm-4">
         <div class="form-group mb-3">
-            <label class="form-label" for="expectation_work_place_id">{{ trans('fields.expectation_work_place') }}<span
-                    class="require-star">*</span></label>
+            <label class="form-label" for="expectation_work_place_id">{{ trans('fields.expectation_work_place') }}</label>
             <div class="input-group">
                 <div class="input-group-prepend"><span class="input-group-text"><i class="fas fa-caret-down"></i></span>
                 </div>
@@ -71,8 +69,7 @@
 <div class="form-row">
     <div class="col-sm-6">
         <div class="form-group mb-3">
-            <label class="form-label" for="expectation_nakshatra">{{ trans('fields.expectation_nakshatra') }}<span
-                    class="require-star">*</span></label>
+            <label class="form-label" for="expectation_nakshatra">{{ trans('fields.expectation_nakshatra') }}</label>
             <textarea class="form-control required" id="expectation_nakshatra" name="expectation_nakshatra" rows="3"
                 maxlength="300">{{ @old('expectation_nakshatra') ?? ($profile->expectation_nakshatra ?? '') }}</textarea>
             <small class="form-text text-muted text-help"></small>
@@ -81,8 +78,7 @@
     </div>
     <div class="col-sm-6">
         <div class="form-group mb-3">
-            <label class="form-label" for="expectation">{{ trans('fields.expectation') }}<span
-                    class="require-star">*</span></label>
+            <label class="form-label" for="expectation">{{ trans('fields.expectation') }}</label>
             <textarea class="form-control required" id="expectation" name="expectation" rows="3" maxlength="300">{{ @old('expectation') ?? ($profile->expectation ?? '') }}</textarea>
             <small class="form-text text-muted text-help"></small>
             <span class="invalid-feedback"></span>

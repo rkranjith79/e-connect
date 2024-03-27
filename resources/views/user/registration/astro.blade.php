@@ -104,8 +104,8 @@
 
     <div class="col-sm-3">
         <div class="form-group mb-3">
-            <p class="mb-0 form-label" style="margin-bottom: 8px !important;">
-                {{ trans('fields.time_of_birth') }} <span class="require-star">*</span></p>
+            <label for="time_of_birth" class="mb-0 form-label" style="margin-bottom: 8px !important;">
+                {{ trans('fields.time_of_birth') }} <span class="require-star">*</span></label>
             <div class="input-group">
                 <input type="time" class="form-control required "
                     value="{{ @old('time_of_birth') ?? ($profileJathagam->time_of_birth ?? '') }}" id="time_of_birth"

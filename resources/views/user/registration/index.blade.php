@@ -111,6 +111,7 @@
                 $("#" + key).parents('.input-group').removeClass('is-valid').addClass('is-invalid');
                 $("#" + key).parents('.form-control').removeClass('is-valid').addClass('is-invalid');
                 $("#" + key).parents('.form-group').find('.invalid-feedback').text(value[0]);
+                console.log(key);
                 $("#" + key).focus();
                 //errorMsg += "<li>" + value[0] + "</li>";
                 // $("#" + key).after('<div class="invalid-feedback">' + value[0] + '</div>'); // Display the error message
