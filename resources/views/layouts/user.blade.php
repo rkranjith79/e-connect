@@ -7,13 +7,13 @@
     <meta name="app-url" content="//econnectmatrimony.com/">
     <meta name="file-base-url" content="//econnectmatrimony.com/">
     <!-- Title -->
-    <title>E-Connect Matrimony | No. 1 Matrimony in Tiruppur | Tamil Nadu</title>
+    <title>E-Connect Matrimony | No. 1 Matrimony in Tamil Nadu</title>
 
     <!-- Required Meta Tags Always Come First -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="E-Connect Matrimony" />
-    <meta name="keywords" content="matrimony,kongu,tamil,matrimony,marriage,bride,groom,tiruppur">
+    <meta name="keywords" content="matrimony,kongu,tamil,matrimony,marriage,bride,groom,tamilnadu">
 
     <!-- Favicon -->
     <meta name="mobile-web-app-capable" content="yes">

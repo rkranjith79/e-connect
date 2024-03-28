@@ -111,7 +111,7 @@
                     @isset($record['social_types'])
                         @foreach ($record['social_types'] as $value => $label)
                             <option value="{{ $value }}" @selected(@old('social_type_id') ?? ($profileBasic->social_type_id ?? '') == $value)>
-                                {{ $label }}>{{ $label }}</option>
+                                {{ $label }}</option>
                         @endforeach
                     @endisset
                 </select>

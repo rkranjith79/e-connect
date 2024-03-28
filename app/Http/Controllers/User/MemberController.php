@@ -32,7 +32,7 @@ class MemberController extends Controller
         $data['grooms'] = Profile::selectColumns()->groom()->get();
         $data['brides'] = Profile::selectColumns()->bride()->get();
         $data['select'] = $this->getlookupData();
-
+     
         return view('user.index', compact('data'));
     }
 

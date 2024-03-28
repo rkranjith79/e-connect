@@ -233,9 +233,9 @@ class ProfileController extends Controller
             "expectation_nakshatra" => $request->expectation_nakshatra,
             "expectation" => $request->expectation,
             "photo_file" => $photo_file_path,
-            "active" => $request->active == true ? '1' : '0',
+            
         ]);
-
+        // "active" => $request->active == true ? '1' : '0', Parthi
         ProfileBasic::create([
             "profile_id" => $profile->id,
             "temple" => $request->temple,
