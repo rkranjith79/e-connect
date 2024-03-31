@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('profile_basics', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('profile_id');
+            $table->foreignId('profile_id')->constrained()->onDelete('cascade');
             $table->string('temple',100)->nullable();
             $table->foreignId('caste_id')->nullable();
             $table->foreignId('sub_caste_id')->nullable();

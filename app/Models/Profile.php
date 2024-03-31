@@ -14,7 +14,7 @@ class Profile extends MasterModel
 
     protected $fillable = [
         "language_tamil",
-        "blood_group_id",  
+        "blood_group_id",
         "title",
         "color_id",
         "body_type_id",
@@ -41,7 +41,7 @@ class Profile extends MasterModel
         'expectation_work_place_id' => "object",
 
     ];
-    
+
     public function user()
     {
         return $this->belongsTo(User::class);
@@ -56,7 +56,7 @@ class Profile extends MasterModel
     {
         return $this->belongsTo(BloodGroup::class)->Translated();
     }
-    
+
     public function body_type()
     {
         return $this->belongsTo(BodyType::class)->Translated();
@@ -90,23 +90,24 @@ class Profile extends MasterModel
     public function registered_by()
     {
         return $this->belongsTo(RegisteredBy::class)->Translated();
-    } 
-    
+    }
+
     public function basic()
     {
         return $this->hasOne(ProfileBasic::class);
     }
-    
+
     public function jathagam()
     {
         return $this->hasOne(profileJathagam::class);
     }
-    
-    public function getModelData($data){
-        // Full data get 
+
+    public function getModelData($data)
+    {
+        // Full data get
     }
 
-    
+
     public function scopeBride($query)
     {
         return $query->where('gender_id', 2)->where('active', 1);
@@ -124,32 +125,41 @@ class Profile extends MasterModel
 
     public function getPhotoAttribute()
     {
-        return !empty($this->attributes['photo_file']) ? 
-                asset("storage/photos/".$this->attributes['photo_file'] )
-                    : (
-                        $this->attributes['gender_id'] == 1 ?  
-                            asset('img/profile/groom.jpg') 
-                            :
-                            asset('img/profile/bride.jpg')
-                    );
+        return !empty($this->attributes['photo_file']) ?
+            asset("storage/photos/" . $this->attributes['photo_file'])
+            : (
+                $this->attributes['gender_id'] == 1 ?
+                asset('img/profile/groom.jpg')
+                :
+                asset('img/profile/bride.jpg')
+            );
     }
 
     public function getExpectationJathagamTitleAttribute()
     {
-        if(!empty($this->expectation_jathagam_id))
+        if (!empty($this->expectation_jathagam_id))
             return Jathagam::where('id', $this->expectation_jathagam_id)->Translated()?->pluck('title')->implode(", ");
     }
 
     public function getExpectationMaritalStatusTitleAttribute()
     {
-        if(!empty($this->expectation_marital_status_id))
-        return Jathagam::where('id', $this->expectation_marital_status_id)->Translated()?->pluck('title')->implode(", ");
+        if (!empty($this->expectation_marital_status_id))
+            return Jathagam::where('id', $this->expectation_marital_status_id)->Translated()?->pluck('title')->implode(", ");
     }
 
     public function getExpectationWorkPlaceTitleAttribute()
     {
-        if(!empty($this->expectation_work_place_id))
-        return Jathagam::where('id', $this->expectation_work_place_id)->Translated()?->pluck('title')->implode(", ");
+        if (!empty($this->expectation_work_place_id))
+            return Jathagam::where('id', $this->expectation_work_place_id)->Translated()?->pluck('title')->implode(", ");
     }
-    
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::deleting(function ($profile) {
+            $profile->basic->delete();
+            $profile->jathagam->delete();
+        });
+    }
 }
