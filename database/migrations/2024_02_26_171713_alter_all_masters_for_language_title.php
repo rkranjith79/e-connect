@@ -73,9 +73,6 @@ return new class extends Migration
         Schema::table('physical_statuses', function (Blueprint $table) {
             $table->string('language_tamil');
         });
-        Schema::table('profiles', function (Blueprint $table) {
-            $table->string('language_tamil');
-        });
         Schema::table('rasis', function (Blueprint $table) {
             $table->string('language_tamil');
         });

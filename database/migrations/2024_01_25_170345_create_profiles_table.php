@@ -29,6 +29,7 @@ return new class extends Migration
             $table->foreignId('blood_group_id')->nullable();
             $table->boolean('active')->default(1);
             $table->timestamps();
+            $table->string('language_tamil');
             $table->softDeletes();
         });
     }
