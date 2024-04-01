@@ -33,6 +33,7 @@ class Profile extends MasterModel
         "expectation",
         "active",
         "photo_file",
+        'code'
     ];
 
     protected $casts = [
@@ -160,6 +161,12 @@ class Profile extends MasterModel
         static::deleting(function ($profile) {
             $profile->basic->delete();
             $profile->jathagam->delete();
+        });
+
+        static::creating(function ($profile) {
+            $lastProfile = static::latest()->first();
+            $lastCode = $lastProfile ? $lastProfile->code : null;
+            $profile->code = 'EC' . str_pad(intval(substr($lastCode, 2)) + 1, 4, '0', STR_PAD_LEFT);
         });
     }
 }

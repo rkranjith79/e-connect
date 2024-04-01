@@ -146,32 +146,32 @@
                 <div class="aiz-carousel gutters-10 half-outside-arrow pb-3" data-items="5" data-xl-items="4"
                     data-lg-items="4" data-md-items="3" data-sm-items="2" data-xs-items="1" data-arrows='true'
                     data-dots='true' data-infinite='true' data-autoplay='true'>
-                    
+
                     @foreach ($data['brides'] as $profile)
                         <div class="carousel-box">
                             <div class="member-block position-relative overflow-hidden">
-                                <img src = data-lazy="{{ $profile->photo ?? '' }}"
+                                <img data-lazy="{{ $profile->photo ?? '' }}"
                                     class="img-fit mw-100 h-125px">
                                 <div class="w-100 p-3 z-1">
                                     <div class="text-center">
                                         <h6 class="font-weight-bold mb-1">{{ $profile->title ?? '-' }}</h6>
-                                        <h6 class="text-primary mb-0">{{ $profile->id ?? '-'}}</h6>
+                                        <h6 class="text-primary mb-0">{{ $profile->code ?? '-'}}</h6>
                                         <p class="mb-0">{{ trans("fields.age") }} : <span class="font-weight-bold">{{ $profile->jathagam->age ?? '-' }}</span></p>
                                         <p class="mb-0">{{ trans("fields.education") }} : <span class="font-weight-bold">{{ $profile->basic->education->title ?? '-' }}</span></p>
                                         <p class="mb-0">{{ trans("fields.rasi") }} : <span class="font-weight-bold">{{ $profile->jathagam->rasi_nakshatra->title ?? '-' }}</span></p>
                                         <p class="mb-0">{{ trans("fields.jathagam") }} : <span class="font-weight-bold">{{ $profile->jathagam->jathagam->title ?? '-' }}</span></p>
                                         <p class="mb-0">{{ trans("fields.district") }}  : <span class="font-weight-bold">{{ $profile->basic->district->title ?? '-' }}</span></p>
                                         <div class="text-center mt-2">
-                                            <a href="{{ route('user.profile', ['id' => $profile->id]) }}" 
+                                            <a href="{{ route('user.profile', ['id' => $profile->id]) }}"
                                                 class="btn btn-circle btn-sm btn-primary mr-1">
                                                 {{ trans("site.view_profile_button_2") }}</a>
-                                            <a href="{{ route('user.jathagam', ['id' => $profile->id]) }}" 
+                                            <a href="{{ route('user.jathagam', ['id' => $profile->id]) }}"
                                                 class="btn btn-circle btn-sm btn-primary mr-1">{{ trans("site.view_jathagam_button_2") }}</a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div> 
+                        </div>
                     @endforeach
                 </div>
 
@@ -189,7 +189,7 @@
                             <div class="w-100 p-3 z-1">
                                 <div class="text-center">
                                     <h6 class="font-weight-bold mb-1">{{ $profile->title ?? '-' }}</h6>
-                                    <h6 class="text-primary mb-0">{{ $profile->id ?? '-'}}</h6>
+                                    <h6 class="text-primary mb-0">{{ $profile->code ?? '-'}}</h6>
                                     <p class="mb-0">{{ trans("fields.age") }} : <span class="font-weight-bold">{{ $profile->jathagam->age ?? '-' }}</span></p>
                                     <p class="mb-0">{{ trans("fields.education") }} : <span class="font-weight-bold">{{ $profile->basic->education->title ?? '-' }}</span></p>
                                     <p class="mb-0">{{ trans("fields.rasi") }} : <span class="font-weight-bold">{{ $profile->jathagam->rasi_nakshatra->title ?? '-' }}</span></p>
@@ -199,21 +199,21 @@
                                         <a href="{{ route('user.profile', ['id' => $profile->id]) }}"
                                             class="btn btn-circle btn-sm btn-primary mr-1">
                                             {{ trans("site.view_profile_button_2") }}</a>
-                                        <a href="{{ route('user.jathagam', ['id' => $profile->id]) }}" 
+                                        <a href="{{ route('user.jathagam', ['id' => $profile->id]) }}"
                                             class="btn btn-circle btn-sm btn-primary mr-1">{{ trans("site.view_jathagam_button_2") }}</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    
+
                     @endforeach
                 </div>
             </div>
 
 
 
-            
+
         </div>
     </section>
 

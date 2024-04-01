@@ -42,7 +42,7 @@
                                         </div>
                                         <div class="col-md position-static d-flex align-items-center">
                                             <span class="absolute-top-right px-2 pt-1 pb-3">
-                                                <span class="badge badge-inline badge-success">3003 Gold</span>
+                                                <span class="badge badge-inline badge-success"></span>
                                             </span>
                                             <div class="px-2 px-md-4 pt-4 pb-2 listing-profile flex-grow-1">
                                                 <h2 class="h6 fw-600 fs-18 text-primary text-truncate mb-1">

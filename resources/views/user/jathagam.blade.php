@@ -33,7 +33,7 @@
                 </div>
                 <div class="form-row print-info">
                     <div class="col text-left">
-                        <p class="mb-0">Profile ID: <span id="profile-id"> {{ $data['profile']->id }}</span></p>
+                        <p class="mb-0">Profile ID: <span id="profile-id"> {{ $data['profile']->code }}</span></p>
                     </div>
                     <div class="col text-center">
                         <p class="mb-0">Date Reg: {{ __setDateFormat($data['profile']->created_at) }}</p>
