@@ -50,9 +50,9 @@ class MemberController extends Controller
             $profiles = Profile::selectColumns();
             if(Auth::check()) {
                 if(Auth::user()?->profile?->gender?->id == 2) {
-                    $profiles = $profiles->bride();
-                } else {
                     $profiles = $profiles->groom();
+                } else {
+                    $profiles = $profiles->bride();
                 }
             } else {
                 $profiles->limit(10);
