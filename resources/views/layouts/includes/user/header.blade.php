@@ -45,9 +45,14 @@
                             <li class="list-inline-item text-center">
                                 <form method="POST" action="{{ route('logout') }}">
                                     @csrf
-                                    <button class="btn btn-sm btn-primary text-white fw-600 py-1 border"
+                                    <button class="btn btn-sm btn-danger text-white fw-600 py-1 border"
                                         type="submit">{{ trans('site.logout') }}</button>
                                 </form>
+                            </li>
+
+                            <li class="list-inline-item">
+                                <a class="btn btn-sm btn-primary text-white fw-600 py-1 border"
+                                    href="{{ route('registers') }}">{{ trans('site.registration') }}</a>
                             </li>
                         @else
                             <li class="list-inline-item mr-3 pr-3 border-right text-reset text-center">
@@ -77,28 +82,34 @@
                             <img src="{{ asset('img/logo-e-connet.png') }}" alt="E-Connect Matrimony"
                                 class="mw-100 h-auto">
                         </a>
-                        <a herf="#!" class="logo-toggle nav-toggle-icon d-inline-block d-lg-none"
+                        <a herf="#!" class="px-4 logo-toggle nav-toggle-icon d-inline-block d-lg-none"
                             onclick="nav_toggler()">
-                            <span><i class="fas fa-bars fa-2x text-primary" area-hidden="true"></i></span>
-                            <span class="hide"><i class="fas fa-times fa-2x text-primary"
-                                    area-hidden="true"></i></span>
+                            <span class="px-2">
+                                <i class="fas fa-bars fa-2x text-primary" area-hidden="true">
+                                    </i>
+                            </span>
+                            <span class="hide px-2">
+                                <i class="fas fa-times fa-2x text-primary"
+                                    area-hidden="true"></i>
+                            </span>
                         </a>
                     </div>
                     <ul
                         class="d-none mb-0 pl-0 ml-lg-auto d-lg-flex align-items-stretch justify-content-center justify-content-lg-start mobile-hor-swipe">
-                        <li class="d-inline-block d-lg-flex pb-1 bg-primary-grad">
+                        <li class="d-inline-block d-lg-flex pb-1  {{\Request::route()->getName() == 'index' ? 'bg-primary-grad' : ''}}">
+                           
                             <a class="nav-link text-uppercase fw-700 fs-15 d-flex align-items-center bg-white py-2"
                                 href="{{ url('/') }}">
                                 <span class="text-primary-grad mb-n1">{{ trans('site.home') }}</span>
                             </a>
                         </li>
-                        <li class="d-inline-block d-lg-flex pb-1 ">
+                        <li class="d-inline-block d-lg-flex pb-1  {{\Request::route()->getName() == 'user.member-listing' ? 'bg-primary-grad' : ''}}">
                             <a class="nav-link text-uppercase fw-700 fs-15 d-flex align-items-center bg-white py-2"
                                 href="{{ route('user.member-listing') }}">
                                 <span class="text-primary-grad mb-n1">{{ trans('site.view_profile') }}</span>
                             </a>
                         </li>
-                        <li class="d-inline-block d-lg-flex pb-1 ">
+                        <li class="d-inline-block d-lg-flex pb-1  {{\Request::route()->getName() == 'user.search' ? 'bg-primary-grad' : ''}}">
                             <a class="nav-link text-uppercase fw-700 fs-15 d-flex align-items-center bg-white py-2"
                                 href="{{ route('user.search') }}">
                                 <span class="text-primary-grad mb-n1">{{ trans('site.search') }}</span>

@@ -135,6 +135,12 @@ class Profile extends MasterModel
             );
     }
 
+    public function getNameDisplayAttribute()
+    {
+        return strlen($this->attributes['title']) > 12 ? substr($this->attributes['title'],   0, 12)."...." : $this->attributes['title'];
+    }
+
+
     public function getExpectationJathagamTitleAttribute()
     {
         if (!empty($this->expectation_jathagam_id))

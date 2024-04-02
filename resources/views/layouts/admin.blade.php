@@ -11,16 +11,16 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- plugins:css -->
-    <link rel="stylesheet" href="{{ asset('admin/vendors/mdi/css/materialdesignicons.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('admin/vendors/base/vendor.bundle.base.css') }}">
+    <link rel="stylesheet" href="{{ asset('admin-template/vendors/mdi/css/materialdesignicons.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('admin-template/vendors/base/vendor.bundle.base.css') }}">
     <!-- endinject -->
     <!-- plugin css for this page -->
-    <link rel="stylesheet" href="{{ asset('admin/vendors/datatables.net-bs4/dataTables.bootstrap4.css') }}">
+    <link rel="stylesheet" href="{{ asset('admin-template/vendors/datatables.net-bs4/dataTables.bootstrap4.css') }}">
     <!-- End plugin css for this page -->
     <!-- inject:css -->
-    <link rel="stylesheet" href="{{ asset('admin/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('admin-template/css/style.css') }}">
     <!-- endinject -->
-    <link rel="shortcut icon" href="{{ asset('admin/images/favicon.png') }}" />
+    <link rel="shortcut icon" href="{{ asset('admin-template/images/favicon.png') }}" />
     <link rel="stylesheet" href="{{ asset('css/common.css') }}" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
         integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
@@ -55,19 +55,19 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
         integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
     </script>
-    <script src="{{ asset('admin/vendors/base/vendor.bundle.base.js') }}"></script>
+    <script src="{{ asset('admin-template/vendors/base/vendor.bundle.base.js') }}"></script>
 
-    <script src="{{ asset('admin/vendors/datatables.net/jquery.dataTables.js') }}"></script>
-    <script src="{{ asset('admin/vendors/datatables.net-bs4/dataTables.bootstrap4.js') }}"></script>
+    <script src="{{ asset('admin-template/vendors/datatables.net/jquery.dataTables.js') }}"></script>
+    <script src="{{ asset('admin-template/vendors/datatables.net-bs4/dataTables.bootstrap4.js') }}"></script>
 
-    <script src="{{ asset('admin/js/off-canvas.js') }}"></script>
-    <script src="{{ asset('admin/js/hoverable-collapse.js') }}"></script>
-    <script src=" {{ asset('admin/js/template.js') }}"></script>
+    <script src="{{ asset('admin-template/js/off-canvas.js') }}"></script>
+    <script src="{{ asset('admin-template/js/hoverable-collapse.js') }}"></script>
+    <script src=" {{ asset('admin-template/js/template.js') }}"></script>
 
-    <script src="{{ asset('admin/js/dashboard.js') }}"></script>
-    <script src="{{ asset('admin/js/data-table.js') }}"></script>
-    <script src="{{ asset('admin/js/jquery.dataTables.js') }}"></script>
-    <script src="{{ asset('admin/js/dataTables.bootstrap4.js') }}"></script>
+    <script src="{{ asset('admin-template/js/dashboard.js') }}"></script>
+    <script src="{{ asset('admin-template/js/data-table.js') }}"></script>
+    <script src="{{ asset('admin-template/js/jquery.dataTables.js') }}"></script>
+    <script src="{{ asset('admin-template/js/dataTables.bootstrap4.js') }}"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- include summernote css/js -->
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>

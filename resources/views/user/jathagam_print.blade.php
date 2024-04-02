@@ -27,12 +27,12 @@
                                         </a></span>
                                 </div> --}}
                                 <div class="col-md-12">
-                                    <span class="mx-2 float-right"><a href="tel:9894059591"
+                                    <span class="mx-2 float-right"><a href="tel:{{ __getSiteConfigration('phone') }}"
                                             class="text-dark"><i class="fas fa-phone-alt text-primary"></i>
-                                            9894059591</a></span>
+                                             {{ __getSiteConfigration('phone') }}</a></span>
                                     <span class="span-email mx-2 float-right"><a class="text-dark"><i
                                                 class="fas fa-envelope text-primary"></i>
-                                                econnectindia@gmail.com
+                                                {{ __getSiteConfigration('email') }}
                                         </a></span>
                                 </div>
                             </div>
@@ -41,7 +41,7 @@
                 </div>
                 <div class="form-row print-info">
                     <div class="col text-left">
-                        <p class="mb-0">Profile ID: <span id="profile-id"> {{ $data['profile']->id }}</span></p>
+                        <p class="mb-0">Profile ID: <span id="profile-id"> {{ $data['profile']->code }}</span></p>
                     </div>
                     <div class="col text-center">
                         <p class="mb-0">Date Reg: {{ __setDateFormat($data['profile']->created_at) }}</p>

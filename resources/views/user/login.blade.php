@@ -9,14 +9,16 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="mb-3 text-center">
-                                <h1 class="h3 text-primary mb-2">Login to your account</h1>                                
+                                <h1 class="h3 text-primary mb-2">
+                                    {{ trans('site.login_your_account') }}
+                               </h1>                                
                             </div>
                             <form method="POST" action="{{ route('login') }}">
                             @csrf                                
                                 <div class="row div-email">
                                     <div class="col-12">
                                         <div class="form-group mb-3">
-                                            <label class="form-label" for="email">Email or Phone<span
+                                            <label class="form-label" for="email">{{ trans('fields.email') }}<span
                                                     class="require-star">*</span></label>
                                             <div class="input-group">
                                                 <div class="input-group-prepend"><span class="input-group-text"><i
@@ -35,7 +37,7 @@
                                     </div>
                                     <div class="col-12">
                                         <div class="form-group mb-3">
-                                            <label class="form-label" for="password">Password<span
+                                            <label class="form-label" for="password">{{ trans('fields.password') }}<span
                                                     class="require-star">*</span></label>
                                             <div class="input-group">
                                                 <div class="input-group-prepend"><span class="input-group-text"><i
@@ -49,7 +51,7 @@
                                     </div>
                                 </div>
 
-                                <div class="row div-email">
+                                {{-- <div class="row div-email">
                                     <div class="col-6 text-left">
                                         <label class="aiz-checkbox">
                                             <input type="checkbox" name="remember" value="1"><span
@@ -61,17 +63,18 @@
                                         <a class="link-muted text-capitalize font-weight-normal"
                                             href="forgot_password.html">Forgot Password?</a>
                                     </div>
-                                </div>
+                                </div> --}}
 
                                 <div class="my-3">                                
-                                    <button type="submit" class="btn btn-block btn-primary">Login to your
-                                        Account</button>
+                                    <button type="submit" class="btn btn-block btn-primary">
+                                        {{ trans('site.login_your_account_button') }}
+                                    </button>
                                 </div>
                             </form>
 
                             <div class="text-center">
-                                <p class="text-muted mb-0">Don&#039;t have an account?</p>
-                                <a href="{{route('registers')}}">Create an account</a>
+                                <p class="text-muted mb-0">{{ trans('site.don_t_have_an_account') }}</p>
+                                <a href="{{route('registers')}}">{{ trans('site.create_your_account') }}</a>
                             </div>
                         </div>
                     </div>

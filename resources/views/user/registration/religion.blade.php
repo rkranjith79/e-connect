@@ -138,7 +138,8 @@
                 console.log(fill_arr);
                 for (i = 0; i < fill_arr.length; i++) {
                     /*check if the item starts with the same letters as the text field value:*/
-                    if (fill_arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
+                    // if (fill_arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
+                    if (fill_arr[i].match(val.toUpperCase())) {
                         /*create a DIV element for each matching element:*/
                         b = document.createElement("DIV");
                         /*make the matching letters bold:*/

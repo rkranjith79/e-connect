@@ -324,16 +324,7 @@ function alert_login() {
 		SSMLoading('show');
 	});
 }
-$(window).scroll(function() {
-    if ($(this).scrollTop()) {
-        $('#goTop').fadeIn();
-    } else {
-        $('#goTop').fadeOut();
-    }
-});
-$("#goTop").click(function() {
-    $("html, body").animate({scrollTop: 0}, 1000);
-});
+
 
 //Inits
 const swalWithAiz = Swal.mixin({
@@ -376,3 +367,14 @@ function dependencyDropDown( parent_id, child_id, data_id) {
 		$('#'+child_id).selectpicker('refresh');
 });
 }
+
+$(window).scroll(function() {
+    if ($(this).scrollTop()) {
+        $('#goTop').fadeIn();
+    } else {
+        $('#goTop').fadeOut();
+    }
+});
+$("#goTop").click(function() {
+    $("html, body").animate({scrollTop: 0}, 1000);
+});

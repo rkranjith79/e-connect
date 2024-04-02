@@ -11,9 +11,8 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="mb-2 text-center">
-                                <h1 class="h3 text-primary mb-0">Create Your Account</h1>
-                                <p>Register yourself in our website to access thousands of profiles and find your
-                                    life partner.</p>
+                                <h1 class="h3 text-primary mb-0">{{ trans('site.create_your_account') }}</h1>
+                                <p>{{ trans('site.create_your_account_sub_label') }}</p>
                             </div>
                             <form class="form-default" id="registration_form" role="form" method="POST"
                                 enctype="multipart/form-data">

@@ -23,7 +23,7 @@
                                 @forelse ($data['profiles'] as $profile)
 
                                     <div class="row no-gutters border border-gray-300 rounded shadow mb-4 has-transition position-relative"
-                                        id="block_id_1981">
+                                        id="block_id_{{ $profile->id }}">
                                         <div class="col-md-auto">
                                             <div class="text-center pt-3 pt-md-0">
                                                 <img src="{{ $profile->photo }}"
@@ -31,21 +31,24 @@
                                                     onerror="this.onerror=null;this.src='{{ $profile->photo }}';">
                                                 <div class="mt-2">
                                                     <a href="{{ route('user.profile', ['id' => $profile->id]) }}"
-                                                        class="btn btn-primary btn-sm mr-1"><i class="fas fa-user"></i>
+                                                        class="btn btn-primary btn-sm mr-1">
+                                                        {{-- <i class="fas fa-user"></i> --}}
                                                         {{ trans('site.view_profile_button') }}</a>
                                                     <a href="{{ route('user.jathagam', ['id' => $profile->id]) }}"
-                                                            class="btn btn-primary btn-sm ml-1">{{ trans('site.view_jathagam_button') }} <i
-                                                            class="fas fa-file-invoice"></i></a>
+                                                            class="btn btn-primary btn-sm ml-1">
+                                                            {{ trans('site.view_jathagam_button') }} 
+                                                            {{-- <i class="fas fa-file-invoice"></i> --}}
+                                                        </a>
 
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md position-static d-flex align-items-center">
                                             <span class="absolute-top-right px-2 pt-1 pb-3">
-                                                <span class="badge badge-inline badge-success"></span>
+                                                <span class="badge badge-inline badge-success">{{ $profile->code }}</span>
                                             </span>
                                             <div class="px-2 px-md-4 pt-4 pb-2 listing-profile flex-grow-1">
-                                                <h2 class="h6 fw-600 fs-18 text-primary text-truncate mb-1">
+                                                <h2 class="h6 fw-600 fs-18 text-primary text-wrap mb-1">
                                                     {{ $profile->title ?? "-"}}
                                                     <span class="float-right text-primary"></span></h2>
                                                 <div class="form-row pb-1">
@@ -153,8 +156,16 @@
                                  <h2>{{ trans('site.no_data_available') }}</h2>
                                 @endforelse
                             </div>
-                            <div class="aiz-pagination">
+                            <div class="aiz-pagination text-center">
+                                @guest
+                                        <h1 class="h3 text-primary mb-0">{{ trans('site.create_your_account') }}</h1>
+                                        <p>{{ trans('site.create_your_account_sub_label') }}</p>
+h
+                                        <a class="btn btn-sm btn-primary text-white fw-600 py-1 border"
+                                    href="{{ route('registers') }}">{{ trans('site.registration') }}</a>
+                                @endguest
 
+                                {{ $data['profiles']->links() }}
                             </div>
                         </div>
                     </div>

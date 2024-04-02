@@ -10,6 +10,9 @@ use Carbon\Carbon;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Dompdf\Dompdf;
 use Dompdf\Options;
+use Illuminate\Support\Facades\Auth;
+
+
 class MemberController extends Controller
 {
     use LookupTrait;
@@ -41,9 +44,21 @@ class MemberController extends Controller
     public function listing($profile = null)
     {
         if (!empty($profile)) {
-            $data['profiles'] = $profile->get();
+           // dd($profile->toSql());
+            $data['profiles'] = $profile->paginate(20);
         } else {
-            $data['profiles'] = Profile::selectColumns()->get();
+            $profiles = Profile::selectColumns();
+            if(Auth::check()) {
+                if(Auth::user()?->profile?->gender?->id == 2) {
+                    $profiles = $profiles->bride();
+                } else {
+                    $profiles = $profiles->groom();
+                }
+            } else {
+                $profiles->limit(10);
+            }
+           
+            $data['profiles'] = $profiles->paginate(20);
         }
 
         $data['select'] = $this->getlookupData();
@@ -100,6 +115,7 @@ class MemberController extends Controller
     {
         $name = $request->name ?? null;
         $member_id = $request->member_id ?? null;
+        $gender = $request->gender ?? null;
         $age_from = $request->age_from ?? null;
         $age_to = $request->age_to ?? null;
         $exp_maritalstatus = $request->exp_maritalstatus ?? null;
@@ -124,15 +140,17 @@ class MemberController extends Controller
         $profile = $profile->when(!empty($name), function ($q) use ($name) {
             $q->where("title", "like", "%" . $name . "%");
         })->when(!empty($member_id), function ($q) use ($member_id) {
-            $q->where("code", "like", $member_id);
+            $q->where("code", "like",  "%" .$member_id. "%");
         })->when(!empty($exp_maritalstatus), function ($q) use ($exp_maritalstatus) {
-            $q->whereIn("expectation_marital_status_id", array_filter((array) $exp_maritalstatus));
+            $q->whereIn("marital_status_id", array_filter((array) $exp_maritalstatus));
         })->when(!empty($body_type), function ($q) use ($body_type) {
             $q->whereIn("body_type_id", array_filter((array) $body_type));
         })->when(!empty($color), function ($q) use ($color) {
             $q->whereIn("color_id", array_filter((array) $color));
         })->when(!empty($splcategory), function ($q) use ($splcategory) {
             $q->whereIn("physical_status_id", array_filter((array) $splcategory));
+        })->when(!empty($gender), function ($q) use ($gender) {
+            $q->whereIn("gender_id", array_filter((array) $gender));
         })->whereHas(
             "basic",
             function ($q) use ($caste, $sub_caste, $education, $work, $country, $state, $district, $exp_work_place) {
@@ -163,19 +181,18 @@ class MemberController extends Controller
                         $q->whereIn('lagnam_id', array_filter((array) $lagnam));
                     })->when(!empty($exp_jathagam), function ($q) use ($exp_jathagam) {
                         $q->whereIn('jathagam_id', array_filter((array) $exp_jathagam));
-                    })->when(!empty($exp_jathagam), function ($q) use ($exp_jathagam) {
-                        $q->whereIn('jathagam_id', array_filter((array) $exp_jathagam));
                     })
                         ->when(!empty($age_from), function ($q) use ($age_from) {
                             $startDate = Carbon::now()->subYears($age_from)->format('Y-m-d');
-                            $q->where('date_of_birth', '>=', $startDate);
+                            $q->where('date_of_birth', '<=', $startDate);
                         })->when(!empty($age_to), function ($q) use ($age_to) {
                             $endDate = Carbon::now()->subYears($age_to)->format('Y-m-d');
-                            $q->where('date_of_birth', '<=', $endDate);
+                            $q->where('date_of_birth', '>=', $endDate);
                         });
                 }
             );
-        // dd($profile->toSql());
+
+           // dump($profile->toSql());
         return $this->listing($profile);
     }
 

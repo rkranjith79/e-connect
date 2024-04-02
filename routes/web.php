@@ -16,6 +16,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/user-login', function () {
     return view('user.login');
 })->name('user-login');
+
+
 Route::get('/',  [App\Http\Controllers\User\MemberController::class, 'index'])->name('index');
 
 Auth::routes();
@@ -35,6 +37,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::name('admin.')->prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
     Route::get('/dashboard', [App\Http\Controllers\Admin\AdminDashboardController::class, 'index'])->name('dashboard');
+    Route::get('/', [App\Http\Controllers\Admin\AdminDashboardController::class, 'index'])->name('admin.index');
 
     Route::name('user.')->prefix('/users')->group(function () {
         Route::get('/', [App\Http\Controllers\Admin\UserController::class, 'index'])->name('list');

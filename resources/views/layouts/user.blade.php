@@ -26,10 +26,10 @@
     <meta name="msapplication-TileColor" content="#248822">
     <meta name="msapplication-starturl" content="index.html">
     <meta name="msapplication-TileColor" content="#248822">
-    <meta name="msapplication-TileImage" content="assets/img/icons/ms-icon-144x144.png">
+    {{-- <meta name="msapplication-TileImage" content="assets/img/icons/ms-icon-144x144.png"> --}}
 
-    <link rel="shortcut icon" href="assets/img/icons/favicon.ico" type="image/x-icon">
-    <link rel="icon" href="assets/img/icons/favicon.ico" type="image/x-icon">
+    {{-- <link rel="shortcut icon" href="assets/img/icons/favicon.ico" type="image/x-icon"> --}}
+    <link rel="icon" href="{{ asset('img/icons/favicon.ico') }}" type="image/x-icon">
 
     <!-- CSS -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&amp;display=swap">

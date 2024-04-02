@@ -48,6 +48,16 @@ return [
 
    //Advanced Search page
    'quick_search' => 'மேம்பட்ட தேடல்',
-   'id_search' => 'ID தேடல்'
+   'id_search' => 'ID தேடல்',
+
+   //Register Page
+   'create_your_account' => 'உங்கள் கணக்கை உருவாக்கவும்',
+   'create_your_account_sub_label' => 'ஆயிரக்கணக்கான சுயவிவரங்களை அணுக மற்றும் உங்கள் கண்டுபிடிக்க எங்கள் வலைத்தளத்தில் உங்களை பதிவு செய்யுங்கள்
+   வாழ்க்கைத் துணை.',
+
+   //Login Page
+   'login_your_account' => 'உங்கள் கணக்கில் உள்நுழைக',
+   'login_your_account_button' => 'உங்கள் கணக்கில் உள்நுழைக',
+   'don_t_have_an_account' => 'கணக்கு இல்லையா?',
 ];
 ?>
