@@ -34,7 +34,7 @@ class MemberController extends Controller
         $data['grooms'] = Profile::selectColumns()->groom()->get();
         $data['brides'] = Profile::selectColumns()->bride()->get();
         $data['select'] = $this->getlookupData();
-     
+
         return view('user.index', compact('data'));
     }
 
@@ -119,10 +119,12 @@ class MemberController extends Controller
         $lagnam = $request->lagnam ?? null;
         $exp_jathagam = $request->exp_jathagam ?? null;
 
-        // dd($name);
+        // dd($member_id);
         $profile = new Profile;
         $profile = $profile->when(!empty($name), function ($q) use ($name) {
             $q->where("title", "like", "%" . $name . "%");
+        })->when(!empty($member_id), function ($q) use ($member_id) {
+            $q->where("code", "like", $member_id);
         })->when(!empty($exp_maritalstatus), function ($q) use ($exp_maritalstatus) {
             $q->whereIn("expectation_marital_status_id", array_filter((array) $exp_maritalstatus));
         })->when(!empty($body_type), function ($q) use ($body_type) {
@@ -152,8 +154,7 @@ class MemberController extends Controller
                     $q->whereIn('work_place_id', array_filter((array) $exp_work_place));
                 });
             }
-        )
-            ->whereHas(
+        )->whereHas(
                 "jathagam",
                 function ($q) use ($rasi_nakshatra, $lagnam, $exp_jathagam, $age_from, $age_to) {
                     $q->when(!empty($rasi_nakshatra), function ($q) use ($rasi_nakshatra) {

@@ -37,8 +37,8 @@
 
                     @isset($record['castes'])
                         @foreach ($record['castes'] as $value => $label)
-                            <option value="{{ $label['id'] ?? '' }}" data-religion-id="{{ $label['religion_id'] ?? '' }}"
-                                @selected(old('caste_id') ?? (($profileBasic->caste_id ?? '') == $label['id'] ?? ''))>{{ $label['title'] ?? '' }}</option>
+                            <option value="{{ $label['id'] }}" data-religion-id="{{ $label['religion_id'] }}"
+                                @selected(old('caste_id') ?? ($profileBasic->caste_id ?? '') == $label['id'])>{{ $label['title'] }}</option>
                         @endforeach
                     @endisset
                 </select>
@@ -65,14 +65,13 @@
             <div class="input-group">
                 <div class="input-group-prepend"><span class="input-group-text"><i class="fas fa-caret-down"></i></span>
                 </div>
-
                 <select type="select" name="sub_caste_id" id="sub_caste_id"
                     class="form-control aiz-selectpicker required " data-live-search="true" -data-width="auto">
                     <option data-caste-id="" style="display:none" value="">-- Select --</option>
                     @isset($record['sub_castes'])
                         @foreach ($record['sub_castes'] as $value => $label)
-                            <option value="{{ $label['id'] ?? '' }}" data-caste-id="{{ $label['caste_id'] ?? '' }}"
-                                @selected(old('sub_caste_id') ?? (($profileBasic->sub_caste_id ?? '') == $label['id'] ?? ''))>{{ $label['title'] ?? '' }}</option>
+                            <option value="{{ $label['id'] }}" data-caste-id="{{ $label['caste_id'] }}"
+                                @selected(old('sub_caste_id') ?? ($profileBasic->sub_caste_id ?? '') == $label['id'])>{{ $label['title'] }}</option>
                         @endforeach
                     @endisset
                 </select>
