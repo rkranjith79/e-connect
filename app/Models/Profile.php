@@ -107,7 +107,6 @@ class Profile extends MasterModel
         // Full data get
     }
 
-
     public function scopeBride($query)
     {
         return $query->where('gender_id', 2)->where('active', 1);

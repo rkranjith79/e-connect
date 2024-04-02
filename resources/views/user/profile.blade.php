@@ -359,13 +359,13 @@
                                                     <tr>
                                                         <td>{{ trans('fields.time_of_birth') }}</td>
                                                         <td>:</td>
-                                                        <td>{{ __setTimeFormat($data['profile']->jathagam->time_of_birth) ?? '-' }}
+                                                        <td>{{ __setTimeFormat($data['profile']->jathagam->time_of_birth ?? '') ?? '-' }}
                                                         </td>
                                                     </tr>
                                                     <tr>
                                                         <td>{{ trans('fields.date_of_birth') }}</td>
                                                         <td>:</td>
-                                                        <td>{{ __setDateFormat($data['profile']->jathagam->date_of_birth) ?? '-' }}
+                                                        <td>{{ __setDateFormat($data['profile']->jathagam->date_of_birth ?? '') ?? '-' }}
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -379,7 +379,7 @@
                                     </div>
 
                                     <div class="row div-astro mt-2">
-                                        <div class="col-md-6 mb-1">
+                                        <div class="col-xl-6 col-lg-12 col-sm-12 col-md-12 mb-1">
                                             <table class="tablehoro" border="0" cellpadding="0" cellspacing="0"
                                                 align="center">
                                                 <tr>
@@ -433,7 +433,7 @@
                                                 </tr>
                                             </table>
                                         </div>
-                                        <div class="col-md-6 mb-1">
+                                        <div class="col-xl-6 col-lg-12 col-sm-12 col-md-12 mb-1">
                                             <table class="tablehoro" border="0" cellpadding="0" cellspacing="0"
                                                 align="center">
                                                 <tr>

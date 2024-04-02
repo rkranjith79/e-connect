@@ -132,6 +132,7 @@
         </div>
     </section>
 
+ 
         <!-- premium member Section -->
         <section class="pt-4 pb-3 bg-white" id="premium_members">
             <div class="container">
@@ -143,6 +144,9 @@
                         </div>
                     </div>
                 </div>
+                <h3>
+                    New Brides
+                </h3>
                 <div class="aiz-carousel gutters-10 half-outside-arrow pb-3" data-items="5" data-xl-items="4"
                     data-lg-items="4" data-md-items="3" data-sm-items="2" data-xs-items="1" data-arrows='true'
                     data-dots='true' data-infinite='true' data-autoplay='true'>
@@ -150,8 +154,8 @@
                     @foreach ($data['brides'] as $profile)
                         <div class="carousel-box">
                             <div class="member-block position-relative overflow-hidden">
-                                <img src = data-lazy="{{ $profile->photo ?? '' }}"
-                                    class="img-fit mw-100 h-125px">
+                                <img src ="" data-lazy="{{ $profile->photo ?? '' }}"
+                                    class="img-fit img-fit-carousel mw-100 h-125px">
                                 <div class="w-100 p-3 z-1">
                                     <div class="text-center">
                                         <h6 class="font-weight-bold mb-1">{{ $profile->title ?? '-' }}</h6>
@@ -176,7 +180,9 @@
                 </div>
 
 
-
+                <h3>
+                    New Grooms
+                </h3>
                 <div class="aiz-carousel gutters-10 half-outside-arrow py-3" data-items="5" data-xl-items="4"
                     data-lg-items="4" data-md-items="3" data-sm-items="2" data-xs-items="1" data-arrows='true'
                     data-dots='true' data-infinite='true' data-autoplay='true'>
@@ -185,7 +191,7 @@
                     <div class="carousel-box">
                         <div class="member-block position-relative overflow-hidden">
                             <img data-lazy="{{ $profile->photo ?? '' }}"
-                                class="img-fit mw-100 h-125px">
+                                class="img-fit img-fit-carousel mw-100 h-125px">
                             <div class="w-100 p-3 z-1">
                                 <div class="text-center">
                                     <h6 class="font-weight-bold mb-1">{{ $profile->title ?? '-' }}</h6>
@@ -217,14 +223,9 @@
         </div>
     </section>
 
-
-    <!-- Banner section 1 -->
-
-    <!-- How It Works Section -->
-
-    <!-- Trusted by Millions Section -->
-
-    <!-- New Member Section -->
-
-    <!-- happy Story Section -->
+    <style>
+        .img-fit-carousel {
+            height: 300px !important;
+        }
+    </style>
 @endsection

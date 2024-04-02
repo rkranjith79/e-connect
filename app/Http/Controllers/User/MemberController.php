@@ -7,7 +7,9 @@ use App\Http\Controllers\Controller;
 use App\Models\Profile;
 use App\Traits\LookupTrait;
 use Carbon\Carbon;
-
+use Barryvdh\DomPDF\Facade\Pdf;
+use Dompdf\Dompdf;
+use Dompdf\Options;
 class MemberController extends Controller
 {
     use LookupTrait;
@@ -54,6 +56,36 @@ class MemberController extends Controller
         $data['profile'] = Profile::selectColumns()->find($id);
         return view('user.jathagam', compact('data'));
     }
+
+
+    
+    public function jathagamPrint($id = 1)
+    {
+        // Fetch profile data
+        $data['profile'] = Profile::selectColumns()->find($id);
+        
+        // Render the Blade view to HTML
+        return $html = view('user.jathagam_print', compact('data'))->render();
+        
+        // Create a Dompdf instance
+        $options = new Options();
+        $options->set('isHtml5ParserEnabled', true);
+        $dompdf = new Dompdf($options);
+        
+        // Load HTML content
+        $dompdf->loadHtml($html);
+        
+        // (Optional) Set paper size and orientation
+        $dompdf->setPaper('A4', 'portrait');
+        
+        // Render the HTML as PDF
+        $dompdf->render();
+        
+        // Output the generated PDF to Browser
+        return $dompdf->stream('jathagam_print.pdf');
+    }
+    
+
 
     public function search()
     {
