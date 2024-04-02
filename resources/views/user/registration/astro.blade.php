@@ -157,7 +157,7 @@
         <div class="form-row">
             <div class="col-12">
                 <p class="mb-0 form-label" style="margin-bottom: 8px !important;">
-                    {{ trans('fields.birth_dasa_remaining') }}</p>
+                    {{ trans('fields.birth_dasa_remaining') }}<span class="require-star">*</span></p>
             </div>
             <div class="col-4">
                 <div class="form-group mb-3">
@@ -165,7 +165,7 @@
                         <select type="select" name="birth_dasa_remaining_year" id="birth_dasa_remaining_year"
                             class="form-control aiz-selectpicker" data-live-search="true" -data-width="auto"
                             -data-size="5">
-                            <option style="display:none" value="" >Year</option>
+                            <option style="display:none" value="">Year</option>
                             @for ($i = 0; $i <= 20; $i++)
                                 <option value="{{ $i }}" @selected(@old('birth_dasa_remaining_year') ?? ($profileJathagam->birth_dasa_remaining_year ?? '') == $i)>{{ $i }}
                                 </option>

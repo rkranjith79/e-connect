@@ -82,7 +82,17 @@
 
                 success: function(response) {
                     if (response.status == 200) {
-                        window.location.href = "{{ route('user.member-listing') }}";
+                        Swal.fire({
+                            title: 'Success!',
+                            text: "Registration Successful",
+                            icon: 'success',
+                            timer: 2000, // Set a timer to automatically close the alert after 2 seconds
+                            timerProgressBar: true,
+                            showConfirmButton: false
+                        }).then(() => {
+                            // Redirect to the specified URL
+                            window.location.href = "{{ route('user.member-listing') }}";
+                        });
                         $("#myForm")[0].reset(); // Reset the form
                         $("#successMessage").show(); // Show success message
                         clearErrors(); // Clear any previous error messages
