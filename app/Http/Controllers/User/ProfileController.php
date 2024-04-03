@@ -489,7 +489,7 @@ class ProfileController extends Controller
                 "expectation_work_place_id" => $request->expectation_work_place_id,
                 "expectation_nakshatra" => $request->expectation_nakshatra,
                 "expectation" => $request->expectation,
-                "active" => $request->active == true ? '1' : '0',
+              //  "active" => $request->active == true ? '1' : '0',
             ]);
 
             if ($request->hasFile('photo_file')) {

@@ -60,6 +60,6 @@ return [
      //Login Page
     'login_your_account' => 'Login to your account',
     'login_your_account_button' => 'Login to your account',
-    'Don_t_have_an_account' => 'Don\'t have an account?',
+    'don_t_have_an_account' => 'Don\'t have an account?',
 ];
 ?>

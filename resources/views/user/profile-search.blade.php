@@ -68,7 +68,7 @@
                                                                         <option style="display:none" value="">--
                                                                             Select --</option>
                                                                         @for ($i = 18; $i <= 60; $i++)
-                                                                            <option value="{{ $i }}">
+                                                                            <option value="{{ $i }}" >
                                                                                 {{ $i }}</option>
                                                                         @endfor
                                                                     </select>
