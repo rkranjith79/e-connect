@@ -44,22 +44,23 @@ class MemberController extends Controller
     public function listing($profile = null)
     {
         if (!empty($profile)) {
-           // dd($profile->toSql());
-            $data['profiles'] = $profile->published()->paginate(20);
+           $profiles = $profile->published();
         } else {
             $profiles = Profile::selectColumns()->published();
-            if(Auth::check()) {
-                if(Auth::user()?->profile?->gender?->id == 2) {
-                    $profiles = $profiles->groom();
-                } else {
-                    $profiles = $profiles->bride();
-                }
-            } else {
-                $profiles->limit(10);
-            }
-           
-            $data['profiles'] = $profiles->published()->paginate(20);
+            $profiles = $profiles->published();
         }
+
+        if(Auth::check()) {
+            if(Auth::user()?->profile?->gender?->id == 2) {
+                $profiles = $profiles->groom();
+            } else {
+                $profiles = $profiles->bride();
+            }
+        } else {
+            $profiles = $profiles->limit(10);
+        }
+
+        $data['profiles']  = $profiles->paginate(20);
 
         $data['select'] = $this->getlookupData();
 
