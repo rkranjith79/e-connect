@@ -38,7 +38,7 @@ use App\Models\SubCaste;
 use App\Models\Work;
 use App\Models\WorkPlace;
 
-class ProfileController extends Controller
+class ProfileController_copy extends Controller
 {
     /**
      * Display a listing of the resource.

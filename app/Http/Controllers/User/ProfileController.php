@@ -42,6 +42,8 @@ use App\Traits\LookupTrait;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Auth\ResetsPasswords;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 
 class ProfileController extends Controller
 {
@@ -55,6 +57,7 @@ class ProfileController extends Controller
     public function register()
     {
         $record = $this->getlookupData();
+
         return view('user.registration.index', compact('record'));
     }
 
@@ -95,7 +98,7 @@ class ProfileController extends Controller
             'temple' => ['required', 'max:100'],
             'religion_id' => ['required'],
             'caste_id' => ['required'],
-            'sub_caste_id' => ['required'],
+            'sub_caste' => ['required'],
             'work_id' => ['required'],
             'education_details' => ['required', 'max:100'],
 
@@ -206,7 +209,8 @@ class ProfileController extends Controller
             $jathagam_file_path = $file->getClientOriginalName();
             $file->storeAs('public/jathagam', $jathagam_file_path);
         }
-
+        DB::beginTransaction();
+        try {   
         $user = User::create([
             'name' => $request->title,
             'email' => $request->email,
@@ -235,12 +239,14 @@ class ProfileController extends Controller
             "photo_file" => $photo_file_path,
             
         ]);
+
+        $sub_caste = SubCaste::firstOrCreate(['title' => $request->sub_caste, 'caste_id'=> $request->caste_id], ['title' => $request->sub_caste, 'caste_id'=> $request->caste_id,  'language_tamil'=> $request->sub_caste]);
         // "active" => $request->active == true ? '1' : '0', Parthi
         ProfileBasic::create([
             "profile_id" => $profile->id,
             "temple" => $request->temple,
             "caste_id" => $request->caste_id,
-            "sub_caste_id" => $request->sub_caste_id,
+            "sub_caste_id" => $sub_caste->id,
             "education_details" => $request->education_details,
             "work_id" => $request->work_id,
             "work_details" => $request->work_details,
@@ -285,7 +291,21 @@ class ProfileController extends Controller
             "navamsam" => $navamsam,
             "jathagam_file" => $jathagam_file_path
         ]);
+        // Commit the transaction if everything is successful
+        DB::commit();
+        } catch (\Exception $e) {
+            // If an error occurred, roll back the transaction
+            DB::rollBack();
 
+            // Log the error or handle it appropriately
+            Log::error('Transaction failed: ' . $e->getMessage());
+
+            return response()->json([
+                'status' => 400,
+                'message' => "Somting Went Wrong",
+            ]);
+
+        }
         return response()->json([
             'status' => 200,
             'message' => "Profile Created Successfully",
@@ -358,7 +378,7 @@ class ProfileController extends Controller
             'temple' => ['required', 'max:100'],
             'religion_id' => ['required'],
             'caste_id' => ['required'],
-            'sub_caste_id' => ['required'],
+            'sub_caste' => ['required'],
             'work_id' => ['required'],
             'education_details' => ['required', 'max:100'],
             'work_place_id' => ['required'],
@@ -469,7 +489,7 @@ class ProfileController extends Controller
                 "expectation_work_place_id" => $request->expectation_work_place_id,
                 "expectation_nakshatra" => $request->expectation_nakshatra,
                 "expectation" => $request->expectation,
-                "active" => $request->active == true ? '1' : '0',
+              //  "active" => $request->active == true ? '1' : '0',
             ]);
 
             if ($request->hasFile('photo_file')) {
@@ -484,10 +504,12 @@ class ProfileController extends Controller
                 ]);
             }
 
+            $sub_caste = SubCaste::firstOrCreate(['title' => $request->sub_caste, 'caste_id'=> $request->caste_id], ['title' => $request->sub_caste, 'caste_id'=> $request->caste_id,  'language_tamil'=> $request->sub_caste]);
+
             $profileBasic->update([
                 "temple" => $request->temple,
                 "caste_id" => $request->caste_id,
-                "sub_caste_id" => $request->sub_caste_id,
+                "sub_caste_id" => $sub_caste->id,
                 "education_details" => $request->education_details,
                 "work_id" => $request->work_id,
                 "work_details" => $request->work_details,

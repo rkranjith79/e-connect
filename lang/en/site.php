@@ -50,6 +50,16 @@ return [
 
    //Advanced Search page
    'quick_search' => 'Quick Search',
-   'id_search' => 'ID Search'
+   'id_search' => 'ID Search',
+
+    //Register Page
+   'create_your_account' => 'Create Your Account',
+    'create_your_account_sub_label' => 'Register yourself in our website to access thousands of profiles and find your
+    life partner.',
+
+     //Login Page
+    'login_your_account' => 'Login to your account',
+    'login_your_account_button' => 'Login to your account',
+    'don_t_have_an_account' => 'Don\'t have an account?',
 ];
 ?>

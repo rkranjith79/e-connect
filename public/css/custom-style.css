@@ -4,7 +4,7 @@
 }
 @media (max-width: 991px) {
 	.aiz-header .logo .logo-img {
-		width: calc(100% - 40px);
+		width: calc(100% - 100px);
 		height: auto !important;
 		text-align: left;
 		padding: 3px;

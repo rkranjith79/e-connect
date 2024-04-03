@@ -68,13 +68,18 @@
 
                 success: function(response) {
                     if (response.status == '200') {
-                        $("#successMessage").show(); // Show success message
-                        $("#successMessage").focus();
-                        $("#successMessage").addClass("alert alert-success");
-                        $("#successMessage").text(response.message);
-                        setTimeout(function() {
-                                $("#successMessage").hide();
-                            }, 2000);
+                        //$("#successMessage").show(); // Show success message
+                        Swal.fire({
+                            title: 'Success!',
+                            text: response.message,
+                            icon: 'success',
+                            timer: 2000, // Set a timer to automatically close the alert after 2 seconds
+                            timerProgressBar: true,
+                            showConfirmButton: false
+                        }).then(() => {
+                            // Redirect to the specified URL
+                            window.location.href = "{{ route('user.profile_edit') }}";
+                        });
                     } else {
                         handleErrors(response.errors); // Display validation errors
                     } // Handle the server response as needed

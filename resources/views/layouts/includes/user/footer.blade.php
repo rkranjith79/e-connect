@@ -75,10 +75,10 @@
                             <span>{{ __getSiteConfigration('whatsapp_group', 'label') }}</span>
                         </div>
                         <div>
-                            <img src="{{ asset('img/social/whatsapp.png') }}"
-                                class="custom-social-btn">
+                           
                             <a href="{{ __getSiteConfigration('whatsapp_group') }}" target="_blank">
-
+                                <img src="{{ asset('img/social/whatsapp.png') }}"
+                                class="custom-social-btn">
                             </a>
                         </div>
                     </div>
@@ -124,11 +124,11 @@
                 <div>
                     <ul class="list-unstyled">
                         <li class="my-3">
-                            <a href="{{ route('user.information', ['id' => 1]) }}" target="_blank"
+                            <a href="{{ route('user.information', ['id' => 2]) }}" target="_blank"
                                 class="text-reset">Terms and Conditions</a>
                         </li>
                         <li class="my-3">
-                            <a href="{{ route('user.information', ['id' => 2]) }}" target="_blank"
+                            <a href="{{ route('user.information', ['id' => 1]) }}" target="_blank"
                                 class="text-reset">Privacy Policy</a>
                         </li>
                     </ul>

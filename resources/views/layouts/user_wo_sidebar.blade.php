@@ -26,10 +26,10 @@
     <meta name="msapplication-TileColor" content="#248822">
     <meta name="msapplication-starturl" content="index.html">
     <meta name="msapplication-TileColor" content="#248822">
-    {{-- <meta name="msapplication-TileImage" content="assets/img/icons/ms-icon-144x144.png"> --}}
+    <meta name="msapplication-TileImage" content="assets/img/icons/ms-icon-144x144.png">
 
-    {{-- <link rel="shortcut icon" href="assets/img/icons/favicon.ico" type="image/x-icon"> --}}
-    <link rel="icon" href="{{ asset('img/icons/favicon.ico') }}" type="image/x-icon">
+    <link rel="shortcut icon" href="assets/img/icons/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="assets/img/icons/favicon.ico" type="image/x-icon">
 
     <!-- CSS -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&amp;display=swap">
@@ -135,7 +135,6 @@
 
     <div class="aiz-main-wrapper d-flex flex-column bg-white">
 
-        @include('layouts.includes.user.header')
 
 
 
@@ -144,8 +143,6 @@
 
 
 
-        @include('layouts.includes.user.footer')
-        @include('layouts.includes.user.sidebar')
 
         <div class="close-layer"></div>
         <!-- Go to Top -->
@@ -154,18 +151,6 @@
 
 
 
-    <div class="modal fade package_update_alert_modal" id="modal-zoom">
-        <div class="modal-dialog modal-dialog-centered modal-dialog-zoom">
-            <div class="modal-content package_update_alert_modal_content">
-                <div class="modal-body text-center">
-                    <h4 class="modal-title h6 mb-3">Please Update Your Package.</h4>
-                    <hr>
-                    <a href="packages.html" class="btn btn-primary mt-2">Package Purchase</a>
-                    <button type="button" class="btn btn-danger mt-2" data-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <script src="{{ asset('js/vendors.js') }}"></script>
     <script src="{{ asset('js/aiz-core.js') }}"></script>

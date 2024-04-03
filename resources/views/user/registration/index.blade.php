@@ -11,9 +11,8 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="mb-2 text-center">
-                                <h1 class="h3 text-primary mb-0">Create Your Account</h1>
-                                <p>Register yourself in our website to access thousands of profiles and find your
-                                    life partner.</p>
+                                <h1 class="h3 text-primary mb-0">{{ trans('site.create_your_account') }}</h1>
+                                <p>{{ trans('site.create_your_account_sub_label') }}</p>
                             </div>
                             <form class="form-default" id="registration_form" role="form" method="POST"
                                 enctype="multipart/form-data">
@@ -82,7 +81,17 @@
 
                 success: function(response) {
                     if (response.status == 200) {
-                        window.location.href = "{{ route('user.member-listing') }}";
+                        Swal.fire({
+                            title: 'Success!',
+                            text: "Registration Successful",
+                            icon: 'success',
+                            timer: 2000, // Set a timer to automatically close the alert after 2 seconds
+                            timerProgressBar: true,
+                            showConfirmButton: false
+                        }).then(() => {
+                            // Redirect to the specified URL
+                            window.location.href = "{{ route('user.member-listing') }}";
+                        });
                         $("#myForm")[0].reset(); // Reset the form
                         $("#successMessage").show(); // Show success message
                         clearErrors(); // Clear any previous error messages

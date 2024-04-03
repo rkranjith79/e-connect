@@ -157,7 +157,7 @@
         <div class="form-row">
             <div class="col-12">
                 <p class="mb-0 form-label" style="margin-bottom: 8px !important;">
-                    {{ trans('fields.birth_dasa_remaining') }}</p>
+                    {{ trans('fields.birth_dasa_remaining') }}<span class="require-star">*</span></p>
             </div>
             <div class="col-4">
                 <div class="form-group mb-3">
@@ -165,7 +165,7 @@
                         <select type="select" name="birth_dasa_remaining_year" id="birth_dasa_remaining_year"
                             class="form-control aiz-selectpicker" data-live-search="true" -data-width="auto"
                             -data-size="5">
-                            <option style="display:none" value="" >Year</option>
+                            <option style="display:none" value="">Year</option>
                             @for ($i = 0; $i <= 20; $i++)
                                 <option value="{{ $i }}" @selected(@old('birth_dasa_remaining_year') ?? ($profileJathagam->birth_dasa_remaining_year ?? '') == $i)>{{ $i }}
                                 </option>
@@ -220,27 +220,6 @@
     <div class="col-md-6 div-astro my-2 mt-sm-0">
         <table class="tablehoro" border="0" cellpadding="0" cellspacing="0" align="center">
             <tr>
-                <td>
-                    <p></p>
-                    <div class="form-group mb-3">
-                        <label class="form-label" for="rasi_12"></label>
-                        <div class="input-group">
-                            <select type="select" name="rasi_12[]" id="rasi_12"
-                                class="form-control aiz-selectpicker " multiple "" data-live-search="true"
-                                -data-width="auto">
-                                <option style="display:none" value="">-- Select --</option>
-                                @isset($record['rasis'])
-                                    @foreach ($record['rasis'] as $value => $label)
-                                        <option value="{{ $value }}" @selected(in_array($value, @old('rasi_12') ?? ($profileJathagam->rasi->{"12"} ?? [])))>
-                                            {{ $label }}</option>
-                                    @endforeach
-                                @endisset
-                            </select>
-                        </div>
-                        <small class="form-text text-muted text-help"></small>
-                        <span class="invalid-feedback"></span>
-                    </div>
-                </td>
                 <td>
                     <p></p>
                     <div class="form-group mb-3">
@@ -304,32 +283,6 @@
                         <span class="invalid-feedback"></span>
                     </div>
                 </td>
-            </tr>
-            <tr>
-                <td>
-                    <p></p>
-                    <div class="form-group mb-3">
-                        <label class="form-label" for="rasi_11"></label>
-                        <div class="input-group">
-                            <select type="select" name="rasi_11[]" id="rasi_11"
-                                class="form-control aiz-selectpicker " multiple "" data-live-search="true"
-                                -data-width="auto">
-                                <option style="display:none" value="">-- Select --</option>
-                                @isset($record['rasis'])
-                                    @foreach ($record['rasis'] as $value => $label)
-                                        <option value="{{ $value }}" @selected(in_array($value, @old('rasi_11') ?? ($profileJathagam->rasi->{"11"} ?? [])))>
-                                            {{ $label }}</option>
-                                    @endforeach
-                                @endisset
-                            </select>
-                        </div>
-                        <small class="form-text text-muted text-help"></small>
-                        <span class="invalid-feedback"></span>
-                    </div>
-                </td>
-                <td rowspan="2" colspan="2">
-                    <strong>{{ trans('fields.rasi') }}</strong>
-                </td>
                 <td>
                     <p></p>
                     <div class="form-group mb-3">
@@ -356,15 +309,62 @@
                 <td>
                     <p></p>
                     <div class="form-group mb-3">
-                        <label class="form-label" for="rasi_10"></label>
+                        <label class="form-label" for="rasi_5"></label>
                         <div class="input-group">
-                            <select type="select" name="rasi_10[]" id="rasi_10"
+                            <select type="select" name="rasi_5[]" id="rasi_5"
                                 class="form-control aiz-selectpicker " multiple "" data-live-search="true"
                                 -data-width="auto">
                                 <option style="display:none" value="">-- Select --</option>
                                 @isset($record['rasis'])
                                     @foreach ($record['rasis'] as $value => $label)
-                                        <option value="{{ $value }}" @selected(in_array($value, @old('rasi_10') ?? ($profileJathagam->rasi->{"10"} ?? [])))>
+                                        <option value="{{ $value }}" @selected(in_array($value, @old('rasi_5') ?? ($profileJathagam->rasi->{"5"} ?? [])))>
+                                            {{ $label }}</option>
+                                    @endforeach
+                                @endisset
+                            </select>
+                        </div>
+                        <small class="form-text text-muted text-help"></small>
+                        <span class="invalid-feedback"></span>
+                    </div>
+                </td>
+                <td rowspan="2" colspan="2">
+                    <strong>{{ trans('fields.rasi') }}</strong>
+                </td>
+                <td>
+                    <p></p>
+                    <div class="form-group mb-3">
+                        <label class="form-label" for="rasi_6"></label>
+                        <div class="input-group">
+                            <select type="select" name="rasi_6[]" id="rasi_6"
+                                class="form-control aiz-selectpicker " multiple "" data-live-search="true"
+                                -data-width="auto">
+                                <option style="display:none" value="">-- Select --</option>
+                                @isset($record['rasis'])
+                                    @foreach ($record['rasis'] as $value => $label)
+                                        <option value="{{ $value }}" @selected(in_array($value, @old('rasi_6') ?? ($profileJathagam->rasi->{"6"} ?? [])))>
+                                            {{ $label }}</option>
+                                    @endforeach
+                                @endisset
+                            </select>
+                        </div>
+                        <small class="form-text text-muted text-help"></small>
+                        <span class="invalid-feedback"></span>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p></p>
+                    <div class="form-group mb-3">
+                        <label class="form-label" for="rasi_7"></label>
+                        <div class="input-group">
+                            <select type="select" name="rasi_7[]" id="rasi_7"
+                                class="form-control aiz-selectpicker " multiple "" data-live-search="true"
+                                -data-width="auto">
+                                <option style="display:none" value="">-- Select --</option>
+                                @isset($record['rasis'])
+                                    @foreach ($record['rasis'] as $value => $label)
+                                        <option value="{{ $value }}" @selected(in_array($value, @old('rasi_7') ?? ($profileJathagam->rasi->{"7"} ?? [])))>
                                             {{ $label }}</option>
                                     @endforeach
                                 @endisset
@@ -377,15 +377,15 @@
                 <td>
                     <p></p>
                     <div class="form-group mb-3">
-                        <label class="form-label" for="rasi_5"></label>
+                        <label class="form-label" for="rasi_8"></label>
                         <div class="input-group">
-                            <select type="select" name="rasi_5[]" id="rasi_5"
+                            <select type="select" name="rasi_8[]" id="rasi_8"
                                 class="form-control aiz-selectpicker " multiple "" data-live-search="true"
                                 -data-width="auto">
                                 <option style="display:none" value="">-- Select --</option>
                                 @isset($record['rasis'])
                                     @foreach ($record['rasis'] as $value => $label)
-                                        <option value="{{ $value }}" @selected(in_array($value, @old('rasi_5') ?? ($profileJathagam->rasi->{"5"} ?? [])))>
+                                        <option value="{{ $value }}" @selected(in_array($value, @old('rasi_8') ?? ($profileJathagam->rasi->{"8"} ?? [])))>
                                             {{ $label }}</option>
                                     @endforeach
                                 @endisset
@@ -421,15 +421,15 @@
                 <td>
                     <p></p>
                     <div class="form-group mb-3">
-                        <label class="form-label" for="rasi_8"></label>
+                        <label class="form-label" for="rasi_10"></label>
                         <div class="input-group">
-                            <select type="select" name="rasi_8[]" id="rasi_8"
+                            <select type="select" name="rasi_10[]" id="rasi_10"
                                 class="form-control aiz-selectpicker " multiple "" data-live-search="true"
                                 -data-width="auto">
                                 <option style="display:none" value="">-- Select --</option>
                                 @isset($record['rasis'])
                                     @foreach ($record['rasis'] as $value => $label)
-                                        <option value="{{ $value }}" @selected(in_array($value, @old('rasi_8') ?? ($profileJathagam->rasi->{"8"} ?? [])))>
+                                        <option value="{{ $value }}" @selected(in_array($value, @old('rasi_10') ?? ($profileJathagam->rasi->{"10"} ?? [])))>
                                             {{ $label }}</option>
                                     @endforeach
                                 @endisset
@@ -442,15 +442,15 @@
                 <td>
                     <p></p>
                     <div class="form-group mb-3">
-                        <label class="form-label" for="rasi_7"></label>
+                        <label class="form-label" for="rasi_11"></label>
                         <div class="input-group">
-                            <select type="select" name="rasi_7[]" id="rasi_7"
+                            <select type="select" name="rasi_11[]" id="rasi_11"
                                 class="form-control aiz-selectpicker " multiple "" data-live-search="true"
                                 -data-width="auto">
                                 <option style="display:none" value="">-- Select --</option>
                                 @isset($record['rasis'])
                                     @foreach ($record['rasis'] as $value => $label)
-                                        <option value="{{ $value }}" @selected(in_array($value, @old('rasi_7') ?? ($profileJathagam->rasi->{"7"} ?? [])))>
+                                        <option value="{{ $value }}" @selected(in_array($value, @old('rasi_11') ?? ($profileJathagam->rasi->{"11"} ?? [])))>
                                             {{ $label }}</option>
                                     @endforeach
                                 @endisset
@@ -463,15 +463,15 @@
                 <td>
                     <p></p>
                     <div class="form-group mb-3">
-                        <label class="form-label" for="rasi_6"></label>
+                        <label class="form-label" for="rasi_12"></label>
                         <div class="input-group">
-                            <select type="select" name="rasi_6[]" id="rasi_6"
+                            <select type="select" name="rasi_12[]" id="rasi_12"
                                 class="form-control aiz-selectpicker " multiple "" data-live-search="true"
                                 -data-width="auto">
                                 <option style="display:none" value="">-- Select --</option>
                                 @isset($record['rasis'])
                                     @foreach ($record['rasis'] as $value => $label)
-                                        <option value="{{ $value }}" @selected(in_array($value, @old('rasi_6') ?? ($profileJathagam->rasi->{"6"} ?? [])))>
+                                        <option value="{{ $value }}" @selected(in_array($value, @old('rasi_12') ?? ($profileJathagam->rasi->{"12"} ?? [])))>
                                             {{ $label }}</option>
                                     @endforeach
                                 @endisset
@@ -490,35 +490,14 @@
                 <td>
                     <p></p>
                     <div class="form-group mb-3">
-                        <label class="form-label" for="navamsam_12"></label>
-                        <div class="input-group">
-                            <select type="select" name="navamsam_12[]" id="navamsam_12"
-                                class="form-control aiz-selectpicker " multiple "" data-live-search="true"
-                                -data-width="auto">
-                                <option style="display:none" value="">-- Select --</option>
-                                @isset($record['rasis'])
-                                    @foreach ($record['rasis'] as $value => $label)
-                                        <option value="{{ $value }}" @selected(in_array($value, @old('navamsam_12') ?? ($profileJathagam->navamsam->{"12"} ?? [])))>
-                                            {{ $label }}</option>
-                                    @endforeach
-                                @endisset
-                            </select>
-                        </div>
-                        <small class="form-text text-muted text-help"></small>
-                        <span class="invalid-feedback"></span>
-                    </div>
-                </td>
-                <td>
-                    <p></p>
-                    <div class="form-group mb-3">
                         <label class="form-label" for="navamsam_1"></label>
                         <div class="input-group">
                             <select type="select" name="navamsam_1[]" id="navamsam_1"
                                 class="form-control aiz-selectpicker " multiple "" data-live-search="true"
                                 -data-width="auto">
                                 <option style="display:none" value="">-- Select --</option>
-                                @isset($record['navamsams'])
-                                    @foreach ($record['navamsams'] as $value => $label)
+                                @isset($record['rasis'])
+                                    @foreach ($record['rasis'] as $value => $label)
                                         <option value="{{ $value }}" @selected(in_array($value, @old('navamsam_1') ?? ($profileJathagam->navamsam->{"1"} ?? [])))>
                                             {{ $label }}</option>
                                     @endforeach
@@ -571,32 +550,6 @@
                         <span class="invalid-feedback"></span>
                     </div>
                 </td>
-            </tr>
-            <tr>
-                <td>
-                    <p></p>
-                    <div class="form-group mb-3">
-                        <label class="form-label" for="navamsam_11"></label>
-                        <div class="input-group">
-                            <select type="select" name="navamsam_11[]" id="navamsam_11"
-                                class="form-control aiz-selectpicker " multiple "" data-live-search="true"
-                                -data-width="auto">
-                                <option style="display:none" value="">-- Select --</option>
-                                @isset($record['navamsams'])
-                                    @foreach ($record['navamsams'] as $value => $label)
-                                        <option value="{{ $value }}" @selected(in_array($value, @old('navamsam_11') ?? ($profileJathagam->navamsam->{"11"} ?? [])))>
-                                            {{ $label }}</option>
-                                    @endforeach
-                                @endisset
-                            </select>
-                        </div>
-                        <small class="form-text text-muted text-help"></small>
-                        <span class="invalid-feedback"></span>
-                    </div>
-                </td>
-                <td rowspan="2" colspan="2">
-                    <strong>{{ trans('fields.navamsam') }}</strong>
-                </td>
                 <td>
                     <p></p>
                     <div class="form-group mb-3">
@@ -623,15 +576,62 @@
                 <td>
                     <p></p>
                     <div class="form-group mb-3">
-                        <label class="form-label" for="navamsam_10"></label>
+                        <label class="form-label" for="navamsam_5"></label>
                         <div class="input-group">
-                            <select type="select" name="navamsam_10[]" id="navamsam_10"
+                            <select type="select" name="navamsam_5[]" id="navamsam_5"
                                 class="form-control aiz-selectpicker " multiple "" data-live-search="true"
                                 -data-width="auto">
                                 <option style="display:none" value="">-- Select --</option>
                                 @isset($record['navamsams'])
                                     @foreach ($record['navamsams'] as $value => $label)
-                                        <option value="{{ $value }}" @selected(in_array($value, @old('navamsam_10') ?? ($profileJathagam->navamsam->{"10"} ?? [])))>
+                                        <option value="{{ $value }}" @selected(in_array($value, @old('navamsam_5') ?? ($profileJathagam->navamsam->{"5"} ?? [])))>
+                                            {{ $label }}</option>
+                                    @endforeach
+                                @endisset
+                            </select>
+                        </div>
+                        <small class="form-text text-muted text-help"></small>
+                        <span class="invalid-feedback"></span>
+                    </div>
+                </td>
+                <td rowspan="2" colspan="2">
+                    <strong>{{ trans('fields.navamsam') }}</strong>
+                </td>
+                <td>
+                    <p></p>
+                    <div class="form-group mb-3">
+                        <label class="form-label" for="navamsam_6"></label>
+                        <div class="input-group">
+                            <select type="select" name="navamsam_6[]" id="navamsam_6"
+                                class="form-control aiz-selectpicker " multiple "" data-live-search="true"
+                                -data-width="auto">
+                                <option style="display:none" value="">-- Select --</option>
+                                @isset($record['navamsams'])
+                                    @foreach ($record['navamsams'] as $value => $label)
+                                        <option value="{{ $value }}" @selected(in_array($value, @old('navamsam_6') ?? ($profileJathagam->navamsam->{"6"} ?? [])))>
+                                            {{ $label }}</option>
+                                    @endforeach
+                                @endisset
+                            </select>
+                        </div>
+                        <small class="form-text text-muted text-help"></small>
+                        <span class="invalid-feedback"></span>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p></p>
+                    <div class="form-group mb-3">
+                        <label class="form-label" for="navamsam_7"></label>
+                        <div class="input-group">
+                            <select type="select" name="navamsam_7[]" id="navamsam_7"
+                                class="form-control aiz-selectpicker " multiple "" data-live-search="true"
+                                -data-width="auto">
+                                <option style="display:none" value="">-- Select --</option>
+                                @isset($record['navamsams'])
+                                    @foreach ($record['navamsams'] as $value => $label)
+                                        <option value="{{ $value }}" @selected(in_array($value, @old('navamsam_7') ?? ($profileJathagam->navamsam->{"7"} ?? [])))>
                                             {{ $label }}</option>
                                     @endforeach
                                 @endisset
@@ -644,15 +644,15 @@
                 <td>
                     <p></p>
                     <div class="form-group mb-3">
-                        <label class="form-label" for="navamsam_5"></label>
+                        <label class="form-label" for="navamsam_8"></label>
                         <div class="input-group">
-                            <select type="select" name="navamsam_5[]" id="navamsam_5"
+                            <select type="select" name="navamsam_8[]" id="navamsam_8"
                                 class="form-control aiz-selectpicker " multiple "" data-live-search="true"
                                 -data-width="auto">
                                 <option style="display:none" value="">-- Select --</option>
                                 @isset($record['navamsams'])
                                     @foreach ($record['navamsams'] as $value => $label)
-                                        <option value="{{ $value }}" @selected(in_array($value, @old('navamsam_5') ?? ($profileJathagam->navamsam->{"5"} ?? [])))>
+                                        <option value="{{ $value }}" @selected(in_array($value, @old('navamsam_8') ?? ($profileJathagam->navamsam->{"8"} ?? [])))>
                                             {{ $label }}</option>
                                     @endforeach
                                 @endisset
@@ -688,15 +688,15 @@
                 <td>
                     <p></p>
                     <div class="form-group mb-3">
-                        <label class="form-label" for="navamsam_8"></label>
+                        <label class="form-label" for="navamsam_10"></label>
                         <div class="input-group">
-                            <select type="select" name="navamsam_8[]" id="navamsam_8"
+                            <select type="select" name="navamsam_10[]" id="navamsam_10"
                                 class="form-control aiz-selectpicker " multiple "" data-live-search="true"
                                 -data-width="auto">
                                 <option style="display:none" value="">-- Select --</option>
                                 @isset($record['navamsams'])
                                     @foreach ($record['navamsams'] as $value => $label)
-                                        <option value="{{ $value }}" @selected(in_array($value, @old('navamsam_8') ?? ($profileJathagam->navamsam->{"8"} ?? [])))>
+                                        <option value="{{ $value }}" @selected(in_array($value, @old('navamsam_10') ?? ($profileJathagam->navamsam->{"10"} ?? [])))>
                                             {{ $label }}</option>
                                     @endforeach
                                 @endisset
@@ -709,15 +709,15 @@
                 <td>
                     <p></p>
                     <div class="form-group mb-3">
-                        <label class="form-label" for="navamsam_7"></label>
+                        <label class="form-label" for="navamsam_11"></label>
                         <div class="input-group">
-                            <select type="select" name="navamsam_7[]" id="navamsam_7"
+                            <select type="select" name="navamsam_11[]" id="navamsam_11"
                                 class="form-control aiz-selectpicker " multiple "" data-live-search="true"
                                 -data-width="auto">
                                 <option style="display:none" value="">-- Select --</option>
                                 @isset($record['navamsams'])
                                     @foreach ($record['navamsams'] as $value => $label)
-                                        <option value="{{ $value }}" @selected(in_array($value, @old('navamsam_7') ?? ($profileJathagam->navamsam->{"7"} ?? [])))>
+                                        <option value="{{ $value }}" @selected(in_array($value, @old('navamsam_11') ?? ($profileJathagam->navamsam->{"11"} ?? [])))>
                                             {{ $label }}</option>
                                     @endforeach
                                 @endisset
@@ -730,15 +730,15 @@
                 <td>
                     <p></p>
                     <div class="form-group mb-3">
-                        <label class="form-label" for="navamsam_6"></label>
+                        <label class="form-label" for="navamsam_12"></label>
                         <div class="input-group">
-                            <select type="select" name="navamsam_6[]" id="navamsam_6"
+                            <select type="select" name="navamsam_12[]" id="navamsam_12"
                                 class="form-control aiz-selectpicker " multiple "" data-live-search="true"
                                 -data-width="auto">
                                 <option style="display:none" value="">-- Select --</option>
                                 @isset($record['navamsams'])
                                     @foreach ($record['navamsams'] as $value => $label)
-                                        <option value="{{ $value }}" @selected(in_array($value, @old('navamsam_6') ?? ($profileJathagam->navamsam->{"6"} ?? [])))>
+                                        <option value="{{ $value }}" @selected(in_array($value, @old('navamsam_12') ?? ($profileJathagam->navamsam->{"12"} ?? [])))>
                                             {{ $label }}</option>
                                     @endforeach
                                 @endisset

@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('profile_jathagams', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('profile_id');
+            $table->foreignId('profile_id')->constrained()->onDelete('cascade');
             $table->foreignId('rasi_nakshatra_id')->nullable();
             $table->foreignId('lagnam_id')->nullable();
             $table->foreignId('jathagam_id')->nullable();
