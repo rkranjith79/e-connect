@@ -98,7 +98,8 @@ class ProfileController extends Controller
             'temple' => ['required', 'max:100'],
             'religion_id' => ['required'],
             'caste_id' => ['required'],
-            'sub_caste' => ['required'],
+            //'sub_caste' => ['required'],
+            'sub_caste_id' => ['required'],
             'work_id' => ['required'],
             'education_details' => ['required', 'max:100'],
 
@@ -240,13 +241,14 @@ class ProfileController extends Controller
             
         ]);
 
-        $sub_caste = SubCaste::firstOrCreate(['title' => $request->sub_caste, 'caste_id'=> $request->caste_id], ['title' => $request->sub_caste, 'caste_id'=> $request->caste_id,  'language_tamil'=> $request->sub_caste]);
+       // $sub_caste = SubCaste::firstOrCreate(['title' => $request->sub_caste, 'caste_id'=> $request->caste_id], ['title' => $request->sub_caste, 'caste_id'=> $request->caste_id,  'language_tamil'=> $request->sub_caste]);
         // "active" => $request->active == true ? '1' : '0', Parthi
         ProfileBasic::create([
             "profile_id" => $profile->id,
             "temple" => $request->temple,
             "caste_id" => $request->caste_id,
-            "sub_caste_id" => $sub_caste->id,
+           // "sub_caste_id" => $sub_caste->id,
+            "sub_caste_id" => $request->sub_caste_id,
             "education_details" => $request->education_details,
             "work_id" => $request->work_id,
             "work_details" => $request->work_details,
@@ -378,7 +380,8 @@ class ProfileController extends Controller
             'temple' => ['required', 'max:100'],
             'religion_id' => ['required'],
             'caste_id' => ['required'],
-            'sub_caste' => ['required'],
+            //'sub_caste' => ['required'],
+            'sub_caste_id' => ['required'],
             'work_id' => ['required'],
             'education_details' => ['required', 'max:100'],
             'work_place_id' => ['required'],
@@ -504,12 +507,13 @@ class ProfileController extends Controller
                 ]);
             }
 
-            $sub_caste = SubCaste::firstOrCreate(['title' => $request->sub_caste, 'caste_id'=> $request->caste_id], ['title' => $request->sub_caste, 'caste_id'=> $request->caste_id,  'language_tamil'=> $request->sub_caste]);
+            //$sub_caste = SubCaste::firstOrCreate(['title' => $request->sub_caste, 'caste_id'=> $request->caste_id], ['title' => $request->sub_caste, 'caste_id'=> $request->caste_id,  'language_tamil'=> $request->sub_caste]);
 
             $profileBasic->update([
                 "temple" => $request->temple,
                 "caste_id" => $request->caste_id,
-                "sub_caste_id" => $sub_caste->id,
+                //"sub_caste_id" => $sub_caste->id,
+                "sub_caste_id" => $request->sub_caste_id,
                 "education_details" => $request->education_details,
                 "work_id" => $request->work_id,
                 "work_details" => $request->work_details,
