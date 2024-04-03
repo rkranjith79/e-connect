@@ -90,6 +90,6 @@ Route::name('user.')->prefix('user')->middleware(['auth'])->group(function () {
     Route::put('/profile-update/{id}', [App\Http\Controllers\User\ProfileController::class, 'update'])->name('profile_update');
 });
 
-Route::get('/information/{code?}', [App\Http\Controllers\User\InformationController::class, 'index'])->name('information');
+Route::get('user/information/{code?}', [App\Http\Controllers\User\InformationController::class, 'index'])->name('user.information');
 Route::get('user/member-listing', [App\Http\Controllers\User\MemberController::class, 'listing'])->name('user.member-listing');
 Route::post('user/profile_store', [App\Http\Controllers\User\ProfileController::class, 'store'])->name('user.profile_store');
