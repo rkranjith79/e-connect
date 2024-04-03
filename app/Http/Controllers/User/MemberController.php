@@ -34,8 +34,8 @@ class MemberController extends Controller
 
     public function index()
     {
-        $data['grooms'] = Profile::selectColumns()->groom()->get();
-        $data['brides'] = Profile::selectColumns()->bride()->get();
+        $data['grooms'] = Profile::published()->selectColumns()->groom()->get();
+        $data['brides'] = Profile::published()->selectColumns()->bride()->get();
         $data['select'] = $this->getlookupData();
 
         return view('user.index', compact('data'));
@@ -45,9 +45,9 @@ class MemberController extends Controller
     {
         if (!empty($profile)) {
            // dd($profile->toSql());
-            $data['profiles'] = $profile->paginate(20);
+            $data['profiles'] = $profile->published()->paginate(20);
         } else {
-            $profiles = Profile::selectColumns();
+            $profiles = Profile::selectColumns()->published();
             if(Auth::check()) {
                 if(Auth::user()?->profile?->gender?->id == 2) {
                     $profiles = $profiles->groom();
@@ -58,7 +58,7 @@ class MemberController extends Controller
                 $profiles->limit(10);
             }
            
-            $data['profiles'] = $profiles->paginate(20);
+            $data['profiles'] = $profiles->published()->paginate(20);
         }
 
         $data['select'] = $this->getlookupData();
@@ -68,7 +68,7 @@ class MemberController extends Controller
 
     public function jathagam($id = 1)
     {
-        $data['profile'] = Profile::selectColumns()->find($id);
+        $data['profile'] = Profile::selectColumns()->published()->find($id);
         return view('user.jathagam', compact('data'));
     }
 
@@ -77,7 +77,7 @@ class MemberController extends Controller
     public function jathagamPrint($id = 1)
     {
         // Fetch profile data
-        $data['profile'] = Profile::selectColumns()->find($id);
+        $data['profile'] = Profile::selectColumns()->published()->find($id);
         
         // Render the Blade view to HTML
         return $html = view('user.jathagam_print', compact('data'))->render();
@@ -198,7 +198,7 @@ class MemberController extends Controller
 
     public function profile($id = 1)
     {
-        $data['profile'] = Profile::selectColumns()->find($id);
+        $data['profile'] = Profile::selectColumns()->published()->find($id);
         return view('user.profile', compact('data'));
     }
 }

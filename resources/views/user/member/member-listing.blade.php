@@ -160,7 +160,6 @@
                                 @guest
                                         <h1 class="h3 text-primary mb-0">{{ trans('site.create_your_account') }}</h1>
                                         <p>{{ trans('site.create_your_account_sub_label') }}</p>
-h
                                         <a class="btn btn-sm btn-primary text-white fw-600 py-1 border"
                                     href="{{ route('registers') }}">{{ trans('site.registration') }}</a>
                                 @endguest

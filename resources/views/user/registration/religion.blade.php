@@ -47,7 +47,7 @@
             <span class="invalid-feedback"></span>
         </div>
     </div>
-    <div class="col-sm-3">
+    {{-- <div class="col-sm-3">
         <div class="form-group autocomplete mb-3">
             <label class="form-label" for="sub_caste">{{ trans('fields.sub_caste') }}<span
                     class="require-star">*</span></label>
@@ -56,9 +56,9 @@
             value="{{ @old('sub_caste') ?? ($profileBasic->sub_caste->title ?? '') }}"
             placeholder="{{ trans('fields.sub_caste') }}">
         </div>
-    </div>
+    </div> --}}
 
-    {{-- <div class="col-sm-3">
+    <div class="col-sm-3">
         <div class="form-group mb-3">
             <label class="form-label" for="sub_caste_id">{{ trans('fields.sub_caste') }}<span
                     class="require-star">*</span></label>
@@ -79,7 +79,7 @@
             <small class="form-text text-muted text-help"></small>
             <span class="invalid-feedback"></span>
         </div>
-    </div> --}}
+    </div>
 
     <div class="col-sm-3">
         <div class="form-group mb-3">
@@ -135,16 +135,16 @@
                 /*for each item in the array...*/
 
                 var fill_arr =  arrayFilter();
-                console.log(fill_arr);
+                //console.log(fill_arr);
                 for (i = 0; i < fill_arr.length; i++) {
                     /*check if the item starts with the same letters as the text field value:*/
                     // if (fill_arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
-                    if (fill_arr[i].match(val.toUpperCase())) {
+                    if (fill_arr[i].toUpperCase().match(val.toUpperCase())) {
                         /*create a DIV element for each matching element:*/
                         b = document.createElement("DIV");
                         /*make the matching letters bold:*/
-                        b.innerHTML = "<strong>" + fill_arr[i].substr(0, val.length) + "</strong>";
-                        b.innerHTML += fill_arr[i].substr(val.length);
+                        b.innerHTML = "<strong>" + fill_arr[i] + "</strong>";
+                       // b.innerHTML += fill_arr[i].substr(val.length);
                         /*insert a input field that will hold the current array item's value:*/
                         b.innerHTML += "<input type='hidden' value='" + fill_arr[i] + "'>";
                         /*execute a function when someone clicks on the item value (DIV element):*/
