@@ -158,7 +158,8 @@
             var name = $('input[name=name]').val();
             var email = $('input[name=email]').val();
             var password = $('input[name=password]').val();
-            var status = $('input[name=status]').val();
+            //var status = $('input[name=status]').val();
+            var status = $('input[name=active]').prop('checked');
             $('#name_err').addClass('d-none');
             $('#email_err').addClass('d-none');
             $('#password_err').addClass('d-none');
