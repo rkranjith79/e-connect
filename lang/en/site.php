@@ -6,7 +6,9 @@ return [
     'login' => 'Login',
     'registration' => 'Registration',
     'logout' => 'Logout',
-
+    'forget_password' => 'Forget Password',
+    'reset_password_link' => 'Send Password Reset Link',
+    'reset_password' => 'Reset Password',
     //Main Menu
     'home' => 'Home',
     'view_profile' => 'View Profiles',

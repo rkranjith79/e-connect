@@ -5,7 +5,9 @@ return [
    'login' => 'உள்நுழைய',
    'registration' => 'பதிவு',
    'logout' => 'வெளியேறு',
-
+   'forget_password' => 'கடவுச்சொல் மறந்துவிட்டது',
+   'reset_password_link' => 'கடவுச்சொல் மீட்டமைப்பு இணைப்பு',
+   'reset_password' => 'கடவுச்சொல்லை மீட்டமை',
    //Main Menu
    'home' => 'முகப்பு',
    'view_profile' => 'விவரப் பட்டியல்கள்',

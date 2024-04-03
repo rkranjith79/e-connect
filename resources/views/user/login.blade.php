@@ -51,19 +51,12 @@
                                     </div>
                                 </div>
 
-                                {{-- <div class="row div-email">
-                                    <div class="col-6 text-left">
-                                        <label class="aiz-checkbox">
-                                            <input type="checkbox" name="remember" value="1"><span
-                                                class="aiz-square-check"></span>
-                                            Remember Me
-                                        </label>
-                                    </div>
-                                    <div class="col-6 text-right">
+                                 <div class="row div-email">                                   
+                                    <div class="col-12 text-right">
                                         <a class="link-muted text-capitalize font-weight-normal"
-                                            href="forgot_password.html">Forgot Password?</a>
+                                            href="{{route('password.request')}}">{{trans('site.forget_password')}}?</a>
                                     </div>
-                                </div> --}}
+                                </div>
 
                                 <div class="my-3">                                
                                     <button type="submit" class="btn btn-block btn-primary">
