@@ -3,6 +3,7 @@
 return [
     'name' => 'Sweet🍬 Name',
     'password' => 'Password 🔒',
+    'confirm_password' => 'Confirm Password',
     'email' => 'Email',
     'caste' => 'Caste',
     'sub_caste' => 'Caste',
