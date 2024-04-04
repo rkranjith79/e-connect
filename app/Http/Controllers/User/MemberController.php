@@ -44,12 +44,12 @@ class MemberController extends Controller
     public function listing($profile = null)
     {
         if (!empty($profile)) {
-           // dd($profile->toSql());
+            // dd($profile->toSql());
             $data['profiles'] = $profile->paginate(20);
         } else {
             $profiles = Profile::selectColumns();
-            if(Auth::check()) {
-                if(Auth::user()?->profile?->gender?->id == 2) {
+            if (Auth::check()) {
+                if (Auth::user()?->profile?->gender?->id == 2) {
                     $profiles = $profiles->groom();
                 } else {
                     $profiles = $profiles->bride();
@@ -57,7 +57,7 @@ class MemberController extends Controller
             } else {
                 $profiles->limit(10);
             }
-           
+
             $data['profiles'] = $profiles->paginate(20);
         }
 
@@ -66,40 +66,40 @@ class MemberController extends Controller
         return view("user.member.member-listing", compact('data'));
     }
 
-    public function jathagam($id = 1)
+    public function jathagam($id, $uuid)
     {
-        $data['profile'] = Profile::selectColumns()->find($id);
+        $data['profile'] = Profile::selectColumns()->hashFind($id, $uuid);
         return view('user.jathagam', compact('data'));
     }
 
 
-    
-    public function jathagamPrint($id = 1)
+
+    public function jathagamPrint($id, $uuid)
     {
         // Fetch profile data
-        $data['profile'] = Profile::selectColumns()->find($id);
-        
+        $data['profile'] = Profile::selectColumns()->hashFind($id, $uuid);
+
         // Render the Blade view to HTML
         return $html = view('user.jathagam_print', compact('data'))->render();
-        
+
         // Create a Dompdf instance
         $options = new Options();
         $options->set('isHtml5ParserEnabled', true);
         $dompdf = new Dompdf($options);
-        
+
         // Load HTML content
         $dompdf->loadHtml($html);
-        
+
         // (Optional) Set paper size and orientation
         $dompdf->setPaper('A4', 'portrait');
-        
+
         // Render the HTML as PDF
         $dompdf->render();
-        
+
         // Output the generated PDF to Browser
         return $dompdf->stream('jathagam_print.pdf');
     }
-    
+
 
 
     public function search()
@@ -140,7 +140,7 @@ class MemberController extends Controller
         $profile = $profile->when(!empty($name), function ($q) use ($name) {
             $q->where("title", "like", "%" . $name . "%");
         })->when(!empty($member_id), function ($q) use ($member_id) {
-            $q->where("code", "like",  "%" .$member_id. "%");
+            $q->where("code", "like",  "%" . $member_id . "%");
         })->when(!empty($exp_maritalstatus), function ($q) use ($exp_maritalstatus) {
             $q->whereIn("marital_status_id", array_filter((array) $exp_maritalstatus));
         })->when(!empty($body_type), function ($q) use ($body_type) {
@@ -173,32 +173,32 @@ class MemberController extends Controller
                 });
             }
         )->whereHas(
-                "jathagam",
-                function ($q) use ($rasi_nakshatra, $lagnam, $exp_jathagam, $age_from, $age_to) {
-                    $q->when(!empty($rasi_nakshatra), function ($q) use ($rasi_nakshatra) {
-                        $q->whereIn('rasi_nakshatra_id', array_filter((array) $rasi_nakshatra));
-                    })->when(!empty($lagnam), function ($q) use ($lagnam) {
-                        $q->whereIn('lagnam_id', array_filter((array) $lagnam));
-                    })->when(!empty($exp_jathagam), function ($q) use ($exp_jathagam) {
-                        $q->whereIn('jathagam_id', array_filter((array) $exp_jathagam));
-                    })
-                        ->when(!empty($age_from), function ($q) use ($age_from) {
-                            $startDate = Carbon::now()->subYears($age_from)->format('Y-m-d');
-                            $q->where('date_of_birth', '<=', $startDate);
-                        })->when(!empty($age_to), function ($q) use ($age_to) {
-                            $endDate = Carbon::now()->subYears($age_to)->format('Y-m-d');
-                            $q->where('date_of_birth', '>=', $endDate);
-                        });
-                }
-            );
+            "jathagam",
+            function ($q) use ($rasi_nakshatra, $lagnam, $exp_jathagam, $age_from, $age_to) {
+                $q->when(!empty($rasi_nakshatra), function ($q) use ($rasi_nakshatra) {
+                    $q->whereIn('rasi_nakshatra_id', array_filter((array) $rasi_nakshatra));
+                })->when(!empty($lagnam), function ($q) use ($lagnam) {
+                    $q->whereIn('lagnam_id', array_filter((array) $lagnam));
+                })->when(!empty($exp_jathagam), function ($q) use ($exp_jathagam) {
+                    $q->whereIn('jathagam_id', array_filter((array) $exp_jathagam));
+                })
+                    ->when(!empty($age_from), function ($q) use ($age_from) {
+                        $startDate = Carbon::now()->subYears($age_from)->format('Y-m-d');
+                        $q->where('date_of_birth', '<=', $startDate);
+                    })->when(!empty($age_to), function ($q) use ($age_to) {
+                        $endDate = Carbon::now()->subYears($age_to)->format('Y-m-d');
+                        $q->where('date_of_birth', '>=', $endDate);
+                    });
+            }
+        );
 
-           // dump($profile->toSql());
+        // dump($profile->toSql());
         return $this->listing($profile);
     }
 
-    public function profile($id = 1)
+    public function profile($id, $uuid)
     {
-        $data['profile'] = Profile::selectColumns()->find($id);
+        $data['profile'] = Profile::selectColumns()->hashFind($id, $uuid);
         return view('user.profile', compact('data'));
     }
 }

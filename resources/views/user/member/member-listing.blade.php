@@ -30,13 +30,13 @@
                                                     class="profile-thumb"
                                                     onerror="this.onerror=null;this.src='{{ $profile->photo }}';">
                                                 <div class="mt-2">
-                                                    <a href="{{ route('user.profile', ['id' => $profile->id]) }}"
+                                                    <a href="{{ route('user.profile', ['id' => $profile->id, 'uuid' => $profile->uuid]) }}"
                                                         class="btn btn-primary btn-sm mr-1">
                                                         {{-- <i class="fas fa-user"></i> --}}
                                                         {{ trans('site.view_profile_button') }}</a>
-                                                    <a href="{{ route('user.jathagam', ['id' => $profile->id]) }}"
+                                                    <a href="{{ route('user.jathagam', ['id' => $profile->id, 'uuid' => $profile->uuid]) }}"
                                                             class="btn btn-primary btn-sm ml-1">
-                                                            {{ trans('site.view_jathagam_button') }} 
+                                                            {{ trans('site.view_jathagam_button') }}
                                                             {{-- <i class="fas fa-file-invoice"></i> --}}
                                                         </a>
 

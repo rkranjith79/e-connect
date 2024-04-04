@@ -87,12 +87,12 @@ Route::name('admin.')->prefix('admin')->middleware(['auth', 'isAdmin'])->group(f
 });
 
 Route::name('user.')->prefix('user')->middleware(['auth'])->group(function () {
-    Route::get('/jathagam/{id?}', [App\Http\Controllers\User\MemberController::class, 'jathagam'])->name('jathagam');
-    Route::get('/jathagam-print/{id?}', [App\Http\Controllers\User\MemberController::class, 'jathagamPrint'])->name('jathagam_print');
+    Route::get('/jathagam/{id?}/{uuid?}', [App\Http\Controllers\User\MemberController::class, 'jathagam'])->name('jathagam');
+    Route::get('/jathagam-print/{id?}/{uuid?}', [App\Http\Controllers\User\MemberController::class, 'jathagamPrint'])->name('jathagam_print');
 
     Route::get('/profile-advanced-search', [App\Http\Controllers\User\MemberController::class, 'advancedSearch'])->name('advancedSearch');
     Route::get('/profile-search', [App\Http\Controllers\User\MemberController::class, 'search'])->name('search');
-    Route::get('/profile/{id?}', [App\Http\Controllers\User\MemberController::class, 'profile'])->name('profile');
+    Route::get('/profile/{id?}/{uuid?}', [App\Http\Controllers\User\MemberController::class, 'profile'])->name('profile');
     Route::get('/information/{id?}', [App\Http\Controllers\User\InformationController::class, 'index'])->name('information');
     Route::get('/profile-edit/{profile?}', [App\Http\Controllers\User\ProfileController::class, 'edit'])->name('profile_edit');
     Route::get('/change-password', [App\Http\Controllers\User\ProfileController::class, 'changePassword'])->name('change_password');

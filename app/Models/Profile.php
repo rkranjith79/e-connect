@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Models\Common\MasterModel;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class Profile extends MasterModel
 {
@@ -118,6 +119,11 @@ class Profile extends MasterModel
         return $query->where('gender_id', 1)->where('active', 1);
     }
 
+    public function scopeHashFind($query, $id, $uuid)
+    {
+        return $query->where('id', $id)->where('uuid', $uuid)->firstOrFail();
+    }
+
     public function scopeSelectColumns($query)
     {
         return $query->with([]);
@@ -137,7 +143,7 @@ class Profile extends MasterModel
 
     public function getNameDisplayAttribute()
     {
-        return strlen($this->attributes['title']) > 12 ? substr($this->attributes['title'],   0, 12)."...." : $this->attributes['title'];
+        return strlen($this->attributes['title']) > 20 ? substr($this->attributes['title'],   0, 20) . "...." : $this->attributes['title'];
     }
 
 
@@ -172,6 +178,7 @@ class Profile extends MasterModel
             $lastProfile = static::latest()->first();
             $lastCode = $lastProfile ? $lastProfile->code : null;
             $profile->code = 'EC' . str_pad(intval(substr($lastCode, 2)) + 1, 4, '0', STR_PAD_LEFT);
+            $profile->uuid = (string) Str::uuid();
         });
     }
 }

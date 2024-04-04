@@ -45,7 +45,7 @@
                             </div> --}}
                             <div class="row gutters-5">
                                 <div class="col">
-                                    <a href="{{ route('user.jathagam', ['id' => $data['profile']->id]) }}"
+                                    <a href="{{ route('user.jathagam', ['id' => $data['profile']->id, 'uuid' => $data['profile']->uuid]) }}"
                                         class="btn btn-block btn-profile-action text-center" target="_blank">
                                         <i class="fas fa-file-invoice"></i>
                                         {{ trans('site.view_jathagam_button') }}

@@ -14,7 +14,7 @@
             <h4 class="h5 fw-600">{{ Auth::User()->profile->title }}</h4>
         </div>
         <div class="text-center mb-3 px-3">
-            <a href="{{ route('user.profile', ['id' => Auth::user()->profile->id]) }}" class="btn btn-block btn-soft-primary"><i
+            <a href="{{ route('user.profile', ['id' => Auth::user()->profile->id, 'uuid' => Auth::user()->profile->uuid]) }}" class="btn btn-block btn-soft-primary"><i
                     class="fas fa-user"></i> My Profile</a>
         </div>
 

@@ -1,9 +1,9 @@
 @extends('layouts.user')
 
 @section('content')
-    <iframe style=" height: 700px; border: none" src="{{ route('user.jathagam_print', ['id' => $data['profile']->id]) }}" frameborder="0"></iframe>
-    
-    
+    <iframe style=" height: 700px; border: none" src="{{ route('user.jathagam_print', ['id' => $data['profile']->id, 'uuid' => $data['profile']->uuid]) }}" frameborder="0"></iframe>
+
+
     {{-- <div class="aiz-main-wrapper d-flex flex-column bg-white">
         <div class="print-content" id="full-profile">
             <div id="reg-form" class="view-profile">
@@ -218,7 +218,7 @@
                                     <td>{{ __setTimeFormat($data['profile']->jathagam->time_of_birth) ?? '-' }}
                                     </td>
                                 </tr>
-                             
+
                                 <tr>
                                     <td>{{ trans('fields.place_of_birth') }}</td>
                                     <td>:</td>
