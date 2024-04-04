@@ -47,7 +47,7 @@ class MemberController extends Controller
            $profiles = $profile->published();
         } else {
             $profiles = Profile::selectColumns()->published();
-            $profiles = $profiles->published();
+            // $profiles = $profiles->published();
         }
 
         if(Auth::check()) {
