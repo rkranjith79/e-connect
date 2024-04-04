@@ -55,6 +55,12 @@ class User extends Authenticatable
             }
         });
 
+        static::saving(function ($user) {
+            if ($user->profile) {
+                $user->profile()->update(['active' => $user->status]);
+            }
+        });
+
         static::creating(function ($user) {
             $user->uuid = (string) Str::uuid();
         });

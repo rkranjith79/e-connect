@@ -16,8 +16,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/user-login', function () {
     return view('user.login');
 })->name('user-login');
-
-
 Route::get('/',  [App\Http\Controllers\User\MemberController::class, 'index'])->name('index');
 
 Auth::routes();
@@ -34,14 +32,9 @@ Route::get('/language/{locale}', function (string $locale) {
 
 Route::get('/registers', [App\Http\Controllers\User\ProfileController::class, 'register'])->name('registers');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('forgot-password', [App\Http\Controllers\Auth\ForgotPasswordController::class, 'showLinkRequestForm'])->name('password.request');
-Route::post('forgot-password', [App\Http\Controllers\Auth\ForgotPasswordController::class, 'sendResetLinkEmail'])->name('password.email');
-Route::get('reset-password/{token}', [App\Http\Controllers\Auth\ResetPasswordController::class, 'showResetForm'])->name('password.reset');
-Route::post('reset-password', [App\Http\Controllers\Auth\ResetPasswordController::class, 'reset'])->name('password.update');
 
 Route::name('admin.')->prefix('admin')->middleware(['auth', 'isAdmin'])->group(function () {
     Route::get('/dashboard', [App\Http\Controllers\Admin\AdminDashboardController::class, 'index'])->name('dashboard');
-    Route::get('/', [App\Http\Controllers\Admin\AdminDashboardController::class, 'index'])->name('admin.index');
 
     Route::name('user.')->prefix('/users')->group(function () {
         Route::get('/', [App\Http\Controllers\Admin\UserController::class, 'index'])->name('list');
@@ -100,5 +93,6 @@ Route::name('user.')->prefix('user')->middleware(['auth'])->group(function () {
     Route::put('/profile-update/{id}', [App\Http\Controllers\User\ProfileController::class, 'update'])->name('profile_update');
 });
 
+Route::get('user/information/{code?}', [App\Http\Controllers\User\InformationController::class, 'index'])->name('user.information');
 Route::get('user/member-listing', [App\Http\Controllers\User\MemberController::class, 'listing'])->name('user.member-listing');
 Route::post('user/profile_store', [App\Http\Controllers\User\ProfileController::class, 'store'])->name('user.profile_store');

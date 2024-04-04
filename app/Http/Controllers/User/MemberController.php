@@ -34,8 +34,8 @@ class MemberController extends Controller
 
     public function index()
     {
-        $data['grooms'] = Profile::selectColumns()->groom()->get();
-        $data['brides'] = Profile::selectColumns()->bride()->get();
+        $data['grooms'] = Profile::published()->selectColumns()->groom()->get();
+        $data['brides'] = Profile::published()->selectColumns()->bride()->get();
         $data['select'] = $this->getlookupData();
 
         return view('user.index', compact('data'));
@@ -44,22 +44,23 @@ class MemberController extends Controller
     public function listing($profile = null)
     {
         if (!empty($profile)) {
-            // dd($profile->toSql());
-            $data['profiles'] = $profile->paginate(20);
+           $profiles = $profile->published();
         } else {
-            $profiles = Profile::selectColumns();
-            if (Auth::check()) {
-                if (Auth::user()?->profile?->gender?->id == 2) {
-                    $profiles = $profiles->groom();
-                } else {
-                    $profiles = $profiles->bride();
-                }
-            } else {
-                $profiles->limit(10);
-            }
-
-            $data['profiles'] = $profiles->paginate(20);
+            $profiles = Profile::selectColumns()->published();
+            $profiles = $profiles->published();
         }
+
+        if(Auth::check()) {
+            if(Auth::user()?->profile?->gender?->id == 2) {
+                $profiles = $profiles->groom();
+            } else {
+                $profiles = $profiles->bride();
+            }
+        } else {
+            $profiles = $profiles->limit(10);
+        }
+
+        $data['profiles']  = $profiles->paginate(20);
 
         $data['select'] = $this->getlookupData();
 

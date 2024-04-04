@@ -124,11 +124,19 @@
                 <div>
                     <ul class="list-unstyled">
                         <li class="my-3">
-                            <a href="{{ route('user.information', ['id' => 2]) }}" target="_blank"
+                            <a href="{{ route('user.information', ['code' => 'about_us']) }}" target="_blank"
+                                class="text-reset">About Us</a>
+                        </li>
+                        <li class="my-3">
+                            <a href="{{ route('user.information', ['code' => 'contact_us']) }}" target="_blank"
+                                class="text-reset">Contact Us</a>
+                        </li>
+                        <li class="my-3">
+                            <a href="{{ route('user.information', ['code' => 'terms_and_conditions']) }}" target="_blank"
                                 class="text-reset">Terms and Conditions</a>
                         </li>
                         <li class="my-3">
-                            <a href="{{ route('user.information', ['id' => 1]) }}" target="_blank"
+                            <a href="{{ route('user.information', ['code' => 'privacy_policy']) }}" target="_blank"
                                 class="text-reset">Privacy Policy</a>
                         </li>
                     </ul>

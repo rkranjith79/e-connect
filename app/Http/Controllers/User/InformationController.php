@@ -24,9 +24,9 @@ class InformationController extends Controller
      * @return \Illuminate\Contracts\Support\Renderable
      */
 
-    public function index($id)
+    public function index($code)
     {
-        $data['information'] = Information::findOrFail($id);
+        $data['information'] = Information::where('code', $code)->first();
         return view('user.information.index', compact('data'));
     }
     
