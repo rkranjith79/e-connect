@@ -1,7 +1,7 @@
 @extends('layouts.user')
 
 @section('content')
-    <iframe style=" height: 700px; border: none" src="{{ route('user.jathagam_print', ['id' => $data['profile']->id, 'uuid' => $data['profile']->uuid]) }}" frameborder="0"></iframe>
+    <iframe style=" height: 1000px; border: none" src="{{ route('user.jathagam_print', ['id' => $data['profile']->id, 'uuid' => $data['profile']->uuid]) }}" frameborder="0"></iframe>
 
 
     {{-- <div class="aiz-main-wrapper d-flex flex-column bg-white">

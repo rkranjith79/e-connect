@@ -4,7 +4,7 @@
             <a class="navbar-brand brand-logo" href="{{ route('admin.dashboard') }}">
                 <img src="{{asset('img/logo-e-connet.png')}}" alt="logo" style="height: 90px" />
             </a>
-            <a class="navbar-brand brand-logo-mini" href="index.html">
+            <a class="navbar-brand brand-logo-mini" href="{{ url('/') }}">
                 {{-- <img src="images/logo-mini.svg" alt="logo" /> --}}
             </a>
             <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">

@@ -59,7 +59,7 @@ class profileJathagam extends MasterModel
         return Carbon::parse($this->attributes['date_of_birth'])->age;
     }
 
-    public function getJathagamAttribute()
+    public function getJathagamFileAttribute()
     {
         return asset("storage/jathagam/" . $this->attributes['jathagam_file']);
     }

@@ -143,7 +143,7 @@ class Profile extends MasterModel
 
     public function getNameDisplayAttribute()
     {
-        return strlen($this->attributes['title']) > 20 ? substr($this->attributes['title'],   0, 20) . "...." : $this->attributes['title'];
+        return $this->attributes['title'];//strlen($this->attributes['title']) > 20 ? substr($this->attributes['title'],   0, 20) . "...." : $this->attributes['title'];
     }
 
 
