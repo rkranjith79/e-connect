@@ -34,9 +34,9 @@
         <a href="{{ __getSiteConfigration('telegram_link') }}" target="_blank">
             <i class="fas fab fa  fa-telegram"></i>
         </a>
-       
     @endif
-<br>
+    <div class=" pb-6  pb-xl-6">
+    
     @if (!empty(route('user.information', ['code' => 'terms_and_conditions'])))
         <a href="{{ route('user.information', ['code' => 'terms_and_conditions']) }}" target="_blank"
             class="text-reset">Terms and Conditions</a>
@@ -47,8 +47,8 @@
             class="text-reset">Privacy Policy</a>
         <span class="mx-3">|</span>
     @endif
-
     {{ __getSiteConfigration('copy_rights') }}
+</div>
 </footer>
 
 
@@ -260,19 +260,24 @@
             <div class="row">
                 <div class="col-lg-6">
                     <div class="lh-1">
-                        @if (!empty(__getSiteConfigration('copy_rights')))
-                            <div class="col-xl-3 col-md-6 mb-2">
-                                {{-- <div class="mb-3">
-                                        <i class="fas fa-envelope mr-2"></i>
-                                        <span>{{ __getSiteConfigration('copy_rights', 'label') }}</span>
-                                    </div> --}}
-                                <div>
-                                    {{ __getSiteConfigration('copy_rights') }}
-                                </div>
+                        @if (!empty(__getSiteConfigration('footer_left')))
+                            <div>
+                                {{ __getSiteConfigration('footer_left') }}
                             </div>
                         @endif
                     </div>
                 </div>
+
+                <div class="col-lg-6">
+                    <div class="lh-1">
+                        @if (!empty(__getSiteConfigration('footer_right')))
+                            <div>
+                                {{ __getSiteConfigration('footer_right') }}
+                            </div>
+                        @endif
+                    </div>
+                </div>
+
             </div>
         </div>
 

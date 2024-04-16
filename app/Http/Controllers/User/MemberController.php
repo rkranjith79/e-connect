@@ -187,7 +187,7 @@ class MemberController extends Controller
                         $startDate = Carbon::now()->subYears($age_from)->format('Y-m-d');
                         $q->where('date_of_birth', '<=', $startDate);
                     })->when(!empty($age_to), function ($q) use ($age_to) {
-                        $endDate = Carbon::now()->subYears($age_to)->format('Y-m-d');
+                        $endDate = Carbon::now()->subYears($age_to + 1)->format('Y-m-d');
                         $q->where('date_of_birth', '>=', $endDate);
                     });
             }

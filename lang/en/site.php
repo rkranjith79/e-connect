@@ -9,6 +9,9 @@ return [
     'forget_password' => 'Forget Password',
     'reset_password_link' => 'Send Password Reset Link',
     'reset_password' => 'Reset Password',
+    'change_password' => 'Change Password',
+    'my_profile' => 'My Profile',
+
     //Main Menu
     'home' => 'Home',
     'view_profile' => 'View Profiles',
@@ -40,6 +43,12 @@ return [
    'all_member_listing' => 'All Active Members',
    'no_data_available' => 'No Data Available :)',
    'advanced_search' => 'Advanced Search',
+
+    'full_profile' => 'Full Profile',
+    'interest' => 'Interest',
+    'ignore' => 'Ignore',
+    'view_contact' => 'View Contact',
+    'share' => 'Share',
 
    //Member Listing Sidebar
    'basic_information' => 'Personal details',

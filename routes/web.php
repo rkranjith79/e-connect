@@ -82,6 +82,7 @@ Route::name('admin.')->prefix('admin')->middleware(['auth', 'isAdmin'])->group(f
 Route::name('user.')->prefix('user')->middleware(['auth'])->group(function () {
     Route::get('/jathagam/{id?}/{uuid?}', [App\Http\Controllers\User\MemberController::class, 'jathagam'])->name('jathagam');
     Route::get('/jathagam-print/{id?}/{uuid?}', [App\Http\Controllers\User\MemberController::class, 'jathagamPrint'])->name('jathagam_print');
+    Route::get('/intrested-profile/{intrested_profile_id}/u/{intrested_profile_uuid}/my/{profile_id}', [App\Http\Controllers\User\MemberController::class, 'intrestedProfile'])->name('intrested_profile');
 
     Route::get('/profile-advanced-search', [App\Http\Controllers\User\MemberController::class, 'advancedSearch'])->name('advancedSearch');
     Route::get('/profile-search', [App\Http\Controllers\User\MemberController::class, 'search'])->name('search');

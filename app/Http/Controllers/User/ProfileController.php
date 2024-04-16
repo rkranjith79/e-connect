@@ -38,6 +38,9 @@ use App\Models\State;
 use App\Models\SubCaste;
 use App\Models\Work;
 use App\Models\WorkPlace;
+use App\Models\InterestedProfile;
+
+
 use App\Traits\LookupTrait;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Auth\ResetsPasswords;
@@ -69,6 +72,39 @@ class ProfileController extends Controller
     public function create()
     {
         //
+    }
+
+    public function intrestedProfile($intrested_profile_id, $intrested_profile_uuid, $profile_id)
+    {
+        $requested = [
+            'intrested_profile_id' => $intrested_profile_id,
+            'profile_id' => $profile_id,
+            'expired_at' => Carbon::now()->addYears(1)->format('Y-m-d')
+        ];
+        $validator = Validator::make($requested, []);
+        if ($validator->fails()) {
+            return response()->json([
+                'status' => 400,
+                'errors' => $validator->messages(),
+            ]);
+        }
+        $interestedProfile = InterestedProfile::where('intrested_profile_id', $intrested_profile_id)->where('profile_id', $profile_id);
+
+        if($interestedProfile->count()) {
+            $interestedProfile->update($requested);
+        } else {
+            InterestedProfile::create($requested);
+        }
+
+        return response()->json([
+            'status' => 200,
+            'message' => "Profile Created Successfully",
+        ]);
+    }
+
+    public function ignoredProfile()
+    {
+        
     }
 
     public function store(Request $request)
@@ -216,6 +252,7 @@ class ProfileController extends Controller
             'name' => $request->title,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+            "status" => 0
         ]);
 
         $profile = Profile::create([
@@ -238,7 +275,7 @@ class ProfileController extends Controller
             "expectation_nakshatra" => $request->expectation_nakshatra,
             "expectation" => $request->expectation,
             "photo_file" => $photo_file_path,
-
+            "active" => 0
         ]);
 
        // $sub_caste = SubCaste::firstOrCreate(['title' => $request->sub_caste, 'caste_id'=> $request->caste_id], ['title' => $request->sub_caste, 'caste_id'=> $request->caste_id,  'language_tamil'=> $request->sub_caste]);

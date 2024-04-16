@@ -31,7 +31,16 @@
                                         <td>{{ $user->name }}</td>
                                         <td>{{ $user->email }}</td>
                                         <td>{{ $user->status == 1 ? 'Active' : 'Inactive' }}</td>
-                                        <td>{{ $user->profile->id ?? '----'}}</td>
+                                        @if (!empty($user->profile->id ?? ''))
+                                            <td>
+                                                <a target="_blank" class="px-4" href="{{ route('user.profile', [ 'id' => $user->profile->id, 'uuid' => $user->profile->uuid])}}">
+                                                    {{ $user->profile->id ?? '----' }}
+                                                </a>
+                                               
+                                            </td>
+                                        @else
+                                            <td>{{ '----' }}</td>
+                                        @endif
                                         <td>
                                             <button class="btn btn-primary editUser btn-sm"
                                                 value="{{ $user->id }}">Edit</button>
@@ -90,7 +99,7 @@
                                     <option value="0">Disabled</option>
                                     <option value="1">Active</option>
                                 </select>
-                             </div>
+                            </div>
                         </div>
                         <!-- /.card-body -->
                     </div>
@@ -227,11 +236,8 @@
                             $('#edit_name').val(response.user.name),
                             $('#edit_email').val(response.user.email),
                             $('#edit_password').val(response.user.password)
-                        if (response.user.status == 1) {
-                            $('#edit_status').prop('checked', true)
-                        } else {
-                            $('#edit_status').prop('checked', false)
-                        }
+                            $('#edit_status').val(response.user.status)
+                       
                     }
                 }
             });

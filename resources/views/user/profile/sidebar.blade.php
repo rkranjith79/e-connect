@@ -1,5 +1,5 @@
 <div class="aiz-user-sidenav-wrap pt-4 sticky-top c-scrollbar-light position-relative z-1 shadow-none">
-    <div class="absolute-top-left d-xl-none">
+    <div class="absolute-top-left d-md-none">
         <button class="btn btn-sm p-2" data-toggle="class-toggle" data-target=".aiz-mobile-side-nav"
             data-same=".mobile-side-nav-thumb">
             <i class="fas fa-times fa-2x"></i>
@@ -29,13 +29,13 @@
                 <li class="aiz-side-nav-item mm-active">
                     <a href="{{ route('user.profile_edit') }}" class="aiz-side-nav-link">
                         <i class="fas fa-pen aiz-side-nav-icon"></i>
-                        <span class="aiz-side-nav-text">Edit Profile</span>
+                        <span class="aiz-side-nav-text">{{ trans('site.my_profile') }}</span>
                     </a>
                 </li>
                 <li class="aiz-side-nav-item">
                     <a href="{{ route('user.change_password') }}" class="aiz-side-nav-link">
                         <i class="fas fa-key aiz-side-nav-icon"></i>
-                        <span class="aiz-side-nav-text">Change Password</span>
+                        <span class="aiz-side-nav-text">{{ trans('site.change_password') }}</span>
                     </a>
                 </li>
             </ul>

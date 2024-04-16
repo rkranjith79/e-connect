@@ -13,10 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('ignored_profiles', function (Blueprint $table) {
+        Schema::create('interested_profiles', function (Blueprint $table) {
             $table->id();
             $table->foreignId('profile_id');
-            $table->foreignId('ignored_profile_id');
+            $table->foreignId('interested_profile_id');
             $table->dateTime('expired_at', precision: 0)->nullable();
             $table->boolean('active')->default(1);
             $table->softDeletes();
@@ -31,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ignored_profiles');
+        Schema::dropIfExists('interested_profiles');
     }
 };

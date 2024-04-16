@@ -8,6 +8,10 @@ return [
    'forget_password' => 'கடவுச்சொல் மறந்துவிட்டது',
    'reset_password_link' => 'கடவுச்சொல் மீட்டமைப்பு இணைப்பு',
    'reset_password' => 'கடவுச்சொல்லை மீட்டமை',
+   'change_password' => 'கடவுச்சொல்லை மாற்று',
+   'my_profile' => 'எனது சுயவிவரம்',
+
+
    //Main Menu
    'home' => 'முகப்பு',
    'view_profile' => 'விவரப் பட்டியல்கள்',
@@ -38,6 +42,12 @@ return [
    'all_member_listing' => 'அனைத்து செயலில் உள்ள உறுப்பினர்கள்',
    'no_data_available' => 'தரவு எதுவும் இல்லை :)',
    'advanced_search' => 'மேம்பட்ட தேடல்',
+
+   'full_profile' => 'முழு விவரம்',
+   'interest' => 'ஆர்வம்',
+   'ignore' => 'புறக்கணி',
+   'view_contact' => 'தொடர்பு',
+   'share' => 'பகிர்',
 
    //Member Listing Sidebar
    'basic_information' => 'தனிப்பட்ட விவரங்கள்',

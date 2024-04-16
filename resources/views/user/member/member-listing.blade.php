@@ -105,47 +105,42 @@
                                                         </table>
                                                     </div>
                                                 </div>
-                                                {{-- <div class="row gutters-5 text-center">
+                                                {{-- <hr>
+                                                <div class="row gutters-5 text-center bg-seconary">
                                                     <div class="col">
                                                         <a href="javascript:void(0);" onclick="package_alert()"
                                                             class="text-dark c-pointer">
-                                                            <i class="fas fa-user fs-20 text-primary"></i>
-                                                            <span class="d-block fs-10">Full Profile</span>
+                                                            <i class="fas fa-user fs-20 text-success"></i>
+                                                            <span class="d-block fs-10 text-success">{{ trans('site.full_profile') }}</span>
                                                         </a>
                                                     </div>
                                                     <div class="col">
                                                         <a href="javascript:void(0);" onclick="package_alert()"
                                                             class="text-dark c-pointer">
-                                                            <i class="fas fa-heart fs-20 text-primary"></i>
-                                                            <span class="d-block fs-10">Interest</span>
+                                                            <i class="fas fa-heart fs-20 text-danger"></i>
+                                                            <span class="d-block fs-10 text-danger">{{ trans('site.interest') }}</span>
+                                                        </a>
+                                                    </div>
+                                               
+                                                    <div class="col">
+                                                        <a href="javascript:void(0);" onclick="package_alert()"
+                                                            class="text-dark c-pointer">
+                                                            <i class="fas fa-ban fs-20 text-warning"></i>
+                                                            <span class="d-block fs-10 text-warning">{{ trans('site.ignore') }}</span>
                                                         </a>
                                                     </div>
                                                     <div class="col">
                                                         <a href="javascript:void(0);" onclick="package_alert()"
                                                             class="text-dark c-pointer">
-                                                            <i class="fas fa-list fs-20 text-primary"></i>
-                                                            <span class="d-block fs-10">Shortlist</span>
-                                                        </a>
-                                                    </div>
-                                                    <div class="col">
-                                                        <a href="javascript:void(0);" onclick="package_alert()"
-                                                            class="text-dark c-pointer">
-                                                            <i class="fas fa-ban fs-20 text-primary"></i>
-                                                            <span class="d-block fs-10">Ignore</span>
-                                                        </a>
-                                                    </div>
-                                                    <div class="col">
-                                                        <a href="javascript:void(0);" onclick="package_alert()"
-                                                            class="text-dark c-pointer">
-                                                            <i class="fas fa-phone-alt fs-20 text-primary"></i>
-                                                            <span class="d-block fs-10">View Contact</span>
+                                                            <i class="fas fa-phone-alt fs-20 text-dark"></i>
+                                                            <span class="d-block fs-10 text-dark">{{ trans('site.view_contact') }}</span>
                                                         </a>
                                                     </div>
                                                     <div class="col d-none d-md-block">
                                                         <a href="https://wa.me/?text=பதிவு எண் : GK4227%0aபெயர் : யாழினி (மருத்துவர்)%0aMDS (Pediatric Dentistry)%0aவயது : 26%0aபிறந்த ஊர் : ஈரோடு%0aதொழில் : MDS (Pediatric Dentistry) final year ( வெளிநாடு  செல்ல சம்மதம் )%0aமாத வருமானம் : 0%0aதுலாம்-ஸ்வாதி%0aபரிகார செவ்வாய் ஜாதகம்%0aசொத்து விபரம்  : நேரில்"
                                                             target="_blank" class="text-dark c-pointer">
-                                                            <i class="fab fa-whatsapp fs-20 text-primary"></i>
-                                                            <span class="d-block fs-10">Share</span>
+                                                            <i class="fab fa-whatsapp fs-20 text-success"></i>
+                                                            <span class="d-block fs-10 text-success">{{ trans('site.share') }}</span>
                                                         </a>
                                                     </div>
                                                 </div> --}}

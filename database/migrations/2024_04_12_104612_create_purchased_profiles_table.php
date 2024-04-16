@@ -21,6 +21,8 @@ return new class extends Migration
             $table->foreignId('order_id');
             $table->foreignId('order_token');
             $table->dateTime('expired_at', precision: 0)->nullable();
+            $table->boolean('active')->default(1);
+
             $table->softDeletes();
             $table->timestamps();
         });
