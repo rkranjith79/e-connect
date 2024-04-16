@@ -16,20 +16,22 @@
                         <table class="table table-bordered table-striped">
                             <thead>
                                 <tr>
-                                    <th width="7%">S No.</th>
+                                    <th width="7%">ID</th>
                                     <th>Name</th>
                                     <th>Email</th>
                                     <th>Status</th>
+                                    <th>Profile ID</th>
                                     <th>Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach ($users as $user)
                                     <tr>
-                                        <td>{{ $loop->iteration }}</td>
+                                        <td>#{{ $user->id }}</td>
                                         <td>{{ $user->name }}</td>
                                         <td>{{ $user->email }}</td>
                                         <td>{{ $user->status == 1 ? 'Active' : 'Inactive' }}</td>
+                                        <td>{{ $user->profile->id ?? '----'}}</td>
                                         <td>
                                             <button class="btn btn-primary editUser btn-sm"
                                                 value="{{ $user->id }}">Edit</button>
@@ -84,8 +86,11 @@
                             </div>
                             <div class="col-md-6 mb-3 form-group">
                                 <label for="">Status</label></br>
-                                <input type="checkbox" name="status" checked class="form-check-input">
-                            </div>
+                                <select name="status" class="form-control" id="status">
+                                    <option value="0">Disabled</option>
+                                    <option value="1">Active</option>
+                                </select>
+                             </div>
                         </div>
                         <!-- /.card-body -->
                     </div>
@@ -132,7 +137,10 @@
                             </div>
                             <div class="col-md-6 mb-3 form-group">
                                 <label for="">Status</label></br>
-                                <input type="checkbox" name="status" id="edit_status" class="form-check-input">
+                                <select name="status" class="form-control" id="edit_status">
+                                    <option value="0">Disabled</option>
+                                    <option value="1">Active</option>
+                                </select>
                             </div>
                         </div>
                         <!-- /.card-body -->
@@ -159,7 +167,7 @@
             var email = $('input[name=email]').val();
             var password = $('input[name=password]').val();
             //var status = $('input[name=status]').val();
-            var status = $('input[name=active]').prop('checked');
+            var status = $('input[name=active]').val();
             $('#name_err').addClass('d-none');
             $('#email_err').addClass('d-none');
             $('#password_err').addClass('d-none');

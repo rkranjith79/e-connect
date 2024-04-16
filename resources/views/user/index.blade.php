@@ -205,6 +205,7 @@
                     data-dots='true' data-infinite='true' data-autoplay='true'>
 
                     @foreach ($data['grooms'] as $profile)
+
                         <div class="carousel-box">
                             <div class="member-block position-relative overflow-hidden">
                                 <img data-lazy="{{ $profile->photo ?? '' }}"

@@ -4,7 +4,7 @@
                 class="require-star">*</span></label>
         <div class="input-group fileinput fileinput-new text-center" data-provides="fileinput">
             <div class="fileinput-new thumbnail img-raised" height="150px" width="250px">
-                    <img src="{{ ($profileJathagam->jathagam) ?? asset('img/registration/horoscope.png') }}" alt="jathagam file">
+                    <img src="{{ ($profileJathagam->jathagamFile) ?? asset('img/registration/horoscope.png') }}" alt="jathagam file">
             </div>
             <div class="fileinput-preview fileinput-exists thumbnail img-raised"></div>
             <div>

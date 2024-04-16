@@ -15,6 +15,7 @@ return [
     'search' => 'Search',
     'premium_plans' => 'Premium Plans',
     'events' => 'Events',
+    'more' => 'More',
 
     //Buttons
     'view_profile_button' => 'Profile',

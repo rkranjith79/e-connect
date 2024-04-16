@@ -12,6 +12,7 @@ return [
    'home' => 'முகப்பு',
    'view_profile' => 'விவரப் பட்டியல்கள்',
    'search' => 'தேடு',
+   'more' => 'மேலும்',
 
    //Buttons
    'view_profile_button' => 'விவரம்',
