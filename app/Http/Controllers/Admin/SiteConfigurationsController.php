@@ -60,7 +60,9 @@ class SiteConfigurationsController extends Controller
             ]);
         } else {
             SiteConfiguration::create([
+                'label' => $request->code,
                 'code' => $request->code,
+                'attributes' => []
             ]);
             return response()->json([
                 'status' => 700,

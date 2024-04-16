@@ -1,11 +1,67 @@
-<footer class="aiz-footer fs-13 mt-auto text-white fw-400 pt-5">
+<footer class=" text-center aiz-footer fs-13 mt-auto text-white fw-400 py-3 d-lg-none d-xl-none
+">
+
+    @if (!empty(__getSiteConfigration('whatsapp_group')))
+        <a href="{{ __getSiteConfigration('whatsapp_group') }}" target="_blank">
+            <i class="fas fab fa  fa-whatsapp"></i>
+        </a>
+
+        <span class="mx-3">|</span>
+    @endif
+
+    @if (!empty(__getSiteConfigration('youtube_link')))
+        <a href="{{ __getSiteConfigration('youtube_link') }}" target="_blank">
+            <i class="fas fab fa  fa-youtube"></i>
+        </a>
+        <span class="mx-3">|</span>
+    @endif
+
+    @if (!empty(__getSiteConfigration('facebook_link')))
+        <a href="{{ __getSiteConfigration('facebook_link') }}" target="_blank">
+            <i class="fas fab fa  fa-facebook"></i>
+        </a>
+        <span class="mx-3">|</span>
+    @endif
+
+    @if (!empty(__getSiteConfigration('instagram_link')))
+        <a href="{{ __getSiteConfigration('instagram_link') }}" target="_blank">
+            <i class="fas fab fa  fa-instagram"></i>
+        </a>
+        <span class="mx-3">|</span>
+    @endif
+
+    @if (!empty(__getSiteConfigration('telegram_link')))
+        <a href="{{ __getSiteConfigration('telegram_link') }}" target="_blank">
+            <i class="fas fab fa  fa-telegram"></i>
+        </a>
+       
+    @endif
+<br>
+    @if (!empty(route('user.information', ['code' => 'terms_and_conditions'])))
+        <a href="{{ route('user.information', ['code' => 'terms_and_conditions']) }}" target="_blank"
+            class="text-reset">Terms and Conditions</a>
+        <span class="mx-3">|</span>
+    @endif
+    @if (!empty(route('user.information', ['code' => 'privacy_policy'])))
+        <a href="{{ route('user.information', ['code' => 'privacy_policy']) }}" target="_blank"
+            class="text-reset">Privacy Policy</a>
+        <span class="mx-3">|</span>
+    @endif
+
+    {{ __getSiteConfigration('copy_rights') }}
+</footer>
+
+
+<footer class="aiz-footer fs-13 mt-auto text-white fw-400 pt-5 d-none
+ d-lg-block">
     <div class="container">
 
         <div class="row">
             <div class="col text-center mx-auto">
                 <div class="logo">
                     <a href="{{ url('/') }}" class="d-inline-block py-15px">
-                        <img src="{{ asset('img/logo-e-connet.png') }}" alt="E-Connect Matrimony" class="mw-100 h-150px">
+                        <img src="{{ asset('img/logo-e-connet.png') }}" alt="E-Connect Matrimony"
+                            class="mw-100 h-150px">
                     </a>
                 </div>
             </div>
@@ -75,10 +131,9 @@
                             <span>{{ __getSiteConfigration('whatsapp_group', 'label') }}</span>
                         </div>
                         <div>
-                           
+
                             <a href="{{ __getSiteConfigration('whatsapp_group') }}" target="_blank">
-                                <img src="{{ asset('img/social/whatsapp.png') }}"
-                                class="custom-social-btn">
+                                <img src="{{ asset('img/social/whatsapp.png') }}" class="custom-social-btn">
                             </a>
                         </div>
                     </div>
@@ -132,8 +187,8 @@
                                 class="text-reset">Contact Us</a>
                         </li>
                         <li class="my-3">
-                            <a href="{{ route('user.information', ['code' => 'terms_and_conditions']) }}" target="_blank"
-                                class="text-reset">Terms and Conditions</a>
+                            <a href="{{ route('user.information', ['code' => 'terms_and_conditions']) }}"
+                                target="_blank" class="text-reset">Terms and Conditions</a>
                         </li>
                         <li class="my-3">
                             <a href="{{ route('user.information', ['code' => 'privacy_policy']) }}" target="_blank"
@@ -152,8 +207,7 @@
                     @if (!empty(__getSiteConfigration('play_store_link')))
                         <div class="col-4">
                             <a href="{{ __getSiteConfigration('play_store_link') }}" target="_blank">
-                                <img src="{{ asset('img/social/play_store.png') }}"
-                                    class="custom-social-btn">
+                                <img src="{{ asset('img/social/play_store.png') }}" class="custom-social-btn">
                             </a>
                         </div>
                     @endif
@@ -161,8 +215,7 @@
                     @if (!empty(__getSiteConfigration('app_store_link')))
                         <div class="col-4">
                             <a href="{{ __getSiteConfigration('app_store_link') }}" target="_blank">
-                                <img src="{{ asset('img/social/app_store.png') }}"
-                                    class="custom-social-btn">
+                                <img src="{{ asset('img/social/app_store.png') }}" class="custom-social-btn">
                             </a>
                         </div>
                     @endif
@@ -170,8 +223,7 @@
                     @if (!empty(__getSiteConfigration('telegram_link')))
                         <div class="col-4">
                             <a href="{{ __getSiteConfigration('telegram_link') }}" target="_blank">
-                                <img src="{{ asset('img/social/telegram.png') }}"
-                                    class="custom-social-btn">
+                                <img src="{{ asset('img/social/telegram.png') }}" class="custom-social-btn">
                             </a>
                         </div>
                     @endif
@@ -179,8 +231,7 @@
                     @if (!empty(__getSiteConfigration('instagram_link')))
                         <div class="col-4">
                             <a href="{{ __getSiteConfigration('instagram_link') }}" target="_blank">
-                                <img src="{{ asset('img/social/instagram.png') }}"
-                                    class="custom-social-btn">
+                                <img src="{{ asset('img/social/instagram.png') }}" class="custom-social-btn">
                             </a>
                         </div>
                     @endif
@@ -188,8 +239,7 @@
                     @if (!empty(__getSiteConfigration('facebook_link')))
                         <div class="col-4">
                             <a href="{{ __getSiteConfigration('facebook_link') }}" target="_blank">
-                                <img src="{{ asset('img/social/facebook.png') }}"
-                                    class="custom-social-btn">
+                                <img src="{{ asset('img/social/facebook.png') }}" class="custom-social-btn">
                             </a>
                         </div>
                     @endif
@@ -197,8 +247,7 @@
                     @if (!empty(__getSiteConfigration('youtube_link')))
                         <div class="col-4">
                             <a href="{{ __getSiteConfigration('youtube_link') }}" target="_blank">
-                                <img src="{{ asset('img/social/youtube.png') }}"
-                                    class="custom-social-btn">
+                                <img src="{{ asset('img/social/youtube.png') }}" class="custom-social-btn">
                             </a>
                         </div>
                     @endif
@@ -213,10 +262,10 @@
                     <div class="lh-1">
                         @if (!empty(__getSiteConfigration('copy_rights')))
                             <div class="col-xl-3 col-md-6 mb-2">
-                                <div class="mb-3">
-                                    <i class="fas fa-envelope mr-2"></i>
-                                    <span>{{ __getSiteConfigration('copy_rights', 'label') }}</span>
-                                </div>
+                                {{-- <div class="mb-3">
+                                        <i class="fas fa-envelope mr-2"></i>
+                                        <span>{{ __getSiteConfigration('copy_rights', 'label') }}</span>
+                                    </div> --}}
                                 <div>
                                     {{ __getSiteConfigration('copy_rights') }}
                                 </div>
@@ -241,7 +290,7 @@
         HEIGHT: 64px;
     }
 
-    .custom-facebook-btn--1{
+    .custom-facebook-btn--1 {
         background: white;
         padding: 10px 22px;
         border-radius: 26px;
