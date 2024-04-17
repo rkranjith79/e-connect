@@ -45,6 +45,7 @@ return [
 
    'full_profile' => 'முழு விவரம்',
    'interest' => 'ஆர்வம்',
+   'interested' => 'ஆர்வம் +',
    'ignore' => 'புறக்கணி',
    'view_contact' => 'தொடர்பு',
    'share' => 'பகிர்',
@@ -72,5 +73,8 @@ return [
    'login_your_account' => 'உங்கள் கணக்கில் உள்நுழைக',
    'login_your_account_button' => 'உங்கள் கணக்கில் உள்நுழைக',
    'don_t_have_an_account' => 'கணக்கு இல்லையா?',
+
+   'ignored_profile' => 'புறக்கணி விவரம்',
+   'interested_profile' => 'ஆர்வம் + விவரம்',
 ];
 ?>

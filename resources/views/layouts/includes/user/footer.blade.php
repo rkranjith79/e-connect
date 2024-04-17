@@ -271,9 +271,9 @@
                 <div class="col-lg-6">
                     <div class="lh-1">
                         @if (!empty(__getSiteConfigration('footer_right')))
-                            <div>
+                            <p class="text-right">
                                 {{ __getSiteConfigration('footer_right') }}
-                            </div>
+                            </p>
                         @endif
                     </div>
                 </div>

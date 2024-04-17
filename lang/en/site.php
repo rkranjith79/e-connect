@@ -46,6 +46,7 @@ return [
 
     'full_profile' => 'Full Profile',
     'interest' => 'Interest',
+    'interested' => 'Interested',
     'ignore' => 'Ignore',
     'view_contact' => 'View Contact',
     'share' => 'Share',
@@ -73,5 +74,9 @@ return [
     'login_your_account' => 'Login to your account',
     'login_your_account_button' => 'Login to your account',
     'don_t_have_an_account' => 'Don\'t have an account?',
+
+    //User Sidebar
+    'ignored_profile' => 'Ignored Profiles',
+    'interested_profile' => 'Interested Profiles',
 ];
 ?>

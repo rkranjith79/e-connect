@@ -1,27 +1,22 @@
 @extends('layouts.user')
 
 @section('content')
-    <section class="py-4 py-lg-5 bg-white">
+    <div class="py-5 bg-white">
         <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="row">
-                        <div class="col-xl-3">
-                            @include("user.member.listing-sidebar")
-                        </div>
-                        <div class="col-xl-9">
-                            <div class="d-flex">
-                                <h1 class="h4 fw-600 mb-3 text-body">{{ trans('site.all_member_listing') }}</h1>
-                                <div class="d-xl-none ml-auto mb-1 ml-xl-3 mr-0 align-self-end">
-                                    <button type="button" class="btn btn-icon p-0" data-toggle="class-toggle"
-                                        data-target=".aiz-filter-sidebar">
-                                        <i class="fas fa-list fa-2x"></i>
-                                    </button>
-                                </div>
+            <div id="form_content" class="row">
+                <div class="d-flex align-items-start">
+                    @include('user.profile.sidebar')
+                    <div class="aiz-user-panel overflow-hidden">
+                        <div class="card">
+                            <div id="successMessage" class="" tabindex="0"></div>
+                            <div class="card-header">
+                                <h5 class="mb-0 h6">Ignored Profile</h5>
                             </div>
-                            <div class="mb-5">
-                                @forelse ($data['profiles'] as $profile)
-
+                            <div class="card-body">
+                              @forelse ($profile->myIgnoredProfiles as $profile)
+                                    @php
+                                        $profile = $profile->ignoredProfile;
+                                    @endphp
                                     <div class="row no-gutters border border-gray-300 rounded shadow mb-4 has-transition position-relative"
                                         id="block_id_{{ $profile->id }}">
                                         <div class="col-md-auto">
@@ -115,14 +110,7 @@
                                                             <span class="d-block fs-10 text-success">{{ trans('site.full_profile') }}</span>
                                                         </a>
                                                     </div>
-                                                    <div class="col">
-                                                        <a href="javascript:void(0);" onclick="interestedOrIgnored('interested','{{ $profile->id }}', '{{ $profile->uuid }}', '{{ auth()->user()->profile->id }}', '{{ auth()->user()->profile->uuid }}')"
-                                                            class="text-dark c-pointer">
-                                                            <i class="fas {{ $profile->interested ? 'fa-heart text-danger' : 'fa-thumbs-up' }}  fs-20"></i>
-                                                            <span class="d-block fs-10 {{ $profile->interested ? ' text-danger' : '' }}"> {{ $profile->interested ?  trans('site.interested') : trans('site.interest') }}</span>
-                                                        </a>
-                                                    </div>
-                                               
+
                                                     <div class="col">
                                                         <a href="javascript:void(0);" onclick="interestedOrIgnored('ignored','{{ $profile->id }}', '{{ $profile->uuid }}', '{{ auth()->user()->profile->id }}', '{{ auth()->user()->profile->uuid }}')"
                                                             class="text-dark c-pointer">
@@ -130,20 +118,8 @@
                                                             <span class="d-block fs-10 {{ $profile->ignored ? 'text-danger' : 'text-warning' }}">{{ trans('site.ignore') }}</span>
                                                         </a>
                                                     </div>
-                                                    <div class="col">
-                                                        <a href="{{ route('user.profile', ['id' => $profile->id, 'uuid' => $profile->uuid]) }}"
-                                                            class="text-dark c-pointer">
-                                                            <i class="fas fa-phone-alt fs-20 text-dark"></i>
-                                                            <span class="d-block fs-10 text-dark">{{ trans('site.view_contact') }}</span>
-                                                        </a>
-                                                    </div>
-                                                    <div class="col d-none d-md-block">
-                                                        <a href="https://wa.me/?{{ $profile->whatsappData }}"
-                                                            target="_blank" class="text-dark c-pointer">
-                                                            <i class="fab fa-whatsapp fs-20 text-success"></i>
-                                                            <span class="d-block fs-10 text-success">{{ trans('site.share') }}</span>
-                                                        </a>
-                                                    </div>
+                                                   
+                                                
                                                 </div>
                                                 @endauth
                                             </div>
@@ -153,20 +129,11 @@
                                  <h2>{{ trans('site.no_data_available') }}</h2>
                                 @endforelse
                             </div>
-                            <div class="aiz-pagination text-center">
-                                @guest
-                                        <h1 class="h3 text-primary mb-0">{{ trans('site.create_your_account') }}</h1>
-                                        <p>{{ trans('site.create_your_account_sub_label') }}</p>
-                                        <a class="btn btn-sm btn-primary text-white fw-600 py-1 border"
-                                    href="{{ route('registers') }}">{{ trans('site.registration') }}</a>
-                                @endguest
-
-                                {{ $data['profiles']->links() }}
-                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+
 @endsection

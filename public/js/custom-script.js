@@ -65,6 +65,51 @@ function nav_toggler() {
 	$('.nav-toggle-icon span').toggleClass('hide');
 	return false;
 }
+
+
+function interestedOrIgnored(interested_or_ignored ,interested_profile_id, interested_profile_uuid, profile_id, profile_uuid) {
+	
+	if(interested_profile_uuid && interested_profile_id && profile_id && profile_uuid) {
+		if(interested_or_ignored == "interested") {
+			var url = "/user/interested-profile/"+interested_profile_id+"/u/"+interested_profile_uuid+"/my/"+profile_id+"/u/"+profile_uuid;
+		} else {
+			var url = "/user/ignored-profile/"+interested_profile_id+"/u/"+interested_profile_uuid+"/my/"+profile_id+"/u/"+profile_uuid;
+		}
+
+		$.ajax({
+			type: "GET",
+			url: url, // Replace with your server endpoint
+			headers: {
+				'X-CSRF-TOKEN': '{{ csrf_token() }}'
+			},
+			contentType: false, // Set content type to false for FormData
+			processData: false, // Do not process the data, let FormData handle it
+	
+			success: function(response) {
+				if (response.status == 200) {
+					Swal.fire({
+						title: 'Success!',
+						text: interested_or_ignored + " Updated Successful",
+						icon: 'success',
+						timer: 2000, // Set a timer to automatically close the alert after 2 seconds
+						timerProgressBar: true,
+						showConfirmButton: false
+					}).then(() => {
+						// Redirect to the specified URL
+						location.reload();
+					});
+				
+				} else {
+				} // Handle the server response as needed
+			},
+			error: function(error) {
+				
+			}
+		});
+	}
+		
+}
+
 /*
 //Dependent Options
 $('#splcategory').on("change", function() {

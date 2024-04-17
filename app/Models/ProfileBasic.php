@@ -106,4 +106,5 @@ class ProfileBasic extends MasterModel
         return $this->belongsTo(AssetsValue::class)->Translated();
     }   
 
+    
 }

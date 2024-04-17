@@ -6,6 +6,7 @@ use App\Models\Common\MasterModel;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
+use Carbon\Carbon;
 
 class Profile extends MasterModel
 {
@@ -104,6 +105,38 @@ class Profile extends MasterModel
         return $this->hasOne(profileJathagam::class);
     }
 
+    public function interestedProfile()
+    {
+        return $this->hasMany(InterestedProfile::class, 'interested_profile_id', 'id')?->where('active', 1); 
+    }
+
+    public function ignoredProfile()
+    {
+        return $this->hasMany(IgnoredProfile::class, 'ignored_profile_id', 'id')?->where('active',1);
+    }
+
+
+    public function myInterestedProfiles()
+    {
+        return $this->hasMany(InterestedProfile::class, 'profile_id', 'id')?->where('active',1);
+    }
+
+    public function myIgnoredProfiles()
+    {
+        return $this->hasMany(IgnoredProfile::class, 'profile_id', 'id')?->where('active',1);
+    }
+
+
+    public function scopeWomitIgnored($query)
+    {
+        return $query->whereHas(
+            "ignoredProfile",
+            function ($q)  {
+                $q->where('profile_id', auth()->user()->profile->id);
+            } , "=", 0
+        );
+    }
+    
     public function getModelData($data)
     {
         // Full data get
@@ -146,6 +179,27 @@ class Profile extends MasterModel
         return $this->attributes['title'];//strlen($this->attributes['title']) > 20 ? substr($this->attributes['title'],   0, 20) . "...." : $this->attributes['title'];
     }
 
+    public function getInterestedAttribute()
+    {
+        $profile_id = auth()->user()->profile->id;
+
+        return InterestedProfile::where('interested_profile_id', $this->attributes['id'])
+        ->where('profile_id', $profile_id)
+        ->where('active', 1)
+        ->where('expired_at', '>',  Carbon::now())
+        ->count() ? true : false;
+    }
+
+    public function getIgnoredAttribute()
+    {
+        $profile_id = auth()->user()->profile->id;
+
+        return IgnoredProfile::where('ignored_profile_id', $this->attributes['id'])
+        ->where('profile_id', $profile_id)
+        ->where('active', 1)
+        ->where('expired_at', '>',  Carbon::now())
+        ->count() ? true : false;
+    }
 
     public function getExpectationJathagamTitleAttribute()
     {
@@ -163,6 +217,17 @@ class Profile extends MasterModel
     {
         if (!empty($this->expectation_work_place_id))
             return Jathagam::where('id', $this->expectation_work_place_id)->Translated()?->pluck('title')->implode(", ");
+    }
+
+    public function getWhatsappDataAttribute() {
+        return http_build_query(['text'=> trans('fields.code')  .":". ( $this->code ?? '-' ). "\n".
+        trans('fields.name')  .":".  ( $this->title ?? '-' ). "\n".
+        trans('fields.age')  .":". ( $this->jathagam->age ?? '-' ). "\n".
+        trans('fields.district')  .":". ( $this->basic->district->title ?? '-' ). "\n".
+        trans('fields.work')   .":". ( $this->basic->work->title ?? '-' ). "\n".
+        trans('fields.monthly_income')  .":". ( $this->basic->monthly_income ?? '-' ). "\n".
+        trans('fields.rasi_nakshatra')  .":". ( $this->jathagam->rasi_nakshatra->title ?? '-' ). "\n".
+        trans('fields.jathagam')  .":". ( $this->jathagam->jathagam->title ?? '-' ). "\n"]);
     }
 
     protected static function boot()

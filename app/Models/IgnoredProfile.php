@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class IgnoredProfile extends Model
 {
@@ -17,4 +18,14 @@ class IgnoredProfile extends Model
         'expired_at',
         'active'
     ];
+
+    public function profile()
+    {
+        return $this->belongsTo(Profile::class);
+    }
+
+    public function ignoredProfile()
+    {
+        return $this->belongsTo(Profile::class);
+    }
 }

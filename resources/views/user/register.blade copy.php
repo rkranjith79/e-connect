@@ -125,7 +125,7 @@ style="background-image: url('{{ asset('img/uploads/2.png') }}')">
                                             name="name" maxlength="255">
                                     </div>
                                     <small class="form-text text-muted text-help"><span
-                                            style="color:red">முடிந்தவரை தமிழில் பதிவு
+                                            class="text-success ">முடிந்தவரை தமிழில் பதிவு
                                             செய்யவும்.</span></small>
                                     <span class="invalid-feedback"></span>
                                 </div>

@@ -39,7 +39,8 @@ use App\Models\SubCaste;
 use App\Models\Work;
 use App\Models\WorkPlace;
 use App\Models\InterestedProfile;
-
+use App\Models\IgnoredProfile;
+use Carbon\Carbon;
 
 use App\Traits\LookupTrait;
 use Illuminate\Support\Facades\Auth;
@@ -74,10 +75,10 @@ class ProfileController extends Controller
         //
     }
 
-    public function intrestedProfile($intrested_profile_id, $intrested_profile_uuid, $profile_id)
+    public function updateInterestedProfile($interested_profile_id, $interested_profile_uuid, $profile_id, $profile_uuid)
     {
         $requested = [
-            'intrested_profile_id' => $intrested_profile_id,
+            'interested_profile_id' => $interested_profile_id,
             'profile_id' => $profile_id,
             'expired_at' => Carbon::now()->addYears(1)->format('Y-m-d')
         ];
@@ -88,24 +89,68 @@ class ProfileController extends Controller
                 'errors' => $validator->messages(),
             ]);
         }
-        $interestedProfile = InterestedProfile::where('intrested_profile_id', $intrested_profile_id)->where('profile_id', $profile_id);
-
-        if($interestedProfile->count()) {
-            $interestedProfile->update($requested);
+        $interestedProfile = Profile::find($interested_profile_id);
+                                            
+        if($interestedProfile->interested) {
+            $requested['active'] = 0;
+            InterestedProfile::updateOrCreate(
+                [ 'interested_profile_id' => $interested_profile_id,
+                    'profile_id' => $profile_id
+                ], $requested);
         } else {
-            InterestedProfile::create($requested);
+            $requested['active'] = 1;
+            InterestedProfile::updateOrCreate(
+                [ 'interested_profile_id' => $interested_profile_id,
+                    'profile_id' => $profile_id
+                ], $requested);
         }
 
         return response()->json([
             'status' => 200,
-            'message' => "Profile Created Successfully",
+            'active' => $requested['active'],
+            'message' => "Intrest Updated Successfully",
         ]);
     }
 
-    public function ignoredProfile()
+
+    public function updateIgnoredProfile($ignored_profile_id, $ignored_profile_uuid, $profile_id, $profile_uuid)
     {
-        
+        $requested = [
+            'ignored_profile_id' => $ignored_profile_id,
+            'profile_id' => $profile_id,
+            'expired_at' => Carbon::now()->addYears(1)->format('Y-m-d')
+        ];
+        $validator = Validator::make($requested, []);
+        if ($validator->fails()) {
+            return response()->json([
+                'status' => 400,
+                'errors' => $validator->messages(),
+            ]);
+        }
+        $ignoredProfile = Profile::find($ignored_profile_id);
+                                            
+        if($ignoredProfile->ignored) {
+            $requested['active'] = 0;
+            IgnoredProfile::updateOrCreate(
+                [ 'ignored_profile_id' => $ignored_profile_id,
+                    'profile_id' => $profile_id
+                ], $requested);
+        } else {
+            $requested['active'] = 1;
+            IgnoredProfile::updateOrCreate(
+                [ 'ignored_profile_id' => $ignored_profile_id,
+                    'profile_id' => $profile_id
+                ], $requested);
+        }
+
+        return response()->json([
+            'status' => 200,
+            'active' => $requested['active'],
+            'message' => "Ignore Updated Successfully",
+        ]);
     }
+
+
 
     public function store(Request $request)
     {
@@ -386,6 +431,26 @@ class ProfileController extends Controller
             $profileJathagam = profileJathagam::where('profile_id', $profile->id)->first();
             $record = $this->getlookupData();
             return view('user.profile.edit', compact(['profile', 'profileBasic', 'profileJathagam', 'record']));
+        } else {
+            return view('pages.404');
+        }
+    }
+
+    public function interestedProfile(Profile $profile)
+    {
+        $profile = !empty($profile->id ?? '') ? $profile : Auth::user()->profile;
+        if (!empty($profile)) {
+            return view('user.profile.interested_profile', compact(['profile']));
+        } else {
+            return view('pages.404');
+        }
+    }
+
+    public function ignoredProfile(Profile $profile)
+    {
+        $profile = !empty($profile->id ?? '') ? $profile : Auth::user()->profile;
+        if (!empty($profile)) {
+            return view('user.profile.ignored_profile', compact(['profile']));
         } else {
             return view('pages.404');
         }

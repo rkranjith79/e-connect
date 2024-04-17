@@ -2,6 +2,7 @@
 
 return [
     'name' => 'Sweet🍬 Name',
+    'code' => 'Member Id',
     'password' => 'Password 🔒',
     'confirm_password' => 'Confirm Password',
     'email' => 'Email',

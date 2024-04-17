@@ -56,6 +56,7 @@ class MemberController extends Controller
             } else {
                 $profiles = $profiles->bride();
             }
+            $profiles= $profiles->womitIgnored();
         } else {
             $profiles = $profiles->limit(10);
         }

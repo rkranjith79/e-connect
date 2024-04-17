@@ -15,7 +15,7 @@
         </div>
         <div class="text-center mb-3 px-3">
             <a href="{{ route('user.profile', ['id' => Auth::user()->profile->id, 'uuid' => Auth::user()->profile->uuid]) }}" class="btn btn-block btn-soft-primary"><i
-                    class="fas fa-user"></i> My Profile</a>
+                    class="fas fa-user"></i> {{ trans('site.my_profile') }} </a>
         </div>
 
         <div class="sidemnenu mb-3">
@@ -38,6 +38,23 @@
                         <span class="aiz-side-nav-text">{{ trans('site.change_password') }}</span>
                     </a>
                 </li>
+
+                
+                <li class="aiz-side-nav-item">
+                    <a href="{{ route('user.interested_profile') }}" class="aiz-side-nav-link">
+                        <i class="fas fa-heart aiz-side-nav-icon"></i>
+                        <span class="aiz-side-nav-text">{{ trans('site.interested_profile') }}</span>
+                    </a>
+                </li>
+
+                <li class="aiz-side-nav-item">
+                    <a href="{{ route('user.ignored_profile') }}" class="aiz-side-nav-link">
+                        <i class="fas fa-ban aiz-side-nav-icon"></i>
+                        <span class="aiz-side-nav-text">{{ trans('site.ignored_profile') }}</span>
+                    </a>
+                </li>
+
+
             </ul>
         </div>
         <div>

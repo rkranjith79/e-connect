@@ -139,7 +139,15 @@
                                             class="text-reset">Privacy Policy</a>
                                     </li>
                                 </ul>
-                        </li>   
+                        </li>  
+                        @auth
+                        <li class="d-inline-block d-lg-flex pb-1  {{\Request::route()->getName() == 'user.profile_edit' ? 'bg-primary-grad' : ''}}">
+                            <a class="nav-link b-1 text-uppercase fw-700 fs-15 d-flex align-items-center bg-white py-2"
+                                href="{{ route('user.profile_edit') }}">
+                                <span class="text-primary-grad mb-n1">{{ trans('site.my_profile') }}</span>
+                            </a>
+                        </li>
+                        @endauth
                     </ul>
                 </div>
             </div>
