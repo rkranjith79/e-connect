@@ -36,10 +36,15 @@ class MasterController extends Controller
 
     public function store(Request $request)
     {
+      
         $validationFields = [
-            'title' => ['required', 'max:255', 'unique:' . $this->pageData['tables']],
+            'title' => ['required', 'max:255', ],
             'active' => ['nullable'],
         ];
+
+        if(empty($this->pageData['rules']['not_unique'])) {
+            $validationFields['title'][] = 'unique:' . $this->pageData['tables'];
+        }
 
         $validationAttributes = ['title' => $this->pageData['name']];
 
@@ -95,9 +100,13 @@ class MasterController extends Controller
     public function update(Request $request, $id)
     {
         $validationFields = [
-            'title' => ['required', 'max:255', 'unique:' . $this->pageData['tables'] . ',title,' . $id . ',id'],
+            'title' => ['required', 'max:255'],
             'active' => ['nullable'],
         ];
+
+        if(empty($this->pageData['rules']['not_unique'])) {
+            $validationFields['title'][] = 'unique:' . $this->pageData['tables'] . ',title,' . $id . ',id';
+        }
 
         $validationAttributes = ['title' => $this->pageData['name']];
 

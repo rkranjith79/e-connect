@@ -32,3 +32,9 @@ function __setTimeFormat($time)
     $formattedTime = date('h:i:s A', strtotime($time));
     return $formattedTime;
 }
+
+
+function __isProfiledUser()
+{
+    return  (auth()->check() && auth()->user()->profile) ;
+}

@@ -52,7 +52,7 @@
                     </li>
                 </ul>
             </li>
-            @auth
+            @if(__isProfiledUser())
                 <li class="nav-item">
                     <a class="nav-link text-uppercase fw-700 fs-15 d-flex align-items-center bg-white py-2"
                         href="{{ route('user.profile_edit') }}">
@@ -66,14 +66,14 @@
                         <span class="text-primary-grad mb-n1">{{ trans('site.change_password') }}</span>
                     </a>
                 </li>
-            @endauth
+            @endif
 
         </ul>
         <!-- Navigation Bar	end -->
     </div>
 </div>
 
-@auth
+@if(__isProfiledUser())
 <div class="aiz-mobile-bottom-nav d-lg-none fixed-bottom bg-white shadow-lg border-top rounded-top" style="box-shadow: 0px -1px 10px rgb(0 0 0 / 15%)!important; ">
     <div class="row align-items-center gutters-5 text-center">
         <div class="col">
@@ -124,4 +124,4 @@
         </div>
     </div>
 </div>
-@endauth
+@endif

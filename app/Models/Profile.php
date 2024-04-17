@@ -129,12 +129,15 @@ class Profile extends MasterModel
 
     public function scopeWomitIgnored($query)
     {
-        return $query->whereHas(
-            "ignoredProfile",
-            function ($q)  {
-                $q->where('profile_id', auth()->user()->profile->id);
-            } , "=", 0
-        );
+        if(__isProfiledUser()) {
+            return $query->whereHas(
+                "ignoredProfile",
+                function ($q)  {
+                    $q->where('profile_id', auth()->user()->profile->id);
+                } , "=", 0
+            );
+        }
+        return $query;
     }
     
     public function getModelData($data)

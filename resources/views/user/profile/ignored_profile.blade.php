@@ -100,7 +100,7 @@
                                                         </table>
                                                     </div>
                                                 </div>
-                                                @auth
+                                                @if(__isProfiledUser())
                                                 <hr>
                                                 <div class="row gutters-5 text-center bg-seconary">
                                                     <div class="col">
@@ -121,7 +121,7 @@
                                                    
                                                 
                                                 </div>
-                                                @endauth
+                                                @endif
                                             </div>
                                         </div>
                                     </div>
