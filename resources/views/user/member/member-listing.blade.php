@@ -137,7 +137,7 @@
                                                             <span class="d-block fs-10 text-dark">{{ trans('site.view_contact') }}</span>
                                                         </a>
                                                     </div>
-                                                    <div class="col d-none d-md-block">
+                                                    <div class="col">
                                                         <a href="https://wa.me/?{{ $profile->whatsappData }}"
                                                             target="_blank" class="text-dark c-pointer">
                                                             <i class="fab fa-whatsapp fs-20 text-success"></i>
