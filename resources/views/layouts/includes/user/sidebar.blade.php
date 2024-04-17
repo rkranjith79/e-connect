@@ -91,6 +91,29 @@
               <span class="d-block fs-10 opacity-60 ">{{ trans('site.search') }}</span>
           </a>
         </div>
+
+    
+    
+        <div class="col">
+            <a href="{{ route('user.interested_profile') }}" class="text-reset d-block flex-grow-1 text-center py-2 ">
+                <span class="d-inline-block position-relative px-2">
+                    <i class="fas fa-heart fs-18 opacity-60 "></i>
+                </span>
+                <span class="d-block fs-10 opacity-60 ">{{ trans('site.interested_profile') }}</span>
+            </a>
+          </div>
+
+
+          <div class="col">
+            <a href="{{ route('user.ignored_profile') }}" class="text-reset d-block flex-grow-1 text-center py-2 ">
+                <span class="d-inline-block position-relative px-2">
+                    <i class="fas fa-ban fs-18 opacity-60 "></i>
+                </span>
+                <span class="d-block fs-10 opacity-60 ">{{ trans('site.ignored_profile') }}</span>
+            </a>
+          </div>
+
+
         <div class="col">
             <a herf="#!" class="text-reset d-block flex-grow-1 text-center py-2 mobile-side-nav-thumb" onclick="nav_toggler()">
                 <span class="d-block mx-auto mb-1 opacity-60">
