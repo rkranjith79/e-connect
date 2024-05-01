@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
 
 class Profile extends MasterModel
 {
@@ -107,39 +108,113 @@ class Profile extends MasterModel
 
     public function interestedProfile()
     {
-        return $this->hasMany(InterestedProfile::class, 'interested_profile_id', 'id')?->where('active', 1); 
+        return $this->hasMany(InterestedProfile::class, 'interested_profile_id', 'id')?->where('active', 1);
     }
+
+    public function purchasedProfile()
+    {
+        return $this->hasMany(PurchasedProfile::class, 'purchased_profile_id', 'id')?->where('active', 1);
+    }
+
 
     public function ignoredProfile()
     {
-        return $this->hasMany(IgnoredProfile::class, 'ignored_profile_id', 'id')?->where('active',1);
+        return $this->hasMany(IgnoredProfile::class, 'ignored_profile_id', 'id')?->where('active', 1);
     }
 
+    public function myPurchasedProfiles()
+    {
+        return $this->hasMany(PurchasedProfile::class, 'profile_id', 'id')?->where('active', 1);
+    }
 
     public function myInterestedProfiles()
     {
-        return $this->hasMany(InterestedProfile::class, 'profile_id', 'id')?->where('active',1);
+        return $this->hasMany(InterestedProfile::class, 'profile_id', 'id')?->where('active', 1);
     }
+
+    public function purchasedPlans()
+    {
+        return $this->hasMany(PurchasedPlan::class, 'profile_id', 'id');
+    }
+
+
+    public function myAvailablePlans()
+    {
+        $plan = new Plan();
+        $PurchasedPlan = new PurchasedPlan();
+
+        return $this->purchasedPlans()
+            ->where($PurchasedPlan->table . '.expired_at', '>', Carbon::now())
+            ->leftJoin($plan->table, function ($join) use ($plan, $PurchasedPlan) {
+                $join->on($plan->table . '.id', $PurchasedPlan->table . '.plan_id');
+            })
+
+            ->whereColumn($plan->table . '.profile_count', '>', $PurchasedPlan->table . '.used_profile_count')
+            ->where($PurchasedPlan->table . '.active', 1)
+            ->select([$PurchasedPlan->table . '.id as id', $PurchasedPlan->table . '.plan_id', $plan->table . '.expire_in_days'])
+            ->orderBy('expired_at', 'ASC');
+    }
+
+    public function getAvailablePlanExists()
+    {
+        return $this->myAvailablePlans()
+            ->count() ? true : false;
+    }
+
+    public function setAvailablePlan($purchased_profile_id)
+    {
+        $availablePlan = $this->myAvailablePlans()
+            ->orderBy('expired_at', 'ASC')
+            ->first();
+
+        if (!empty($availablePlan)) {
+            return $this->purchased_profiles()->create([
+                'plan_id' => $availablePlan->plan_id,
+                'purchased_profile_id' => $purchased_profile_id,
+                'purchased_plan_id' => $availablePlan->id,
+                'order_id' => $availablePlan->id,
+                'order_token' => $availablePlan->id,
+                'expired_at' => Carbon::now()->addDays($availablePlan->expire_in_days)
+            ]);
+        }
+        return false;
+    }
+
+    public function purchased_profiles()
+    {
+        return $this->hasMany(PurchasedProfile::class);
+    }
+
+    public function getPurchasedProfileExists($purchased_profile_id)
+    {
+        return $this->purchased_profiles()
+            ->where('expired_at', '>', Carbon::now())
+            ->where('purchased_profile_id', $purchased_profile_id)
+            ->where('active', 1)
+            ->count() ? true : false;
+    }
+
 
     public function myIgnoredProfiles()
     {
-        return $this->hasMany(IgnoredProfile::class, 'profile_id', 'id')?->where('active',1);
+        return $this->hasMany(IgnoredProfile::class, 'profile_id', 'id')?->where('active', 1);
     }
-
 
     public function scopeWomitIgnored($query)
     {
-        if(__isProfiledUser()) {
+        if (__isProfiledUser()) {
             return $query->whereHas(
                 "ignoredProfile",
-                function ($q)  {
-                    $q->where('profile_id', auth()->user()->profile->id);
-                } , "=", 0
+                function ($q) {
+                    return $q->where('profile_id', auth()->user()->profile->id);
+                },
+                "=",
+                0
             );
         }
         return $query;
     }
-    
+
     public function getModelData($data)
     {
         // Full data get
@@ -179,7 +254,7 @@ class Profile extends MasterModel
 
     public function getNameDisplayAttribute()
     {
-        return $this->attributes['title'];//strlen($this->attributes['title']) > 20 ? substr($this->attributes['title'],   0, 20) . "...." : $this->attributes['title'];
+        return $this->attributes['title']; //strlen($this->attributes['title']) > 20 ? substr($this->attributes['title'],   0, 20) . "...." : $this->attributes['title'];
     }
 
     public function getInterestedAttribute()
@@ -187,10 +262,20 @@ class Profile extends MasterModel
         $profile_id = auth()->user()->profile->id;
 
         return InterestedProfile::where('interested_profile_id', $this->attributes['id'])
-        ->where('profile_id', $profile_id)
-        ->where('active', 1)
-        ->where('expired_at', '>',  Carbon::now())
-        ->count() ? true : false;
+            ->where('profile_id', $profile_id)
+            ->where('active', 1)
+            ->where('expired_at', '>',  Carbon::now())
+            ->count() ? true : false;
+    }
+
+    public function getPurchasedAttribute()
+    {
+        $profile_id = auth()->user()->profile->id;
+        return PurchasedProfile::where('purchased_profile_id', $this->attributes['id'])
+            ->where('active', 1)
+            ->where('profile_id', $profile_id)
+            ->where('expired_at', '>',  Carbon::now())
+            ->count() ? true : false;
     }
 
     public function getIgnoredAttribute()
@@ -198,10 +283,10 @@ class Profile extends MasterModel
         $profile_id = auth()->user()->profile->id;
 
         return IgnoredProfile::where('ignored_profile_id', $this->attributes['id'])
-        ->where('profile_id', $profile_id)
-        ->where('active', 1)
-        ->where('expired_at', '>',  Carbon::now())
-        ->count() ? true : false;
+            ->where('profile_id', $profile_id)
+            ->where('active', 1)
+            ->where('expired_at', '>',  Carbon::now())
+            ->count() ? true : false;
     }
 
     public function getExpectationJathagamTitleAttribute()
@@ -222,15 +307,16 @@ class Profile extends MasterModel
             return Jathagam::where('id', $this->expectation_work_place_id)->Translated()?->pluck('title')->implode(", ");
     }
 
-    public function getWhatsappDataAttribute() {
-        return http_build_query(['text'=> trans('fields.code')  .":". ( $this->code ?? '-' ). "\n".
-        trans('fields.name')  .":".  ( $this->title ?? '-' ). "\n".
-        trans('fields.age')  .":". ( $this->jathagam->age ?? '-' ). "\n".
-        trans('fields.district')  .":". ( $this->basic->district->title ?? '-' ). "\n".
-        trans('fields.work')   .":". ( $this->basic->work->title ?? '-' ). "\n".
-        trans('fields.monthly_income')  .":". ( $this->basic->monthly_income ?? '-' ). "\n".
-        trans('fields.rasi_nakshatra')  .":". ( $this->jathagam->rasi_nakshatra->title ?? '-' ). "\n".
-        trans('fields.jathagam')  .":". ( $this->jathagam->jathagam->title ?? '-' ). "\n"]);
+    public function getWhatsappDataAttribute()
+    {
+        return http_build_query(['text' => trans('fields.code')  . ":" . ($this->code ?? '-') . "\n" .
+            trans('fields.name')  . ":" .  ($this->title ?? '-') . "\n" .
+            trans('fields.age')  . ":" . ($this->jathagam->age ?? '-') . "\n" .
+            trans('fields.district')  . ":" . ($this->basic->district->title ?? '-') . "\n" .
+            trans('fields.work')   . ":" . ($this->basic->work->title ?? '-') . "\n" .
+            trans('fields.monthly_income')  . ":" . ($this->basic->monthly_income ?? '-') . "\n" .
+            trans('fields.rasi_nakshatra')  . ":" . ($this->jathagam->rasi_nakshatra->title ?? '-') . "\n" .
+            trans('fields.jathagam')  . ":" . ($this->jathagam->jathagam->title ?? '-') . "\n"]);
     }
 
     protected static function boot()

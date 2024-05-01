@@ -14,8 +14,7 @@ class RazorpayPaymentController extends Controller
      * Write code on Method
      *
      * 
-    RAZORPAY_KEY=rzp_test_Bu2GOQmDGNQXib
-    RAZORPAY_SECRET=tksTMnpBEiNJXpjCOZnfvu8j
+  
      * @return response()
      */
     public function index(): View

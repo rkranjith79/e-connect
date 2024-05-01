@@ -4,6 +4,7 @@ namespace App\Http\Controllers\User;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Plan;
 use App\Models\Profile;
 use App\Traits\LookupTrait;
 use Carbon\Carbon;
@@ -44,19 +45,19 @@ class MemberController extends Controller
     public function listing($profile = null)
     {
         if (!empty($profile)) {
-           $profiles = $profile->published();
+            $profiles = $profile->published();
         } else {
             $profiles = Profile::selectColumns()->published();
             // $profiles = $profiles->published();
         }
 
-        if(Auth::check()) {
-            if(Auth::user()?->profile?->gender?->id == 2) {
+        if (Auth::check()) {
+            if (Auth::user()?->profile?->gender?->id == 2) {
                 $profiles = $profiles->groom();
             } else {
                 $profiles = $profiles->bride();
             }
-            $profiles= $profiles->womitIgnored();
+            $profiles = $profiles->womitIgnored();
         } else {
             $profiles = $profiles->limit(10);
         }
@@ -202,5 +203,65 @@ class MemberController extends Controller
     {
         $data['profile'] = Profile::selectColumns()->hashFind($id, $uuid);
         return view('user.profile', compact('data'));
+    }
+
+    public function checkPurchasedProfileAvailability($purchased_profile_id, $purchased_profile_uuid, $profile, $profile_uuid)
+    {
+        $profile = Profile::find($profile);
+
+        if (!__isProfiledUser() && $profile->uuid == $profile_uuid) {
+            return response()->json(['error' => 'UnAuthenticated'], 401);
+        }
+        if ($profile->getPurchasedProfileExists($purchased_profile_id)) {
+            return response()->json([
+                'status' => 200,
+                'type' => 'purchased',
+                'purchased_profile_id' => $purchased_profile_id,
+                'redirect' => route('user.profile', [
+                    'id' => $purchased_profile_id,
+                    'uuid' => $purchased_profile_uuid,
+                ])
+            ]);
+        }
+
+        if ($profile->getAvailablePlanExists()) {
+            return response()->json([
+                'status' => 200,
+                'type' => 'plan',
+                'purchased_profile_id' => $purchased_profile_id,
+                'redirect' => route('user.purchase_profile', [
+                    'profile' => $profile->id,
+                    'profile_uuid' => $profile_uuid,
+                    'purchased_profile_id' => $purchased_profile_id,
+                    'purchased_profile_uuid' => $purchased_profile_uuid
+                ])
+            ]);
+        }
+
+        $purchasePlan = Plan::getInitialPlan();
+        $razorpay_config = config('razorpay.js_configuration');
+        $razorpay_config['plan_id'] = $purchasePlan->id;
+        $razorpay_config['amount'] = $purchasePlan->price * 100;
+        $razorpay_config['prefill'] = [
+            'name' =>  $profile->title,
+            'email' => $profile->email,
+            'contact' => $profile->basic->phone
+        ];
+
+        $razorpay_config['image'] = asset('img/logo-e-connet.png');
+        $razorpay_config['notes']['address'] = __getSiteConfigration('address_1');
+
+        return response()->json([
+            'status' => 200,
+            'type' => 'payment',
+            'razorpay_config' => $razorpay_config,
+
+            'redirect' => route('user.purchase_profile', [
+                'profile' => $profile->id,
+                'profile_uuid' => $profile_uuid,
+                'purchased_profile_id' => $purchased_profile_id,
+                'purchased_profile_uuid' => $purchased_profile_uuid
+            ])
+        ]);
     }
 }

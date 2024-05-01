@@ -113,6 +113,7 @@
 
         function handleErrors(errors) {
             clearErrors();
+            errorMsg = "<ul>";
             $.each(errors, function(key, value) {
                 $("#" + key).addClass("is-invalid"); // Add 'is-invalid' class to the input
                 $("#" + key).removeClass('is-valid').addClass('is-invalid');
@@ -120,9 +121,10 @@
                 $("#" + key).parents('.form-control').removeClass('is-valid').addClass('is-invalid');
                 $("#" + key).parents('.form-group').find('.invalid-feedback').text(value[0]);
                 $("#" + key).focus();
+                errorMsg += "<li>" + value[0] + "</li>";
             });
-            //errorMsg += "</ul>";
-            //$("#error_list").html(errorMsg);
+            errorMsg += "</ul>";
+            $("#error_list").html(errorMsg);
         }
 
         function clearErrors() {

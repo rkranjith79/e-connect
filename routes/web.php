@@ -21,7 +21,7 @@ Route::get('/',  [App\Http\Controllers\User\MemberController::class, 'index'])->
 Auth::routes();
 
 Route::get('/language/{locale}', function (string $locale) {
-    if (! in_array($locale, ['en', 'ta'])) {
+    if (!in_array($locale, ['en', 'ta'])) {
         abort(400);
     }
     \Illuminate\Support\Facades\App::setLocale($locale);
@@ -94,6 +94,9 @@ Route::name('user.')->prefix('user')->middleware(['auth'])->group(function () {
     Route::put('/profile-update/{id}', [App\Http\Controllers\User\ProfileController::class, 'update'])->name('profile_update');
     Route::get('/interested-profiles/{profile?}', [App\Http\Controllers\User\ProfileController::class, 'interestedProfile'])->name('interested_profile');
     Route::get('/ignored-profiles/{profile?}', [App\Http\Controllers\User\ProfileController::class, 'ignoredProfile'])->name('ignored_profile');
+    Route::get('/purchase-profile-availability/{purchased_profile_id}/u/{purchased_profile_uuid}/my/{profile}/u/{profile_uuid}', [App\Http\Controllers\User\MemberController::class, 'checkPurchasedProfileAvailability'])->name('purchase_profile_availability');
+    Route::get('/purchase-plan/{profile}/u/{profile_uuid}', [App\Http\Controllers\User\ProfileController::class, 'purchasePlan'])->name('purchase_plan');
+    Route::get('/purchase-profile/{purchased_profile_id}/u/{purchased_profile_uuid}/my/{profile}/u/{profile_uuid}', [App\Http\Controllers\User\ProfileController::class, 'purchaseProfile'])->name('purchase_profile');
 });
 
 Route::get('razorpay-payment', [App\Http\Controllers\RazorpayPaymentController::class, 'index']);

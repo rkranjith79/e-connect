@@ -57,8 +57,10 @@ $( document ).ready( function () {
 });
 
 */
-//Nav toggler
-$('.close-layer').on("click",nav_toggler);
+//Nav toggler.
+let csrf_token = $('meta[name="csrf-token"]').attr('content');
+
+$('.close-layer').on("click", nav_toggler);
 function nav_toggler() {
 	$('body').toggleClass('nav-open');
 	$('.close-layer').toggleClass('d-block');
@@ -67,25 +69,25 @@ function nav_toggler() {
 }
 
 
-function interestedOrIgnored(interested_or_ignored ,interested_profile_id, interested_profile_uuid, profile_id, profile_uuid) {
-	
-	if(interested_profile_uuid && interested_profile_id && profile_id && profile_uuid) {
-		if(interested_or_ignored == "interested") {
-			var url = "/user/interested-profile/"+interested_profile_id+"/u/"+interested_profile_uuid+"/my/"+profile_id+"/u/"+profile_uuid;
+function interestedOrIgnored(interested_or_ignored, interested_profile_id, interested_profile_uuid, profile_id, profile_uuid) {
+
+	if (interested_profile_uuid && interested_profile_id && profile_id && profile_uuid) {
+		if (interested_or_ignored == "interested") {
+			var url = "/user/interested-profile/" + interested_profile_id + "/u/" + interested_profile_uuid + "/my/" + profile_id + "/u/" + profile_uuid;
 		} else {
-			var url = "/user/ignored-profile/"+interested_profile_id+"/u/"+interested_profile_uuid+"/my/"+profile_id+"/u/"+profile_uuid;
+			var url = "/user/ignored-profile/" + interested_profile_id + "/u/" + interested_profile_uuid + "/my/" + profile_id + "/u/" + profile_uuid;
 		}
 
 		$.ajax({
 			type: "GET",
 			url: url, // Replace with your server endpoint
 			headers: {
-				'X-CSRF-TOKEN': '{{ csrf_token() }}'
+				'X-CSRF-TOKEN': csrf_token
 			},
 			contentType: false, // Set content type to false for FormData
 			processData: false, // Do not process the data, let FormData handle it
-	
-			success: function(response) {
+
+			success: function (response) {
 				if (response.status == 200) {
 					Swal.fire({
 						title: 'Success!',
@@ -98,16 +100,154 @@ function interestedOrIgnored(interested_or_ignored ,interested_profile_id, inter
 						// Redirect to the specified URL
 						location.reload();
 					});
-				
+
 				} else {
 				} // Handle the server response as needed
 			},
-			error: function(error) {
-				
+			error: function (error) {
+
 			}
 		});
 	}
-		
+
+}
+
+function checkPurchasedProfile(purchased_profile_id, purchased_profile_uuid, profile_id, profile_uuid) {
+
+	if (purchased_profile_id && purchased_profile_uuid && profile_id && profile_uuid) {
+
+		var url = "/user/purchase-profile-availability/" + purchased_profile_id + "/u/" + purchased_profile_uuid + "/my/" + profile_id + "/u/" + profile_uuid;
+
+		$.ajax({
+			type: "GET",
+			url: url, // Replace with your server endpoint
+			headers: {
+				'X-CSRF-TOKEN': csrf_token
+			},
+			contentType: false, // Set content type to false for FormData
+			processData: false, // Do not process the data, let FormData handle it
+
+			success: function (response) {
+				if (response.status == 200) {
+					if (response.type == "purchased") {
+						window.location.replace(response.redirect)
+					} else if (response.type == "plan") {
+						window.location.replace(response.redirect)
+					} else if (response.type == "payment") {
+						if (response.razorpay_config)
+							paymentRazorPay(response.razorpay_config, response.redirect, purchased_profile_id, purchased_profile_uuid, profile_id, profile_uuid);
+					} else {
+						Swal.fire({
+							title: 'Error!',
+							text: 'Something went wrong',
+							icon: 'warning',
+							timer: 2000, // Set a timer to automatically close the alert after 2 seconds
+							timerProgressBar: true,
+							showConfirmButton: false
+						}).then(() => {
+							// Redirect to the specified URL
+							location.reload();
+						});
+					}
+				} else {
+				} // Handle the server response as needed
+			},
+			error: function (error) {
+				Swal.fire({
+					title: 'Error!',
+					text: 'Something went wrong',
+					icon: 'warning',
+					timer: 2000, // Set a timer to automatically close the alert after 2 seconds
+					timerProgressBar: true,
+					showConfirmButton: false
+				}).then(() => {
+					// Redirect to the specified URL
+					location.reload();
+				});
+			}
+		});
+	}
+
+}
+
+function paymentRazorPay(razorpay_config, redirect, purchased_profile_id, purchased_profile_uuid, profile_id, profile_uuid) {
+	var razorpay_config = razorpay_config;
+	razorpay_config.handler = function (response) {
+		// alert(response.razorpay_payment_id);
+		// alert(response.razorpay_order_id);
+		// alert(response.razorpay_signature);
+		var store = {};
+		store.razorpay_payment_id = response.razorpay_payment_id;
+		store.razorpay_order_id = response.razorpay_order_id;
+		store.razorpay_signature = response.razorpay_signature;
+		store._token = csrf_token;
+		store.plan_id = razorpay_config.plan_id
+		setPurchasePlan(purchased_profile_id, purchased_profile_uuid, profile_id, profile_uuid, redirect, store)
+	};
+
+	var rzp1 = new Razorpay(razorpay_config);
+	rzp1.on('payment.failed', function (response) {
+
+		Swal.fire({
+			title: 'Error!',
+			text: 'Payment Failed',
+			icon: 'warning',
+			timer: 2000, // Set a timer to automatically close the alert after 2 seconds
+			timerProgressBar: true,
+			showConfirmButton: false
+		}).then(() => {
+			// Redirect to the specified URL
+			location.reload();
+		});
+
+		// alert(response.error.code);
+		// alert(response.error.description);
+		// alert(response.error.source);
+		// alert(response.error.step);
+		// alert(response.error.reason);
+		// alert(response.error.metadata.order_id);
+		// alert(response.error.metadata.payment_id);
+	});
+	rzp1.open();
+}
+
+
+function setPurchasePlan(purchased_profile_id, purchased_profile_uuid, profile_id, profile_uuid, redirect, response) {
+
+	if (purchased_profile_id && purchased_profile_uuid && profile_id && profile_uuid) {
+
+		var url = "/user/purchase-plan/" + profile_id + "/u/" + profile_uuid;
+
+		$.ajax({
+			type: "GET",
+			url: url, // Replace with your server endpoint
+			data: response,
+			headers: {
+				'X-CSRF-TOKEN': csrf_token
+			},
+			success: function (response) {
+				if (response.status == 200) {
+
+					window.location.replace(redirect);
+				}
+				// Handle the server response as needed
+			},
+			error: function (error) {
+				Swal.fire({
+					title: 'Error!',
+					text: 'Something went wrong',
+					icon: 'warning',
+					timer: 2000, // Set a timer to automatically close the alert after 2 seconds
+					timerProgressBar: true,
+					showConfirmButton: false
+				}).then(() => {
+					// Redirect to the specified URL
+					location.reload();
+				});
+			}
+		});
+	}
+
 }
 
 /*
@@ -326,9 +466,9 @@ function set_nakshatra(temple_name) {
 $('.tablehoro select').on("change", function() {
 	var planets, in_text = [];
 	if($('#cur_lang').data('lang') != 'E')
-        planets = ['லக்னம்', 'சூரியன்', 'சந்திரன்', 'செவ்வாய்', 'ராகு', 'குரு', 'சனி', 'புதன்', 'கேது', 'சுக்கிரன்', 'மாந்தி', 'செவ்வாய் (வ)', 'குரு (வ)', 'சனி (வ)', 'புதன் (வ)', 'சுக்கிரன் (வ)'];
-    else
-        planets = ['Lagnam', 'Sun', 'Moon', 'Mars', 'Raagu', 'Jupiter', 'Saturn', 'Mercury', 'Kethu', 'Venus', 'Maanthi', 'Mars (V)', 'Jupiter (V)', 'Saturn (V)', 'Mercury (V)', 'Venus (V)'];
+		planets = ['லக்னம்', 'சூரியன்', 'சந்திரன்', 'செவ்வாய்', 'ராகு', 'குரு', 'சனி', 'புதன்', 'கேது', 'சுக்கிரன்', 'மாந்தி', 'செவ்வாய் (வ)', 'குரு (வ)', 'சனி (வ)', 'புதன் (வ)', 'சுக்கிரன் (வ)'];
+	else
+		planets = ['Lagnam', 'Sun', 'Moon', 'Mars', 'Raagu', 'Jupiter', 'Saturn', 'Mercury', 'Kethu', 'Venus', 'Maanthi', 'Mars (V)', 'Jupiter (V)', 'Saturn (V)', 'Mercury (V)', 'Venus (V)'];
 	
 	$.each($(this).val(), function( i, val ) {
 		in_text.push(planets[val-1]);
@@ -349,8 +489,8 @@ function process_horo(parent_div, language = '') {
 	var planets;
 	if(language != 'E')
 		planets = ['லக்னம்', 'சூரியன்', 'சந்திரன்', 'செவ்வாய்', 'ராகு', 'குரு', 'சனி', 'புதன்', 'கேது', 'சுக்கிரன்', 'மாந்தி', 'செவ்வாய் (வ)', 'குரு (வ)', 'சனி (வ)', 'புதன் (வ)', 'சுக்கிரன் (வ)'];
-    else
-        planets = ['Lagnam', 'Sun', 'Moon', 'Mars', 'Raagu', 'Jupiter', 'Saturn', 'Mercury', 'Kethu', 'Venus', 'Maanthi', 'Mars (V)', 'Jupiter (V)', 'Saturn (V)', 'Mercury (V)', 'Venus (V)'];
+	else
+		planets = ['Lagnam', 'Sun', 'Moon', 'Mars', 'Raagu', 'Jupiter', 'Saturn', 'Mercury', 'Kethu', 'Venus', 'Maanthi', 'Mars (V)', 'Jupiter (V)', 'Saturn (V)', 'Mercury (V)', 'Venus (V)'];
 	$.each($(parent_div+' .tablehoro p'), function(i, child) {
 		var in_text = [];
 		$.each($(child).text().split(', '), function( i, val ) {
@@ -391,16 +531,16 @@ function SSMLoading(option, title = 'Loading...') {
 }
 
 */
-function dependencyDropDown( parent_id, child_id, data_id) {
-	
+function dependencyDropDown(parent_id, child_id, data_id) {
+
 	var child_id = child_id;
 	var parent_id = parent_id;
 	var data_id = data_id;
-	$('#'+child_id).selectpicker();
-	$('#'+parent_id).change(function(){
-		var selectedCountryId = $(this).val();            
-		$('#'+child_id).find('option').each(function() {                               
-			if ($(this).data(data_id) == selectedCountryId || selectedCountryId === "") { 				              
+	$('#' + child_id).selectpicker();
+	$('#' + parent_id).change(function () {
+		var selectedCountryId = $(this).val();
+		$('#' + child_id).find('option').each(function () {
+			if ($(this).data(data_id) == selectedCountryId || selectedCountryId === "") {
 				// $(this).prop('disabled', false);
 				$(this).show();
 			} else {
@@ -408,18 +548,18 @@ function dependencyDropDown( parent_id, child_id, data_id) {
 				$(this).hide();
 			}
 		});
-		$('#'+child_id).selectpicker("destroy");
-		$('#'+child_id).selectpicker('refresh');
-});
+		$('#' + child_id).selectpicker("destroy");
+		$('#' + child_id).selectpicker('refresh');
+	});
 }
 
-$(window).scroll(function() {
-    if ($(this).scrollTop()) {
-        $('#goTop').fadeIn();
-    } else {
-        $('#goTop').fadeOut();
-    }
+$(window).scroll(function () {
+	if ($(this).scrollTop()) {
+		$('#goTop').fadeIn();
+	} else {
+		$('#goTop').fadeOut();
+	}
 });
-$("#goTop").click(function() {
-    $("html, body").animate({scrollTop: 0}, 1000);
+$("#goTop").click(function () {
+	$("html, body").animate({ scrollTop: 0 }, 1000);
 });

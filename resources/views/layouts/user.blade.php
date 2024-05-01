@@ -15,6 +15,8 @@
     <meta name="description" content="E-Connect Matrimony" />
     <meta name="keywords" content="matrimony,kongu,tamil,matrimony,marriage,bride,groom,tamilnadu">
 
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
     <!-- Favicon -->
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -43,9 +45,11 @@
     </script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Questrial&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Questrial&display=swap"
+        rel="stylesheet">
 
 </head>
 
@@ -171,6 +175,7 @@
     <script src="{{ asset('js/aiz-core.js') }}"></script>
     <script src="{{ asset('js/custom-script.js') }}?id=xx"></script>
     <script src="{{ asset('js/jasny-bootstrap.min.js') }}"></script>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 
     <script type="text/javascript">
         function package_update_alert() {
@@ -179,4 +184,5 @@
     </script>
     @stack('scripts')
 </body>
+
 </html>

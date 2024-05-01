@@ -15,6 +15,9 @@
     <meta name="description" content="E-Connect Matrimony" />
     <meta name="keywords" content="matrimony,kongu,tamil,matrimony,marriage,bride,groom,tamilnadu">
 
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
+
     <!-- Favicon -->
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -26,6 +29,7 @@
     <meta name="msapplication-TileColor" content="#248822">
     <meta name="msapplication-starturl" content="#">
     <meta name="msapplication-TileColor" content="#248822">
+
     <meta name="msapplication-TileImage" content="assets/img/icons/ms-icon-144x144.png">
 
     <link rel="shortcut icon" href="assets/img/icons/favicon.ico" type="image/x-icon">
@@ -43,9 +47,11 @@
     </script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Questrial&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Questrial&display=swap"
+        rel="stylesheet">
 
 </head>
 
@@ -162,6 +168,9 @@
             $('.package_update_alert_modal').modal('show');
         }
     </script>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
     @stack('scripts')
 </body>
+
 </html>

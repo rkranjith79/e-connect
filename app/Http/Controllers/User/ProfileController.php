@@ -40,6 +40,7 @@ use App\Models\Work;
 use App\Models\WorkPlace;
 use App\Models\InterestedProfile;
 use App\Models\IgnoredProfile;
+use App\Models\Plan;
 use Carbon\Carbon;
 
 use App\Traits\LookupTrait;
@@ -90,19 +91,25 @@ class ProfileController extends Controller
             ]);
         }
         $interestedProfile = Profile::find($interested_profile_id);
-                                            
-        if($interestedProfile->interested) {
+
+        if ($interestedProfile->interested) {
             $requested['active'] = 0;
             InterestedProfile::updateOrCreate(
-                [ 'interested_profile_id' => $interested_profile_id,
+                [
+                    'interested_profile_id' => $interested_profile_id,
                     'profile_id' => $profile_id
-                ], $requested);
+                ],
+                $requested
+            );
         } else {
             $requested['active'] = 1;
             InterestedProfile::updateOrCreate(
-                [ 'interested_profile_id' => $interested_profile_id,
+                [
+                    'interested_profile_id' => $interested_profile_id,
                     'profile_id' => $profile_id
-                ], $requested);
+                ],
+                $requested
+            );
         }
 
         return response()->json([
@@ -128,19 +135,25 @@ class ProfileController extends Controller
             ]);
         }
         $ignoredProfile = Profile::find($ignored_profile_id);
-                                            
-        if($ignoredProfile->ignored) {
+
+        if ($ignoredProfile->ignored) {
             $requested['active'] = 0;
             IgnoredProfile::updateOrCreate(
-                [ 'ignored_profile_id' => $ignored_profile_id,
+                [
+                    'ignored_profile_id' => $ignored_profile_id,
                     'profile_id' => $profile_id
-                ], $requested);
+                ],
+                $requested
+            );
         } else {
             $requested['active'] = 1;
             IgnoredProfile::updateOrCreate(
-                [ 'ignored_profile_id' => $ignored_profile_id,
+                [
+                    'ignored_profile_id' => $ignored_profile_id,
                     'profile_id' => $profile_id
-                ], $requested);
+                ],
+                $requested
+            );
         }
 
         return response()->json([
@@ -150,13 +163,8 @@ class ProfileController extends Controller
         ]);
     }
 
-
-
     public function store(Request $request)
     {
-
-
-
         // Use Request Validation
         //dd($request->time_of_birth);
         $validator = Validator::make($request->all(), [
@@ -293,90 +301,90 @@ class ProfileController extends Controller
         }
         DB::beginTransaction();
         try {
-        $user = User::create([
-            'name' => $request->title,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-            "status" => 0
-        ]);
+            $user = User::create([
+                'name' => $request->title,
+                'email' => $request->email,
+                'password' => Hash::make($request->password),
+                "status" => 0
+            ]);
 
-        $profile = Profile::create([
-            "language_tamil" => $request->title,
-            "title" => $request->title,
-            "email" => $request->email,
-            "color_id" => $request->color_id,
-            "body_type_id" => $request->body_type_id,
-            "blood_group_id" => $request->blood_group_id,
-            "weight_id" => $request->weight_id,
-            "height_id" => $request->height_id,
-            "physical_status_id" => $request->physical_status_id,
-            "registered_by_id" => $request->registered_by_id,
-            "marital_status_id" => $request->marital_status_id,
-            "gender_id" => $request->gender_id,
-            "user_id" => $user->id,
-            "expectation_jathagam_id" => $request->expectation_jathagam_id,
-            "expectation_marital_status_id" => $request->expectation_marital_status_id,
-            "expectation_work_place_id" => $request->expectation_work_place_id,
-            "expectation_nakshatra" => $request->expectation_nakshatra,
-            "expectation" => $request->expectation,
-            "photo_file" => $photo_file_path,
-            "active" => 0
-        ]);
+            $profile = Profile::create([
+                "language_tamil" => $request->title,
+                "title" => $request->title,
+                "email" => $request->email,
+                "color_id" => $request->color_id,
+                "body_type_id" => $request->body_type_id,
+                "blood_group_id" => $request->blood_group_id,
+                "weight_id" => $request->weight_id,
+                "height_id" => $request->height_id,
+                "physical_status_id" => $request->physical_status_id,
+                "registered_by_id" => $request->registered_by_id,
+                "marital_status_id" => $request->marital_status_id,
+                "gender_id" => $request->gender_id,
+                "user_id" => $user->id,
+                "expectation_jathagam_id" => $request->expectation_jathagam_id,
+                "expectation_marital_status_id" => $request->expectation_marital_status_id,
+                "expectation_work_place_id" => $request->expectation_work_place_id,
+                "expectation_nakshatra" => $request->expectation_nakshatra,
+                "expectation" => $request->expectation,
+                "photo_file" => $photo_file_path,
+                "active" => 0
+            ]);
 
-       // $sub_caste = SubCaste::firstOrCreate(['title' => $request->sub_caste, 'caste_id'=> $request->caste_id], ['title' => $request->sub_caste, 'caste_id'=> $request->caste_id,  'language_tamil'=> $request->sub_caste]);
-        // "active" => $request->active == true ? '1' : '0', Parthi
-        ProfileBasic::create([
-            "profile_id" => $profile->id,
-            "temple" => $request->temple,
-            "caste_id" => $request->caste_id,
-           // "sub_caste_id" => $sub_caste->id,
-            "sub_caste_id" => $request->sub_caste_id,
-            "education_details" => $request->education_details,
-            "work_id" => $request->work_id,
-            "work_details" => $request->work_details,
-            "monthly_income" => $request->monthly_income,
-            "phone" => $request->phone,
-            "whatsapp" => $request->whatsapp,
-            "address" => $request->address,
-            "country_id" => $request->country_id,
-            "state_id" => $request->state_id,
-            "district_id" => $request->district_id,
-            "father_status_id" => $request->father_status_id,
-            "mother_status_id" => $request->mother_status_id,
-            "social_type_id" => $request->social_type_id,
-            "father_name" => $request->father_name,
-            "mother_name" => $request->mother_name,
-            "native" => $request->native,
-            "siblings" => $request->siblings,
-            "asset_value_id" => $request->asset_value_id,
-            "asset_details" => $request->asset_details,
-            "seimurai" => $request->seimurai,
-            "religion_id" => $request->religion_id,
-            "education_id" => $request->education_id,
-            "work_place_id" => $request->work_place_id,
-            "father_occupation" => $request->father_occupation,
-            "mother_occupation" => $request->mother_occupation
-        ]);
+            // $sub_caste = SubCaste::firstOrCreate(['title' => $request->sub_caste, 'caste_id'=> $request->caste_id], ['title' => $request->sub_caste, 'caste_id'=> $request->caste_id,  'language_tamil'=> $request->sub_caste]);
+            // "active" => $request->active == true ? '1' : '0', Parthi
+            ProfileBasic::create([
+                "profile_id" => $profile->id,
+                "temple" => $request->temple,
+                "caste_id" => $request->caste_id,
+                // "sub_caste_id" => $sub_caste->id,
+                "sub_caste_id" => $request->sub_caste_id,
+                "education_details" => $request->education_details,
+                "work_id" => $request->work_id,
+                "work_details" => $request->work_details,
+                "monthly_income" => $request->monthly_income,
+                "phone" => $request->phone,
+                "whatsapp" => $request->whatsapp,
+                "address" => $request->address,
+                "country_id" => $request->country_id,
+                "state_id" => $request->state_id,
+                "district_id" => $request->district_id,
+                "father_status_id" => $request->father_status_id,
+                "mother_status_id" => $request->mother_status_id,
+                "social_type_id" => $request->social_type_id,
+                "father_name" => $request->father_name,
+                "mother_name" => $request->mother_name,
+                "native" => $request->native,
+                "siblings" => $request->siblings,
+                "asset_value_id" => $request->asset_value_id,
+                "asset_details" => $request->asset_details,
+                "seimurai" => $request->seimurai,
+                "religion_id" => $request->religion_id,
+                "education_id" => $request->education_id,
+                "work_place_id" => $request->work_place_id,
+                "father_occupation" => $request->father_occupation,
+                "mother_occupation" => $request->mother_occupation
+            ]);
 
-        profileJathagam::create([
-            "profile_id" => $profile->id,
-            "rasi_nakshatra_id" => $request->rasi_nakshatra_id,
-            "lagnam_id" => $request->lagnam_id,
-            "jathagam_id" => $request->jathagam_id,
-            "nakshatra_patham_id" => $request->nakshatra_patham_id,
-            "date_of_birth" => $request->date_of_birth,
-            "time_of_birth" => $request->time_of_birth,
-            "place_of_birth" => $request->place_of_birth,
-            "birth_dasa_id" => $request->birth_dasa_id,
-            "birth_dasa_remaining_year" => $request->birth_dasa_remaining_year,
-            "birth_dasa_remaining_month" => $request->birth_dasa_remaining_month,
-            "birth_dasa_remaining_day" => $request->birth_dasa_remaining_day,
-            "rasi" => $rasi,
-            "navamsam" => $navamsam,
-            "jathagam_file" => $jathagam_file_path
-        ]);
-        // Commit the transaction if everything is successful
-        DB::commit();
+            profileJathagam::create([
+                "profile_id" => $profile->id,
+                "rasi_nakshatra_id" => $request->rasi_nakshatra_id,
+                "lagnam_id" => $request->lagnam_id,
+                "jathagam_id" => $request->jathagam_id,
+                "nakshatra_patham_id" => $request->nakshatra_patham_id,
+                "date_of_birth" => $request->date_of_birth,
+                "time_of_birth" => $request->time_of_birth,
+                "place_of_birth" => $request->place_of_birth,
+                "birth_dasa_id" => $request->birth_dasa_id,
+                "birth_dasa_remaining_year" => $request->birth_dasa_remaining_year,
+                "birth_dasa_remaining_month" => $request->birth_dasa_remaining_month,
+                "birth_dasa_remaining_day" => $request->birth_dasa_remaining_day,
+                "rasi" => $rasi,
+                "navamsam" => $navamsam,
+                "jathagam_file" => $jathagam_file_path
+            ]);
+            // Commit the transaction if everything is successful
+            DB::commit();
         } catch (\Exception $e) {
             // If an error occurred, roll back the transaction
             DB::rollBack();
@@ -388,7 +396,6 @@ class ProfileController extends Controller
                 'status' => 400,
                 'message' => "Somting Went Wrong",
             ]);
-
         }
         return response()->json([
             'status' => 200,
@@ -594,7 +601,7 @@ class ProfileController extends Controller
                 "expectation_work_place_id" => $request->expectation_work_place_id,
                 "expectation_nakshatra" => $request->expectation_nakshatra,
                 "expectation" => $request->expectation,
-              //  "active" => $request->active == true ? '1' : '0',
+                //  "active" => $request->active == true ? '1' : '0',
             ]);
 
             if ($request->hasFile('photo_file')) {
@@ -714,5 +721,57 @@ class ProfileController extends Controller
         } else {
             return redirect()->route('user.change_password')->with('error', 'Email Password Mismatch.');
         }
+    }
+
+    public function purchasePlan(Request $request, $profile, $profile_uuid)
+    {
+
+        if (!empty($request->plan_id)) {
+            $profile = Profile::find($profile);
+            $plan = Plan::find($request->plan_id);
+            $purchasedPlan = $profile->purchasedPlans()->create(
+                [
+                    'plan_id' => $plan->id,
+                    'order' => $request->all() ?? '',
+                    'used_profile_count' => 0,
+                    'expired_at' => Carbon::now()->addDays($plan->expire_in_days),
+
+                ]
+            );
+
+            if ($purchasedPlan) {
+                return response()->json(['status' => '200']);
+            }
+        }
+
+        return response()->json(['error' => 'UnAuthenticated'], 401);
+    }
+
+
+    public function purchaseProfile($purchased_profile_id, $purchased_profile_uuid, $profile, $profile_uuid)
+    {
+        $profile = Profile::find($profile);
+
+        if ($profile->getPurchasedProfileExists($purchased_profile_id)) {
+            return redirect()->route('user.profile', [
+                'id' => $purchased_profile_id,
+                'uuid' => $purchased_profile_uuid,
+            ]);
+        }
+
+        if (!$profile->getAvailablePlanExists()) {
+            return redirect()->route('user-login');
+        }
+
+        $purchasedProfile = $profile->setAvailablePlan($purchased_profile_id);
+
+        if ($purchasedProfile) {
+            return redirect()->route('user.profile', [
+                'id' => $purchased_profile_id,
+                'uuid' => $purchased_profile_uuid,
+            ]);
+        }
+
+        return redirect()->route('user-login');;
     }
 }
