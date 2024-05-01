@@ -259,6 +259,7 @@ class Profile extends MasterModel
 
     public function getInterestedAttribute()
     {
+        if (!__isProfiledUser()) return false;
         $profile_id = auth()->user()->profile->id;
 
         return InterestedProfile::where('interested_profile_id', $this->attributes['id'])
@@ -270,6 +271,8 @@ class Profile extends MasterModel
 
     public function getPurchasedAttribute()
     {
+        if (!__isProfiledUser()) return false;
+        
         $profile_id = auth()->user()->profile->id;
         return PurchasedProfile::where('purchased_profile_id', $this->attributes['id'])
             ->where('active', 1)
@@ -280,6 +283,8 @@ class Profile extends MasterModel
 
     public function getIgnoredAttribute()
     {
+        if (!__isProfiledUser()) return false;
+
         $profile_id = auth()->user()->profile->id;
 
         return IgnoredProfile::where('ignored_profile_id', $this->attributes['id'])
