@@ -1,0 +1,22 @@
+{
+  "resources/css/app.css": {
+    "file": "assets/app-4ed993c7.js",
+    "isEntry": true,
+    "src": "resources/css/app.css"
+  },
+  "resources/css/custom-style.css": {
+    "file": "assets/custom-style-ea4db7c6.css",
+    "isEntry": true,
+    "src": "resources/css/custom-style.css"
+  },
+  "resources/js/app.js": {
+    "file": "assets/app-cd17eadc.js",
+    "isEntry": true,
+    "src": "resources/js/app.js"
+  },
+  "resources/js/custom-script.js": {
+    "file": "assets/custom-script-add06727.js",
+    "isEntry": true,
+    "src": "resources/js/custom-script.js"
+  }
+}
