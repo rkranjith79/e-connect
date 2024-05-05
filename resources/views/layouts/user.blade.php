@@ -38,8 +38,7 @@
     <link rel="stylesheet" href="{{ asset('css/vendors.css') }}">
     <link rel="stylesheet" href="{{ asset('css/aiz-core.css') }}">
 
-
-    <link rel="stylesheet" href="{{ vite('resources/css/custom-style.css') }}">
+    @vite('resources/css/custom-style.css')
     <script>
         var AIZ = AIZ || {};
     </script>
@@ -186,7 +185,8 @@
 
     <script src="{{ asset('js/vendors.js') }}"></script>
     <script src="{{ asset('js/aiz-core.js') }}"></script>
-    <script src="{{ vite('resources/js/custom-script.js') }}"></script>
+    @vite('resources/js/custom-script.js')
+
     <script src="{{ asset('js/jasny-bootstrap.min.js') }}"></script>
     <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 
