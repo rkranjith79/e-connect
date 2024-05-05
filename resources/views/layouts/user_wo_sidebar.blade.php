@@ -39,8 +39,10 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&amp;display=swap">
     <link rel="stylesheet" href="{{ asset('css/vendors.css') }}">
     <link rel="stylesheet" href="{{ asset('css/aiz-core.css') }}">
-    @vite('resources/css/custom-style.css')
-<script>
+
+
+    <link rel="stylesheet" href="{{ asset('css/custom-style.css') }}?id=v1.0.0">
+    <script>
         var AIZ = AIZ || {};
     </script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -171,7 +173,7 @@
 
     <script src="{{ asset('js/vendors.js') }}"></script>
     <script src="{{ asset('js/aiz-core.js') }}"></script>
-    @vite('resources/js/custom-script.js')
+    <script src="{{ asset('js/custom-script.js') }}?id=v1.0.0"></script>
     <script src="{{ asset('js/jasny-bootstrap.min.js') }}"></script>
 
     <script type="text/javascript">

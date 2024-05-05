@@ -1,31 +1,4 @@
 
-let csrf_token = $('meta[name="csrf-token"]').attr('content');
-
-$('.close-layer').on("click", nav_toggler);
-function nav_toggler() {
-    $('body').toggleClass('nav-open');
-    $('.close-layer').toggleClass('d-block');
-    $('.nav-toggle-icon span').toggleClass('hide');
-    return false;
-}
-
-
-
-$(window).scroll(function () {
-    if ($(this).scrollTop()) {
-        $('#goTop').fadeIn();
-    } else {
-        $('#goTop').fadeOut();
-    }
-});
-$("#goTop").click(function () {
-    $("html, body").animate({ scrollTop: 0 }, 1000);
-});
-
-
-
-
-
 
 function interestedOrIgnored(interested_or_ignored, interested_profile_id, interested_profile_uuid, profile_id, profile_uuid) {
 
