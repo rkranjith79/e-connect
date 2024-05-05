@@ -104,7 +104,62 @@
                                             </table>
                                         </div>
                                     </div>
+                                    @if ($data['profile']->purchased)
+                                        <div class="purchased-profile-bg p-4">
+                                            {{-- <h4 class="">{{ trans('site.native_information') }}</h4> --}}
+                                            <div class="form-row">
+                                                <div class="col-md-6">
+                                                    <table>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td>{{ trans('fields.phone') }}</td>
+                                                                <td>:</td>
+                                                                <td>{{ $data['profile']->basic->phone ?? '-' }}
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>{{ trans('fields.whatsapp') }}</td>
+                                                                <td>:</td>
+                                                                <td>{{ $data['profile']->basic->whatsapp ?? '-' }}
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>{{ trans('fields.address') }}</td>
+                                                                <td>:</td>
+                                                                <td>{{ $data['profile']->basic->address ?? '-' }}</td>
+                                                            </tr>
 
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <table>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td>{{ trans('fields.country') }}</td>
+                                                                <td>:</td>
+                                                                <td>{{ $data['profile']->basic->country->title ?? '-' }}
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>{{ trans('fields.state') }}</td>
+                                                                <td>:</td>
+                                                                <td>{{ $data['profile']->basic->state->title ?? '' ?? '-' }}
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>{{ trans('fields.district') }}</td>
+                                                                <td>:</td>
+                                                                <td>{{ $data['profile']->basic->district->title ?? '' ?? '-' }}
+                                                                </td>
+                                                            </tr>
+
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endif
                                     <h4 class="section-title">{{ trans('site.basic_information') }}</h4>
                                     <div class="form-row">
                                         <div class="col-md-6">
@@ -150,6 +205,8 @@
                                             </table>
                                         </div>
                                     </div>
+
+
 
                                     <h4 class="section-title">{{ trans('site.religion_information_view_page') }}</h4>
                                     <div class="form-row">

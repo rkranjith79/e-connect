@@ -39,7 +39,7 @@
     <link rel="stylesheet" href="{{ asset('css/aiz-core.css') }}">
 
 
-    <link rel="stylesheet" href="{{ asset('css/custom-style.css') }}">
+    <link rel="stylesheet" href="{{ vite('resources/css/custom-style.css') }}">
     <script>
         var AIZ = AIZ || {};
     </script>
@@ -154,6 +154,19 @@
         <div class="close-layer"></div>
         <!-- Go to Top -->
         <button id="goTop" class="btn btn-primary btn-icon btn-circle"><i class="fas fa-angle-up"></i></button>
+        <div class="bubbling-animation text-danger bubbling-heart d-none">
+            <div><i class="fa fa-heart fa-5x"></i></div>
+            <div><i class="fa fa-heart fa-5x"></i></div>
+            <div><i class="fa fa-heart fa-5x"></i></div>
+            <div><i class="fa fa-heart fa-5x"></i></div>
+        </div>
+
+        <div class="bubbling-animation text-light bubbling-ban d-none">
+            <div><i class="fa fa-ban fa-5x"></i></div>
+            <div><i class="fa fa-ban fa-5x"></i></div>
+            <div><i class="fa fa-ban fa-5x"></i></div>
+            <div><i class="fa fa-ban fa-5x"></i></div>
+        </div>
     </div>
 
 
@@ -173,7 +186,7 @@
 
     <script src="{{ asset('js/vendors.js') }}"></script>
     <script src="{{ asset('js/aiz-core.js') }}"></script>
-    <script src="{{ asset('js/custom-script.js') }}?id=xx"></script>
+    <script src="{{ vite('resources/js/custom-script.js') }}"></script>
     <script src="{{ asset('js/jasny-bootstrap.min.js') }}"></script>
     <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 

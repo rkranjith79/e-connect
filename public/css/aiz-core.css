@@ -13,7 +13,8 @@ use custom-style.css
     --red: #dc3545;
     --orange: #fd7e14;
     --yellow: #ffc107;
-    --green: #28a745;
+    /* --green: #28a745; */
+    --green: #1ff39f;
     --teal: #20c997;
     --cyan: #17a2b8;
     --white: #fff;
@@ -24,7 +25,8 @@ use custom-style.css
     --soft-primary: rgba(55, 125, 255, 0.15);
     --secondary: #8f97ab;
     --soft-secondary: rgba(143, 151, 171, 0.15);
-    --success: #0abb75;
+    --success: #1ff39f;  
+    /* --success: #0abb75; */
     --soft-success: rgba(10, 187, 117, 0.15);
     --info: #25bcf1;
     --soft-info: rgba(37, 188, 241, 0.15);
