@@ -75,7 +75,8 @@
                 <div class="input-group-prepend"><span class="input-group-text"><i class="fas fa-caret-down"></i></span>
                 </div>
                 <select type="select" name="marital_status_id" id="marital_status_id"
-                    class="form-control aiz-selectpicker required " data-live-search="true" -data-width="auto">
+                    class="form-control aiz-selectpicker required " data-live-search="true" -data-width="auto"
+                    onchange="toggleChildrenDetailds()">
                     <option style="display:none" value="">-- Select --</option>
                     @isset($record['marital_statuses'])
                         @foreach ($record['marital_statuses'] as $value => $label)
@@ -88,22 +89,11 @@
             <span class="invalid-feedback"></span>
         </div>
     </div>
-    <div class="col-sm-4 div-marital-details hide">
-        <div class="form-group mb-3">
-            <label class="form-label" for="marital_details">{{ trans('fields.marital_details') }}<span
-                    class="require-star">*</span></label>
-            <div class="input-group">
-                <div class="input-group-prepend"><span class="input-group-text"><i class="fas fa-pen"></i></span>
-                </div>
-                <input type="text" class="form-control required "
-                    value="{{ old('marital_details') ?? ($profile->marital_details ?? '') }}" id="marital_details"
-                    name="marital_details" maxlength="255">
-            </div>
-            <small class="form-text text-muted text-help"></small>
-            <span class="invalid-feedback"></span>
-        </div>
-    </div>
-    <div class="col-sm-4 div-marital-details hide">
+
+
+    
+
+    <div class="col-sm-4 div-children-details hide">
         <div class="form-group mb-3">
             <label class="form-label" for="children_details">{{ trans('fields.children_details') }}<span
                     class="require-star">*</span></label>
@@ -140,3 +130,19 @@
         </div>
     </div>
 </div>
+
+@push("scripts")
+    <script>
+        function toggleChildrenDetailds() {
+            var marital_status_id = $("#marital_status_id").val();
+            if(marital_status_id == 2) {
+                $(".div-children-details").removeClass('hide');
+                return true;
+            }
+            $(".div-children-details").addClass('hide');
+           
+            return true;
+        }
+        toggleChildrenDetailds();
+    </script>
+@endpush

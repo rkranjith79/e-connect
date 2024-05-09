@@ -13,6 +13,7 @@ return [
     'height' => 'உயரம்',
     'physical_status' => 'உடல் நிலை',
     'marital_status' => 'திருமண நிலை',
+    'children_details' => 'குழந்தைகள்',
     'registered_by' => 'பதிவு செய்பவர்',
     'body_type' => 'உடல் அமைப்பு',
     'color' => 'நிறம்',

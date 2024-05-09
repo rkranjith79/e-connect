@@ -175,6 +175,7 @@ class ProfileController extends Controller
             'gender_id' => ['required'],
             'password' => ['required', 'max:200'],
             'marital_status_id' => ['required'],
+            'children_details' => ['nullable'],
             'registered_by_id' => ['required'],
             'color_id' => ['required'],
             'body_type_id' => ['required'],
@@ -320,6 +321,7 @@ class ProfileController extends Controller
                 "physical_status_id" => $request->physical_status_id,
                 "registered_by_id" => $request->registered_by_id,
                 "marital_status_id" => $request->marital_status_id,
+                "children_details" =>  $request->children_details,
                 "gender_id" => $request->gender_id,
                 "user_id" => $user->id,
                 "expectation_jathagam_id" => $request->expectation_jathagam_id,
@@ -463,6 +465,16 @@ class ProfileController extends Controller
         }
     }
 
+    public function purchasedProfile(Profile $profile)
+    {
+        $profile = !empty($profile->id ?? '') ? $profile : Auth::user()->profile;
+        if (!empty($profile)) {
+            return view('user.profile.purchased_profile', compact(['profile']));
+        } else {
+            return view('pages.404');
+        }
+    }
+
     /**
      * Update the specified resource in storage.
      *
@@ -478,6 +490,8 @@ class ProfileController extends Controller
             'title' => ['required', 'max:100'],
             'gender_id' => ['required'],
             'marital_status_id' => ['required'],
+            'children_details' => ['nullable'],
+
             'registered_by_id' => ['required'],
             'color_id' => ['required'],
             'body_type_id' => ['required'],
@@ -595,6 +609,7 @@ class ProfileController extends Controller
                 "physical_status_id" => $request->physical_status_id,
                 "registered_by_id" => $request->registered_by_id,
                 "marital_status_id" => $request->marital_status_id,
+                "children_details" =>  $request->children_details,
                 "gender_id" => $request->gender_id,
                 "expectation_jathagam_id" => $request->expectation_jathagam_id,
                 "expectation_marital_status_id" => $request->expectation_marital_status_id,

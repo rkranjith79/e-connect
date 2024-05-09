@@ -44,6 +44,23 @@
                     <a href="{{ route('user.interested_profile') }}" class="aiz-side-nav-link">
                         <i class="fas fa-heart aiz-side-nav-icon"></i>
                         <span class="aiz-side-nav-text">{{ trans('site.interested_profile') }}</span>
+                        @if (Auth::user()->profile->my_interested_count)
+                        <span class="bg-danger sidebar-count-span">
+                           {{Auth::user()->profile->my_interested_count}}
+                        </span>
+                        @endif
+                    </a>
+                </li>
+
+                <li class="aiz-side-nav-item">
+                    <a href="{{ route('user.purchased_profile') }}" class="aiz-side-nav-link">
+                        <i class="fas fa-users aiz-side-nav-icon"></i>
+                        <span class="aiz-side-nav-text">{{ trans('site.purchased_profile') }}</span>
+                        @if (Auth::user()->profile->my_purchased_count)
+                        <span class="bg-success sidebar-count-span">
+                           {{Auth::user()->profile->my_purchased_count}}
+                        </span>
+                        @endif
                     </a>
                 </li>
 
@@ -51,6 +68,11 @@
                     <a href="{{ route('user.ignored_profile') }}" class="aiz-side-nav-link">
                         <i class="fas fa-ban aiz-side-nav-icon"></i>
                         <span class="aiz-side-nav-text">{{ trans('site.ignored_profile') }}</span>
+                        @if (Auth::user()->profile->my_ignored_count)
+                        <span class="bg-warning sidebar-count-span">
+                           {{Auth::user()->profile->my_ignored_count}}
+                        </span>
+                        @endif
                     </a>
                 </li>
 

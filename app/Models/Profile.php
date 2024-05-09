@@ -36,14 +36,14 @@ class Profile extends MasterModel
         "expectation",
         "active",
         "photo_file",
-        'code'
+        "code",
+        "children_details"
     ];
 
     protected $casts = [
         'expectation_jathagam_id' => "object",
         'expectation_marital_status_id' => "object",
         'expectation_work_place_id' => "object",
-
     ];
 
     public function user()
@@ -269,10 +269,11 @@ class Profile extends MasterModel
             ->count() ? true : false;
     }
 
+
     public function getPurchasedAttribute()
     {
         if (!__isProfiledUser()) return false;
-        
+
         $profile_id = auth()->user()->profile->id;
         return PurchasedProfile::where('purchased_profile_id', $this->attributes['id'])
             ->where('active', 1)
@@ -280,6 +281,7 @@ class Profile extends MasterModel
             ->where('expired_at', '>',  Carbon::now())
             ->count() ? true : false;
     }
+
 
     public function getIgnoredAttribute()
     {
@@ -293,6 +295,9 @@ class Profile extends MasterModel
             ->where('expired_at', '>',  Carbon::now())
             ->count() ? true : false;
     }
+
+
+
 
     public function getExpectationJathagamTitleAttribute()
     {
@@ -323,6 +328,27 @@ class Profile extends MasterModel
             trans('fields.rasi_nakshatra')  . ":" . ($this->jathagam->rasi_nakshatra->title ?? '-') . "\n" .
             trans('fields.jathagam')  . ":" . ($this->jathagam->jathagam->title ?? '-') . "\n"]);
     }
+
+
+    public function getMyInterestedCountAttribute()
+    {
+        return $this->myInterestedProfiles()
+            ->count() ?: 0;
+    }
+
+    public function getMyPurchasedCountAttribute()
+    {
+
+        return $this->myPurchasedProfiles()
+            ->count() ?: 0;
+    }
+
+    public function getMyIgnoredCountAttribute()
+    {
+        return $this->myIgnoredProfiles()
+            ->count() ?: 0;
+    }
+
 
     protected static function boot()
     {

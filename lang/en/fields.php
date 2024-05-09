@@ -13,6 +13,7 @@ return [
     'height' => 'Height',
     'physical_status' => 'Physical status',
     'marital_status' => 'Marital status',
+    'children_details' => 'Children status',
     'registered_by' => 'Registered By',
     'body_type' => 'Body Type',
     'color' => 'Color',

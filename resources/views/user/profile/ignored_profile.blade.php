@@ -115,7 +115,7 @@
                                                         <a href="javascript:void(0);" onclick="interestedOrIgnored('ignored','{{ $profile->id }}', '{{ $profile->uuid }}', '{{ auth()->user()->profile->id }}', '{{ auth()->user()->profile->uuid }}')"
                                                             class="text-dark c-pointer">
                                                             <i class="fas fa-ban fs-20 {{ $profile->ignored ? 'text-danger' : 'text-warning' }}"></i>
-                                                            <span class="d-block fs-10 {{ $profile->ignored ? 'text-danger' : 'text-warning' }}">{{ trans('site.ignore') }}</span>
+                                                            <span class="d-block fs-10 {{ $profile->ignored ? 'text-danger' : 'text-warning' }}">{{ trans('site.remove_ignore') }}</span>
                                                         </a>
                                                     </div>
                                                    

@@ -46,7 +46,10 @@ return [
    'full_profile' => 'முழு விவரம்',
    'interest' => 'ஆர்வம்',
    'interested' => 'ஆர்வம் +',
+   'remove_interested' => 'ஆர்வம் நீக்கவும்',
    'ignore' => 'புறக்கணி',
+   'remove_ignore' => 'புறக்கணி நீக்கவும்',
+
    'view_contact' => 'தொடர்பு',
    'share' => 'பகிர்',
 
@@ -76,5 +79,7 @@ return [
 
    'ignored_profile' => 'புறக்கணி விவரம்',
    'interested_profile' => 'ஆர்வம் + விவரம்',
+   'purchased_profile' => 'வாங்கப்பட்டவை',
+
 ];
 ?>

@@ -47,7 +47,9 @@ return [
     'full_profile' => 'Full Profile',
     'interest' => 'Interest',
     'interested' => 'Interested',
+    'remove_interested' => 'Remove Interested',
     'ignore' => 'Ignore',
+    'remove_ignore' => 'Remove Ignore',
     'view_contact' => 'View Contact',
     'share' => 'Share',
 
@@ -78,5 +80,6 @@ return [
     //User Sidebar
     'ignored_profile' => 'Ignored Profiles',
     'interested_profile' => 'Interested Profiles',
+    'purchased_profile' => 'Purchased Profiles',
 ];
 ?>

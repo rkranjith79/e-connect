@@ -195,7 +195,7 @@
             $('.package_update_alert_modal').modal('show');
         }
     </script>
-    @stack('scripts')
+       @stack('scripts')
 </body>
 
 </html>

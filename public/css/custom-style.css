@@ -1208,3 +1208,28 @@ body {
     transform: translateX(-12.5vw) rotate(-25deg);
   }
 }
+
+.mobile-footer-count-span {
+  color: #fff;
+  padding: 2px;
+  font-size: 8px;
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  top: 0;
+  border-radius: 50%;
+  text-align: center; 
+}
+
+
+.sidebar-count-span {
+  color: #fff;
+  padding: 2px;
+  font-size: 8px;
+  width: 15px;
+  height: 15px;
+  position: relative;
+  top: 0;
+  border-radius: 50%;
+  text-align: center;
+}

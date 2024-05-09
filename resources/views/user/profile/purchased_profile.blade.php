@@ -13,13 +13,14 @@
                                 <h5 class="mb-0 h6">Interested Profile</h5>
                             </div>
                             <div class="card-body">
-                              @forelse ($profile->myInterestedProfiles as $profile)
+                                @forelse ($profile->myPurchasedProfiles as $profile)
                                     @php
-                                        $profile = $profile->interestedProfile;
+                                        $profile = $profile->purchased_profile;
                                     @endphp
-                                  @include('user.member.profile')
+
+                                    @include('user.member.profile')
                                 @empty
-                                 <h2>{{ trans('site.no_data_available') }}</h2>
+                                    <h2>{{ trans('site.no_data_available') }}</h2>
                                 @endforelse
                             </div>
                         </div>
@@ -28,5 +29,4 @@
             </div>
         </div>
     </div>
-
 @endsection

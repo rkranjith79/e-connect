@@ -33,6 +33,11 @@ class PurchasedProfile extends MasterModel
         return $this->belongsTo(PurchasedPlan::class);
     }
 
+    public function purchased_profile()
+    {
+        return $this->belongsTo(Profile::class);
+    }
+
     public function profile()
     {
         return $this->belongsTo(profile::class);
