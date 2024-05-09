@@ -37,11 +37,11 @@
 
     <!-- CSS -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&amp;display=swap">
-    <link rel="stylesheet" href="{{ asset('css/vendors.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/aiz-core.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/vendors.css') }}?id={{config('app.version')}}">
+    <link rel="stylesheet" href="{{ asset('css/aiz-core.css') }}?id={{config('app.version')}}">
 
 
-    <link rel="stylesheet" href="{{ asset('css/custom-style.css') }}?id=v1.0.0">
+    <link rel="stylesheet" href="{{ asset('css/custom-style.css') }}?id={{config('app.version')}}">
     <script>
         var AIZ = AIZ || {};
     </script>
@@ -140,16 +140,7 @@
     <!-- preloading area end -->
 
     <div class="aiz-main-wrapper d-flex flex-column bg-white">
-
-
-
-
-
         @yield('content')
-
-
-
-
         <div class="close-layer"></div>
         <!-- Go to Top -->
         <button id="goTop" class="btn btn-primary btn-icon btn-circle"><i class="fas fa-angle-up"></i></button>
@@ -173,7 +164,7 @@
 
     <script src="{{ asset('js/vendors.js') }}"></script>
     <script src="{{ asset('js/aiz-core.js') }}"></script>
-    <script src="{{ asset('js/custom-script.js') }}?id=v1.0.0"></script>
+    <script src="{{ asset('js/custom-script.js') }}?id={{config('app.version')}}"></script>
     <script src="{{ asset('js/jasny-bootstrap.min.js') }}"></script>
 
     <script type="text/javascript">

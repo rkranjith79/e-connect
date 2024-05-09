@@ -18,10 +18,10 @@
     <link rel="stylesheet" href="{{ asset('admin-template/vendors/datatables.net-bs4/dataTables.bootstrap4.css') }}">
     <!-- End plugin css for this page -->
     <!-- inject:css -->
-    <link rel="stylesheet" href="{{ asset('admin-template/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('admin-template/css/style.css') }}?id={{config('app.version')}}">
     <!-- endinject -->
     <link rel="shortcut icon" href="{{ asset('admin-template/images/favicon.png') }}" />
-    <link rel="stylesheet" href="{{ asset('css/common.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/common.css') }}?id={{config('app.version')}}" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
         integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -45,7 +45,7 @@
         </div>
     </div>
     <script src="{{ asset('js/jquery.js') }}"></script>
-    <script src="{{ asset('js/common.js') }}"></script>
+    <script src="{{ asset('js/common.js') }}?id={{config('app.version')}}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"
         integrity="sha512-3j3VU6WC5rPQB4Ld1jnLV7Kd5xr+cq9avvhwqzbH/taCRNURoeEpoPBK9pDyeukwSxwRPJ8fDgvYXd6SkaZ2TA=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>

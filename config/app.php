@@ -5,6 +5,18 @@ use Illuminate\Support\Facades\Facade;
 
 return [
 
+
+        /*
+    |--------------------------------------------------------------------------
+    | Application Version
+    |--------------------------------------------------------------------------
+    |
+    | This value is the version of your application. This value is used when the
+    | framework needs to place the version in a stylesheet in production.
+    | Need to update every production or fix the vite package
+    */
+    
+    'version' => 'v1.0.1',
     /*
     |--------------------------------------------------------------------------
     | Application Name
