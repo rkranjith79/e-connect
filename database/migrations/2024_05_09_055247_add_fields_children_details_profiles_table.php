@@ -16,9 +16,9 @@ return new class extends Migration
     {
         Schema::table('profiles', function (Blueprint $table) {
             $table->string('children_details', 150);
-            $table->json('expectation_jathagam_id')->default(new Expression('(JSON_ARRAY())'))->nullable()->change();
-            $table->json('expectation_marital_status_id')->default(new Expression('(JSON_ARRAY())'))->nullable()->change();
-            $table->json('expectation_work_place_id')->default(new Expression('(JSON_ARRAY())'))->nullable()->change();
+            // $table->json('expectation_jathagam_id')->default(new Expression('(JSON_ARRAY())'))->nullable()->change();
+            // $table->json('expectation_marital_status_id')->default(new Expression('(JSON_ARRAY())'))->nullable()->change();
+            // $table->json('expectation_work_place_id')->default(new Expression('(JSON_ARRAY())'))->nullable()->change();
         });
     }
 
