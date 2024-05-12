@@ -35,10 +35,13 @@ class SiteConfigurationsController extends Controller
     public function store(Request $request)
     {
         $input = $request->all();
+       
         foreach ($input['label'] as $key => $value) {
             $label = $input['label'][$key];
             $code = $input['code'][$key];
+            $attributes = json_decode($input['attributes'][$key], TRUE);
             $attributes['value'] = $input['value'][$key];
+         
             $this->modal->updateOrCreate(
                 ['code' => $code],
                 ['label' => $label, 'attributes' => $attributes]

@@ -68,12 +68,14 @@
         </div>
 
         <div class="mb-2">
-            <h4 class="text-uppercase text-primary fs-14 border-bottom border-primary pb-4 mb-4">
-
-                {{ trans('site.contacts') }}
-            </h4>
+         
             <div class="row no-gutters">
+                
                 <div class="col-xl-3 col-md-12 mb-2">
+                    <h4 class="text-uppercase text-primary fs-14 border-bottom border-primary pb-4 mb-4">
+
+                        {{ trans('site.contacts') }}
+                    </h4>
                     @for ($i = 0; $i < 5; $i++)
                         @if (!empty(__getSiteConfigration('address_' . $i)))
                             <div class="mb-3">
@@ -89,6 +91,12 @@
 
 
                 <div class="col-xl-3 col-md-6 mb-2">
+                    <h4 class="text-uppercase text-primary fs-14 border-bottom border-primary pb-4 mb-4">
+
+                       <span style="visibility: hidden">
+                        {{ trans('site.contacts') }}
+                        </span> 
+                    </h4>
                     @if (!empty(__getSiteConfigration('phone')))
                         <div class="mb-3">
                             <i class="fas fa-envelope mr-2"></i>
@@ -126,6 +134,12 @@
 
                 @if (!empty(__getSiteConfigration('whatsapp_group')))
                     <div class="col-xl-3 col-md-6 mb-2">
+                        <h4 class="text-uppercase text-primary fs-14 border-bottom border-primary pb-4 mb-4">
+
+                       <span style="visibility: hidden">
+                        {{ trans('site.contacts') }}
+                        </span> 
+                    </h4>
                         <div class="mb-3">
                             <i class="fas fa-envelope mr-2"></i>
                             <span>{{ __getSiteConfigration('whatsapp_group', 'label') }}</span>
@@ -139,6 +153,27 @@
                     </div>
                 @endif
 
+                <div class="col-lg-3 col-6 mb-4">
+                    <h4 class="text-uppercase text-primary fs-14 border-bottom border-primary pb-4 mb-4">
+                        {{ trans('site.useful_links') }}
+                    </h4>
+                    <div>
+                        <ul class="list-unstyled">
+
+                            @for ($i = 1; $i <= 10; $i++)
+                                @if (!empty(__getSiteConfigration('dynamic_footer_link_' . $i)))
+                                <li class="my-3">
+                                    <a href="{{ __getSiteConfigration('dynamic_footer_link_' . $i) }}" target="_blank"
+                                        class="text-reset"
+                                        target="{{ __getSiteConfigration('dynamic_footer_link_' . $i, 'target') }}"
+                                        >{{ __getSiteConfigration('dynamic_footer_link_' . $i, 'label') }}</a>
+                                </li>
+
+                                @endif
+                            @endfor
+                        </ul>
+                    </div>
+                </div>
 
             </div>
         </div>
