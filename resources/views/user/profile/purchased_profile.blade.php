@@ -10,7 +10,7 @@
                         <div class="card">
                             <div id="successMessage" class="" tabindex="0"></div>
                             <div class="card-header">
-                                <h5 class="mb-0 h6">Interested Profile</h5>
+                                <h5 class="mb-0 h6">Purchased Profiles</h5>
                             </div>
                             <div class="card-body">
                                 @forelse ($profile->myPurchasedProfiles as $profile)

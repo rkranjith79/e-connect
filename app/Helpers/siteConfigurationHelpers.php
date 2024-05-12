@@ -38,3 +38,9 @@ function __isProfiledUser()
 {
     return  (auth()->check() && auth()->user()->profile) ;
 }
+
+function __setDateTimeFormat($dateTime)
+{
+    $formattedTime = date('d-m-Y h:i:s A', strtotime($dateTime));
+    return $formattedTime;
+}

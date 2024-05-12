@@ -36,7 +36,7 @@ class MasterController extends Controller
 
     public function store(Request $request)
     {
-      
+
         $validationFields = [
             'title' => ['required', 'max:255', ],
             'active' => ['nullable'],

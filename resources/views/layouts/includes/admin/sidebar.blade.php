@@ -1,6 +1,9 @@
 @php
     $menuItems = [
         ['name' => 'Users', 'href' => route('admin.user.list'), 'icon' => 'mdi-home'],
+        ['name' => 'Plans', 'href' => route('admin.plan.index'), 'icon' => 'mdi-star'],
+        ['name' => 'Purchased Plans', 'href' => route('admin.purchased_plan.index'), 'icon' => 'mdi-star'],
+        ['name' => 'Purchased Profiles', 'href' => route('admin.purchased_profile.index'), 'icon' => 'mdi-star'],
         ['name' => 'Assets Values', 'href' => route('admin.assets_value.index'), 'icon' => 'mdi-diamond'],
         ['name' => 'Birth Dasas', 'href' => route('admin.birth_dasa.index'), 'icon' => 'mdi-star'],
         ['name' => 'Blood Groups', 'href' => route('admin.blood_group.index'), 'icon' => 'mdi-water'],
@@ -33,7 +36,6 @@
         ['name' => 'Rasi', 'href' => route('admin.rasi.index'), 'icon' => 'mdi-star'],
         ['name' => 'Site Configurations', 'href' => route('admin.site_configuration.index'), 'icon' => 'mdi-star'],
         ['name' => 'Information', 'href' => route('admin.information_admin.index'), 'icon' => 'mdi-star'],
-
 
     ];
 @endphp

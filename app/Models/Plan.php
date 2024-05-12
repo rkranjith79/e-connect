@@ -37,4 +37,9 @@ class Plan extends Model
             ->orderBy('id', 'ASC')
             ->first();
     }
+
+    public function setActiveAttribute($value)
+    {
+        $this->attributes['active'] = $value == 'true' ? 1 : 0;
+    }
 }

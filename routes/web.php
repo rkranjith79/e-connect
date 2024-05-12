@@ -80,6 +80,11 @@ Route::name('admin.')->prefix('admin')->middleware(['auth', 'isAdmin'])->group(f
     Route::resource('site_configuration', App\Http\Controllers\Admin\SiteConfigurationsController::class);
     Route::post('site_configuration/create_code', [App\Http\Controllers\Admin\SiteConfigurationsController::class, 'storeCode'])->name('site_configuration.store_code');
     Route::resource('information_admin', App\Http\Controllers\Admin\InformationController::class);
+    Route::resource('plan', App\Http\Controllers\PlanController::class);
+    Route::put('plan-deactivate/{id}', [App\Http\Controllers\PlanController::class, 'deactivate'])->name('plan.deactivate');
+    Route::put('plan-activate/{id}', [App\Http\Controllers\PlanController::class, 'activate'])->name('plan.activate');
+    Route::get('purchased_plan', [App\Http\Controllers\PurchasedPlanController::class, 'index'])->name('purchased_plan.index');
+    Route::get('purchased_profile', [App\Http\Controllers\PurchasedProfileController::class, 'index'])->name('purchased_profile.index');
 });
 
 Route::name('user.')->prefix('user')->middleware(['auth'])->group(function () {

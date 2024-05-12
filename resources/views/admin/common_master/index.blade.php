@@ -17,7 +17,7 @@
                             <thead>
                                 <tr>
                                     <th width="7%">S No.</th>
-                                    <th width="10%">Actions</th>
+                                    <th width="15%">Actions</th>
                                     <th width="20%">{{ $page_data['name'] }}</th>
                                     @isset($lookup_fields)
                                         @foreach ($lookup_fields as $item)
@@ -28,7 +28,7 @@
                                             @endif
                                         @endforeach
                                     @endisset
-                                    <th width="30%">Status</th>
+                                    <th width="20%">Status</th>
                                 </tr>
                             </thead>
                             <tbody>
