@@ -52,7 +52,21 @@
                     </li>
                 </ul>
             </li>
-            @if(__isProfiledUser())
+
+
+            @for ($i = 1; $i <= 10; $i++)
+                @if (!empty(__getSiteConfigration('dynamic_header_link_' . $i)))
+                    <li class="nav-item  ">
+                        <a class="nav-link text-uppercase fw-700 fs-15 d-flex align-items-center bg-white py-2"
+                            href="{{ __getSiteConfigration('dynamic_header_link_' . $i) }}">
+                            <span
+                                class="text-primary-grad mb-n1">{{ __getSiteConfigration('dynamic_header_link_' . $i, 'label') }}</span>
+                        </a>
+                    </li>
+                @endif
+            @endfor
+
+            @if (__isProfiledUser())
                 <li class="nav-item">
                     <a class="nav-link text-uppercase fw-700 fs-15 d-flex align-items-center bg-white py-2"
                         href="{{ route('user.profile_edit') }}">
@@ -68,35 +82,39 @@
                 </li>
 
                 <li class="nav-item">
-                    <a href="{{ route('user.profile_edit') }}" class="nav-link text-uppercase fw-700 fs-15 d-flex align-items-center bg-white py-2">
+                    <a href="{{ route('user.profile_edit') }}"
+                        class="nav-link text-uppercase fw-700 fs-15 d-flex align-items-center bg-white py-2">
                         <span class="text-primary-grad mb-n1">{{ trans('site.my_profile') }}</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('user.change_password') }}" class="nav-link text-uppercase fw-700 fs-15 d-flex align-items-center bg-white py-2">
+                    <a href="{{ route('user.change_password') }}"
+                        class="nav-link text-uppercase fw-700 fs-15 d-flex align-items-center bg-white py-2">
                         <span class="text-primary-grad mb-n1">{{ trans('site.change_password') }}</span>
                     </a>
                 </li>
 
-                
+
                 <li class="nav-item">
-                    <a href="{{ route('user.interested_profile') }}" class="nav-link text-uppercase fw-700 fs-15 d-flex align-items-center bg-white py-2">
+                    <a href="{{ route('user.interested_profile') }}"
+                        class="nav-link text-uppercase fw-700 fs-15 d-flex align-items-center bg-white py-2">
                         <span class="text-primary-grad mb-n1">{{ trans('site.interested_profile') }}</span>
                     </a>
                 </li>
 
                 <li class="nav-item">
-                    <a href="{{ route('user.purchased_profile') }}" class="nav-link text-uppercase fw-700 fs-15 d-flex align-items-center bg-white py-2">
+                    <a href="{{ route('user.purchased_profile') }}"
+                        class="nav-link text-uppercase fw-700 fs-15 d-flex align-items-center bg-white py-2">
                         <span class="text-primary-grad mb-n1">{{ trans('site.purchased_profile') }}</span>
                     </a>
                 </li>
 
                 <li class="nav-item">
-                    <a href="{{ route('user.ignored_profile') }}" class="nav-link text-uppercase fw-700 fs-15 d-flex align-items-center bg-white py-2">
+                    <a href="{{ route('user.ignored_profile') }}"
+                        class="nav-link text-uppercase fw-700 fs-15 d-flex align-items-center bg-white py-2">
                         <span class="text-primary-grad mb-n1">{{ trans('site.ignored_profile') }}</span>
                     </a>
                 </li>
-
             @endif
 
         </ul>
@@ -104,66 +122,72 @@
     </div>
 </div>
 
-@if(__isProfiledUser())
-<div class="aiz-mobile-bottom-nav d-lg-none fixed-bottom bg-white shadow-lg border-top rounded-top" style="box-shadow: 0px -1px 10px rgb(0 0 0 / 15%)!important; ">
-    <div class="row align-items-center gutters-5 text-center">
-        <div class="col">
-            <a href="{{ url('/') }}" class="text-reset d-block flex-grow-1 text-center py-2">
-                <i class="fas fa-home fs-18 opacity-60 "></i>
-                <span class="d-block fs-10 opacity-60 ">{{ trans('site.home') }}</span>
-            </a>
-        </div>
-     
-        <div class="col">
-          <a href="{{ route('user.search') }}" class="text-reset d-block flex-grow-1 text-center py-2 ">
-              <span class="d-inline-block position-relative px-2">
-                  <i class="fas fa-search fs-18 opacity-60 "></i>
-              </span>
-              <span class="d-block fs-10 opacity-60 ">{{ trans('site.search') }}</span>
-          </a>
-        </div>
+@if (__isProfiledUser())
+    <div class="aiz-mobile-bottom-nav d-lg-none fixed-bottom bg-white shadow-lg border-top rounded-top"
+        style="box-shadow: 0px -1px 10px rgb(0 0 0 / 15%)!important; ">
+        <div class="row align-items-center gutters-5 text-center">
+            <div class="col">
+                <a href="{{ url('/') }}" class="text-reset d-block flex-grow-1 text-center py-2">
+                    <i class="fas fa-home fs-18 opacity-60 "></i>
+                    <span class="d-block fs-10 opacity-60 ">{{ trans('site.home') }}</span>
+                </a>
+            </div>
 
-    
-    
-        <div class="col">
-            <a href="{{ route('user.interested_profile') }}" class="text-reset d-block flex-grow-1 text-center py-2 ">
-                <span class="d-inline-block position-relative px-2">
-                    <i class="fas fa-heart fs-18 opacity-60 "></i>
-                </span>
-                @if (Auth::user()->profile->my_interested_count)
-                <span class="bg-primary mobile-footer-count-span">
-                   {{Auth::user()->profile->my_interested_count}}
-                </span>
-                @endif
-                
-                <span class="d-block fs-10 opacity-60 ">{{ trans('site.interested_profile') }}</span>
-            </a>
-          </div>
+            <div class="col">
+                <a href="{{ route('user.search') }}" class="text-reset d-block flex-grow-1 text-center py-2 ">
+                    <span class="d-inline-block position-relative px-2">
+                        <i class="fas fa-search fs-18 opacity-60 "></i>
+                    </span>
+                    <span class="d-block fs-10 opacity-60 ">{{ trans('site.search') }}</span>
+                </a>
+            </div>
 
 
-          <div class="col">
-            <a href="{{ route('user.purchased_profile') }}" class="text-reset d-block flex-grow-1 text-center py-2 ">
-                <span class="d-inline-block position-relative px-2">
-                    <i class="fas fa-users fs-18 opacity-60 "></i>
-                </span>
-                @if (Auth::user()->profile->my_purchased_count)
-                <span class="bg-success mobile-footer-count-span">
-                   {{Auth::user()->profile->my_purchased_count}}
-                </span>
-                @endif
-                <span class="d-block fs-10 opacity-60 ">{{ trans('site.purchased_profile') }}</span>
-            </a>
-          </div>
+
+            <div class="col">
+                <a href="{{ route('user.interested_profile') }}"
+                    class="text-reset d-block flex-grow-1 text-center py-2 ">
+                    <span class="d-inline-block position-relative px-2">
+                        <i class="fas fa-heart fs-18 opacity-60 "></i>
+                    </span>
+                    @if (Auth::user()->profile->my_interested_count)
+                        <span class="bg-primary mobile-footer-count-span">
+                            {{ Auth::user()->profile->my_interested_count }}
+                        </span>
+                    @endif
+
+                    <span class="d-block fs-10 opacity-60 ">{{ trans('site.interested_profile') }}</span>
+                </a>
+            </div>
 
 
-        <div class="col">
-            <a herf="#!" class="text-reset d-block flex-grow-1 text-center py-2 mobile-side-nav-thumb" onclick="nav_toggler()">
-                <span class="d-block mx-auto mb-1 opacity-60">
-                    <img src="{{ Auth::user()->profile->photo ?? '' }}" class="rounded-circle size-20px" onerror="this.onerror=null;this.src='{{ asset('img/avatar-place.png')}}';">
-                </span>
-                <span class="d-block fs-10 opacity-60">Menu</span>
-            </a>
+            <div class="col">
+                <a href="{{ route('user.purchased_profile') }}"
+                    class="text-reset d-block flex-grow-1 text-center py-2 ">
+                    <span class="d-inline-block position-relative px-2">
+                        <i class="fas fa-users fs-18 opacity-60 "></i>
+                    </span>
+                    @if (Auth::user()->profile->my_purchased_count)
+                        <span class="bg-success mobile-footer-count-span">
+                            {{ Auth::user()->profile->my_purchased_count }}
+                        </span>
+                    @endif
+                    <span class="d-block fs-10 opacity-60 ">{{ trans('site.purchased_profile') }}</span>
+                </a>
+            </div>
+
+
+
+            <div class="col">
+                <a herf="#!" class="text-reset d-block flex-grow-1 text-center py-2 mobile-side-nav-thumb"
+                    onclick="nav_toggler()">
+                    <span class="d-block mx-auto mb-1 opacity-60">
+                        <img src="{{ Auth::user()->profile->photo ?? '' }}" class="rounded-circle size-20px"
+                            onerror="this.onerror=null;this.src='{{ asset('img/avatar-place.png') }}';">
+                    </span>
+                    <span class="d-block fs-10 opacity-60">Menu</span>
+                </a>
+            </div>
         </div>
     </div>
-</div>
 @endif

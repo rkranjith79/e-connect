@@ -86,30 +86,32 @@
                             onclick="nav_toggler()">
                             <span class="px-2">
                                 <i class="fas fa-bars fa-2x text-primary" area-hidden="true">
-                                    </i>
+                                </i>
                             </span>
                             <span class="hide px-2">
-                                <i class="fas fa-times fa-2x text-primary"
-                                    area-hidden="true"></i>
+                                <i class="fas fa-times fa-2x text-primary" area-hidden="true"></i>
                             </span>
                         </a>
                     </div>
                     <ul
                         class="d-none mb-0 pl-0 ml-lg-auto d-lg-flex align-items-stretch justify-content-center justify-content-lg-start mobile-hor-swipe">
-                        <li class="d-inline-block d-lg-flex pb-1  {{\Request::route()->getName() == 'index' ? 'bg-primary-grad' : ''}}">
-                           
+                        <li
+                            class="d-inline-block d-lg-flex pb-1  {{ \Request::route()->getName() == 'index' ? 'bg-primary-grad' : '' }}">
+
                             <a class="nav-link text-uppercase fw-700 fs-15 d-flex align-items-center bg-white py-2"
                                 href="{{ url('/') }}">
                                 <span class="text-primary-grad mb-n1">{{ trans('site.home') }}</span>
                             </a>
                         </li>
-                        <li class="d-inline-block d-lg-flex pb-1  {{\Request::route()->getName() == 'user.member-listing' ? 'bg-primary-grad' : ''}}">
+                        <li
+                            class="d-inline-block d-lg-flex pb-1  {{ \Request::route()->getName() == 'user.member-listing' ? 'bg-primary-grad' : '' }}">
                             <a class="nav-link text-uppercase fw-700 fs-15 d-flex align-items-center bg-white py-2"
                                 href="{{ route('user.member-listing') }}">
                                 <span class="text-primary-grad mb-n1">{{ trans('site.view_profile') }}</span>
                             </a>
                         </li>
-                        <li class="d-inline-block d-lg-flex pb-1  {{\Request::route()->getName() == 'user.search' ? 'bg-primary-grad' : ''}}">
+                        <li
+                            class="d-inline-block d-lg-flex pb-1  {{ \Request::route()->getName() == 'user.search' ? 'bg-primary-grad' : '' }}">
                             <a class="nav-link text-uppercase fw-700 fs-15 d-flex align-items-center bg-white py-2"
                                 href="{{ route('user.search') }}">
                                 <span class="text-primary-grad mb-n1">{{ trans('site.search') }}</span>
@@ -118,35 +120,51 @@
 
 
                         <li class="d-inline-block d-lg-flex pb-1 ">
-                            <a class=" nav-link text-uppercase fw-700 fs-15 d-flex align-items-center bg-white py-2"  id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class=" nav-link text-uppercase fw-700 fs-15 d-flex align-items-center bg-white py-2"
+                                id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="text-primary-grad mb-n1">{{ trans('site.more') }}</span>
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                                    <li class="dropdown-item">
-                                        <a href="{{ route('user.information', ['code' => 'about_us']) }}" target="_blank"
-                                            class="text-reset">About Us</a>
-                                    </li>
-                                    <li class="dropdown-item">
-                                        <a href="{{ route('user.information', ['code' => 'contact_us']) }}" target="_blank"
-                                            class="text-reset">Contact Us</a>
-                                    </li>
-                                    <li class="dropdown-item">
-                                        <a href="{{ route('user.information', ['code' => 'terms_and_conditions']) }}" target="_blank"
-                                            class="text-reset">Terms and Conditions</a>
-                                    </li>
-                                    <li class="dropdown-item">
-                                        <a href="{{ route('user.information', ['code' => 'privacy_policy']) }}" target="_blank"
-                                            class="text-reset">Privacy Policy</a>
-                                    </li>
-                                </ul>
-                        </li>  
-                        @if(__isProfiledUser())
-                        <li class="d-inline-block d-lg-flex pb-1  {{\Request::route()->getName() == 'user.profile_edit' ? 'bg-primary-grad' : ''}}">
-                            <a class="nav-link b-1 text-uppercase fw-700 fs-15 d-flex align-items-center bg-white py-2"
-                                href="{{ route('user.profile_edit') }}">
-                                <span class="text-primary-grad mb-n1">{{ trans('site.my_profile') }}</span>
-                            </a>
+                                <li class="dropdown-item">
+                                    <a href="{{ route('user.information', ['code' => 'about_us']) }}" target="_blank"
+                                        class="text-reset">About Us</a>
+                                </li>
+                                <li class="dropdown-item">
+                                    <a href="{{ route('user.information', ['code' => 'contact_us']) }}" target="_blank"
+                                        class="text-reset">Contact Us</a>
+                                </li>
+                                <li class="dropdown-item">
+                                    <a href="{{ route('user.information', ['code' => 'terms_and_conditions']) }}"
+                                        target="_blank" class="text-reset">Terms and Conditions</a>
+                                </li>
+                                <li class="dropdown-item">
+                                    <a href="{{ route('user.information', ['code' => 'privacy_policy']) }}"
+                                        target="_blank" class="text-reset">Privacy Policy</a>
+                                </li>
+                            </ul>
                         </li>
+
+                        @for ($i = 1; $i <= 10; $i++)
+                            @if (!empty(__getSiteConfigration('dynamic_header_link_' . $i)))
+                                <li
+                                    class="d-inline-block d-lg-flex pb-1 u {{ \Request::getRequestUri() == __getSiteConfigration('dynamic_header_link_' . $i) ? 'bg-primary-grad' : '' }}">
+                                    <a class="nav-link b-1 text-uppercase fw-700 fs-15 d-flex align-items-center bg-white py-2"
+                                        href="{{ __getSiteConfigration('dynamic_header_link_' . $i) }}">
+                                        <span
+                                            class="text-primary-grad mb-n1">{{ __getSiteConfigration('dynamic_header_link_' . $i, 'label') }}</span>
+                                    </a>
+                                </li>
+                            @endif
+                        @endfor
+
+                        @if (__isProfiledUser())
+                            <li
+                                class="d-inline-block d-lg-flex pb-1  {{ \Request::route()->getName() == 'user.profile_edit' ? 'bg-primary-grad' : '' }}">
+                                <a class="nav-link b-1 text-uppercase fw-700 fs-15 d-flex align-items-center bg-white py-2"
+                                    href="{{ route('user.profile_edit') }}">
+                                    <span class="text-primary-grad mb-n1">{{ trans('site.my_profile') }}</span>
+                                </a>
+                            </li>
                         @endif
                     </ul>
                 </div>
