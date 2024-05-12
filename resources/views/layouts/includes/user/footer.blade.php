@@ -164,7 +164,9 @@
                                 @if (!empty(__getSiteConfigration('dynamic_footer_link_' . $i)))
                                 <li class="my-3">
                                     <a href="{{ __getSiteConfigration('dynamic_footer_link_' . $i) }}" target="_blank"
-                                        class="text-reset">{{ __getSiteConfigration('dynamic_footer_link_' . $i, 'label') }}</a>
+                                        class="text-reset"
+                                        target="{{ __getSiteConfigration('dynamic_footer_link_' . $i, 'target') }}"
+                                        >{{ __getSiteConfigration('dynamic_footer_link_' . $i, 'label') }}</a>
                                 </li>
 
                                 @endif

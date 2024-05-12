@@ -149,7 +149,9 @@
                                 <li
                                     class="d-inline-block d-lg-flex pb-1 u {{ \Request::getRequestUri() == __getSiteConfigration('dynamic_header_link_' . $i) ? 'bg-primary-grad' : '' }}">
                                     <a class="nav-link b-1 text-uppercase fw-700 fs-15 d-flex align-items-center bg-white py-2"
-                                        href="{{ __getSiteConfigration('dynamic_header_link_' . $i) }}">
+                                        href="{{ __getSiteConfigration('dynamic_header_link_' . $i) }}"
+                                        target="{{ __getSiteConfigration('dynamic_header_link_' . $i, 'target') }}"
+                                        >
                                         <span
                                             class="text-primary-grad mb-n1">{{ __getSiteConfigration('dynamic_header_link_' . $i, 'label') }}</span>
                                     </a>

@@ -58,7 +58,9 @@
                 @if (!empty(__getSiteConfigration('dynamic_header_link_' . $i)))
                     <li class="nav-item  ">
                         <a class="nav-link text-uppercase fw-700 fs-15 d-flex align-items-center bg-white py-2"
-                            href="{{ __getSiteConfigration('dynamic_header_link_' . $i) }}">
+                            href="{{ __getSiteConfigration('dynamic_header_link_' . $i) }}"
+                            target="{{ __getSiteConfigration('dynamic_header_link_' . $i, 'target') }}"
+                            >
                             <span
                                 class="text-primary-grad mb-n1">{{ __getSiteConfigration('dynamic_header_link_' . $i, 'label') }}</span>
                         </a>
