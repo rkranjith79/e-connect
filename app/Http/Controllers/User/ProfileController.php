@@ -486,6 +486,8 @@ class ProfileController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $profile = Profile::findOrFail($request->id);
+
         $validator = Validator::make($request->all(), [
             'photo_file' => ['nullable', 'image', 'mimes:jpeg,jpg,png', 'max:2048'],
             'jathagam_file' => ['nullable', 'image', 'mimes:jpeg,jpg,png', 'max:2048'],
@@ -512,7 +514,7 @@ class ProfileController extends Controller
             'work_place_id' => ['required'],
             'work_details' => ['required', 'max:100'],
             'whatsapp' => ['required', 'max:100'],
-            'phone' => ['required', 'unique:users', 'max:100'],
+            'phone' => ['required', 'unique:users,phone,'.$profile->user->id.',id', 'max:100'],
             'address' => ['required', 'max:1000'],
             'monthly_income' => ['required', 'max:100'],
 
@@ -596,7 +598,7 @@ class ProfileController extends Controller
             };
 
             $photo_file_path = $jathagam_file_path = "";
-            $profile = Profile::findOrFail($request->id);
+           
             $profileBasic = ProfileBasic::where('profile_id', $profile->id)->first();
             $profileJathagam = profileJathagam::where('profile_id', $profile->id)->first();
 
