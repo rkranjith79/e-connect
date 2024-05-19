@@ -6,7 +6,7 @@
             <div id="form_content" class="row">
                 <div class="d-flex align-items-start">
                     @include('user.profile.sidebar')
-                    <div class="aiz-user-panel col-7 overflow-hidden">
+                    <div class="aiz-user-panel overflow-hidden">
                         <div class="card">
                             <div id="successMessage" class="" tabindex="0"></div>
                             <div class="card-header">
