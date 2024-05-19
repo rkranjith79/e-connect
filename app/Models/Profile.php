@@ -319,14 +319,16 @@ class Profile extends MasterModel
 
     public function getWhatsappDataAttribute()
     {
-        return http_build_query(['text' => trans('fields.code')  . ":" . ($this->code ?? '-') . "\n" .
-            trans('fields.name')  . ":" .  ($this->title ?? '-') . "\n" .
-            trans('fields.age')  . ":" . ($this->jathagam->age ?? '-') . "\n" .
-            trans('fields.district')  . ":" . ($this->basic->district->title ?? '-') . "\n" .
-            trans('fields.work')   . ":" . ($this->basic->work->title ?? '-') . "\n" .
-            trans('fields.monthly_income')  . ":" . ($this->basic->monthly_income ?? '-') . "\n" .
-            trans('fields.rasi_nakshatra')  . ":" . ($this->jathagam->rasi_nakshatra->title ?? '-') . "\n" .
-            trans('fields.jathagam')  . ":" . ($this->jathagam->jathagam->title ?? '-') . "\n"]);
+        return $txt = trans('fields.code')  . ":" . ($this->code ?? '-') . "\n" .
+        trans('fields.name')  . ":" .  ($this->title ?? '-') . "\n" .
+        trans('fields.age')  . ":" . ($this->jathagam->age ?? '-') . "\n" .
+        trans('fields.district')  . ":" . ($this->basic->district->title ?? '-') . "\n" .
+        trans('fields.work')   . ":" . ($this->basic->work->title ?? '-') . "\n" .
+        trans('fields.monthly_income')  . ":" . ($this->basic->monthly_income ?? '-') . "\n" .
+        trans('fields.rasi_nakshatra')  . ":" . ($this->jathagam->rasi_nakshatra->title ?? '-') . "\n" .
+        trans('fields.jathagam')  . ":" . ($this->jathagam->jathagam->title ?? '-') . "\n"; 
+
+        return http_build_query(['text' => $txt]);
     }
 
 

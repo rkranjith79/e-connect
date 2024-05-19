@@ -38,9 +38,9 @@ class PurchasedProfile extends MasterModel
         return $this->belongsTo(Profile::class);
     }
 
-    public function profile()
+    public function profile()    
     {
-        return $this->belongsTo(profile::class);
+        return $this->belongsTo(Profile::class);
     }
 
     protected static function boot()

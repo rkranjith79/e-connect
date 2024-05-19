@@ -19,6 +19,8 @@
                                     <th width="7%">ID</th>
                                     <th>Name</th>
                                     <th>Email</th>
+                                    <th>Phone</th>
+                                    <th>User Name</th>
                                     <th>Status</th>
                                     <th>Profile ID</th>
                                     <th>Actions</th>
@@ -30,6 +32,8 @@
                                         <td>#{{ $user->id }}</td>
                                         <td>{{ $user->name }}</td>
                                         <td>{{ $user->email }}</td>
+                                        <td>{{ $user->phone }}</td>
+                                        <td>{{ $user->username }}</td>
                                         <td>{{ $user->status == 1 ? 'Active' : 'Inactive' }}</td>
                                         @if (!empty($user->profile->id ?? ''))
                                             <td>

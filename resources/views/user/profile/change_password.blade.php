@@ -6,7 +6,7 @@
             <div id="form_content" class="">
                 <div class="d-flex align-items-start">
                     @include('user.profile.sidebar')
-                    <div class="aiz-user-panel overflow-hidden col-lg-10">
+                    <div class="aiz-user-panel col-7  overflow-hidden col-lg-10">
                         @if (Session::has('success'))
                             <div class="alert alert-success alert-dismissible" role="alert">
                                 <button type="button" class="close" data-dismiss="alert">

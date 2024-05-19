@@ -15,8 +15,9 @@
     </div>
     <div class="col-sm-4">
         <div class="form-group mb-3">
-            <label class="form-label" for="email">{{ trans('fields.email') }}<span
-                    class="require-star">*</span></label>
+            <label class="form-label" for="email">{{ trans('fields.email') }}
+                {{-- <span class="require-star">*</span> --}}
+            </label>
             <div class="input-group">
                 <div class="input-group-prepend"><span class="input-group-text"><i class="fas fa-envelope"></i></span>
                 </div>

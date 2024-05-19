@@ -167,13 +167,20 @@
                 </a>
             </div>
             <div class="col">
-                <a href="javascript:void(0);"
-                    onclick="checkPurchasedProfile('{{ $profile->id }}', '{{ $profile->uuid }}', '{{ auth()->user()->profile->id }}', '{{ auth()->user()->profile->uuid }}')"
-                    class="text-dark c-pointer">
-                    <i class="fas {{ $profile->purchased ? 'fa-phone text-warning' : 'fa-phone' }}  fs-20"></i>
-                    <span
-                        class="d-block fs-10 {{ $profile->purchased ? 'text-warning' : 'text-dark' }}">{{ trans('site.view_contact') }}</span>
-                </a>
+                @if (config('siteconfigrations.payment_mode') == "none")
+                    <a href="https://wa.me/?phone={{ __getSiteConfigration('help_line') }}&text=I am interested in this profile details, {{ $profile->whatsappData }}" target="_blank" class="text-dark c-pointer">
+                        <i class="fas {{ $profile->purchased ? 'fa-phone text-warning' : 'fa-phone' }}  fs-20"></i>
+                        <span class="d-block fs-10 {{ $profile->purchased ? 'text-warning' : 'text-dark' }}">{{ trans('site.view_contact') }}</span>
+                        </a>
+                @else
+                    <a href="javascript:void(0);"
+                        onclick="checkPurchasedProfile('{{ $profile->id }}', '{{ $profile->uuid }}', '{{ auth()->user()->profile->id }}', '{{ auth()->user()->profile->uuid }}')"
+                        class="text-dark c-pointer">
+                        <i class="fas {{ $profile->purchased ? 'fa-phone text-warning' : 'fa-phone' }}  fs-20"></i>
+                        <span class="d-block fs-10 {{ $profile->purchased ? 'text-warning' : 'text-dark' }}">{{ trans('site.view_contact') }}</span>
+                    </a>
+                @endif
+               
             </div>
             <div class="col">
                 <a href="https://wa.me/?{{ $profile->whatsappData }}" target="_blank" class="text-dark c-pointer">
