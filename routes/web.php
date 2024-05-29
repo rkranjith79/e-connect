@@ -111,6 +111,8 @@ Route::name('user.')->prefix('user')->middleware(['auth'])->group(function () {
 
 Route::get('razorpay-payment', [App\Http\Controllers\RazorpayPaymentController::class, 'index']);
 Route::post('razorpay-payment', [App\Http\Controllers\RazorpayPaymentController::class, 'store'])->name('razorpay.payment.store');
+Route::get('phonepay-payment', [App\Http\Controllers\RazorpayPaymentController::class, 'makePhonePePayment'])->name('phonepe.payment');
+Route::post('phonepay-payment-callback', [App\Http\Controllers\RazorpayPaymentController::class, 'phonePeCallback'])->name('phonepe.payment-callback');
 
 
 Route::get('user/information/{code?}', [App\Http\Controllers\User\InformationController::class, 'index'])->name('user.information');
