@@ -18,7 +18,7 @@
                                 <div class="row div-email">
                                     <div class="col-12">
                                         <div class="form-group mb-3">
-                                            <label class="form-label" for="email">{{ trans('fields.email') }}<span
+                                            <label class="form-label" for="email">{{ trans('fields.email') }}  || {{ trans('fields.phone') }}<span
                                                     class="require-star">*</span></label>
                                             <div class="input-group">
                                                 <div class="input-group-prepend"><span class="input-group-text"><i

@@ -171,7 +171,7 @@ class ProfileController extends Controller
             'photo_file' => ['required', 'image', 'mimes:jpeg,jpg,png', 'max:2048'],
             'jathagam_file' => ['required', 'image', 'mimes:jpeg,jpg,png', 'max:2048'],
             'title' => ['required', 'max:100'],
-            'email' => ['required', 'unique:users', 'max:100'],
+            'email' => ['nullable', 'unique:users', 'max:100'],
             'gender_id' => ['required'],
             'password' => ['required', 'max:200'],
             'marital_status_id' => ['required'],
@@ -197,7 +197,7 @@ class ProfileController extends Controller
 
             'work_details' => ['required', 'max:100'],
             'whatsapp' => ['required', 'max:100'],
-            'phone' => ['required', 'max:100'],
+            'phone' => ['required',  'unique:users','max:100'],
             'address' => ['required', 'max:1000'],
             'monthly_income' => ['required', 'max:100'],
 
@@ -305,6 +305,8 @@ class ProfileController extends Controller
             $user = User::create([
                 'name' => $request->title,
                 'email' => $request->email,
+                'phone' => $request->phone,
+                'username' => $request->phone ??  $request->email ?? "",
                 'password' => Hash::make($request->password),
                 "status" => 0
             ]);
@@ -484,6 +486,8 @@ class ProfileController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $profile = Profile::findOrFail($request->id);
+
         $validator = Validator::make($request->all(), [
             'photo_file' => ['nullable', 'image', 'mimes:jpeg,jpg,png', 'max:2048'],
             'jathagam_file' => ['nullable', 'image', 'mimes:jpeg,jpg,png', 'max:2048'],
@@ -510,7 +514,7 @@ class ProfileController extends Controller
             'work_place_id' => ['required'],
             'work_details' => ['required', 'max:100'],
             'whatsapp' => ['required', 'max:100'],
-            'phone' => ['required', 'max:100'],
+            'phone' => ['required', 'unique:users,phone,'.$profile->user->id.',id', 'max:100'],
             'address' => ['required', 'max:1000'],
             'monthly_income' => ['required', 'max:100'],
 
@@ -594,9 +598,16 @@ class ProfileController extends Controller
             };
 
             $photo_file_path = $jathagam_file_path = "";
-            $profile = Profile::findOrFail($request->id);
+           
             $profileBasic = ProfileBasic::where('profile_id', $profile->id)->first();
             $profileJathagam = profileJathagam::where('profile_id', $profile->id)->first();
+
+            $profile->user->update([
+                'name' => $request->title,
+                'email' => $request->email,
+                'phone' => $request->phone,
+                'username' => $request->phone ??  $request->email ?? ""
+            ]);
 
             $profile->update([
                 "language_tamil" => $request->title,

@@ -69,20 +69,7 @@
             @endfor
 
             @if (__isProfiledUser())
-                <li class="nav-item">
-                    <a class="nav-link text-uppercase fw-700 fs-15 d-flex align-items-center bg-white py-2"
-                        href="{{ route('user.profile_edit') }}">
-                        <span class="text-primary-grad mb-n1">{{ trans('site.my_profile') }}</span>
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link text-uppercase fw-700 fs-15 d-flex align-items-center bg-white py-2"
-                        href="{{ route('user.change_password') }}">
-                        <span class="text-primary-grad mb-n1">{{ trans('site.change_password') }}</span>
-                    </a>
-                </li>
-
+  
                 <li class="nav-item">
                     <a href="{{ route('user.profile_edit') }}"
                         class="nav-link text-uppercase fw-700 fs-15 d-flex align-items-center bg-white py-2">

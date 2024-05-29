@@ -35,6 +35,6 @@ class PurchasedPlan extends Model
 
     public function profile()
     {
-        return $this->belongsTo(profile::class);
+        return $this->belongsTo(Profile::class);
     }
 }
