@@ -20,10 +20,19 @@ class PurchasedPlanController extends Controller
         $this->modal = new PurchasedPlan();
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        $modal_data =  $this->modal::paginate(20);
         $page_data = $this->pageData;
+
+        $modal_data = $this->modal->when(!empty($request->year), function ($q) use ($request) {
+            $q->whereYear('created_at', '=', $request->year);
+        })->when(!empty($request->from_date), function ($q) use ($request) {
+            $q->where('created_at', '>=', $request->from_date);
+        })->when(!empty($request->to_date), function ($q) use ($request) {
+            $q->where('created_at', '<=', $request->to_date);
+        })->withSum('plan', 'price')
+            ->paginate(20);
+
         return view('admin.purchased_plan.index', compact(['modal_data', 'page_data']));
     }
 }

@@ -6,9 +6,50 @@
             <div class="card">
                 <div class="card-header">
                     <h2 class="card-title float-start pt-2 mb-2">{{ $page_data['title'] }}</h2>
+                    <button title="Filter" class="btn btn-primary btn-xs float-end pl-0" style="padding: 4px 2px 3px"
+                        type="button" data-bs-toggle="collapse" data-bs-target="#filterSection" aria-expanded="false"
+                        aria-controls="filterSection">
+                        <i class="fas fa-filter"></i>
+                    </button>
                 </div>
                 <div class="card-body table-body">
+                    <div class="table mb-4 collapse" id="filterSection">
+                        <form action="" method="GET">
+                            <div class="row g-3">
+                                <div class="col-md-3">
+                                    <label for="year" class="form-label">Year</label>
+                                    <input type="text" readonly class="form-control" id="year" name="year"
+                                        value="{{ date('Y') }}">
+                                </div>
+                                <div class="col-md-3">
+                                    <label for="from_date" class="form-label">From Date</label>
+                                    <input type="date" class="form-control" id="from_date" name="from_date"
+                                        value="">
+                                </div>
+                                <div class="col-md-3">
+                                    <label for="to_date" class="form-label">To Date</label>
+                                    <input type="date" class="form-control" id="to_date" name="to_date" value="">
+                                </div>
+                                <div class="col-md-1 d-grid">
+                                    <label for="submit" class="form-label">&nbsp;</label>
+                                    <button type="submit" class="btn btn-primary">Search</button>
+                                </div>
+                            </div>
+                        </form>
+                        <hr>
+                    </div>
                     <div class="table-data table-responsive">
+                        <div class="float-end">
+                            @php
+                                $sum = 0;
+                                foreach ($modal_data as $value) {
+                                    $sum = $sum + $value->plan_sum_price;
+                                }
+                            @endphp
+                            @if ($sum > 0)
+                                <h6>Total: {{ $sum }}</h6>
+                            @endif
+                        </div>
                         <table class="table table-bordered table-striped">
                             <thead>
                                 <tr>
