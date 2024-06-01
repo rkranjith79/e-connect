@@ -194,11 +194,10 @@ class RazorpayPaymentController extends Controller
         $rData = json_decode($response);
 
         if (isset($rData->data) && isset($rData->data->instrumentResponse->redirectInfo->url)) {
-
-          
             return redirect()->to($rData->data->instrumentResponse->redirectInfo->url);
         } else {
             Log::error('Unexpected API Response Structure: ', (array) $rData);
+            dd($rData);
             return response()->json(['error' => 'Unexpected API response structure'], 500);
         }
     }
@@ -252,7 +251,6 @@ class RazorpayPaymentController extends Controller
         ));
 
         $response = curl_exec($curl);
-        dd($response);
 
         $response = json_decode($response, true);
 
