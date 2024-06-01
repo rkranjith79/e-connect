@@ -133,7 +133,7 @@ class RazorpayPaymentController extends Controller
 
         $phonepeConfig = config('phonepe');
         $data =  $phonepeConfig['js_configuration'];
-        $data['amount'] = 100;//$phonepeSession['amount'] ?? 1;
+        $data['amount'] = $phonepeSession['amount'] ?? 1;
         $data['merchantTransactionId'] = "ID".auth()->user()->id."PP".$phonepeSession['purchased_profile_id'].date("dmyhis");
         $data['merchantUserId'] = "ID".auth()->user()->id;
 
