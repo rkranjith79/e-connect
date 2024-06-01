@@ -133,7 +133,7 @@ class RazorpayPaymentController extends Controller
 
         $phonepeConfig = config('phonepe');
         $data =  $phonepeConfig['js_configuration'];
-        $data['amount'] = $phonepeSession['amount'] ?? 1;
+        $data['amount'] = 100;//$phonepeSession['amount'] ?? 1;
         $data['merchantTransactionId'] = "ID".auth()->user()->id."PP".$phonepeSession['purchased_profile_id'].date("dmyhis");
         $data['merchantUserId'] = "ID".auth()->user()->id;
 
@@ -155,7 +155,7 @@ class RazorpayPaymentController extends Controller
         //     'type' => 'PAY_PAGE',
         //   ),
         // );
-
+//dd($data);
         $encode = base64_encode(json_encode($data));
 
         $saltKey = $phonepeConfig['salt_key'];
@@ -170,7 +170,7 @@ class RazorpayPaymentController extends Controller
         $curl = curl_init();
 
         curl_setopt_array($curl, [
-          CURLOPT_URL => $phonepeConfig['url'],
+          CURLOPT_URL => $phonepeConfig['url']."/pg/v1/pay",
           CURLOPT_RETURNTRANSFER => true,
           CURLOPT_ENCODING => '',
           CURLOPT_MAXREDIRS => 10,
@@ -188,7 +188,7 @@ class RazorpayPaymentController extends Controller
         $response = curl_exec($curl);
 
         curl_close($curl);
-
+//dd( $response, $data,$phonepeConfig['url']."/pg/v1/pay");
         Log::info('PhonePe API Response: ' . $response);
 
         $rData = json_decode($response);
@@ -206,6 +206,7 @@ class RazorpayPaymentController extends Controller
     public function phonePeCallback(Request $request)
     {
       $input = $request->all();
+      //dd( $input);
       $phonepeSession = Session::get('phonepe');
        // $phonepeSession =  Cache::get('phonepe_user_'.auth()->user()->id);
             //  'amount' => $purchasePlan->price * 100,
@@ -224,6 +225,7 @@ class RazorpayPaymentController extends Controller
    
         $finalXHeader = hash('sha256','/pg/v1/status/'.$input['merchantId'].'/'.$input['transactionId'].$saltKey).'###'.$saltIndex;
 
+        $finalXHeader = $input['checksum'];
         // $response = Curl::to('https://api-preprod.phonepe.com/apis/merchant-simulator/pg/v1/status/'.$input['merchantId'].'/'.$input['transactionId'])
         //         ->withHeader('Content-Type:application/json')
         //         ->withHeader('accept:application/json')
@@ -232,9 +234,8 @@ class RazorpayPaymentController extends Controller
         //         ->get();
 
         $curl = curl_init();
-
         curl_setopt_array($curl, array(
-          CURLOPT_URL => 'https://api-preprod.phonepe.com/apis/merchant-simulator/pg/v1/status/'.$input['merchantId'].'/'.$input['transactionId'],
+          CURLOPT_URL => $phonepeConfig['url'].'/pg/v1/status/'.$input['merchantId'].'/'.$input['transactionId'],
           CURLOPT_RETURNTRANSFER => true,
           CURLOPT_ENCODING => '',
           CURLOPT_MAXREDIRS => 10,
@@ -251,6 +252,8 @@ class RazorpayPaymentController extends Controller
         ));
 
         $response = curl_exec($curl);
+        dd($response);
+
         $response = json_decode($response, true);
 
         if(($response['success'] ?? false) == true) {

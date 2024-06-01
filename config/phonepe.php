@@ -16,6 +16,6 @@ return [
             ],
         "salt_key" => env("PHONEPE_SALT_KEY", "96434309-7796-489d-8924-ab56988a6076"),
         "salt_index" => env("PHONEPE_SALT_INDEX", 1),
-        "url" => env("PHONEPE_URL", "https://api-preprod.phonepe.com/apis/pg-sandbox/pg/v1/pay")
+        "url" => env("PHONEPE_URL", "https://api-preprod.phonepe.com/apis/pg-sandbox")
 
         ];
