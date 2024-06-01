@@ -754,19 +754,11 @@ class ProfileController extends Controller
 
         if (!empty($request->plan_id)) {
             $profile = Profile::find($profile);
-            $plan = Plan::find($request->plan_id);
-            $purchasedPlan = $profile->purchasedPlans()->create(
-                [
-                    'plan_id' => $plan->id,
-                    'order' => $request->all() ?? '',
-                    'used_profile_count' => 0,
-                    'expired_at' => Carbon::now()->addDays($plan->expire_in_days),
 
-                ]
-            );
-
+            $purchasedPlan = $profile->setPurchasedPlan($request->plan_id, $request->all());
+            
             if ($purchasedPlan) {
-                return response()->json(['status' => '200']);
+                return response()->json(['status' => '200', 'purchased_plan_id' => $purchasedPlan->id]);
             }
         }
 

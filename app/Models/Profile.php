@@ -137,6 +137,20 @@ class Profile extends MasterModel
         return $this->hasMany(PurchasedPlan::class, 'profile_id', 'id');
     }
 
+    public function setPurchasedPlan($plan, $order, $active = 1)
+    {
+        $Plan = Plan::find($plan);
+        return $this->purchasedPlans()->create(
+            [
+                'plan_id' => $Plan->id,
+                'order' => $order ?? '',
+                'used_profile_count' => 0,
+                'expired_at' => Carbon::now()->addDays($Plan->expire_in_days),
+                'active' => 1
+            ]
+        );;
+    }
+
 
     public function myAvailablePlans()
     {

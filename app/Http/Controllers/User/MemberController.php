@@ -12,7 +12,8 @@ use Barryvdh\DomPDF\Facade\Pdf;
 use Dompdf\Dompdf;
 use Dompdf\Options;
 use Illuminate\Support\Facades\Auth;
-
+use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Session;
 
 class MemberController extends Controller
 {
@@ -239,23 +240,42 @@ class MemberController extends Controller
         }
 
         $purchasePlan = Plan::getInitialPlan();
-        $razorpay_config = config('razorpay.js_configuration');
-        $razorpay_config['plan_id'] = $purchasePlan->id;
-        $razorpay_config['amount'] = $purchasePlan->price * 100;
-        $razorpay_config['prefill'] = [
-            'name' =>  $profile->title,
-            'email' => $profile->email,
-            'contact' => $profile->basic->phone
-        ];
+        
+        $razorpay_config = [];
+        $phonepe_config = [];
+        if(config('siteconfigrations.payment_mode') == 'razor_pay') {
+            $razorpay_config = config('razorpay.js_configuration');
 
-        $razorpay_config['image'] = asset('img/logo-e-connet.png');
-        $razorpay_config['notes']['address'] = __getSiteConfigration('address_1');
+            $razorpay_config['plan_id'] = $purchasePlan->id;
+            $razorpay_config['amount'] = $purchasePlan->price * 100;
+            $razorpay_config['prefill'] = [
+                'name' =>  $profile->title,
+                'email' => $profile->email,
+                'contact' => $profile->basic->phone
+            ];
 
+            $razorpay_config['image'] = asset('img/logo-e-connet.png');
+            $razorpay_config['notes']['address'] = __getSiteConfigration('address_1');
+        } else if(config('siteconfigrations.payment_mode') == 'phonepe') {
+            $phonepe_config = [
+                'amount' => $purchasePlan->price * 100,
+                'profile_id' => $profile->id,
+                'profile_uuid' => $profile_uuid,
+                'purchased_profile_id' => $purchased_profile_id,
+                'purchased_profile_uuid' => $purchased_profile_uuid,
+                'plan_id' => $purchasePlan->id,
+                'redirect' => route('phonepe.payment'),
+                'mobile_number' => $profile->basic->phone
+            ];
+            Session::put('phonepe', $phonepe_config);
+            // Cache::set('phonepe_user_'.auth()->user()->id, $phonepe_config);
+        }
         return response()->json([
             'status' => 200,
             'type' => 'payment',
+            'mode' => config('siteconfigrations.payment_mode'),
             'razorpay_config' => $razorpay_config,
-
+            'phonepe_config' => $phonepe_config,
             'redirect' => route('user.purchase_profile', [
                 'profile' => $profile->id,
                 'profile_uuid' => $profile_uuid,

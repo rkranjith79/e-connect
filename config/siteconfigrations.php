@@ -3,5 +3,5 @@
 use Illuminate\Support\Facades\Facade;
 
 return [
-    "payment_mode" => "none"
+    "payment_mode" => "phonepe" //razor_pay, none
 ];

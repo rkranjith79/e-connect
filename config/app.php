@@ -16,7 +16,7 @@ return [
     | Need to update every production or fix the vite package
     */
     
-    'version' => 'v1.0.1',
+    'version' => 'v1.0.2',
     /*
     |--------------------------------------------------------------------------
     | Application Name

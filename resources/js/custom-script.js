@@ -110,8 +110,11 @@ function checkPurchasedProfile(purchased_profile_id, purchased_profile_uuid, pro
                     } else if (response.type == "plan") {
                         window.location.replace(response.redirect)
                     } else if (response.type == "payment") {
-                        if (response.razorpay_config)
+                        if (response.mode == "razor_pay" && response.razorpay_config) {
                             paymentRazorPay(response.razorpay_config, response.redirect, purchased_profile_id, purchased_profile_uuid, profile_id, profile_uuid);
+                        } else if (response.mode == "phonepe" && response.phonepe_config) {
+                            window.location.replace(response.phonepe_config.redirect);
+                        }
                     } else {
                         Swal.fire({
                             title: 'Error!',
@@ -203,7 +206,6 @@ function setPurchasePlan(purchased_profile_id, purchased_profile_uuid, profile_i
             },
             success: function (response) {
                 if (response.status == 200) {
-
                     window.location.replace(redirect);
                 }
                 // Handle the server response as needed
