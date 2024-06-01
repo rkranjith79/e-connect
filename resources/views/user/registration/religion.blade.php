@@ -117,6 +117,9 @@
             /*the autocomplete function takes two arguments,
             the text field element and an array of possible autocompleted values:*/
             var currentFocus;
+            if(!inp) {
+                return false;
+            }
             /*execute a function when someone writes in the text field:*/
             inp.addEventListener("input", function(e) {
                 var a, b, i, val = this.value;
