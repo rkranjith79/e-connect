@@ -246,7 +246,7 @@ class RazorpayPaymentController extends Controller
             'Content-Type: application/json',
             'accept: application/json',
             'X-VERIFY: '.$finalXHeader,
-            'X-MERCHANT-ID: '.$input['transactionId']
+            'X-MERCHANT-ID: '.$input['merchantId']
           ),
         ));
 
