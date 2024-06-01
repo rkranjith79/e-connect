@@ -224,7 +224,7 @@ class RazorpayPaymentController extends Controller
    
         $finalXHeader = hash('sha256','/pg/v1/status/'.$input['merchantId'].'/'.$input['transactionId'].$saltKey).'###'.$saltIndex;
 
-        $finalXHeader = $input['checksum'];
+       // $finalXHeader = $input['checksum'];
         // $response = Curl::to('https://api-preprod.phonepe.com/apis/merchant-simulator/pg/v1/status/'.$input['merchantId'].'/'.$input['transactionId'])
         //         ->withHeader('Content-Type:application/json')
         //         ->withHeader('accept:application/json')
@@ -244,7 +244,6 @@ class RazorpayPaymentController extends Controller
           CURLOPT_CUSTOMREQUEST => 'GET',
           CURLOPT_HTTPHEADER => array(
             'Content-Type: application/json',
-            'accept: application/json',
             'X-VERIFY: '.$finalXHeader,
             'X-MERCHANT-ID: '.$input['merchantId']
           ),
