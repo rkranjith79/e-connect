@@ -6,8 +6,11 @@
             <div class="input-group">
                 <div class="input-group-prepend"><span class="input-group-text"><i class="fas fa-phone-alt"></i></span>
                 </div>
+                @php
+                    $user_phone = Auth::user()->phone ?? '';
+                @endphp
                 <input type="number" class="form-control required "
-                    value="{{ @old('phone') ?? ($profileBasic->phone ?? '') }}" id="phone" name="phone"
+                    value="{{ @old('phone') ?? ($user_phone) }}" id="phone" name="phone" @readonly($user_phone)
                     maxlength="10">
             </div>
             <small class="form-text text-muted text-help"></small>

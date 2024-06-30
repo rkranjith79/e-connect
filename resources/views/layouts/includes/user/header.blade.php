@@ -29,28 +29,45 @@
                 <div class="col-lg-7 col">
                     <ul class="list-inline mb-0 d-flex align-items-center justify-content-end ">
                         @if (Auth::user())
-                            <li class="list-inline-item mx-4">
-                                <a href="{{ route('user.profile_edit') }}" class="d-flex align-items-center text-reset">
-                                    <img class="size-30px rounded-circle img-fit mr-2"
-                                        src="{{ Auth::user()->profile->photo ?? '' }}" alt="Profile Photo"
-                                        onerror="this.onerror=null;this.src='{{ asset('img/avatar-place.png') }}';">
-                                    <span class="mr-1">
-                                        Hi,
-                                    </span>
-                                    <span class="text-primary-grad fw-700">
-                                        {{ Auth::user()->profile->title ?? '' }}
-                                    </span>
-                                </a>
-                            </li>
-                            <li class="list-inline-item text-center">
+                            <a href="{{ route('user.profile_edit') }}"
+                                class="d-flex align-items-center text-reset dropdown-toggle" href="#"
+                                role="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="false">
+                                <img class="size-30px rounded-circle img-fit mr-2"
+                                    src="{{ Auth::user()->profile->photo ?? '' }}" alt="Profile Photo"
+                                    onerror="this.onerror=null;this.src='{{ asset('img/avatar-place.png') }}';">
+                                <span class="mr-1">
+                                    Hi,
+                                </span>
+                                <span class="text-primary-grad fw-700">
+                                    {{ Auth::user()->profile->title ?? '' }}
+                                </span>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                                @foreach (Auth::user()->profiles as $profile)
+                                    @if ($profile->id != Auth::user()->last_login_profile_id)
+                                        <form method="POST"
+                                            action="{{ route('user.update_last_login_profile', ['profile' => $profile->id]) }}">
+                                            @csrf
+                                            <button type="submit" class="dropdown-item d-flex align-items-center">
+                                                <img class="size-30px rounded-circle img-fit mr-2"
+                                                    src="{{ $profile->photo ?? asset('img/avatar-place.png') }}"
+                                                    alt="Profile Photo"
+                                                    onerror="this.onerror=null;this.src='{{ asset('img/avatar-place.png') }}';">
+                                                {{ $profile->title ?? '' }}
+                                            </button>
+                                        </form>
+                                    @endif
+                                @endforeach
+                                @if (count(Auth::user()->profiles) > 1)
+                                    <div class="dropdown-divider"></div>
+                                @endif
                                 <form method="POST" action="{{ route('logout') }}">
                                     @csrf
-                                    <button class="btn btn-sm btn-danger text-white fw-600 py-1 border"
-                                        type="submit">{{ trans('site.logout') }}</button>
+                                    <button class="dropdown-item" type="submit">{{ trans('site.logout') }}</button>
                                 </form>
-                            </li>
-
-                            <li class="list-inline-item">
+                            </div>
+                            <li class="list-inline-item pl-2">
                                 <a class="btn btn-sm btn-primary text-white fw-600 py-1 border"
                                     href="{{ route('registers') }}">{{ trans('site.registration') }}</a>
                             </li>
@@ -121,8 +138,8 @@
 
                         <li class="d-inline-block d-lg-flex pb-1 ">
                             <a class="nav-link text-uppercase fw-700 fs-15 d-flex align-items-center bg-white py-2"
-                                href="javascript:void(0)" 
-                                id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                href="javascript:void(0)" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="false">
                                 <span class="text-primary-grad mb-n1">{{ trans('site.more') }}</span>
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
@@ -131,8 +148,8 @@
                                         class="text-reset w-100 d-block">About Us</a>
                                 </li>
                                 <li class="dropdown-item">
-                                    <a href="{{ route('user.information', ['code' => 'contact_us']) }}" target="_blank"
-                                        class="text-reset w-100 d-block">Contact Us</a>
+                                    <a href="{{ route('user.information', ['code' => 'contact_us']) }}"
+                                        target="_blank" class="text-reset w-100 d-block">Contact Us</a>
                                 </li>
                                 <li class="dropdown-item">
                                     <a href="{{ route('user.information', ['code' => 'terms_and_conditions']) }}"
@@ -151,8 +168,7 @@
                                     class="d-inline-block d-lg-flex pb-1 u {{ \Request::getRequestUri() == __getSiteConfigration('dynamic_header_link_' . $i) ? 'bg-primary-grad' : '' }}">
                                     <a class="nav-link b-1 text-uppercase fw-700 fs-15 d-flex align-items-center bg-white py-2"
                                         href="{{ __getSiteConfigration('dynamic_header_link_' . $i) }}"
-                                        target="{{ __getSiteConfigration('dynamic_header_link_' . $i, 'target') }}"
-                                        >
+                                        target="{{ __getSiteConfigration('dynamic_header_link_' . $i, 'target') }}">
                                         <span
                                             class="text-primary-grad mb-n1">{{ __getSiteConfigration('dynamic_header_link_' . $i, 'label') }}</span>
                                     </a>
@@ -175,3 +191,16 @@
         </div>
     </header>
 </div>
+<style>
+    .dropdown-item {
+    white-space: normal; /* Allows text to wrap */
+    word-wrap: break-word; /* Breaks long words if necessary */
+    max-width: 100%; /* Ensures the item does not overflow */
+}
+
+@media (max-width: 576px) {
+    .dropdown-menu {
+        width: 100%; /* Ensures dropdown takes full width on small screens */
+    }
+}
+</style>

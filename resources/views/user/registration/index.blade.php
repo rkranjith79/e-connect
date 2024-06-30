@@ -61,6 +61,8 @@
         </div>
     </div>
     <script>
+        var isAuthenticated = {{ Auth::check() ? 'true' : 'false' }};
+
         function submitForm() {
             var formData = $("#registration_form").serialize(); // Serialize the form data
 
@@ -71,7 +73,7 @@
 
             $.ajax({
                 type: "POST",
-                url: "{{ route('user.profile_store') }}", // Replace with your server endpoint
+                url: isAuthenticated ? "{{ route('user.profile_create_authenticated') }}" : "{{ route('user.profile_store') }}",
                 headers: {
                     'X-CSRF-TOKEN': '{{ csrf_token() }}'
                 },
@@ -106,6 +108,14 @@
                         clearErrors(); // Clear any previous error messages
                     } else {
                         handleErrors(response.errors); // Display validation errors
+                    }
+                },
+                error: function(xhr) {
+                    if (xhr.status === 400) {
+                        // Handle validation error response
+                        handleErrors(xhr.responseJSON.errors); // Display validation errors
+                    } else {
+                        console.log("An error occurred:", xhr);
                     }
                 }
             });

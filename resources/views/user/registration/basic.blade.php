@@ -21,14 +21,18 @@
             <div class="input-group">
                 <div class="input-group-prepend"><span class="input-group-text"><i class="fas fa-envelope"></i></span>
                 </div>
+                @php
+                    $user_mail = Auth::user()->email ?? '';
+                @endphp
                 <input type="email" class="form-control required "
-                    value="{{ old('email') ?? ($profile->email ?? '') }}" id="email" name="email" maxlength="255">
+                    value="{{ old('email') ?? ($user_mail) }}" id="email" name="email"
+                    maxlength="255" @readonly($user_mail)>
             </div>
             <small class="form-text text-muted text-help"></small>
             <span class="invalid-feedback"></span>
         </div>
     </div>
-    @if (!isset($profile))
+    @if (Auth::check() == false)
         <div class="col-sm-4">
             <div class="form-group mb-3">
                 <label class="form-label" for="passwd">{{ trans('fields.password') }}<span
@@ -36,7 +40,7 @@
                 <div class="input-group">
                     <div class="input-group-prepend"><span class="input-group-text"><i class="fas fa-key"></i></span>
                     </div>
-                    <input type="password" class="form-control required " value="" id="password" name="password"
+                    <input type="password" class="form-control required " value="{{ old('password') ?? '' }}" id="password" name="password"
                         maxlength="100"><button id="toggle-pwd" type="button"><i class="fa fa-eye"></i></button><span
                         class="">
                 </div>
@@ -92,7 +96,7 @@
     </div>
 
 
-    
+
 
     <div class="col-sm-4 div-children-details hide">
         <div class="form-group mb-3">
@@ -132,18 +136,31 @@
     </div>
 </div>
 
-@push("scripts")
+@push('scripts')
     <script>
         function toggleChildrenDetailds() {
             var marital_status_id = $("#marital_status_id").val();
-            if(marital_status_id == 2) {
+            if (marital_status_id == 2) {
                 $(".div-children-details").removeClass('hide');
                 return true;
             }
             $(".div-children-details").addClass('hide');
-           
+
             return true;
         }
         toggleChildrenDetailds();
+
+        $('#toggle-pwd').click(function() {
+            var passwordField = $('#password');
+            var fieldType = passwordField.attr('type');
+
+            if (fieldType === 'password') {
+                passwordField.attr('type', 'text');
+                $('#toggle-pwd i').removeClass('fa-eye').addClass('fa-eye-slash');
+            } else {
+                passwordField.attr('type', 'password');
+                $('#toggle-pwd i').removeClass('fa-eye-slash').addClass('fa-eye');
+            }
+        });
     </script>
 @endpush

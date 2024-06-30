@@ -42,7 +42,7 @@ class User extends Authenticatable
 
     public function profile()
     {
-        return $this->hasOne(Profile::class);
+        return $this->belongsTo(Profile::class, 'last_login_profile_id');
     }
 
     protected static function boot()
@@ -64,5 +64,10 @@ class User extends Authenticatable
         static::creating(function ($user) {
             $user->uuid = (string) Str::uuid();
         });
+    }
+
+    public function profiles()
+    {
+        return $this->hasMany(Profile::class);
     }
 }
