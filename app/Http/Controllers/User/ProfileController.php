@@ -220,6 +220,9 @@ class ProfileController extends Controller
                 "photo_file" => $photo_file_path,
             ]);
 
+            //Update Last Login id
+            $user->update(['last_login_profile_id' => $profile->id]);
+
             // $sub_caste = SubCaste::firstOrCreate(['title' => $request->sub_caste, 'caste_id'=> $request->caste_id], ['title' => $request->sub_caste, 'caste_id'=> $request->caste_id,  'language_tamil'=> $request->sub_caste]);
             // "active" => $request->active == true ? '1' : '0', Parthi
             ProfileBasic::create([
@@ -283,7 +286,7 @@ class ProfileController extends Controller
 
             return response()->json([
                 'status' => 400,
-                'message' => "Somting Went Wrong",
+                'message' => "Something Went Wrong",
             ]);
         }
         return response()->json([

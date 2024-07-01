@@ -1,6 +1,6 @@
 <div class="border border-gray-300 rounded shadow mb-4 has-transition position-relative">
-    <div class="row no-gutters 
-                                        @if ($profile->purchased) purchased-profile-bg 
+    <div class="row no-gutters
+                                        @if ($profile->purchased) purchased-profile-bg
                                         @elseif ($profile->interested)
                                         interested-profile-bg @endif
                                         "
@@ -8,7 +8,7 @@
                                      ">
         <div class="col-md-auto">
             <div class="text-center pt-3 pt-md-0">
-                <img src="{{ $profile->photo }}" class="profile-thumb"
+                <img loading="lazy" src="{{ $profile->photo }}" class="profile-thumb"
                     onerror="this.onerror=null;this.src='{{ $profile->photo }}';">
                 <div class="mt-2">
                     <a href="{{ route('user.profile', ['id' => $profile->id, 'uuid' => $profile->uuid]) }}"
@@ -132,7 +132,7 @@
         <hr class="m-0">
         <div
             class="row gutters-5 text-center bg-seconary m-0 p-2
-                                           
+
                                         @if ($profile->purchased) bg-primary
                                         @else @endif
                                             ">
@@ -180,7 +180,7 @@
                         <span class="d-block fs-10 {{ $profile->purchased ? 'text-warning' : 'text-dark' }}">{{ trans('site.view_contact') }}</span>
                     </a>
                 @endif
-               
+
             </div>
             <div class="col">
                 <a href="https://wa.me/?{{ $profile->whatsappData }}" target="_blank" class="text-dark c-pointer">

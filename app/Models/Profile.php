@@ -340,7 +340,7 @@ class Profile extends MasterModel
         trans('fields.work')   . ":" . ($this->basic->work->title ?? '-') . "\n" .
         trans('fields.monthly_income')  . ":" . ($this->basic->monthly_income ?? '-') . "\n" .
         trans('fields.rasi_nakshatra')  . ":" . ($this->jathagam->rasi_nakshatra->title ?? '-') . "\n" .
-        trans('fields.jathagam')  . ":" . ($this->jathagam->jathagam->title ?? '-') . "\n"; 
+        trans('fields.jathagam')  . ":" . ($this->jathagam->jathagam->title ?? '-') . "\n";
 
         return http_build_query(['text' => $txt]);
     }

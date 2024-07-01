@@ -107,7 +107,7 @@ Route::name('user.')->prefix('user')->middleware(['auth'])->group(function () {
     Route::get('/purchase-profile-availability/{purchased_profile_id}/u/{purchased_profile_uuid}/my/{profile}/u/{profile_uuid}', [App\Http\Controllers\User\MemberController::class, 'checkPurchasedProfileAvailability'])->name('purchase_profile_availability');
     Route::get('/purchase-plan/{profile}/u/{profile_uuid}', [App\Http\Controllers\User\ProfileController::class, 'purchasePlan'])->name('purchase_plan');
     Route::get('/purchase-profile/{purchased_profile_id}/u/{purchased_profile_uuid}/my/{profile}/u/{profile_uuid}', [App\Http\Controllers\User\ProfileController::class, 'purchaseProfile'])->name('purchase_profile');
-    Route::post('/admin/update-profile/{profile}', [App\Http\Controllers\Admin\UserController::class, 'updateLastLoginProfile'])->name('update_last_login_profile');
+    Route::post('/update-last-login/{profile}', [App\Http\Controllers\Admin\UserController::class, 'updateLastLoginProfile'])->name('update_last_login_profile');
     Route::post('/profile/create-authenticated', [App\Http\Controllers\User\ProfileController::class, 'profileCreateAuthenticated'])->name('profile_create_authenticated');
 
 });

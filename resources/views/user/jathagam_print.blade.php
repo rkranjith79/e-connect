@@ -15,7 +15,7 @@
                 <div class="row">
                     <div class="col">
                         <div class="print-header text-center">
-                            <img src="{{asset('img/logo-e-connet.png')}}" alt="E-connect Matrimony" class="w-auto h-80px">
+                            <img loading="lazy" src="{{asset('img/logo-e-connet.png')}}" alt="E-connect Matrimony" class="w-auto h-80px">
                             <div class="row">
                                 {{-- <div class="col-md-6">
                                     <span class="mx-2 float-left"><a href="tel:{{ $data['profile']->basic->phone ?? '' }}"
@@ -54,7 +54,7 @@
                 <h4 class="section-title">{{ trans('fields.section_basic') }}</h4>
                 <div class="form-row first-row">
                     <div class="col-6 text-center">
-                        <img src="{{ $data['profile']->photo }}" class="profile-thumbnail w-auto mw-100"
+                        <img loading="lazy" src="{{ $data['profile']->photo }}" class="profile-thumbnail w-auto mw-100"
                             onerror="this.onerror=null;this.src='{{ asset('img/avatar-place.png') }}';">
                     </div>
                     <div class="col-6">
@@ -260,7 +260,7 @@
                                     <p>{{ $data['profile']->jathagam->rasi_title['5'] ?? '' }}</p>
                                 </td>
                                 <td rowspan="2" colspan="2">
-                                    <img src="{{asset('img/logo-e-connet.png')}}"
+                                    <img loading="lazy" src="{{asset('img/logo-e-connet.png')}}"
                                         border="0" class="h-50px w-auto"><br>
                                     <strong> {{ trans('fields.rasi') }} </strong>
                                 </td>
@@ -313,7 +313,7 @@
                                     <p>{{ $data['profile']->jathagam->navamsam_title['5'] ?? '' }}</p>
                                 </td>
                                 <td rowspan="2" colspan="2">
-                                    <img src="{{asset('img/logo-e-connet.png')}}"
+                                    <img loading="lazy" src="{{asset('img/logo-e-connet.png')}}"
                                         border="0" class="h-50px w-auto"><br>
                                     <strong>{{ trans('fields.navamsam') }}</strong>
                                 </td>
@@ -455,14 +455,14 @@
 			height: 128,
 			colorDark: "#248822",
 			colorLight: "#ffffff",
-			
+
 			PI_TL: "#c62b30",
 			PI_TR: "#c62b30",
 			PI_BL: "#c62b30",
 
 			logo: "https://ganeshkongumatrimony.com/assets/img/Logo.png",
 			logoBgTransparent: true,
-			
+
 			correctLevel: QRCode.CorrectLevel.H
 		});
         function print_page() {
@@ -473,7 +473,7 @@
 			}
 		}
 		function download_image() {
-            
+
 			$('#loading').show();
 			$('body').addClass('on-print');
 			$('.section-title').addClass('hide');
@@ -517,7 +517,7 @@
 					var file = new File([blob], profile_id + ".png", {type: 'image/png'});
 					var filesArray = [file];
 					var url = URL.createObjectURL(blob);
-					
+
 					//If mobile, trigger navigator menu
 					var shareData = {
 							text: share_text,
@@ -539,7 +539,7 @@
 				$("#loading").fadeOut(500);
 			});
 		}
-		
+
 		if(navigator.userAgent.indexOf('GKMAndroidApp') !== -1) {
 			jQuery('a[target="_blank"]').on("click", function() {
 				window.location.href = jQuery(this).attr('href');

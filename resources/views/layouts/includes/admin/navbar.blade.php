@@ -2,10 +2,10 @@
     <div class="navbar-brand-wrapper d-flex justify-content-center">
         <div class="navbar-brand-inner-wrapper d-flex justify-content-between align-items-center w-10">
             <a class="navbar-brand brand-logo" href="{{ route('admin.dashboard') }}">
-                <img src="{{asset('img/logo-e-connet.png')}}" alt="logo" style="height: 90px" />
+                <img loading="lazy" src="{{asset('img/logo-e-connet.png')}}" alt="logo" style="height: 90px" />
             </a>
             <a class="navbar-brand brand-logo-mini" href="{{ url('/') }}">
-                {{-- <img src="images/logo-mini.svg" alt="logo" /> --}}
+                {{-- <img loading="lazy" src="images/logo-mini.svg" alt="logo" /> --}}
             </a>
             <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
                 <span class="mdi mdi-sort-variant"></span>
@@ -37,7 +37,7 @@
                     <p class="mb-0 font-weight-normal float-left dropdown-header">Messages</p>
                     <a class="dropdown-item">
                         <div class="item-thumbnail">
-                            <img src="{{asset('admin/images/faces/face4.jpg')}}" alt="image" class="profile-pic">
+                            <img loading="lazy" src="{{asset('admin/images/faces/face4.jpg')}}" alt="image" class="profile-pic">
                         </div>
                         <div class="item-content flex-grow">
                             <h6 class="ellipsis font-weight-normal">David Grey
@@ -49,7 +49,7 @@
                     </a>
                     <a class="dropdown-item">
                         <div class="item-thumbnail">
-                            <img src="{{asset('admin/images/faces/face2.jpg')}}" alt="image" class="profile-pic">
+                            <img loading="lazy" src="{{asset('admin/images/faces/face2.jpg')}}" alt="image" class="profile-pic">
                         </div>
                         <div class="item-content flex-grow">
                             <h6 class="ellipsis font-weight-normal">Tim Cook
@@ -61,7 +61,7 @@
                     </a>
                     <a class="dropdown-item">
                         <div class="item-thumbnail">
-                            <img src="{{asset('admin/images/faces/face3.jpg')}}" alt="image" class="profile-pic">
+                            <img loading="lazy" src="{{asset('admin/images/faces/face3.jpg')}}" alt="image" class="profile-pic">
                         </div>
                         <div class="item-content flex-grow">
                             <h6 class="ellipsis font-weight-normal"> Johnson
@@ -124,7 +124,7 @@
             </li> --}}
             <li class="nav-item nav-profile dropdown">
                 <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" id="profileDropdown">
-                    <img src="{{asset('admin/images/faces/face5.jpg')}}" alt="profile" />
+                    <img loading="lazy" src="{{asset('admin/images/faces/face5.jpg')}}" alt="profile" />
                     <span class="nav-profile-name">{{ Auth::user()->name ?? '' }}</span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">

@@ -16,7 +16,7 @@
                     <div class="overflow-hidden shadow-none border-right">
                         <div class="card-body">
                             <div class="text-center mb-4 mt-3">
-                                <img class="mw-100 mx-auto mb-4"
+                                <img loading="lazy" class="mw-100 mx-auto mb-4"
                                     src="https://econnectmatrimony.com/uploads/all/V9VTHjUc8eqQuRlvlKV9VTHjUc8exUCrEZTzyuDr.png"
                                     height="130">
                                 <h5 class="mb-3 h5 fw-600">Free</h5>
@@ -89,7 +89,7 @@
                     <div class="overflow-hidden shadow-none border-right">
                         <div class="card-body">
                             <div class="text-center mb-4 mt-3">
-                                <img class="mw-100 mx-auto mb-4"
+                                <img loading="lazy" class="mw-100 mx-auto mb-4"
                                     src="https://econnectmatrimony.com/uploads/all/9cQUPHgaiAQvzZxrSlovzbhHs2495HhTE8EoLLpw.png"
                                     height="130">
                                 <h5 class="mb-3 h5 fw-600">Basic 100</h5>
@@ -163,7 +163,7 @@
                     <div class="overflow-hidden shadow-none border-right">
                         <div class="card-body">
                             <div class="text-center mb-4 mt-3">
-                                <img class="mw-100 mx-auto mb-4"
+                                <img loading="lazy" class="mw-100 mx-auto mb-4"
                                     src="https://econnectmatrimony.com/uploads/all/9cQUPHgaiAQvzZxrSlovzbhHs2495HhTE8EoLLpw.png"
                                     height="130">
                                 <h5 class="mb-3 h5 fw-600">2000</h5>
@@ -237,7 +237,7 @@
                     <div class="overflow-hidden shadow-none border-right">
                         <div class="card-body">
                             <div class="text-center mb-4 mt-3">
-                                <img class="mw-100 mx-auto mb-4"
+                                <img loading="lazy" class="mw-100 mx-auto mb-4"
                                     src="https://econnectmatrimony.com/uploads/all/9cQUPHgaiAQvzZxrSlovzbhHs2495HhTE8EoLLpw.png"
                                     height="130">
                                 <h5 class="mb-3 h5 fw-600">3000 VIP</h5>
@@ -311,7 +311,7 @@
                     <div class="overflow-hidden shadow-none border-right">
                         <div class="card-body">
                             <div class="text-center mb-4 mt-3">
-                                <img class="mw-100 mx-auto mb-4"
+                                <img loading="lazy" class="mw-100 mx-auto mb-4"
                                     src="https://econnectmatrimony.com/uploads/all/9cQUPHgaiAQvzZxrSlovzbhHs2495HhTE8EoLLpw.png"
                                     height="130">
                                 <h5 class="mb-3 h5 fw-600">3003 Gold</h5>
@@ -385,7 +385,7 @@
                     <div class="overflow-hidden shadow-none border-right">
                         <div class="card-body">
                             <div class="text-center mb-4 mt-3">
-                                <img class="mw-100 mx-auto mb-4"
+                                <img loading="lazy" class="mw-100 mx-auto mb-4"
                                     src="https://econnectmatrimony.com/uploads/all/9cQUPHgaiAQvzZxrSlovzbhHs2495HhTE8EoLLpw.png"
                                     height="130">
                                 <h5 class="mb-3 h5 fw-600">5000 VVIP</h5>
@@ -460,7 +460,7 @@
                     <div class="overflow-hidden shadow-none border-right">
                         <div class="card-body">
                             <div class="text-center mb-4 mt-3">
-                                <img class="mw-100 mx-auto mb-4"
+                                <img loading="lazy" class="mw-100 mx-auto mb-4"
                                     src="https://econnectmatrimony.com/uploads/all/9cQUPHgaiAQvzZxrSlovzbhHs2495HhTE8EoLLpw.png"
                                     height="130">
                                 <h5 class="mb-3 h5 fw-600">5005 Prepaid</h5>
@@ -534,7 +534,7 @@
                     <div class="overflow-hidden shadow-none border-right">
                         <div class="card-body">
                             <div class="text-center mb-4 mt-3">
-                                <img class="mw-100 mx-auto mb-4"
+                                <img loading="lazy" class="mw-100 mx-auto mb-4"
                                     src="https://econnectmatrimony.com/uploads/all/9cQUPHgaiAQvzZxrSlovzbhHs2495HhTE8EoLLpw.png"
                                     height="130">
                                 <h5 class="mb-3 h5 fw-600">8000 Diamond</h5>

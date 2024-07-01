@@ -10,7 +10,7 @@
                 <div class="row">
                     <div class="col">
                         <div class="print-header text-center">
-                            <img src="{{asset('img/logo-e-connet.png')}}" alt="E-connect Matrimony" class="w-auto h-80px">
+                            <img loading="lazy" src="{{asset('img/logo-e-connet.png')}}" alt="E-connect Matrimony" class="w-auto h-80px">
                             <div class="row">
                                 <div class="col-md-6">
                                     <span class="mx-2 float-left"><a href="tel:{{ $data['profile']->basic->phone }}"
@@ -49,7 +49,7 @@
                 <h4 class="section-title">{{ trans('fields.section_basic') }}</h4>
                 <div class="form-row first-row">
                     <div class="col-6 text-center">
-                        <img src="{{ $data['profile']->photo }}" class="profile-thumbnail w-auto mw-100"
+                        <img loading="lazy" src="{{ $data['profile']->photo }}" class="profile-thumbnail w-auto mw-100"
                             onerror="this.onerror=null;this.src='{{ asset('img/avatar-place.png') }}';">
                     </div>
                     <div class="col-6">
@@ -251,7 +251,7 @@
                                     <p>{{ $data['profile']->jathagam->rasi_title['5'] ?? '' }}</p>
                                 </td>
                                 <td rowspan="2" colspan="2">
-                                    <img src="{{asset('img/logo-e-connet.png')}}"
+                                    <img loading="lazy" src="{{asset('img/logo-e-connet.png')}}"
                                         border="0" class="h-50px w-auto"><br>
                                     <strong> {{ trans('fields.rasi') }} </strong>
                                 </td>
@@ -304,7 +304,7 @@
                                     <p>{{ $data['profile']->jathagam->navamsam_title['5'] ?? '' }}</p>
                                 </td>
                                 <td rowspan="2" colspan="2">
-                                    <img src="{{asset('img/logo-e-connet.png')}}"
+                                    <img loading="lazy" src="{{asset('img/logo-e-connet.png')}}"
                                         border="0" class="h-50px w-auto"><br>
                                     <strong>{{ trans('fields.navamsam') }}</strong>
                                 </td>

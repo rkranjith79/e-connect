@@ -29,11 +29,10 @@
                 <div class="col-lg-7 col">
                     <ul class="list-inline mb-0 d-flex align-items-center justify-content-end ">
                         @if (Auth::user())
-                            <a href="{{ route('user.profile_edit') }}"
-                                class="d-flex align-items-center text-reset dropdown-toggle" href="#"
+                            <a class="d-flex align-items-center text-reset dropdown-toggle" href="#"
                                 role="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
                                 aria-expanded="false">
-                                <img class="size-30px rounded-circle img-fit mr-2"
+                                <img loading="lazy" class="size-30px rounded-circle img-fit mr-2"
                                     src="{{ Auth::user()->profile->photo ?? '' }}" alt="Profile Photo"
                                     onerror="this.onerror=null;this.src='{{ asset('img/avatar-place.png') }}';">
                                 <span class="mr-1">
@@ -50,7 +49,7 @@
                                             action="{{ route('user.update_last_login_profile', ['profile' => $profile->id]) }}">
                                             @csrf
                                             <button type="submit" class="dropdown-item d-flex align-items-center">
-                                                <img class="size-30px rounded-circle img-fit mr-2"
+                                                <img loading="lazy" class="size-30px rounded-circle img-fit mr-2"
                                                     src="{{ $profile->photo ?? asset('img/avatar-place.png') }}"
                                                     alt="Profile Photo"
                                                     onerror="this.onerror=null;this.src='{{ asset('img/avatar-place.png') }}';">
@@ -96,7 +95,7 @@
                 <div class="d-lg-flex justify-content-between text-center text-lg-left">
                     <div class="logo">
                         <a href="{{ url('/') }}" class="logo-img d-inline-block">
-                            <img src="{{ asset('img/logo-e-connet.png') }}" alt="E-Connect Matrimony"
+                            <img loading="lazy" src="{{ asset('img/logo-e-connet.png') }}" alt="E-Connect Matrimony"
                                 class="mw-100 h-auto">
                         </a>
                         <a herf="#!" class="px-4 logo-toggle nav-toggle-icon d-inline-block d-lg-none"
@@ -193,14 +192,18 @@
 </div>
 <style>
     .dropdown-item {
-    white-space: normal; /* Allows text to wrap */
-    word-wrap: break-word; /* Breaks long words if necessary */
-    max-width: 100%; /* Ensures the item does not overflow */
-}
-
-@media (max-width: 576px) {
-    .dropdown-menu {
-        width: 100%; /* Ensures dropdown takes full width on small screens */
+        white-space: normal;
+        /* Allows text to wrap */
+        word-wrap: break-word;
+        /* Breaks long words if necessary */
+        max-width: 100%;
+        /* Ensures the item does not overflow */
     }
-}
+
+    @media (max-width: 576px) {
+        .dropdown-menu {
+            width: 100%;
+            /* Ensures dropdown takes full width on small screens */
+        }
+    }
 </style>

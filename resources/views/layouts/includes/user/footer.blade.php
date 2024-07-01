@@ -36,7 +36,7 @@
         </a>
     @endif
     <div class=" pb-6  pb-xl-6">
-    
+
     @if (!empty(route('user.information', ['code' => 'terms_and_conditions'])))
         <a href="{{ route('user.information', ['code' => 'terms_and_conditions']) }}" target="_blank"
             class="text-reset">Terms and Conditions</a>
@@ -60,7 +60,7 @@
             <div class="col text-center mx-auto">
                 <div class="logo">
                     <a href="{{ url('/') }}" class="d-inline-block py-15px">
-                        <img src="{{ asset('img/logo-e-connet.png') }}" alt="E-Connect Matrimony"
+                        <img loading="lazy" src="{{ asset('img/logo-e-connet.png') }}" alt="E-Connect Matrimony"
                             class="mw-100 h-150px">
                     </a>
                 </div>
@@ -68,9 +68,9 @@
         </div>
 
         <div class="mb-2">
-         
+
             <div class="row no-gutters">
-                
+
                 <div class="col-xl-3 col-md-12 mb-2">
                     <h4 class="text-uppercase text-primary fs-14 border-bottom border-primary pb-4 mb-4">
 
@@ -95,7 +95,7 @@
 
                        <span style="visibility: hidden">
                         {{ trans('site.contacts') }}
-                        </span> 
+                        </span>
                     </h4>
                     @if (!empty(__getSiteConfigration('phone')))
                         <div class="mb-3">
@@ -138,7 +138,7 @@
 
                        <span style="visibility: hidden">
                         {{ trans('site.contacts') }}
-                        </span> 
+                        </span>
                     </h4>
                         <div class="mb-3">
                             <i class="fas fa-envelope mr-2"></i>
@@ -147,7 +147,7 @@
                         <div>
 
                             <a href="{{ __getSiteConfigration('whatsapp_group') }}" target="_blank">
-                                <img src="{{ asset('img/social/whatsapp.png') }}" class="custom-social-btn">
+                                <img loading="lazy" src="{{ asset('img/social/whatsapp.png') }}" class="custom-social-btn">
                             </a>
                         </div>
                     </div>
@@ -242,7 +242,7 @@
                     @if (!empty(__getSiteConfigration('play_store_link')))
                         <div class="col-4">
                             <a href="{{ __getSiteConfigration('play_store_link') }}" target="_blank">
-                                <img src="{{ asset('img/social/play_store.png') }}" class="custom-social-btn">
+                                <img loading="lazy" src="{{ asset('img/social/play_store.png') }}" class="custom-social-btn">
                             </a>
                         </div>
                     @endif
@@ -250,7 +250,7 @@
                     @if (!empty(__getSiteConfigration('app_store_link')))
                         <div class="col-4">
                             <a href="{{ __getSiteConfigration('app_store_link') }}" target="_blank">
-                                <img src="{{ asset('img/social/app_store.png') }}" class="custom-social-btn">
+                                <img loading="lazy" src="{{ asset('img/social/app_store.png') }}" class="custom-social-btn">
                             </a>
                         </div>
                     @endif
@@ -258,7 +258,7 @@
                     @if (!empty(__getSiteConfigration('telegram_link')))
                         <div class="col-4">
                             <a href="{{ __getSiteConfigration('telegram_link') }}" target="_blank">
-                                <img src="{{ asset('img/social/telegram.png') }}" class="custom-social-btn">
+                                <img loading="lazy" src="{{ asset('img/social/telegram.png') }}" class="custom-social-btn">
                             </a>
                         </div>
                     @endif
@@ -266,7 +266,7 @@
                     @if (!empty(__getSiteConfigration('instagram_link')))
                         <div class="col-4">
                             <a href="{{ __getSiteConfigration('instagram_link') }}" target="_blank">
-                                <img src="{{ asset('img/social/instagram.png') }}" class="custom-social-btn">
+                                <img loading="lazy" src="{{ asset('img/social/instagram.png') }}" class="custom-social-btn">
                             </a>
                         </div>
                     @endif
@@ -274,7 +274,7 @@
                     @if (!empty(__getSiteConfigration('facebook_link')))
                         <div class="col-4">
                             <a href="{{ __getSiteConfigration('facebook_link') }}" target="_blank">
-                                <img src="{{ asset('img/social/facebook.png') }}" class="custom-social-btn">
+                                <img loading="lazy" src="{{ asset('img/social/facebook.png') }}" class="custom-social-btn">
                             </a>
                         </div>
                     @endif
@@ -282,7 +282,7 @@
                     @if (!empty(__getSiteConfigration('youtube_link')))
                         <div class="col-4">
                             <a href="{{ __getSiteConfigration('youtube_link') }}" target="_blank">
-                                <img src="{{ asset('img/social/youtube.png') }}" class="custom-social-btn">
+                                <img loading="lazy" src="{{ asset('img/social/youtube.png') }}" class="custom-social-btn">
                             </a>
                         </div>
                     @endif
