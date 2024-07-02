@@ -29,12 +29,14 @@
                 <div class="col-lg-7 col">
                     <ul class="list-inline mb-0 d-flex align-items-center justify-content-end ">
                         @if (Auth::user())
-                            <a class="d-flex align-items-center text-reset dropdown-toggle" href="#"
+                        <a href= "{{route('user.profile_edit', ['profile' => Auth::user()->profile->id])}}">
+                            <img loading="lazy" class="size-30px rounded-circle img-fit mr-2"
+                                src="{{ Auth::user()->profile->photo ?? '' }}" alt="Profile Photo"
+                                onerror="this.onerror=null;this.src='{{ asset('img/avatar-place.png') }}';">
+
+                        </a>    <a class="d-flex align-items-center text-reset dropdown-toggle" href="#"
                                 role="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
                                 aria-expanded="false">
-                                <img loading="lazy" class="size-30px rounded-circle img-fit mr-2"
-                                    src="{{ Auth::user()->profile->photo ?? '' }}" alt="Profile Photo"
-                                    onerror="this.onerror=null;this.src='{{ asset('img/avatar-place.png') }}';">
                                 <span class="mr-1">
                                     Hi,
                                 </span>
