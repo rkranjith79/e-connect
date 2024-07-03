@@ -197,8 +197,10 @@ class RazorpayPaymentController extends Controller
             return redirect()->to($rData->data->instrumentResponse->redirectInfo->url);
         } else {
             Log::error('Unexpected API Response Structure: ', (array) $rData);
-            dd($rData);
-            return response()->json(['error' => 'Unexpected API response structure'], 500);
+            return view('pages.message', [
+              'message' => 'Payment Failed',
+              'sub_message' => json_encode($response)
+            ]);;
         }
     }
 
