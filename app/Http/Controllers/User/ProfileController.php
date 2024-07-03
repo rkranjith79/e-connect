@@ -190,6 +190,7 @@ class ProfileController extends Controller
                 'expectation_nakshatra' => $request->expectation_nakshatra,
                 'expectation' => $request->expectation,
                 'photo_file' => $photo_file_path,
+                'active' => 0,
             ]);
 
             //Update Last Login id
@@ -316,7 +317,7 @@ class ProfileController extends Controller
                 'expectation_nakshatra' => $request->expectation_nakshatra,
                 'expectation' => $request->expectation,
                 'photo_file' => $photo_file_path,
-                'active' => 1,
+                'active' => 0,
             ]);
 
             // $sub_caste = SubCaste::firstOrCreate(['title' => $request->sub_caste, 'caste_id'=> $request->caste_id], ['title' => $request->sub_caste, 'caste_id'=> $request->caste_id,  'language_tamil'=> $request->sub_caste]);
