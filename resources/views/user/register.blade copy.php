@@ -2,7 +2,7 @@
 @extends('layouts.user')
 
 @section('content')
-     
+
 <div class="py-4 py-lg-5 bg-cover bg-center d-flex align-items-center position-relative"
 style="background-image: url('{{ asset('img/uploads/2.png') }}')">
 <span class="mask"></span>
@@ -45,7 +45,7 @@ style="background-image: url('{{ asset('img/uploads/2.png') }}')">
                                     <div class="input-group fileinput fileinput-new text-center"
                                         data-provides="fileinput">
                                         <div class="fileinput-new thumbnail img-raised">
-                                            <img src="https://econnectmatrimony.com/uploads/profile_images/1.png"
+                                            <img loading="lazy" src="https://econnectmatrimony.com/uploads/profile_images/1.png"
                                                 alt="photo">
                                         </div>
                                         <div
@@ -81,7 +81,7 @@ style="background-image: url('{{ asset('img/uploads/2.png') }}')">
                                     <div class="input-group fileinput fileinput-new text-center"
                                         data-provides="fileinput">
                                         <div class="fileinput-new thumbnail img-raised">
-                                            <img src="https://econnectmatrimony.com/uploads/jathagam_images/horoscope.jpg"
+                                            <img loading="lazy" src="https://econnectmatrimony.com/uploads/jathagam_images/horoscope.jpg"
                                                 alt="jathagam_file">
                                         </div>
                                         <div
@@ -670,7 +670,7 @@ style="background-image: url('{{ asset('img/uploads/2.png') }}')">
                                     <span class="invalid-feedback"></span>
                                 </div>
                             </div>
-                         
+
                             <div class="col-sm">
                                 <div class="form-group mb-3">
                                     <label class="form-label" for="temple">Temple<span
@@ -2054,7 +2054,7 @@ style="background-image: url('{{ asset('img/uploads/2.png') }}')">
                         </div>
 
 
-                   
+
 
                         <h4 class="section-title">Expectation</h4>
                         <div class="form-row">
@@ -2186,7 +2186,7 @@ style="background-image: url('{{ asset('img/uploads/2.png') }}')">
 <script>
     function submitForm() {
   var formData = $("#registration_form").serialize(); // Serialize the form data
-  
+
   $.ajax({
     type: "POST",
     url: "{{ route('user.profile_store') }}", // Replace with your server endpoint
@@ -2223,7 +2223,7 @@ function handleErrors(errors) {
 		$("#" + key).parents('.input-group').removeClass('is-valid').addClass('is-invalid');
         $("#" + key).parents('.form-control').removeClass('is-valid').addClass('is-invalid');
 
-        
+
         $("#" + key).parents('.form-group').find('.invalid-feedback').text(value[0]);
 
        // $("#" + key).after('<div class="invalid-feedback">' + value[0] + '</div>'); // Display the error message

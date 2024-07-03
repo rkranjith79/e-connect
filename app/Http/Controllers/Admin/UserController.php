@@ -118,4 +118,13 @@ class UserController extends Controller
             ]);
         }
     }
+
+    public function updateLastLoginProfile($profileId)
+    {
+        $user = User::find(Auth::user()->id);
+        $user->last_login_profile_id = $profileId;
+        $user->save();
+
+        return redirect()->route('index');
+    }
 }

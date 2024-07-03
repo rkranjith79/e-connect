@@ -21,7 +21,7 @@
                                         id="block_id_{{ $profile->id }}">
                                         <div class="col-md-auto">
                                             <div class="text-center pt-3 pt-md-0">
-                                                <img src="{{ $profile->photo }}"
+                                                <img loading="lazy" src="{{ $profile->photo }}"
                                                     class="profile-thumb"
                                                     onerror="this.onerror=null;this.src='{{ $profile->photo }}';">
                                                 <div class="mt-2">
@@ -118,8 +118,8 @@
                                                             <span class="d-block fs-10 {{ $profile->ignored ? 'text-danger' : 'text-warning' }}">{{ trans('site.remove_ignore') }}</span>
                                                         </a>
                                                     </div>
-                                                   
-                                                
+
+
                                                 </div>
                                                 @endif
                                             </div>

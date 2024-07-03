@@ -5,7 +5,7 @@
     <section class="position-relative d-flex home-slider-area">
         <div class="absolute-full">
             <div class="aiz-carousel aiz-carousel-full h-100" data-fade='true' data-infinite='true' data-autoplay='true'>
-                <img class="img-fit" src="{{ asset('img/2.png') }}">
+                <img loading="lazy" class="img-fit" src="{{ asset('img/2.png') }}">
             </div>
         </div>
         <div class="container position-relative d-flex flex-column">
@@ -164,7 +164,7 @@
                     @foreach ($data['brides'] as $profile)
                         <div class="carousel-box">
                             <div class="member-block position-relative overflow-hidden">
-                                <img data-lazy="{{ $profile->photo ?? '' }}"
+                                <img loading="lazy" data-lazy="{{ $profile->photo ?? '' }}"
                                     class="img-fit mw-100 h-125px img-fit-carousel">
                                 <div class="w-100 p-3 z-1">
                                     <div class="text-center">
@@ -208,7 +208,7 @@
 
                         <div class="carousel-box">
                             <div class="member-block position-relative overflow-hidden">
-                                <img data-lazy="{{ $profile->photo ?? '' }}"
+                                <img loading="lazy" data-lazy="{{ $profile->photo ?? '' }}"
                                     class="img-fit img-fit-carousel mw-100 h-125px">
                                 <div class="w-100 p-3 z-1">
                                     <div class="text-center">

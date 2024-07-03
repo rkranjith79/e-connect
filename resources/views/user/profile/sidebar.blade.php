@@ -8,7 +8,7 @@
     <div class="aiz-user-sidenav rounded overflow-hidden">
         <div class="px-4 text-center mb-4">
             <span class="avatar avatar-md mb-3">
-                <img src="{{ Auth::user()->profile->photo }}" alt="Profile Photo"
+                <img loading="lazy" src="{{ Auth::user()->profile->photo }}" alt="Profile Photo"
                     onerror="this.onerror=null;this.src='{{ asset('img/avatar-place.png')}}';">
             </span>
             <h4 class="h5 fw-600">{{ Auth::User()->profile->title }}</h4>
@@ -39,7 +39,7 @@
                     </a>
                 </li>
 
-                
+
                 <li class="aiz-side-nav-item">
                     <a href="{{ route('user.interested_profile') }}" class="aiz-side-nav-link">
                         <i class="fas fa-heart aiz-side-nav-icon"></i>

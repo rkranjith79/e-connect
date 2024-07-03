@@ -7,7 +7,7 @@
                 <div class="col-lg-4">
                     <div class="card">
                         <div class="card-body text-white text-center bg-primary">
-                            <img src="{{ $data['profile']->photo ?? null }}" class="img-fit w-auto h-220px mw-100"
+                            <img loading="lazy" src="{{ $data['profile']->photo ?? null }}" class="img-fit w-auto h-220px mw-100"
                                 onerror="this.onerror=null;this.src='{{ asset('img/avatar-place.png') }}';">
                             <h3 class="text-white fw-500">{{ $data['profile']->title ?? '-' }}</h3>
                             <h5 class="text-white fw-500">{{ $data['profile']->code ?? '-' }}</h5>
@@ -458,7 +458,7 @@
                                                         <p>{{ $data['profile']->jathagam->rasi_title['5'] ?? '' }}</p>
                                                     </td>
                                                     <td rowspan="2" colspan="2">
-                                                        <img src="{{ asset('img/logo-e-connet.png') }}" border="0"
+                                                        <img loading="lazy" src="{{ asset('img/logo-e-connet.png') }}" border="0"
                                                             class="h-50px w-auto"><br>
                                                         <strong>{{ trans('fields.rasi') }}</strong>
                                                     </td>
@@ -512,7 +512,7 @@
                                                         <p>{{ $data['profile']->jathagam->navamsam_title['5'] ?? '' }}</p>
                                                     </td>
                                                     <td rowspan="2" colspan="2">
-                                                        <img src="{{ asset('img/logo-e-connet.png') }}" border="0"
+                                                        <img loading="lazy" src="{{ asset('img/logo-e-connet.png') }}" border="0"
                                                             class="h-50px w-auto"><br>
                                                         <strong>{{ trans('fields.navamsam') }}</strong>
                                                     </td>

@@ -107,6 +107,9 @@ Route::name('user.')->prefix('user')->middleware(['auth'])->group(function () {
     Route::get('/purchase-profile-availability/{purchased_profile_id}/u/{purchased_profile_uuid}/my/{profile}/u/{profile_uuid}', [App\Http\Controllers\User\MemberController::class, 'checkPurchasedProfileAvailability'])->name('purchase_profile_availability');
     Route::get('/purchase-plan/{profile}/u/{profile_uuid}', [App\Http\Controllers\User\ProfileController::class, 'purchasePlan'])->name('purchase_plan');
     Route::get('/purchase-profile/{purchased_profile_id}/u/{purchased_profile_uuid}/my/{profile}/u/{profile_uuid}', [App\Http\Controllers\User\ProfileController::class, 'purchaseProfile'])->name('purchase_profile');
+    Route::post('/update-last-login/{profile}', [App\Http\Controllers\Admin\UserController::class, 'updateLastLoginProfile'])->name('update_last_login_profile');
+    Route::post('/profile/create-authenticated', [App\Http\Controllers\User\ProfileController::class, 'profileCreateAuthenticated'])->name('profile_create_authenticated');
+
 });
 
 Route::get('razorpay-payment', [App\Http\Controllers\RazorpayPaymentController::class, 'index']);
@@ -119,3 +122,4 @@ Route::post('phonepay-payment-failed', [App\Http\Controllers\RazorpayPaymentCont
 Route::get('user/information/{code?}', [App\Http\Controllers\User\InformationController::class, 'index'])->name('user.information');
 Route::get('user/member-listing', [App\Http\Controllers\User\MemberController::class, 'listing'])->name('user.member-listing');
 Route::post('user/profile_store', [App\Http\Controllers\User\ProfileController::class, 'store'])->name('user.profile_store');
+

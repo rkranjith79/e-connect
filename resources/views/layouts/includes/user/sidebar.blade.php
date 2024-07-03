@@ -3,7 +3,7 @@
         <a href="{{ url('/') }}" class="simple-text logo-mini">
             <div class="logo-img">
                 <a href="{{ url('/') }}" class="logo-img d-inline-block">
-                    <img src="{{ asset('img/logo-e-connet.png') }}" alt="E-Connect Matrimony" class="mw-100 h-auto">
+                    <img loading="lazy" src="{{ asset('img/logo-e-connet.png') }}" alt="E-Connect Matrimony" class="mw-100 h-auto">
                 </a>
             </div>
         </a>
@@ -69,7 +69,7 @@
             @endfor
 
             @if (__isProfiledUser())
-  
+
                 <li class="nav-item">
                     <a href="{{ route('user.profile_edit') }}"
                         class="nav-link text-uppercase fw-700 fs-15 d-flex align-items-center bg-white py-2">
@@ -171,7 +171,7 @@
                 <a herf="#!" class="text-reset d-block flex-grow-1 text-center py-2 mobile-side-nav-thumb"
                     onclick="nav_toggler()">
                     <span class="d-block mx-auto mb-1 opacity-60">
-                        <img src="{{ Auth::user()->profile->photo ?? '' }}" class="rounded-circle size-20px"
+                        <img loading="lazy" src="{{ Auth::user()->profile->photo ?? '' }}" class="rounded-circle size-20px"
                             onerror="this.onerror=null;this.src='{{ asset('img/avatar-place.png') }}';">
                     </span>
                     <span class="d-block fs-10 opacity-60">Menu</span>
