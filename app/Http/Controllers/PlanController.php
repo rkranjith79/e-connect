@@ -8,23 +8,26 @@ use Illuminate\Support\Facades\Validator;
 
 class PlanController extends Controller
 {
-    public $pageData = [], $modal;
+    public $pageData = [];
+
+    public $modal;
 
     public function __construct()
     {
-        $this->pageData['title'] = "Plans";
+        $this->pageData['title'] = 'Plans';
         $this->pageData['rules']['not_unique'] = true;
-        $this->pageData['name'] = "Plan";
-        $this->pageData['view'] = "admin.plan.index";
-        $this->pageData['tables'] = "plans";
-        $this->pageData['prefix_url'] = "plan";
+        $this->pageData['name'] = 'Plan';
+        $this->pageData['view'] = 'admin.plan.index';
+        $this->pageData['tables'] = 'plans';
+        $this->pageData['prefix_url'] = 'plan';
         $this->modal = new Plan();
     }
 
     public function index()
     {
-        $modal_data =  $this->modal::paginate(20);
+        $modal_data = $this->modal::paginate(20);
         $page_data = $this->pageData;
+
         return view('admin.plan.index', compact(['modal_data', 'page_data']));
     }
 
@@ -32,17 +35,17 @@ class PlanController extends Controller
     {
 
         $validationFields = [
-            'title' => ['required', 'max:255',],
-            'expire_in_days' => ['required', 'max:20',],
-            'profile_count' => ['required', 'max:11',],
-            'price' => ['required', 'max:10',],
-            'order_by' => ['required', 'max:11',],
+            'title' => ['required', 'max:255'],
+            'expire_in_days' => ['required', 'max:20'],
+            'profile_count' => ['required', 'max:11'],
+            'price' => ['required', 'max:10'],
+            'order_by' => ['required', 'max:11'],
             'attributes' => ['required'],
             'active' => ['nullable'],
         ];
 
         if (empty($this->pageData['rules']['not_unique'])) {
-            $validationFields['title'][] = 'unique:' . $this->pageData['tables'];
+            $validationFields['title'][] = 'unique:'.$this->pageData['tables'];
         }
 
         $validationAttributes = ['title' => $this->pageData['name']];
@@ -59,9 +62,10 @@ class PlanController extends Controller
         } else {
             $input = $validator->getData();
             $this->modal->create($input);
+
             return response()->json([
                 'status' => 200,
-                'message' => $this->pageData['title'] . ' Added Successfully',
+                'message' => $this->pageData['title'].' Added Successfully',
             ]);
         }
     }
@@ -73,13 +77,13 @@ class PlanController extends Controller
         if ($modal_data) {
             return response()->json([
                 'status' => 200,
-                'modal_data' => $modal_data
+                'modal_data' => $modal_data,
             ]);
         } else {
             //create the 404 page also
             return response()->json([
                 'status' => 404,
-                'message' => $this->pageData['title'] . ' Not found'
+                'message' => $this->pageData['title'].' Not found',
             ]);
         }
         //use try catch
@@ -89,17 +93,17 @@ class PlanController extends Controller
     public function update(Request $request, $id)
     {
         $validationFields = [
-            'title' => ['required', 'max:255',],
-            'expire_in_days' => ['required', 'max:20',],
-            'profile_count' => ['required', 'max:11',],
-            'price' => ['required', 'max:10',],
-            'order_by' => ['required', 'max:11',],
+            'title' => ['required', 'max:255'],
+            'expire_in_days' => ['required', 'max:20'],
+            'profile_count' => ['required', 'max:11'],
+            'price' => ['required', 'max:10'],
+            'order_by' => ['required', 'max:11'],
             'attributes' => ['required'],
             'active' => ['nullable'],
         ];
 
         if (empty($this->pageData['rules']['not_unique'])) {
-            $validationFields['title'][] = 'unique:' . $this->pageData['tables'] . ',title,' . $id . ',id';
+            $validationFields['title'][] = 'unique:'.$this->pageData['tables'].',title,'.$id.',id';
         }
 
         $validationAttributes = ['title' => $this->pageData['name']];
@@ -124,7 +128,7 @@ class PlanController extends Controller
 
             return response()->json([
                 'status' => 200,
-                'message' => $this->pageData['title'] . ' Updated Successfully',
+                'message' => $this->pageData['title'].' Updated Successfully',
             ]);
         }
     }
@@ -138,13 +142,13 @@ class PlanController extends Controller
 
             return response()->json([
                 'status' => 200,
-                'message' => $this->pageData['title'] . ' Deleted'
+                'message' => $this->pageData['title'].' Deleted',
             ]);
         } else {
 
             return response()->json([
                 'status' => 404,
-                'message' => $this->pageData['title'] . ' Not Found'
+                'message' => $this->pageData['title'].' Not Found',
             ]);
         }
     }
@@ -160,13 +164,13 @@ class PlanController extends Controller
 
             return response()->json([
                 'status' => 200,
-                'message' => $this->pageData['title'] . ' Deactivated'
+                'message' => $this->pageData['title'].' Deactivated',
             ]);
         } else {
 
             return response()->json([
                 'status' => 404,
-                'message' => $this->pageData['title'] . ' Not Found'
+                'message' => $this->pageData['title'].' Not Found',
             ]);
         }
     }
@@ -177,18 +181,18 @@ class PlanController extends Controller
         $modal_data = $this->modal->find($request->modal_data_id);
         if ($modal_data) {
             $modal_data->update([
-                'active' => 'true'
+                'active' => 'true',
             ]);
 
             return response()->json([
                 'status' => 200,
-                'message' => $this->pageData['title'] . ' Activated'
+                'message' => $this->pageData['title'].' Activated',
             ]);
         } else {
 
             return response()->json([
                 'status' => 404,
-                'message' => $this->pageData['title'] . ' Not Found'
+                'message' => $this->pageData['title'].' Not Found',
             ]);
         }
     }

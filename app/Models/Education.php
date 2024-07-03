@@ -2,13 +2,14 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 use App\Models\Common\MasterModel;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Education extends MasterModel
 {
     use HasFactory;
+
     protected $table = 'educations';
+
     protected $guarded = [];
 }

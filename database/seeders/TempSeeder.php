@@ -2,10 +2,8 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Hash;
 
 class TempSeeder extends Seeder
 {
@@ -45,7 +43,7 @@ class TempSeeder extends Seeder
             ['english' => 'Uttar Pradesh', 'tamil' => 'உத்தரப்பிரதேசம்'],
             ['english' => 'Uttarakhand', 'tamil' => 'உத்தரக்கண்ட்'],
             ['english' => 'West Bengal', 'tamil' => 'மேற்கு வங்கம்'],
-            ['english' => 'Jammu and Kashmir', 'tamil' => 'ஜம்மு மற்றும் காஷ்மீர்']
+            ['english' => 'Jammu and Kashmir', 'tamil' => 'ஜம்மு மற்றும் காஷ்மீர்'],
         ];
 
         DB::table('states')->truncate();

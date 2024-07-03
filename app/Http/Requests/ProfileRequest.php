@@ -2,8 +2,8 @@
 
 namespace App\Http\Requests;
 
-use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Contracts\Validation\Validator;
+use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
 class ProfileRequest extends FormRequest
@@ -42,7 +42,6 @@ class ProfileRequest extends FormRequest
             'height_id' => ['required'],
             'blood_group_id' => ['required'],
 
-
             'temple' => ['required', 'max:100'],
             'religion_id' => ['required'],
             'caste_id' => ['required'],
@@ -59,13 +58,10 @@ class ProfileRequest extends FormRequest
             'address' => ['required', 'max:1000'],
             'monthly_income' => ['required', 'max:100'],
 
-
             'country_id' => ['required'],
             'state_id' => ['required'],
             'education_id' => ['required'],
             'district_id' => ['required'],
-
-
 
             'father_name' => ['required', 'max:100'],
             'mother_name' => ['required', 'max:100'],
@@ -74,7 +70,6 @@ class ProfileRequest extends FormRequest
             'mother_occupation' => ['nullable', 'max:100'],
             'mother_status_id' => ['required'],
             'siblings' => ['required', 'max:100'],
-
 
             'social_type_id' => ['required'],
             'native' => ['required', 'max:100'],
@@ -120,11 +115,11 @@ class ProfileRequest extends FormRequest
             'navamsam_11' => ['nullable'],
             'navamsam_12' => ['nullable'],
 
-            "expectation_jathagam_id"  => ['required'],
-            "expectation_marital_status_id"  => ['nullable'],
-            "expectation_work_place_id"  => ['nullable'],
-            "expectation_nakshatra"  => ['nullable'],
-            "expectation"  => ['nullable'],
+            'expectation_jathagam_id' => ['required'],
+            'expectation_marital_status_id' => ['nullable'],
+            'expectation_work_place_id' => ['nullable'],
+            'expectation_nakshatra' => ['nullable'],
+            'expectation' => ['nullable'],
         ];
     }
 
@@ -132,8 +127,7 @@ class ProfileRequest extends FormRequest
     {
         throw new HttpResponseException(response()->json([
             'status' => 400,
-            'errors' => $validator->errors()
+            'errors' => $validator->errors(),
         ], 400));
     }
-
 }

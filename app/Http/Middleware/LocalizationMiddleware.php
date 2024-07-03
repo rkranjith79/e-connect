@@ -11,7 +11,6 @@ class LocalizationMiddleware
     /**
      * Handle an incoming request.
      *
-     * @param  \Illuminate\Http\Request  $request
      * @param  \Closure(\Illuminate\Http\Request): (\Illuminate\Http\Response|\Illuminate\Http\RedirectResponse)  $next
      * @return \Illuminate\Http\Response|\Illuminate\Http\RedirectResponse
      */
@@ -20,6 +19,7 @@ class LocalizationMiddleware
         if (session()->has('locale')) {
             App::setlocale(session()->get('locale'));
         }
+
         return $next($request);
     }
 }

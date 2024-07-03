@@ -6,8 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
 {
@@ -15,13 +15,14 @@ class UserController extends Controller
 
     public function __construct()
     {
-        $this->pageData['title'] = "Users";
+        $this->pageData['title'] = 'Users';
     }
 
     public function index()
     {
         $page_data = $this->pageData;
         $users = User::paginate(20);
+
         return view('admin.users.list', compact('users', 'page_data'));
     }
 
@@ -46,6 +47,7 @@ class UserController extends Controller
                 'password' => Hash::make($request->password),
                 'status' => $request->status == true ? '1' : '0',
             ]);
+
             return response()->json([
                 'status' => 700,
                 'message' => 'User Added Successfully',
@@ -59,12 +61,12 @@ class UserController extends Controller
         if ($user) {
             return response()->json([
                 'status' => 200,
-                'user' => $user
+                'user' => $user,
             ]);
         } else {
             return response()->json([
                 'status' => 404,
-                'message' => 'User Not found'
+                'message' => 'User Not found',
             ]);
         }
     }
@@ -90,11 +92,12 @@ class UserController extends Controller
                 'status' => $request->status == true ? '1' : '0',
             ];
 
-            if(!empty($request->password)) {
+            if (! empty($request->password)) {
                 $input['password'] = Hash::make($request->password);
             }
             $user = User::find($id);
             $user->update($input);
+
             return response()->json([
                 'status' => 700,
                 'message' => 'User Updated Successfully',
@@ -107,14 +110,15 @@ class UserController extends Controller
         $user = User::find($request->user_id);
         if ($user) {
             $user->delete();
+
             return response()->json([
                 'status' => 200,
-                'message' => 'User Deleted'
+                'message' => 'User Deleted',
             ]);
         } else {
             return response()->json([
                 'status' => 404,
-                'message' => 'User Not Found'
+                'message' => 'User Not Found',
             ]);
         }
     }

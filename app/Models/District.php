@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class District extends MasterModel
 {
     use HasFactory;
+
     protected $guarded = [];
 
     public function state()

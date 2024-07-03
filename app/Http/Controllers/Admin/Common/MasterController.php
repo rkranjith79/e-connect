@@ -2,17 +2,18 @@
 
 namespace App\Http\Controllers\Admin\Common;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 
-
 class MasterController extends Controller
 {
-    public $pageData = [], $lookup = [], $modal;
+    public $pageData = [];
 
+    public $lookup = [];
+
+    public $modal;
 
     // public function dynamicRoute($modalName)
     // {
@@ -31,6 +32,7 @@ class MasterController extends Controller
         $page_data = $this->pageData;
         $modal_data = $this->modal->paginate(15);
         $lookup_fields = $this->lookup;
+
         return view($this->pageData['view'], compact('modal_data', 'page_data', 'lookup_fields'));
     }
 
@@ -38,12 +40,12 @@ class MasterController extends Controller
     {
 
         $validationFields = [
-            'title' => ['required', 'max:255', ],
+            'title' => ['required', 'max:255'],
             'active' => ['nullable'],
         ];
 
-        if(empty($this->pageData['rules']['not_unique'])) {
-            $validationFields['title'][] = 'unique:' . $this->pageData['tables'];
+        if (empty($this->pageData['rules']['not_unique'])) {
+            $validationFields['title'][] = 'unique:'.$this->pageData['tables'];
         }
 
         $validationAttributes = ['title' => $this->pageData['name']];
@@ -64,33 +66,33 @@ class MasterController extends Controller
         } else {
             $input = $validator->getData();
             $this->modal->create($input);
+
             return response()->json([
                 'status' => 200,
-                'message' => $this->pageData['title'] . ' Added Successfully',
+                'message' => $this->pageData['title'].' Added Successfully',
             ]);
         }
     }
 
     public function edit($id)
     {
-        $columns = ['title', 'active','id'];
+        $columns = ['title', 'active', 'id'];
 
         foreach ($this->lookup as $value) {
             $columns[] = $value['id'];
         }
         $modal_data = $this->modal->find($id, $columns);
 
-
         if ($modal_data) {
             return response()->json([
                 'status' => 200,
-                'modal_data' => $modal_data
+                'modal_data' => $modal_data,
             ]);
         } else {
             //create the 404 page also
             return response()->json([
                 'status' => 404,
-                'message' => $this->pageData['title'] . ' Not found'
+                'message' => $this->pageData['title'].' Not found',
             ]);
         }
         //use try catch
@@ -104,8 +106,8 @@ class MasterController extends Controller
             'active' => ['nullable'],
         ];
 
-        if(empty($this->pageData['rules']['not_unique'])) {
-            $validationFields['title'][] = 'unique:' . $this->pageData['tables'] . ',title,' . $id . ',id';
+        if (empty($this->pageData['rules']['not_unique'])) {
+            $validationFields['title'][] = 'unique:'.$this->pageData['tables'].',title,'.$id.',id';
         }
 
         $validationAttributes = ['title' => $this->pageData['name']];
@@ -131,7 +133,7 @@ class MasterController extends Controller
 
             return response()->json([
                 'status' => 200,
-                'message' => $this->pageData['title'] . ' Updated Successfully',
+                'message' => $this->pageData['title'].' Updated Successfully',
             ]);
         }
     }
@@ -145,13 +147,13 @@ class MasterController extends Controller
 
             return response()->json([
                 'status' => 200,
-                'message' => $this->pageData['title'] . ' Deleted'
+                'message' => $this->pageData['title'].' Deleted',
             ]);
         } else {
 
             return response()->json([
                 'status' => 404,
-                'message' => $this->pageData['title'] . ' Not Found'
+                'message' => $this->pageData['title'].' Not Found',
             ]);
         }
     }
@@ -161,9 +163,10 @@ class MasterController extends Controller
         $lookup_data = [];
         foreach ($this->lookup as $item) {
             if (isset($item['model'])) {
-                $lookup_data[$item['id']] =  $item['model']->select(['title', 'language_tamil','active', 'id'])->pluck('title', 'id')->toArray();
+                $lookup_data[$item['id']] = $item['model']->select(['title', 'language_tamil', 'active', 'id'])->pluck('title', 'id')->toArray();
             }
         }
+
         return $lookup_data;
     }
 }

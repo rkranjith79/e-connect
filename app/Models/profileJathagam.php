@@ -2,36 +2,35 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
-use App\Casts\Json;
 use App\Models\Common\MasterModel;
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class profileJathagam extends MasterModel
 {
     use HasFactory;
+
     protected $fillable = [
-        "profile_id",
-        "rasi_nakshatra_id",
-        "lagnam_id",
-        "jathagam_id",
-        "nakshatra_patham_id",
-        "date_of_birth",
-        "time_of_birth",
-        "place_of_birth",
-        "birth_dasa_id",
-        "birth_dasa_remaining_year",
-        "birth_dasa_remaining_month",
-        "birth_dasa_remaining_day",
-        "rasi",
-        "navamsam",
-        "jathagam_file"
+        'profile_id',
+        'rasi_nakshatra_id',
+        'lagnam_id',
+        'jathagam_id',
+        'nakshatra_patham_id',
+        'date_of_birth',
+        'time_of_birth',
+        'place_of_birth',
+        'birth_dasa_id',
+        'birth_dasa_remaining_year',
+        'birth_dasa_remaining_month',
+        'birth_dasa_remaining_day',
+        'rasi',
+        'navamsam',
+        'jathagam_file',
     ];
 
     protected $casts = [
-        'rasi' => "object",
-        'navamsam' => "object",
+        'rasi' => 'object',
+        'navamsam' => 'object',
     ];
 
     public function rasi_nakshatra()
@@ -61,33 +60,33 @@ class profileJathagam extends MasterModel
 
     public function getJathagamFileAttribute()
     {
-        return asset("storage/jathagam/" . $this->attributes['jathagam_file']);
+        return asset('storage/jathagam/'.$this->attributes['jathagam_file']);
     }
 
     public function getBirthDasaRemainingAttribute()
     {
-        return (
+        return
             $this->attributes['birth_dasa_remaining_year']
-            . " Year(s) " .
+            .' Year(s) '.
             $this->attributes['birth_dasa_remaining_month']
-            . " Month(s)  " .
+            .' Month(s)  '.
             $this->attributes['birth_dasa_remaining_day']
-            . " Day(s) "
-        );
+            .' Day(s) ';
     }
 
     public function getRasiTitleAttribute()
     {
         $return = [];
 
-        $this->rasi =  $this->rasi;
+        $this->rasi = $this->rasi;
 
         foreach ($this->rasi as $key => $rasi) {
-            $rasi = array_filter((array)($rasi));
-            if (!empty($rasi)) {
-                $return[$key] = Rasi::whereIn('id',$rasi)?->Translated()?->pluck('title')?->implode(", ");
+            $rasi = array_filter((array) ($rasi));
+            if (! empty($rasi)) {
+                $return[$key] = Rasi::whereIn('id', $rasi)?->Translated()?->pluck('title')?->implode(', ');
             }
         }
+
         return $return;
     }
 
@@ -97,12 +96,13 @@ class profileJathagam extends MasterModel
 
         $this->navamsam = array_filter((array) $this->navamsam);
 
-
         foreach ($this->navamsam as $key => $navamsam) {
-            $navamsam = array_filter((array)($navamsam));
-            if (!empty($navamsam))
-                $return[$key] = Navamsam::whereIn('id', $navamsam)?->Translated()?->pluck('title')?->implode(", ");
+            $navamsam = array_filter((array) ($navamsam));
+            if (! empty($navamsam)) {
+                $return[$key] = Navamsam::whereIn('id', $navamsam)?->Translated()?->pluck('title')?->implode(', ');
+            }
         }
+
         return $return;
     }
 }

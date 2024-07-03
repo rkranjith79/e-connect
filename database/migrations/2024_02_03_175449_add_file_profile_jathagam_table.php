@@ -13,8 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('profile_jathagams', function (Blueprint $table) {  
-            $table->text('jathagam_file')->nullable();   
+        Schema::table('profile_jathagams', function (Blueprint $table) {
+            $table->text('jathagam_file')->nullable();
         });
     }
 

@@ -40,9 +40,9 @@ return [
     'new_members_sub' => 'Every user registered on Matrimony is verified 100%.',
 
     //Member Listing Page
-   'all_member_listing' => 'All Active Members',
-   'no_data_available' => 'No Data Available :)',
-   'advanced_search' => 'Advanced Search',
+    'all_member_listing' => 'All Active Members',
+    'no_data_available' => 'No Data Available :)',
+    'advanced_search' => 'Advanced Search',
 
     'full_profile' => 'Full Profile',
     'interest' => 'Interest',
@@ -53,26 +53,26 @@ return [
     'view_contact' => 'View Contact',
     'share' => 'Share',
 
-   //Member Listing Sidebar
-   'basic_information' => 'Personal details',
-   'religion_information' => 'Religion, Education, Profession',
-   'native_information' => 'Location details',
-   'jathagam_information' => 'Horoscope details',
-   'religion_information_view_page' => 'Religious & Social Background',
-   'education_information_view_page' => 'Education & Career',
-   'family_information' => 'Family Details',
-   'asset_informtion'=> 'Asset Details',
+    //Member Listing Sidebar
+    'basic_information' => 'Personal details',
+    'religion_information' => 'Religion, Education, Profession',
+    'native_information' => 'Location details',
+    'jathagam_information' => 'Horoscope details',
+    'religion_information_view_page' => 'Religious & Social Background',
+    'education_information_view_page' => 'Education & Career',
+    'family_information' => 'Family Details',
+    'asset_informtion' => 'Asset Details',
 
-   //Advanced Search page
-   'quick_search' => 'Quick Search',
-   'id_search' => 'ID Search',
+    //Advanced Search page
+    'quick_search' => 'Quick Search',
+    'id_search' => 'ID Search',
 
     //Register Page
-   'create_your_account' => 'Create Your Account',
+    'create_your_account' => 'Create Your Account',
     'create_your_account_sub_label' => 'Register yourself in our website to access thousands of profiles and find your
     life partner.',
 
-     //Login Page
+    //Login Page
     'login_your_account' => 'Login to your account',
     'login_your_account_button' => 'Login to your account',
     'don_t_have_an_account' => 'Don\'t have an account?',
@@ -82,4 +82,3 @@ return [
     'interested_profile' => 'Interested Profiles',
     'purchased_profile' => 'Purchased Profiles',
 ];
-?>

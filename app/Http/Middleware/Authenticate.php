@@ -18,11 +18,11 @@ class Authenticate extends Middleware
     {
         if (! $request->expectsJson()) {
             $urlPrefix = explode('/', URL::to(Route::current()->uri()))[3] ?? null;
-            if($urlPrefix == 'admin') {
+            if ($urlPrefix == 'admin') {
                 return route('login');
             } else {
                 return route('user-login');
-            }            
+            }
         }
     }
 }

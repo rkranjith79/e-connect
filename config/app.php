@@ -5,8 +5,7 @@ use Illuminate\Support\Facades\Facade;
 
 return [
 
-
-        /*
+    /*
     |--------------------------------------------------------------------------
     | Application Version
     |--------------------------------------------------------------------------
@@ -15,7 +14,7 @@ return [
     | framework needs to place the version in a stylesheet in production.
     | Need to update every production or fix the vite package
     */
-    
+
     'version' => 'v1.0.2',
     /*
     |--------------------------------------------------------------------------

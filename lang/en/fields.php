@@ -62,7 +62,7 @@ return [
     'birth_dasa_remaining_day' => 'Birth Dasa Remaining Day',
     'birth_dasa_remaining' => 'Birth Dasa Remaining',
 
-    'asset_details'=> 'Assets Details (Land House
+    'asset_details' => 'Assets Details (Land House
     Rent)',
     'education_details' => 'Education Details',
     'expectation_jathagam' => 'Expectation Jathagam',
@@ -89,4 +89,3 @@ return [
     'age_from' => 'Age From',
     'age_to' => 'Age To',
 ];
-?>

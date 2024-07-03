@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Models\Information;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 
 class InformationController extends Controller
@@ -13,7 +13,7 @@ class InformationController extends Controller
 
     public function __construct()
     {
-        $this->pageData['title'] = "Informations";
+        $this->pageData['title'] = 'Informations';
     }
 
     /**
@@ -25,6 +25,7 @@ class InformationController extends Controller
     {
         $page_data = $this->pageData;
         $informations = Information::paginate(10);
+
         return view('admin.information.list', compact('informations', 'page_data'));
     }
 
@@ -36,13 +37,13 @@ class InformationController extends Controller
     public function create()
     {
         $page_data = $this->pageData;
+
         return view('admin.information.add', compact('page_data'));
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -66,10 +67,11 @@ class InformationController extends Controller
                 'code' => $request->code,
                 'content' => $request->content,
                 'attributes' => $information->attributes ?? [],
-                'language_tamil' => $request->title ?? ''
+                'language_tamil' => $request->title ?? '',
             ]);
+
             return response()->json([
-                'success'=>true,
+                'success' => true,
                 'status' => 700,
                 'message' => 'User Added Successfully',
             ]);
@@ -79,7 +81,6 @@ class InformationController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Information  $information
      * @return \Illuminate\Http\Response
      */
     public function show(Information $information)
@@ -98,14 +99,13 @@ class InformationController extends Controller
         $information = Information::findOrFail($information_id);
         $page_data = $this->pageData;
         $form_data = $information->toArray();
+
         return view('admin.information.add', compact('form_data', 'page_data'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Information  $information
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Information $information)
@@ -116,7 +116,6 @@ class InformationController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Information  $information
      * @return \Illuminate\Http\Response
      */
     public function destroy(Information $information)

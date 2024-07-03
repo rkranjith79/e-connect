@@ -16,7 +16,6 @@ return new class extends Migration
         Schema::table('profile_basics', function (Blueprint $table) {
             $table->dropColumn('degree_id');
 
-
             $table->dropColumn('expectation_jathagam_id');
             $table->dropColumn('expectation_marital_status_id');
             $table->dropColumn('expectation_work_place_id');
@@ -25,9 +24,9 @@ return new class extends Migration
 
             $table->foreignId('education_id')->nullable();
             $table->foreignId('work_place_id')->nullable();
-            $table->string('father_occupation',255)->nullable();
-            $table->string('mother_occupation',255)->nullable();
-            
+            $table->string('father_occupation', 255)->nullable();
+            $table->string('mother_occupation', 255)->nullable();
+
         });
     }
 

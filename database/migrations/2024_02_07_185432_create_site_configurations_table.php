@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('site_configurations', function (Blueprint $table) {
             $table->id();
-            $table->string('label',255);
+            $table->string('label', 255);
             $table->json('attributes');
             $table->boolean('is_accessable')->default(1);
             $table->softDeletes();

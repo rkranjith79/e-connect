@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('profiles', function (Blueprint $table) {  
+        Schema::table('profiles', function (Blueprint $table) {
             $table->text('photo_file')->nullable();
         });
     }

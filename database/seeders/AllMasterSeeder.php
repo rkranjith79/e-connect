@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -209,7 +208,7 @@ class AllMasterSeeder extends Seeder
             ['english' => 'Vietnam', 'tamil' => 'வியட்நாம்'],
             ['english' => 'Yemen', 'tamil' => 'ஏமன்'],
             ['english' => 'Zambia', 'tamil' => 'சாம்பியா'],
-            ['english' => 'Zimbabwe', 'tamil' => 'ஜிம்பாப்வே']
+            ['english' => 'Zimbabwe', 'tamil' => 'ஜிம்பாப்வே'],
         ];
 
         DB::table('countries')->truncate();
@@ -249,7 +248,7 @@ class AllMasterSeeder extends Seeder
             ['english' => 'Uttar Pradesh', 'tamil' => 'உத்தரப்பிரதேசம்'],
             ['english' => 'Uttarakhand', 'tamil' => 'உத்தரக்கண்ட்'],
             ['english' => 'West Bengal', 'tamil' => 'மேற்கு வங்கம்'],
-            ['english' => 'Jammu and Kashmir', 'tamil' => 'ஜம்மு மற்றும் காஷ்மீர்']
+            ['english' => 'Jammu and Kashmir', 'tamil' => 'ஜம்மு மற்றும் காஷ்மீர்'],
         ];
 
         DB::table('states')->truncate();
@@ -299,7 +298,7 @@ class AllMasterSeeder extends Seeder
             ['english' => 'Tiruvarur', 'tamil' => 'திருவாரூர்'],
             ['english' => 'Vellore', 'tamil' => 'வேலூர்'],
             ['english' => 'Viluppuram', 'tamil' => 'விழுப்புரம்'],
-            ['english' => 'Virudhunagar', 'tamil' => 'விருதுநகர்']
+            ['english' => 'Virudhunagar', 'tamil' => 'விருதுநகர்'],
         ];
 
         DB::table('districts')->truncate();
@@ -314,7 +313,7 @@ class AllMasterSeeder extends Seeder
         $castes = [
             ['english' => 'Kongu Vellala Gounder', 'tamil' => 'கொங்கு வேளாள கவுண்டர்'],
             ['english' => 'Kongu Vellalar Division', 'tamil' => 'கொங்கு வேளாளர் பிரிவு'],
-            ['english' => 'Kongu Vellalar Mix', 'tamil' => 'கொங்கு வேளாளர் கலப்பு']
+            ['english' => 'Kongu Vellalar Mix', 'tamil' => 'கொங்கு வேளாளர் கலப்பு'],
         ];
 
         DB::table('castes')->truncate();
@@ -322,14 +321,14 @@ class AllMasterSeeder extends Seeder
             DB::table('castes')->insert([
                 'title' => $caste['english'],
                 'language_tamil' => $caste['tamil'],
-                'religion_id' => '1'
+                'religion_id' => '1',
             ]);
         }
 
         $sub_castes = [
             ['english' => 'Kongu Chettiar', 'tamil' => 'கொங்கு செட்டியார்'],
             ['english' => 'Kongu Naatu Vellalar', 'tamil' => 'கொங்கு நாட்டு வேளாளர்'],
-            ['english' => 'Kongu Velar', 'tamil' => 'கொங்கு வேலர்']
+            ['english' => 'Kongu Velar', 'tamil' => 'கொங்கு வேலர்'],
         ];
 
         DB::table('sub_castes')->truncate();
@@ -349,7 +348,7 @@ class AllMasterSeeder extends Seeder
             ['english' => 'AB+', 'tamil' => 'AB+'],
             ['english' => 'AB-', 'tamil' => 'AB-'],
             ['english' => 'O+', 'tamil' => 'O+'],
-            ['english' => 'O-', 'tamil' => 'O-']
+            ['english' => 'O-', 'tamil' => 'O-'],
         ];
 
         DB::table('blood_groups')->truncate();
@@ -363,7 +362,7 @@ class AllMasterSeeder extends Seeder
         $genders = [
             ['english' => 'Male', 'tamil' => 'ஆண்'],
             ['english' => 'Female', 'tamil' => 'பெண்'],
-            ['english' => 'Other', 'tamil' => 'மற்றவர்']
+            ['english' => 'Other', 'tamil' => 'மற்றவர்'],
         ];
 
         DB::table('genders')->truncate();
@@ -382,7 +381,7 @@ class AllMasterSeeder extends Seeder
             ['english' => 'Bachelor of Science (BSc)', 'tamil' => 'அறிவியல் பேட்சலர் (பி.எஸ்.சி)'],
             ['english' => 'Master of Business Administration (MBA)', 'tamil' => 'வணிக நிர்வாக மாஸ்டர் (எம்.பி.ஏ)'],
             ['english' => 'Bachelor of Commerce (BCom)', 'tamil' => 'வாணிக பேட்சலர் (பி.காம்)'],
-            ['english' => 'Doctor of Medicine (MD)', 'tamil' => 'மருத்துவ மாஸ்டர் (மி.டி.)']
+            ['english' => 'Doctor of Medicine (MD)', 'tamil' => 'மருத்துவ மாஸ்டர் (மி.டி.)'],
         ];
 
         DB::table('educations')->truncate();
@@ -424,7 +423,7 @@ class AllMasterSeeder extends Seeder
             ['english' => '6ft 10in / 208cm', 'tamil' => '6அடி 10அங்கு / 208செ.'],
             ['english' => '6ft 11in / 211cm', 'tamil' => '6அடி 11அங்கு / 211செ.'],
             ['english' => '7ft 0in / 213cm', 'tamil' => '7அடி 0அங்கு / 213செ.'],
-            ['english' => '7ft 2in / 215cm', 'tamil' => '7அடி 2அங்கு / 215செ.']
+            ['english' => '7ft 2in / 215cm', 'tamil' => '7அடி 2அங்கு / 215செ.'],
         ];
         DB::table('heights')->truncate();
         foreach ($heights as $height) {
@@ -438,7 +437,7 @@ class AllMasterSeeder extends Seeder
         for ($kg = 35; $kg <= 150; $kg++) {
             $weight = [
                 'english' => "{$kg} Kg",
-                'tamil' => "{$kg} கிலோ"
+                'tamil' => "{$kg} கிலோ",
             ];
             $weights[] = $weight;
         }
@@ -455,7 +454,7 @@ class AllMasterSeeder extends Seeder
             ['english' => '50 lakhs - 01 crores', 'tamil' => '50 லட்சம் - 01 கோடி.'],
             ['english' => '01 crores -  2.5 crores', 'tamil' => '01 கோடி - 2.5 கோடி.'],
             ['english' => '2.5 crores - 05 crores', 'tamil' => '2.5 கோடி - 05 கோடி.'],
-            ['english' => '05 crores - 7 crores', 'tamil' => '05 கோடி - 7 கோடி.']
+            ['english' => '05 crores - 7 crores', 'tamil' => '05 கோடி - 7 கோடி.'],
         ];
         DB::table('assets_values')->truncate();
         foreach ($asset_vlaues as $asset_vlaue) {
@@ -464,7 +463,7 @@ class AllMasterSeeder extends Seeder
                 'language_tamil' => $asset_vlaue['tamil'],
             ]);
         }
-    
+
         $birth_dosas = [
             ['english' => 'Sun', 'tamil' => 'சூரியன்.'],
             ['english' => 'Moon', 'tamil' => 'சந்திரன்.'],
@@ -474,9 +473,9 @@ class AllMasterSeeder extends Seeder
             ['english' => 'Saturn', 'tamil' => 'சனி.'],
             ['english' => 'Mercury', 'tamil' => 'புதன்.'],
             ['english' => 'Kethu', 'tamil' => 'கேது.'],
-            ['english' => 'Venus', 'tamil' => 'சுக்கிரன்.']
+            ['english' => 'Venus', 'tamil' => 'சுக்கிரன்.'],
         ];
-        
+
         DB::table('birth_dasas')->truncate();
         foreach ($birth_dosas as $birth_dosa) {
             DB::table('birth_dasas')->insert([
@@ -496,7 +495,7 @@ class AllMasterSeeder extends Seeder
             ['english' => 'Raagu Kethu, Sevvai Match', 'tamil' => 'ராகு கேது, செவ்வாய் பொருந்தும்.'],
             ['english' => 'Raagu Kethu Jathagam Match', 'tamil' => 'ராகு கேது ஜாதகம் பொருந்தும்.'],
             ['english' => 'No Horoscope / Do not view horoscope', 'tamil' => 'ஜாதகம் இல்லை  / ஜாதகம்  பார்ப்பதில்லை.'],
-            ['english' => "Don't Know", 'tamil' => 'தெரியவில்லை.']
+            ['english' => "Don't Know", 'tamil' => 'தெரியவில்லை.'],
         ];
 
         DB::table('jathagams')->truncate();
@@ -518,9 +517,9 @@ class AllMasterSeeder extends Seeder
             ['english' => 'Scorpio', 'tamil' => 'விருச்சிகம்.'],
             ['english' => 'Sagittarious', 'tamil' => 'தனுசு.'],
             ['english' => 'Capricorn', 'tamil' => 'மகரம்.'],
-            ['english' => "Aquarious", 'tamil' => 'கும்பம்.'],
-            ['english' => "Pisces", 'tamil' => 'மீனம்.'],
-            ['english' => "Don't Know", 'tamil' => 'தெரியவில்லை.']
+            ['english' => 'Aquarious', 'tamil' => 'கும்பம்.'],
+            ['english' => 'Pisces', 'tamil' => 'மீனம்.'],
+            ['english' => "Don't Know", 'tamil' => 'தெரியவில்லை.'],
         ];
 
         DB::table('lagnams')->truncate();
@@ -559,7 +558,7 @@ class AllMasterSeeder extends Seeder
             ]);
         }
 
-        $rasi_nakshatras = [ 
+        $rasi_nakshatras = [
             ['english' => 'Aries-Ashwini', 'tamil' => 'மேஷம்-அஸ்வினி.'],
             ['english' => 'Aries-Bharani', 'tamil' => 'மேஷம்-பரணி.'],
             ['english' => 'Aries-Krithigai', 'tamil' => 'மேஷம்-கிருத்திகை.'],
@@ -590,7 +589,7 @@ class AllMasterSeeder extends Seeder
             ['english' => 'Jupiter (V)', 'tamil' => 'குரு (வ).'],
             ['english' => 'Saturn (V)', 'tamil' => 'சனி (வ).'],
             ['english' => 'Mercury (V)', 'tamil' => 'புதன் (வ).'],
-            ['english' => 'Venus (V)', 'tamil' => 'சுக்கிரன் (வ).']
+            ['english' => 'Venus (V)', 'tamil' => 'சுக்கிரன் (வ).'],
         ];
 
         DB::table('rasi_navamsams')->truncate();
@@ -607,7 +606,7 @@ class AllMasterSeeder extends Seeder
             ['english' => 'V.I.P.', 'tamil' => 'வி.ஐ.பி.'],
             ['english' => 'V.V.I.P.', 'tamil' => 'வி.வி.ஐ.பி.'],
             ['english' => 'Royal', 'tamil' => 'ராயல்.'],
-            ['english' => 'Dont Know', 'tamil' => 'தெரியவில்லை.']
+            ['english' => 'Dont Know', 'tamil' => 'தெரியவில்லை.'],
         ];
 
         DB::table('social_types')->truncate();
@@ -687,45 +686,45 @@ class AllMasterSeeder extends Seeder
             ]);
         }
 
-        $colors =  [
+        $colors = [
             ['english' => 'Dark', 'tamil' => 'கருப்பு.'],
-         ];
+        ];
 
-         DB::table('colors')->truncate();
-         foreach ($colors as $color) {
-             DB::table('colors')->insert([
-                 'title' => $color['english'],
-                 'language_tamil' => $color['tamil'],
-             ]);
-         }
+        DB::table('colors')->truncate();
+        foreach ($colors as $color) {
+            DB::table('colors')->insert([
+                'title' => $color['english'],
+                'language_tamil' => $color['tamil'],
+            ]);
+        }
 
-         $work_places = [
+        $work_places = [
             ['english' => 'Tamil Nadu', 'tamil' => 'தமிழ்நாடு.'],
-         ];
+        ];
 
-         DB::table('work_places')->truncate();
-         foreach ($work_places as $work_place) {
-             DB::table('work_places')->insert([
-                 'title' => $work_place['english'],
-                 'language_tamil' => $work_place['tamil'],
-             ]);
-         }
+        DB::table('work_places')->truncate();
+        foreach ($work_places as $work_place) {
+            DB::table('work_places')->insert([
+                'title' => $work_place['english'],
+                'language_tamil' => $work_place['tamil'],
+            ]);
+        }
 
-         $nakshatra_pathams = [
+        $nakshatra_pathams = [
             ['english' => 'Patham 1', 'tamil' => 'பாதம் 1.'],
-         ];
+        ];
 
-         DB::table('nakshatra_pathams')->truncate();
-         foreach ($nakshatra_pathams as $nakshatra_patham) {
-             DB::table('nakshatra_pathams')->insert([
-                 'title' => $nakshatra_patham['english'],
-                 'language_tamil' => $nakshatra_patham['tamil'],
-             ]);
-         }
+        DB::table('nakshatra_pathams')->truncate();
+        foreach ($nakshatra_pathams as $nakshatra_patham) {
+            DB::table('nakshatra_pathams')->insert([
+                'title' => $nakshatra_patham['english'],
+                'language_tamil' => $nakshatra_patham['tamil'],
+            ]);
+        }
 
-         $navamsams = [
-            ['english' => 'Patham 1', 'tamil' => 'பாதம் 1.']
-         ];
+        $navamsams = [
+            ['english' => 'Patham 1', 'tamil' => 'பாதம் 1.'],
+        ];
 
     }
 }

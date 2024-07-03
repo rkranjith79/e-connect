@@ -9,14 +9,17 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class InterestedProfile extends Model
 {
     use HasFactory, SoftDeletes;
+
     protected $guarded = [];
+
     protected $table = 'interested_profiles';
+
     protected $fillable = [
         'id',
         'profile_id',
         'interested_profile_id',
         'expired_at',
-        'active'
+        'active',
     ];
 
     public function profile()
@@ -28,5 +31,4 @@ class InterestedProfile extends Model
     {
         return $this->belongsTo(Profile::class);
     }
-
 }

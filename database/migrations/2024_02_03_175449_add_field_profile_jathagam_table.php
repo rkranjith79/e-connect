@@ -14,10 +14,10 @@ return new class extends Migration
     public function up()
     {
         Schema::table('profile_jathagams', function (Blueprint $table) {
-            $table->dropColumn('birth_dasa');     
+            $table->dropColumn('birth_dasa');
             $table->foreignId('birth_dasa_id')->nullable();
-            $table->dropColumn('place_to_birth');     
-            $table->string('place_of_birth');   
+            $table->dropColumn('place_to_birth');
+            $table->string('place_of_birth');
         });
     }
 

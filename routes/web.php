@@ -17,19 +17,19 @@ use Illuminate\Support\Facades\Route;
 Route::get('/user-login', function () {
     return view('user.login');
 })->name('user-login');
-Route::get('/',  [App\Http\Controllers\User\MemberController::class, 'index'])->name('index');
+Route::get('/', [App\Http\Controllers\User\MemberController::class, 'index'])->name('index');
 
 Auth::routes();
 
 Route::get('/language/{locale}', function (string $locale) {
-    if (!in_array($locale, ['en', 'ta'])) {
+    if (! in_array($locale, ['en', 'ta'])) {
         abort(400);
     }
     \Illuminate\Support\Facades\App::setLocale($locale);
     session()->put('locale', $locale);
 
     return redirect()->back();
-})->name("language.set");
+})->name('language.set');
 
 Route::get('/registers', [App\Http\Controllers\User\ProfileController::class, 'register'])->name('registers');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -118,8 +118,6 @@ Route::get('phonepay-payment', [App\Http\Controllers\RazorpayPaymentController::
 Route::any('phonepay-payment-callback', [App\Http\Controllers\RazorpayPaymentController::class, 'phonePeCallback'])->name('phonepe.payment-callback');
 Route::post('phonepay-payment-failed', [App\Http\Controllers\RazorpayPaymentController::class, 'failedCallback'])->name('phonepe.payment-failed');
 
-
 Route::get('user/information/{code?}', [App\Http\Controllers\User\InformationController::class, 'index'])->name('user.information');
 Route::get('user/member-listing', [App\Http\Controllers\User\MemberController::class, 'listing'])->name('user.member-listing');
 Route::post('user/profile_store', [App\Http\Controllers\User\ProfileController::class, 'store'])->name('user.profile_store');
-

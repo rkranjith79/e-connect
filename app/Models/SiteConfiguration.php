@@ -9,9 +9,10 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class SiteConfiguration extends MasterModel
 {
     use HasFactory, SoftDeletes;
+
     protected $guarded = [];
 
     protected $casts = [
-        'attributes' => "object"
+        'attributes' => 'object',
     ];
 }

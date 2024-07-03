@@ -18,7 +18,7 @@ return new class extends Migration
             $table->json('attributes')->nullable();
             $table->Integer('profile_count')->nullable();
             $table->Integer('order_by')->nullable();
-            $table->float('price',10,2)->nullable();
+            $table->float('price', 10, 2)->nullable();
             $table->softDeletes();
         });
     }

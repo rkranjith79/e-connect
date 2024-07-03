@@ -2,8 +2,8 @@
 
 namespace App\Http\Requests;
 
-use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Contracts\Validation\Validator;
+use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
 class AuthenticatedProfileRequest extends FormRequest
@@ -108,11 +108,11 @@ class AuthenticatedProfileRequest extends FormRequest
             'navamsam_10' => ['nullable'],
             'navamsam_11' => ['nullable'],
             'navamsam_12' => ['nullable'],
-            "expectation_jathagam_id"  => ['required'],
-            "expectation_marital_status_id"  => ['nullable'],
-            "expectation_work_place_id"  => ['nullable'],
-            "expectation_nakshatra"  => ['nullable'],
-            "expectation"  => ['nullable'],
+            'expectation_jathagam_id' => ['required'],
+            'expectation_marital_status_id' => ['nullable'],
+            'expectation_work_place_id' => ['nullable'],
+            'expectation_nakshatra' => ['nullable'],
+            'expectation' => ['nullable'],
         ];
     }
 
@@ -120,7 +120,7 @@ class AuthenticatedProfileRequest extends FormRequest
     {
         throw new HttpResponseException(response()->json([
             'status' => 400,
-            'errors' => $validator->errors()
+            'errors' => $validator->errors(),
         ], 400));
     }
 }

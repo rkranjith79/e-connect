@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('rasi_navamsams', function (Blueprint $table) {
             $table->id();
-            $table->string('title',100);
+            $table->string('title', 100);
             $table->boolean('active')->default(1);
             $table->timestamps();
             $table->softDeletes();

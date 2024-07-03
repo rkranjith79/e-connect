@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers\Auth;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ResetsPasswords;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Password;
 
 class ResetPasswordController extends Controller
@@ -40,14 +39,14 @@ class ResetPasswordController extends Controller
         $request->validate([
             'email' => 'required|email',
             'password' => 'required|confirmed|min:8',
-            'token' => 'required'
+            'token' => 'required',
         ]);
 
         $status = Password::reset(
             $request->only('email', 'password', 'password_confirmation', 'token'),
             function ($user, $password) {
                 $user->forceFill([
-                    'password' => bcrypt($password)
+                    'password' => bcrypt($password),
                 ])->save();
             }
         );

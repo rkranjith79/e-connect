@@ -9,21 +9,25 @@ use Illuminate\Support\Facades\Validator;
 
 class SiteConfigurationsController extends Controller
 {
-    public $pageData = [], $modal;
+    public $pageData = [];
+
+    public $modal;
 
     public function __construct()
     {
-        $this->pageData['title'] = "Site Configurations";
-        $this->pageData['name'] = "Site Configuration";
-        $this->pageData['view'] = "admin.site_configuration.index";
-        $this->pageData['tables'] = "site_configurations";
-        $this->pageData['prefix_url'] = "site_configuration";
+        $this->pageData['title'] = 'Site Configurations';
+        $this->pageData['name'] = 'Site Configuration';
+        $this->pageData['view'] = 'admin.site_configuration.index';
+        $this->pageData['tables'] = 'site_configurations';
+        $this->pageData['prefix_url'] = 'site_configuration';
         $this->modal = new SiteConfiguration();
     }
+
     public function index()
     {
         $modal_data = $this->modal->get();
         $page_data = $this->pageData;
+
         return view('admin.site_configuration.index', compact(['page_data', 'modal_data']));
     }
 
@@ -35,25 +39,26 @@ class SiteConfigurationsController extends Controller
     public function store(Request $request)
     {
         $input = $request->all();
-       
+
         foreach ($input['label'] as $key => $value) {
             $label = $input['label'][$key];
             $code = $input['code'][$key];
-            $attributes = json_decode($input['attributes'][$key], TRUE);
+            $attributes = json_decode($input['attributes'][$key], true);
             $attributes['value'] = $input['value'][$key];
-         
+
             $this->modal->updateOrCreate(
                 ['code' => $code],
                 ['label' => $label, 'attributes' => $attributes]
             );
         }
+
         return redirect()->route('admin.site_configuration.index');
     }
 
     public function storeCode(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'code' => ['required', 'max:255', 'unique:' . $this->pageData['tables']],
+            'code' => ['required', 'max:255', 'unique:'.$this->pageData['tables']],
         ]);
 
         if ($validator->fails()) {
@@ -65,8 +70,9 @@ class SiteConfigurationsController extends Controller
             SiteConfiguration::create([
                 'label' => $request->code,
                 'code' => $request->code,
-                'attributes' => []
+                'attributes' => [],
             ]);
+
             return response()->json([
                 'status' => 700,
                 'message' => 'Code Added Successfully',
