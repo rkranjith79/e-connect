@@ -28,13 +28,13 @@
                 </div>
                 <div class="col-lg-7 col">
                     <ul class="list-inline mb-0 d-flex align-items-center justify-content-end ">
-                        @if (Auth::user())
-                        <a href= "{{route('user.profile_edit', ['profile' => Auth::user()->profile->id])}}">
-                            <img loading="lazy" class="size-30px rounded-circle img-fit mr-2"
-                                src="{{ Auth::user()->profile->photo ?? '' }}" alt="Profile Photo"
-                                onerror="this.onerror=null;this.src='{{ asset('img/avatar-place.png') }}';">
-
-                        </a>    <a class="d-flex align-items-center text-reset dropdown-toggle" href="#"
+                        @if (__isProfiledUser())
+                            <a href= "{{ route('user.profile_edit', ['profile' => Auth::user()->profile->id]) }}">
+                                <img loading="lazy" class="size-30px rounded-circle img-fit mr-2"
+                                    src="{{ Auth::user()->profile->photo ?? '' }}" alt="Profile Photo"
+                                    onerror="this.onerror=null;this.src='{{ asset('img/avatar-place.png') }}';">
+                            </a>
+                            <a class="d-flex align-items-center text-reset dropdown-toggle" href="#"
                                 role="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
                                 aria-expanded="false">
                                 <span class="mr-1">
@@ -78,9 +78,19 @@
                                 <span><a href="tel:{{ __getSiteConfigration('help_line') }}">
                                         {{ __getSiteConfigration('help_line', 'value') }}</a></span>
                             </li>
+                            @if (auth()->check() && auth()->user()->is_admin == 1)
+                                <li class="list-inline-item text-center">
+                                    <form method="POST" action="{{ route('logout') }}">
+                                        @csrf
+                                        <button class="btn btn-sm btn-danger text-white fw-600 py-1 border"
+                                            type="submit">{{ trans('site.logout') }}</button>
+                                    </form>
+                                </li>
+                            @else
                             <li class="list-inline-item text-center">
                                 <a class="text-reset " href="{{ route('user-login') }}">{{ trans('site.login') }}</a>
                             </li>
+                            @endif
                             <li class="list-inline-item">
                                 <a class="btn btn-sm btn-primary text-white fw-600 py-1 border"
                                     href="{{ route('registers') }}">{{ trans('site.registration') }}</a>
@@ -139,8 +149,8 @@
 
                         <li class="d-inline-block d-lg-flex pb-1 ">
                             <a class="nav-link text-uppercase fw-700 fs-15 d-flex align-items-center bg-white py-2"
-                                href="javascript:void(0)" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true"
-                                aria-expanded="false">
+                                href="javascript:void(0)" id="dropdownMenu2" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
                                 <span class="text-primary-grad mb-n1">{{ trans('site.more') }}</span>
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">

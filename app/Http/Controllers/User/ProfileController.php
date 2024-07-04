@@ -167,6 +167,7 @@ class ProfileController extends Controller
                 'phone' => $request->phone,
                 'username' => $request->phone ?? $request->email ?? '',
                 'password' => Hash::make($request->password),
+                'status' => 0,
             ]);
 
             $profile = Profile::create([
