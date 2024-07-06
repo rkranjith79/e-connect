@@ -106,86 +106,52 @@
                 </div>
 
                 <h4 class="section-title">{{ trans('fields.section_religion') }}</h4>
-                <div class="form-row ">
+                <div class="form-row">
                     <div class="col-6">
                         <table>
                             <tbody>
                                 <tr>
-                                    <td>{{ trans('fields.rasi_nakshatra') }}</td>
+                                    <td>{{ trans('fields.caste') }}</td>
                                     <td>:</td>
                                     <td>{{ $data['profile']->basic->caste->title ?? '-' }}</td>
                                 </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="col-6">
-                        <table>
-                            <tbody>
                                 <tr>
                                     <td>{{ trans('fields.sub_caste') }}</td>
                                     <td>:</td>
                                     <td>{{ $data['profile']->basic->sub_caste->title ?? '-' }}</td>
                                 </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="col-6">
-                        <table>
-                            <tbody>
                                 <tr>
                                     <td>{{ trans('fields.temple') }}</td>
                                     <td>:</td>
                                     <td>{{ $data['profile']->basic->temple ?? '-' }}</td>
                                 </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-
-                <h4 class="section-title">{{ trans('fields.section_family') }}</h4>
-                <div class="form-row">
-                    <div class="col-6">
-                        <table>
-                            <tbody>
                                 <tr>
                                     <td>{{ trans('fields.father_status') }}</td>
                                     <td>:</td>
                                     <td>{{ $data['profile']->basic->father_status->title ?? '-' }}</td>
-                                </tr>
-                                <tr>
-                                    <td>{{ trans('fields.siblings') }}</td>
-                                    <td>:</td>
-                                    <td>{{ $data['profile']->basic->siblings ?? '-' }}</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="col-6">
-                        <table>
-                            <tbody>
+                                </tr> 
                                 <tr>
                                     <td>{{ trans('fields.mother_status') }}</td>
                                     <td>:</td>
                                     <td>{{ $data['profile']->basic->mother_status->title ?? '-' }}</td>
                                 </tr>
                                 <tr>
+                                    <td>{{ trans('fields.siblings') }}</td>
+                                    <td>:</td>
+                                    <td>{{ $data['profile']->basic->siblings ?? '-' }}</td>
+                                </tr>
+                                <tr>
                                     <td>{{ trans('fields.social_type') }}</td>
                                     <td>:</td>
                                     <td>{{ $data['profile']->basic->social_type->title ?? '-' }}</td>
-                                </tr>
+                                </tr>                               
                             </tbody>
                         </table>
                     </div>
-                </div>
-
-                <h4 class="section-title">{{ trans('fields.jathagam') }}</h4>
-                <div class="form-row">
                     <div class="col-6">
                         <table>
                             <tbody>
-                                <tr>
+                            <tr>
                                     <td>{{ trans('fields.rasi_nakshatra') }}</td>
                                     <td>:</td>
                                     <td>{{ $data['profile']->jathagam->rasi_nakshatra->title ?? '-' }}</td>
@@ -205,12 +171,6 @@
                                     <td>:</td>
                                     <td>{{ $data['profile']->jathagam->jathagam->title ?? '-' }}</td>
                                 </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="col-6">
-                        <table>
-                            <tbody>
                                 <tr>
                                     <td>{{ trans('fields.date_of_birth') }}</td>
                                     <td>:</td>
@@ -236,8 +196,7 @@
                             </tbody>
                         </table>
                     </div>
-                </div>
-
+                </div>        
                 <div class="row div-astro mt-2">
                     <div class="col-xl-6 col-lg-12 col-sm-12 col-md-12 mb-1">
                         <table class="tablehoro" border="0" cellpadding="0" cellspacing="0" align="center">
