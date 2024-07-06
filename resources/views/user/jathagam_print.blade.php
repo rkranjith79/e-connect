@@ -106,7 +106,7 @@
                 </div>
 
                 <h4 class="section-title">{{ trans('fields.section_religion') }}</h4>
-                <div class="form-row">
+                <div class="form-row first-row">
                     <div class="col-6">
                         <table>
                             <tbody>
