@@ -152,7 +152,7 @@
                         <table>
                             <tbody>
                             <tr>
-                                    <td>{{ trans('fields.rasi_nakshatra') }}</td>
+                                    <td>{{ trans('fields.rasi_nakshatra') }}&nbsp;&nbsp;</td>
                                     <td>:</td>
                                     <td>{{ $data['profile']->jathagam->rasi_nakshatra->title ?? '-' }}</td>
                                 </tr>
