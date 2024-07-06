@@ -68,7 +68,7 @@
                                 <tr>
                                     <td>{{ trans('fields.age') }}</td>
                                     <td>:</td>
-                                    <td>{{ $data['profile']->jathagam->title ?? '-' }}</td>
+                                    <td>{{ $data['profile']->jathagam->age ?? '-' }}</td>
                                 </tr>
                                 <tr>
                                     <td>{{ trans('fields.marital_status') }}</td>
