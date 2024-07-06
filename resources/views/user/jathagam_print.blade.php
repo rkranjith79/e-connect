@@ -111,7 +111,7 @@
                         <table>
                             <tbody>
                                 <tr>
-                                    <td>{{ trans('fields.caste') }}</td>
+                                    <td>{{ trans('fields.rasi_nakshatra') }}</td>
                                     <td>:</td>
                                     <td>{{ $data['profile']->basic->caste->title ?? '-' }}</td>
                                 </tr>
