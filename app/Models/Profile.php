@@ -5,11 +5,12 @@ namespace App\Models;
 use App\Models\Common\MasterModel;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Str;
 
 class Profile extends MasterModel
 {
-    use HasFactory;
+    use HasFactory, SoftDeletes;
 
     protected $guarded = [];
 
@@ -155,14 +156,14 @@ class Profile extends MasterModel
         $PurchasedPlan = new PurchasedPlan();
 
         return $this->purchasedPlans()
-            ->where($PurchasedPlan->table.'.expired_at', '>', Carbon::now())
+            ->where($PurchasedPlan->table . '.expired_at', '>', Carbon::now())
             ->leftJoin($plan->table, function ($join) use ($plan, $PurchasedPlan) {
-                $join->on($plan->table.'.id', $PurchasedPlan->table.'.plan_id');
+                $join->on($plan->table . '.id', $PurchasedPlan->table . '.plan_id');
             })
 
-            ->whereColumn($plan->table.'.profile_count', '>', $PurchasedPlan->table.'.used_profile_count')
-            ->where($PurchasedPlan->table.'.active', 1)
-            ->select([$PurchasedPlan->table.'.id as id', $PurchasedPlan->table.'.plan_id', $plan->table.'.expire_in_days'])
+            ->whereColumn($plan->table . '.profile_count', '>', $PurchasedPlan->table . '.used_profile_count')
+            ->where($PurchasedPlan->table . '.active', 1)
+            ->select([$PurchasedPlan->table . '.id as id', $PurchasedPlan->table . '.plan_id', $plan->table . '.expire_in_days'])
             ->orderBy('expired_at', 'ASC');
     }
 
@@ -178,7 +179,7 @@ class Profile extends MasterModel
             ->orderBy('expired_at', 'ASC')
             ->first();
 
-        if (! empty($availablePlan)) {
+        if (!empty($availablePlan)) {
             return $this->purchased_profiles()->create([
                 'plan_id' => $availablePlan->plan_id,
                 'purchased_profile_id' => $purchased_profile_id,
@@ -264,8 +265,8 @@ class Profile extends MasterModel
 
     public function getPhotoAttribute()
     {
-        return ! empty($this->attributes['photo_file']) ?
-            asset('storage/photos/'.$this->attributes['photo_file'])
+        return !empty($this->attributes['photo_file']) ?
+            asset('storage/photos/' . $this->attributes['photo_file'])
             : (
                 $this->attributes['gender_id'] == 1 ?
                 asset('img/profile/groom.jpg')
@@ -281,7 +282,7 @@ class Profile extends MasterModel
 
     public function getInterestedAttribute()
     {
-        if (! __isProfiledUser()) {
+        if (!__isProfiledUser()) {
             return false;
         }
         $profile_id = auth()->user()->profile->id;
@@ -295,7 +296,7 @@ class Profile extends MasterModel
 
     public function getPurchasedAttribute()
     {
-        if (! __isProfiledUser()) {
+        if (!__isProfiledUser()) {
             return false;
         }
 
@@ -310,7 +311,7 @@ class Profile extends MasterModel
 
     public function getIgnoredAttribute()
     {
-        if (! __isProfiledUser()) {
+        if (!__isProfiledUser()) {
             return false;
         }
 
@@ -325,35 +326,35 @@ class Profile extends MasterModel
 
     public function getExpectationJathagamTitleAttribute()
     {
-        if (! empty($this->expectation_jathagam_id)) {
+        if (!empty($this->expectation_jathagam_id)) {
             return Jathagam::where('id', $this->expectation_jathagam_id)->Translated()?->pluck('title')->implode(', ');
         }
     }
 
     public function getExpectationMaritalStatusTitleAttribute()
     {
-        if (! empty($this->expectation_marital_status_id)) {
+        if (!empty($this->expectation_marital_status_id)) {
             return Jathagam::where('id', $this->expectation_marital_status_id)->Translated()?->pluck('title')->implode(', ');
         }
     }
 
     public function getExpectationWorkPlaceTitleAttribute()
     {
-        if (! empty($this->expectation_work_place_id)) {
+        if (!empty($this->expectation_work_place_id)) {
             return Jathagam::where('id', $this->expectation_work_place_id)->Translated()?->pluck('title')->implode(', ');
         }
     }
 
     public function getWhatsappDataAttribute()
     {
-        return $txt = trans('fields.code').':'.($this->code ?? '-')."\n".
-            trans('fields.name').':'.($this->title ?? '-')."\n".
-            trans('fields.age').':'.($this->jathagam->age ?? '-')."\n".
-            trans('fields.district').':'.($this->basic->district->title ?? '-')."\n".
-            trans('fields.work').':'.($this->basic->work->title ?? '-')."\n".
-            trans('fields.monthly_income').':'.($this->basic->monthly_income ?? '-')."\n".
-            trans('fields.rasi_nakshatra').':'.($this->jathagam->rasi_nakshatra->title ?? '-')."\n".
-            trans('fields.jathagam').':'.($this->jathagam->jathagam->title ?? '-')."\n";
+        return $txt = trans('fields.code') . ':' . ($this->code ?? '-') . "\n" .
+            trans('fields.name') . ':' . ($this->title ?? '-') . "\n" .
+            trans('fields.age') . ':' . ($this->jathagam->age ?? '-') . "\n" .
+            trans('fields.district') . ':' . ($this->basic->district->title ?? '-') . "\n" .
+            trans('fields.work') . ':' . ($this->basic->work->title ?? '-') . "\n" .
+            trans('fields.monthly_income') . ':' . ($this->basic->monthly_income ?? '-') . "\n" .
+            trans('fields.rasi_nakshatra') . ':' . ($this->jathagam->rasi_nakshatra->title ?? '-') . "\n" .
+            trans('fields.jathagam') . ':' . ($this->jathagam->jathagam->title ?? '-') . "\n";
 
         return http_build_query(['text' => $txt]);
     }
@@ -384,12 +385,28 @@ class Profile extends MasterModel
         static::deleting(function ($profile) {
             $profile->basic->delete();
             $profile->jathagam->delete();
+
+            $user = $profile->user;
+
+            if ($user->last_login_profile_id == $profile->id) {
+                $otherProfiles = $user->profiles()->where('id', '!=', $profile->id)->get();
+
+                if ($otherProfiles->count() > 0) {
+                    // Change last_login_profile_id to another profile's id
+                    $user->last_login_profile_id = $otherProfiles->first()->id;
+                } else {
+                    // Change status to Inactive
+                    $user->status = '0';
+                }
+
+                $user->save();
+            }
         });
 
         static::creating(function ($profile) {
             $lastProfile = static::latest()->first();
             $lastCode = $lastProfile ? $lastProfile->code : null;
-            $profile->code = 'EC'.str_pad(intval(substr($lastCode, 2)) + 1, 4, '0', STR_PAD_LEFT);
+            $profile->code = 'EC' . str_pad(intval(substr($lastCode, 2)) + 1, 4, '0', STR_PAD_LEFT);
             $profile->uuid = (string) Str::uuid();
         });
     }

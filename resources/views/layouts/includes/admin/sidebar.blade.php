@@ -1,6 +1,7 @@
 @php
     $menuItems = [
-        ['name' => 'Users', 'href' => route('admin.user.list'), 'icon' => 'mdi-home'],
+        ['name' => 'Users', 'href' => route('admin.user.list'), 'icon' => 'mdi-account-star'],
+        ['name' => 'Profiles', 'href' => route('admin.profile.index'), 'icon' => 'mdi-account-check'],
         ['name' => 'Plans', 'href' => route('admin.plan.index'), 'icon' => 'mdi-star'],
         ['name' => 'Purchased Plans', 'href' => route('admin.purchased_plan.index'), 'icon' => 'mdi-star'],
         ['name' => 'Purchased Profiles', 'href' => route('admin.purchased_profile.index'), 'icon' => 'mdi-star'],
@@ -83,7 +84,7 @@
                     </a>
                 </li>
             @elseif ($item['type'] ?? '' == 'header')
-            
+
                 <li class="nav-item">
                     <a class="nav-link" data-bs-toggle="collapse" href="#nav{{$itemKey}}" aria-expanded="false"
                         aria-controls="auth">

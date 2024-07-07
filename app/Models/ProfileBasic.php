@@ -4,10 +4,11 @@ namespace App\Models;
 
 use App\Models\Common\MasterModel;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class ProfileBasic extends MasterModel
 {
-    use HasFactory;
+    use HasFactory,SoftDeletes;
 
     protected $fillable = [
         'id',

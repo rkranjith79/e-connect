@@ -36,13 +36,16 @@
                                                     class="fa fa-pencil" aria-hidden="true"></i>
                                             </button> --}}
                                             @if ($data_record->active == 1)
-                                                <button class="btn btn-icon deactivatePlan"
-                                                    value="{{ $data_record->id }}"><i class="fa-solid fa-xmark"
-                                                        aria-hidden="true"></i>
+                                                <button class="btn deactivatePlan text-danger"
+                                                    data-bs-toggle="tooltip" title="Deactivate"
+                                                    value="{{ $data_record->id }}">
+                                                    <i class="mdi mdi-close-circle" aria-hidden="true"></i>
                                                 </button>
                                             @else
-                                                <button class="btn btn-icon activatePlan" value="{{ $data_record->id }}"><i
-                                                        class="fa-solid fa-check" aria-hidden="true"></i>
+                                                <button class="btn activatePlan text-success"
+                                                    data-bs-toggle="tooltip" title="Activate"
+                                                    value="{{ $data_record->id }}">
+                                                    <i class="mdi mdi-check-circle" aria-hidden="true"></i>
                                                 </button>
                                             @endif
                                         </td>

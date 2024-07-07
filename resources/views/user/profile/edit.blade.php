@@ -78,7 +78,8 @@
                             showConfirmButton: false
                         }).then(() => {
                             // Redirect to the specified URL
-                            window.location.href = "{{ route('user.profile_edit') }}";
+                            window.location.href =
+                                "{{ route('user.profile_edit', ['profile' => Auth::user()->profile->id ?? '', 'uuid' => Auth::user()->profile->uuid ?? '']) }}";
                         });
                     } else {
                         handleErrors(response.errors); // Display validation errors

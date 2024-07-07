@@ -5,10 +5,11 @@ namespace App\Models;
 use App\Models\Common\MasterModel;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class profileJathagam extends MasterModel
 {
-    use HasFactory;
+    use HasFactory,SoftDeletes;
 
     protected $fillable = [
         'profile_id',

@@ -13,7 +13,7 @@ class Plan extends Model
     public $table = 'plans';
 
     protected $fillable = [
-        'id', 'title', 'expire_in_days', 'attributes', 'profile_count', 'order_by', 'price',
+        'id', 'title', 'active', 'expire_in_days', 'attributes', 'profile_count', 'order_by', 'price',
     ];
 
     protected $casts = [

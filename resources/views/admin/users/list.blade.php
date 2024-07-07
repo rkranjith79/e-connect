@@ -12,7 +12,7 @@
                     </button>
                 </div>
                 <div class="card-body table-body">
-                    <div class="table-data">
+                    <div class="table-data table-responsive">
                         <table class="table table-bordered table-striped">
                             <thead>
                                 <tr>
@@ -22,7 +22,7 @@
                                     <th>Phone</th>
                                     <th>User Name</th>
                                     <th>Status</th>
-                                    <th>Profile ID</th>
+                                    <th>Profile Count</th>
                                     <th>Actions</th>
                                 </tr>
                             </thead>
@@ -35,16 +35,14 @@
                                         <td>{{ $user->phone }}</td>
                                         <td>{{ $user->username }}</td>
                                         <td>{{ $user->status == 1 ? 'Active' : 'Inactive' }}</td>
-                                        @if (!empty($user->profile->id ?? ''))
-                                            <td>
-                                                <a target="_blank" class="px-4" href="{{ route('user.profile', [ 'id' => $user->profile->id, 'uuid' => $user->profile->uuid])}}">
-                                                    {{ $user->profile->id ?? '----' }}
-                                                </a>
-                                               
-                                            </td>
-                                        @else
-                                            <td>{{ '----' }}</td>
-                                        @endif
+                                        <td>
+                                            @if ($user->profile_count > 0)
+                                                <a target="_blank"
+                                                    href="{{ route('admin.profile.index', ['user_id' => $user->id]) }} ">{{ $user->profile_count ?? '' }}</a>
+                                            @else
+                                                -
+                                            @endif
+                                        </td>
                                         <td>
                                             <button class="btn btn-primary editUser btn-sm"
                                                 value="{{ $user->id }}">Edit</button>
@@ -240,8 +238,8 @@
                             $('#edit_name').val(response.user.name),
                             $('#edit_email').val(response.user.email),
                             $('#edit_password').val(response.user.password)
-                            $('#edit_status').val(response.user.status)
-                       
+                        $('#edit_status').val(response.user.status)
+
                     }
                 }
             });

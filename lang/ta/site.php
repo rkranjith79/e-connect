@@ -10,6 +10,8 @@ return [
     'reset_password' => 'கடவுச்சொல்லை மீட்டமை',
     'change_password' => 'கடவுச்சொல்லை மாற்று',
     'my_profile' => 'எனது சுயவிவரம்',
+    'my_profiles' => 'எனது சுயவிவரங்கள்',
+    'edit_profile' => 'சுயவிவரத்தை திருத்தவும்',
 
     //Main Menu
     'home' => 'முகப்பு',

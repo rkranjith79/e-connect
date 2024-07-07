@@ -1,11 +1,6 @@
 <div class="border border-gray-300 rounded shadow mb-4 has-transition position-relative">
-    <div class="row no-gutters
-                                        @if ($profile->purchased) purchased-profile-bg
-                                        @elseif ($profile->interested)
-                                        interested-profile-bg @endif
-                                        "
-        id="block_id_{{ $profile->id }}" style="
-                                     ">
+    <div class="row no-gutters @if ($profile->purchased) purchased-profile-bg @elseif ($profile->interested) interested-profile-bg @endif"
+        id="block_id_{{ $profile->id }}" style="">
         <div class="col-md-auto">
             <div class="text-center pt-3 pt-md-0">
                 <img loading="lazy" src="{{ $profile->photo }}" class="profile-thumb"
@@ -131,15 +126,7 @@
     @if (__isProfiledUser())
         <hr class="m-0">
         <div
-            class="row gutters-5 text-center bg-seconary m-0 p-2
-
-                                        @if ($profile->purchased) bg-primary
-                                        @else @endif
-                                            ">
-
-
-
-
+            class="row gutters-5 text-center bg-seconary m-0 p-2 @if ($profile->purchased) bg-primary @else @endif ">
             <div class="col">
                 <a href="{{ route('user.profile', ['id' => $profile->id, 'uuid' => $profile->uuid]) }}"
                     class="text-dark c-pointer">
@@ -167,17 +154,20 @@
                 </a>
             </div>
             <div class="col">
-                @if (config('siteconfigrations.payment_mode') == "none")
-                    <a href="https://wa.me/?phone={{ __getSiteConfigration('help_line') }}&text=I am interested in this profile details, {{ $profile->whatsappData }}" target="_blank" class="text-dark c-pointer">
+                @if (config('siteconfigrations.payment_mode') == 'none')
+                    <a href="https://wa.me/?phone={{ __getSiteConfigration('help_line') }}&text=I am interested in this profile details, {{ $profile->whatsappData }}"
+                        target="_blank" class="text-dark c-pointer">
                         <i class="fas {{ $profile->purchased ? 'fa-phone text-warning' : 'fa-phone' }}  fs-20"></i>
-                        <span class="d-block fs-10 {{ $profile->purchased ? 'text-warning' : 'text-dark' }}">{{ trans('site.view_contact') }}</span>
-                        </a>
+                        <span
+                            class="d-block fs-10 {{ $profile->purchased ? 'text-warning' : 'text-dark' }}">{{ trans('site.view_contact') }}</span>
+                    </a>
                 @else
                     <a href="javascript:void(0);"
                         onclick="checkPurchasedProfile('{{ $profile->id }}', '{{ $profile->uuid }}', '{{ auth()->user()->profile->id }}', '{{ auth()->user()->profile->uuid }}')"
                         class="text-dark c-pointer">
                         <i class="fas {{ $profile->purchased ? 'fa-phone text-warning' : 'fa-phone' }}  fs-20"></i>
-                        <span class="d-block fs-10 {{ $profile->purchased ? 'text-warning' : 'text-dark' }}">{{ trans('site.view_contact') }}</span>
+                        <span
+                            class="d-block fs-10 {{ $profile->purchased ? 'text-warning' : 'text-dark' }}">{{ trans('site.view_contact') }}</span>
                     </a>
                 @endif
 
