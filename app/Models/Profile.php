@@ -385,6 +385,9 @@ class Profile extends MasterModel
         static::deleting(function ($profile) {
             $profile->basic->delete();
             $profile->jathagam->delete();
+            $profile->ignoredProfile->delete();
+            $profile->purchasedProfile->delete();
+            $profile->interestedProfile->delete();
 
             $user = $profile->user;
 
