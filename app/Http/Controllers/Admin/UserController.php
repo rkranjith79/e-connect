@@ -94,6 +94,7 @@ class UserController extends Controller
             ];
 
             if (!empty($request->password)) {
+                // dd($request->password);
                 $input['password'] = Hash::make($request->password);
             }
             $user = User::find($id);

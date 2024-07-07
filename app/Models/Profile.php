@@ -404,7 +404,7 @@ class Profile extends MasterModel
         });
 
         static::creating(function ($profile) {
-            $lastProfile = static::latest()->first();
+            $lastProfile = static::withTrashed()->latest()->first();
             $lastCode = $lastProfile ? $lastProfile->code : null;
             $profile->code = 'EC' . str_pad(intval(substr($lastCode, 2)) + 1, 4, '0', STR_PAD_LEFT);
             $profile->uuid = (string) Str::uuid();

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Profile;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class ProfileController extends Controller
 {
@@ -78,21 +79,29 @@ class ProfileController extends Controller
 
     public function deleteProfile(Request $request)
     {
-        $modal_data = $this->modal->find($request->modal_data_id);
-        // dd($modal_data->id);
-        if (isset($modal_data)) {
-            // dd($modal_data);
-            $modal_data->delete();
+        try {
+            $modal_data = $this->modal->find($request->modal_data_id);
+
+            if ($modal_data) {
+                $modal_data->delete();
+
+                return response()->json([
+                    'status' => 200,
+                    'message' => $this->pageData['title'] . ' Deleted',
+                ]);
+            } else {
+                return response()->json([
+                    'status' => 404,
+                    'message' => $this->pageData['title'] . ' Not Found',
+                ]);
+            }
+        } catch (\Exception $e) {
+            // Log the exception
+            // Log::error('Exception occurred: ' . $e->getMessage());
 
             return response()->json([
-                'status' => 200,
-                'message' => $this->pageData['title'] . ' Deleted',
-            ]);
-        } else {
-
-            return response()->json([
-                'status' => 404,
-                'message' => $this->pageData['title'] . ' Not Found',
+                'status' => 500,
+                'message' => 'Failed to delete ' . $this->pageData['title'],
             ]);
         }
     }
