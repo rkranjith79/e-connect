@@ -16,7 +16,7 @@
                                 <div class="row">
                                     @forelse($profiles as $profile)
                                         @if ($profile->id != auth()->user()->last_login_profile_id)
-                                            <div class="col-xs-12 col-sm-6 col-md-4 mb-4 d-flex align-items-stretch">
+                                            <div class="col-xs-12 col-sm-6 col-md-4 mb-2 d-flex align-items-stretch">
                                                 <div class="image-flip w-100">
                                                     <div class="mainflip flip-0">
                                                         <div class="frontside">
@@ -24,7 +24,7 @@
                                                                 <div class="card-body text-center">
                                                                     <p><img class=" img-fluid" loading="lazy"
                                                                             src="{{ $profile->photo }}" alt="profile"></p>
-                                                                    <h4 class="card-title">{{ $profile->title }}</h4>
+                                                                    <h5 class="card-title">{{ Str::limit($profile->title, 25) }}</h5>
                                                                     <p class="card-text">
                                                                         <button
                                                                             class="btn btn-sm @if ($profile->active == 1) btn-success
@@ -42,14 +42,14 @@
                                                                             Deactivate
                                                                         </button>
                                                                     @else
-                                                                        <button
+                                                                        {{-- <button
                                                                             class="btn btn-info btn-sm activateProfile text-white"
                                                                             data-id="{{ $profile->id }}"
                                                                             data-uuid="{{ $profile->uuid }}" value="">
                                                                             <i class="mdi mdi-check-circle"
                                                                                 aria-hidden="true"></i>
                                                                             Activate
-                                                                        </button>
+                                                                        </button> --}}
                                                                     @endif
                                                                 </div>
                                                             </div>
@@ -59,7 +59,7 @@
                                                                 <div class="card-body text-center">
                                                                     <p><img class=" img-fluid" loading="lazy"
                                                                             src="{{ $profile->photo }}" alt="profile"></p>
-                                                                    <h4 class="card-title">{{ $profile->title }}</h4>
+                                                                    <h5 class="card-title">{{ Str::limit($profile->title, 25) }}</h5>
                                                                     <p class="card-text">
                                                                         <button
                                                                             class="btn btn-sm @if ($profile->active == 1) btn-success
@@ -78,7 +78,7 @@
                                                                             Deactivate
                                                                         </button>
                                                                     @else
-                                                                        <button
+                                                                        {{-- <button
                                                                             class=" btn btn-sm btn-info activateProfile text-white"
                                                                             data-id="{{ $profile->id }}"
                                                                             data-uuid="{{ $profile->uuid }}"
@@ -86,7 +86,7 @@
                                                                             <i class="mdi mdi-check-circle"
                                                                                 aria-hidden="true"></i>
                                                                             Activate
-                                                                        </button>
+                                                                        </button> --}}
                                                                     @endif
                                                                 </div>
                                                             </div>

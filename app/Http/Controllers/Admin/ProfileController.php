@@ -97,7 +97,7 @@ class ProfileController extends Controller
             }
         } catch (\Exception $e) {
             // Log the exception
-            // Log::error('Exception occurred: ' . $e->getMessage());
+            Log::error('Exception occurred: ' . $e->getMessage());
 
             return response()->json([
                 'status' => 500,
