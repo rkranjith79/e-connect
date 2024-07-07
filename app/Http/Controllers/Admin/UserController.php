@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Profile;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -21,7 +22,7 @@ class UserController extends Controller
     public function index()
     {
         $page_data = $this->pageData;
-        $users = User::paginate(20);
+        $users = User::paginate(15);
 
         return view('admin.users.list', compact('users', 'page_data'));
     }
@@ -75,7 +76,7 @@ class UserController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'name' => ['required', 'max:255'],
-            'email' => ['nullable', 'max:255', 'unique:users,email,'.$id.',id'],
+            'email' => ['nullable', 'max:255', 'unique:users,email,' . $id . ',id'],
             'password' => ['nullable'],
             'status' => ['nullable'],
         ]);
@@ -92,7 +93,8 @@ class UserController extends Controller
                 'status' => $request->status == true ? '1' : '0',
             ];
 
-            if (! empty($request->password)) {
+            if (!empty($request->password)) {
+                // dd($request->password);
                 $input['password'] = Hash::make($request->password);
             }
             $user = User::find($id);
@@ -123,11 +125,17 @@ class UserController extends Controller
         }
     }
 
-    public function updateLastLoginProfile($profileId)
+    public function updateLastLoginProfile($profileId, $uuid)
     {
-        $user = User::find(Auth::user()->id);
-        $user->last_login_profile_id = $profileId;
-        $user->save();
+        $profile = Profile::hashFind($profileId, $uuid);
+
+        if ($profile->active == 0) {
+
+        } else {
+            $user = User::find($profile->user_id);
+            $user->last_login_profile_id = $profileId;
+            $user->save();
+        }
 
         return redirect()->route('index');
     }

@@ -9,13 +9,13 @@
         <div class="px-4 text-center mb-4">
             <span class="avatar avatar-md mb-3">
                 <img loading="lazy" src="{{ Auth::user()->profile->photo }}" alt="Profile Photo"
-                    onerror="this.onerror=null;this.src='{{ asset('img/avatar-place.png')}}';">
+                    onerror="this.onerror=null;this.src='{{ asset('img/avatar-place.png') }}';">
             </span>
             <h4 class="h5 fw-600">{{ Auth::User()->profile->title }}</h4>
         </div>
         <div class="text-center mb-3 px-3">
-            <a href="{{ route('user.profile', ['id' => Auth::user()->profile->id, 'uuid' => Auth::user()->profile->uuid]) }}" class="btn btn-block btn-soft-primary"><i
-                    class="fas fa-user"></i> {{ trans('site.my_profile') }} </a>
+            <a href="{{ route('user.profile', ['id' => Auth::user()->profile->id, 'uuid' => Auth::user()->profile->uuid]) }}"
+                class="btn btn-block btn-soft-primary"><i class="fas fa-user"></i> {{ trans('site.my_profile') }} </a>
         </div>
 
         <div class="sidemnenu mb-3">
@@ -27,9 +27,21 @@
                     </a>
                 </li> --}}
                 <li class="aiz-side-nav-item mm-active">
-                    <a href="{{ route('user.profile_edit') }}" class="aiz-side-nav-link">
+                    <a href="{{ route('user.profile_edit', ['profile' => Auth::user()->profile->id ?? '', 'uuid' => Auth::user()->profile->uuid ?? '']) }}"
+                        class="aiz-side-nav-link">
                         <i class="fas fa-pen aiz-side-nav-icon"></i>
-                        <span class="aiz-side-nav-text">{{ trans('site.my_profile') }}</span>
+                        <span class="aiz-side-nav-text">{{ trans('site.edit_profile') }}</span>
+                    </a>
+                </li>
+                <li class="aiz-side-nav-item mm-active">
+                    <a href="{{ route('user.my_profiles') }}" class="aiz-side-nav-link">
+                        <i class="fa fa-users aiz-side-nav-icon"></i>
+                        <span class="aiz-side-nav-text">{{ trans('site.my_profiles') }}</span>
+                        @if (Auth::user()->MyProfileCount)
+                            <span class="bg-info sidebar-count-span">
+                                {{ Auth::user()->MyProfileCount }}
+                            </span>
+                        @endif
                     </a>
                 </li>
                 <li class="aiz-side-nav-item">
@@ -45,9 +57,9 @@
                         <i class="fas fa-heart aiz-side-nav-icon"></i>
                         <span class="aiz-side-nav-text">{{ trans('site.interested_profile') }}</span>
                         @if (Auth::user()->profile->my_interested_count)
-                        <span class="bg-danger sidebar-count-span">
-                           {{Auth::user()->profile->my_interested_count}}
-                        </span>
+                            <span class="bg-danger sidebar-count-span">
+                                {{ Auth::user()->profile->my_interested_count }}
+                            </span>
                         @endif
                     </a>
                 </li>
@@ -57,9 +69,9 @@
                         <i class="fas fa-users aiz-side-nav-icon"></i>
                         <span class="aiz-side-nav-text">{{ trans('site.purchased_profile') }}</span>
                         @if (Auth::user()->profile->my_purchased_count)
-                        <span class="bg-success sidebar-count-span">
-                           {{Auth::user()->profile->my_purchased_count}}
-                        </span>
+                            <span class="bg-success sidebar-count-span">
+                                {{ Auth::user()->profile->my_purchased_count }}
+                            </span>
                         @endif
                     </a>
                 </li>
@@ -69,14 +81,12 @@
                         <i class="fas fa-ban aiz-side-nav-icon"></i>
                         <span class="aiz-side-nav-text">{{ trans('site.ignored_profile') }}</span>
                         @if (Auth::user()->profile->my_ignored_count)
-                        <span class="bg-warning sidebar-count-span">
-                           {{Auth::user()->profile->my_ignored_count}}
-                        </span>
+                            <span class="bg-warning sidebar-count-span">
+                                {{ Auth::user()->profile->my_ignored_count }}
+                            </span>
                         @endif
                     </a>
                 </li>
-
-
             </ul>
         </div>
         <div>

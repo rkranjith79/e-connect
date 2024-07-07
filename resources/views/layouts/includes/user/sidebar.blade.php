@@ -3,7 +3,8 @@
         <a href="{{ url('/') }}" class="simple-text logo-mini">
             <div class="logo-img">
                 <a href="{{ url('/') }}" class="logo-img d-inline-block">
-                    <img loading="lazy" src="{{ asset('img/logo-e-connet.png') }}" alt="E-Connect Matrimony" class="mw-100 h-auto">
+                    <img loading="lazy" src="{{ asset('img/logo-e-connet.png') }}" alt="E-Connect Matrimony"
+                        class="mw-100 h-auto">
                 </a>
             </div>
         </a>
@@ -59,8 +60,7 @@
                     <li class="nav-item  ">
                         <a class="nav-link text-uppercase fw-700 fs-15 d-flex align-items-center bg-white py-2"
                             href="{{ __getSiteConfigration('dynamic_header_link_' . $i) }}"
-                            target="{{ __getSiteConfigration('dynamic_header_link_' . $i, 'target') }}"
-                            >
+                            target="{{ __getSiteConfigration('dynamic_header_link_' . $i, 'target') }}">
                             <span
                                 class="text-primary-grad mb-n1">{{ __getSiteConfigration('dynamic_header_link_' . $i, 'label') }}</span>
                         </a>
@@ -69,13 +69,20 @@
             @endfor
 
             @if (__isProfiledUser())
-
                 <li class="nav-item">
-                    <a href="{{ route('user.profile_edit') }}"
+                    <a href="{{ route('user.profile_edit', ['profile' => Auth::user()->profile->id ?? '', 'uuid' => Auth::user()->profile->uuid ?? '']) }}"
                         class="nav-link text-uppercase fw-700 fs-15 d-flex align-items-center bg-white py-2">
-                        <span class="text-primary-grad mb-n1">{{ trans('site.my_profile') }}</span>
+                        <span class="text-primary-grad mb-n1">{{ trans('site.edit_profile') }}</span>
                     </a>
                 </li>
+
+                <li class="nav-item">
+                    <a href="{{ route('user.my_profiles') }}"
+                        class="nav-link text-uppercase fw-700 fs-15 d-flex align-items-center bg-white py-2">
+                        <span class="text-primary-grad mb-n1">{{ trans('site.my_profiles') }}</span>
+                    </a>
+                </li>
+
                 <li class="nav-item">
                     <a href="{{ route('user.change_password') }}"
                         class="nav-link text-uppercase fw-700 fs-15 d-flex align-items-center bg-white py-2">
@@ -171,7 +178,8 @@
                 <a herf="#!" class="text-reset d-block flex-grow-1 text-center py-2 mobile-side-nav-thumb"
                     onclick="nav_toggler()">
                     <span class="d-block mx-auto mb-1 opacity-60">
-                        <img loading="lazy" src="{{ Auth::user()->profile->photo ?? '' }}" class="rounded-circle size-20px"
+                        <img loading="lazy" src="{{ Auth::user()->profile->photo ?? '' }}"
+                            class="rounded-circle size-20px"
                             onerror="this.onerror=null;this.src='{{ asset('img/avatar-place.png') }}';">
                     </span>
                     <span class="d-block fs-10 opacity-60">Menu</span>

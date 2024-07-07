@@ -22,7 +22,7 @@ Route::get('/', [App\Http\Controllers\User\MemberController::class, 'index'])->n
 Auth::routes();
 
 Route::get('/language/{locale}', function (string $locale) {
-    if (! in_array($locale, ['en', 'ta'])) {
+    if (!in_array($locale, ['en', 'ta'])) {
         abort(400);
     }
     \Illuminate\Support\Facades\App::setLocale($locale);
@@ -86,6 +86,10 @@ Route::name('admin.')->prefix('admin')->middleware(['auth', 'isAdmin'])->group(f
     Route::put('plan-activate/{id}', [App\Http\Controllers\PlanController::class, 'activate'])->name('plan.activate');
     Route::get('purchased_plan', [App\Http\Controllers\PurchasedPlanController::class, 'index'])->name('purchased_plan.index');
     Route::get('purchased_profile', [App\Http\Controllers\PurchasedProfileController::class, 'index'])->name('purchased_profile.index');
+    Route::get('user-profiles', [App\Http\Controllers\Admin\ProfileController::class, 'index'])->name('profile.index');
+    Route::put('profile-deactivate/{id?}/{uuid?}', [App\Http\Controllers\Admin\ProfileController::class, 'deactivate'])->name('profile.deactivate');
+    Route::put('profile-activate/{id?}/{uuid?}', [App\Http\Controllers\Admin\ProfileController::class, 'activate'])->name('profile.activate');
+    Route::put('profile-delete/{id}', [App\Http\Controllers\Admin\ProfileController::class, 'deleteProfile'])->name('profile.delete');
 });
 
 Route::name('user.')->prefix('user')->middleware(['auth'])->group(function () {
@@ -97,20 +101,22 @@ Route::name('user.')->prefix('user')->middleware(['auth'])->group(function () {
     Route::get('/profile-advanced-search', [App\Http\Controllers\User\MemberController::class, 'advancedSearch'])->name('advancedSearch');
     Route::get('/profile-search', [App\Http\Controllers\User\MemberController::class, 'search'])->name('search');
     Route::get('/profile/{id?}/{uuid?}', [App\Http\Controllers\User\MemberController::class, 'profile'])->name('profile');
-    Route::get('/profile-edit/{profile?}', [App\Http\Controllers\User\ProfileController::class, 'edit'])->name('profile_edit');
+    Route::get('/profile-edit/{profile?}/{uuid?}', [App\Http\Controllers\User\ProfileController::class, 'edit'])->name('profile_edit');
     Route::get('/change-password', [App\Http\Controllers\User\ProfileController::class, 'changePassword'])->name('change_password');
     Route::post('/update-password', [App\Http\Controllers\User\ProfileController::class, 'updatePassword'])->name('update_password');
     Route::put('/profile-update/{id}', [App\Http\Controllers\User\ProfileController::class, 'update'])->name('profile_update');
     Route::get('/interested-profiles/{profile?}', [App\Http\Controllers\User\ProfileController::class, 'interestedProfile'])->name('interested_profile');
     Route::get('/ignored-profiles/{profile?}', [App\Http\Controllers\User\ProfileController::class, 'ignoredProfile'])->name('ignored_profile');
     Route::get('/purchased-profiles/{profile?}', [App\Http\Controllers\User\ProfileController::class, 'purchasedProfile'])->name('purchased_profile');
+    Route::get('/my-profiles', [App\Http\Controllers\User\ProfileController::class, 'myProfiles'])->name('my_profiles');
+    Route::put('profile-deactivate/{profile?}/{uuid?}', [App\Http\Controllers\Admin\ProfileController::class, 'deactivate'])->name('profile.deactivate');
+    Route::put('profile-activate/{profile}/{uuid?}', [App\Http\Controllers\Admin\ProfileController::class, 'activate'])->name('profile.activate');
 
     Route::get('/purchase-profile-availability/{purchased_profile_id}/u/{purchased_profile_uuid}/my/{profile}/u/{profile_uuid}', [App\Http\Controllers\User\MemberController::class, 'checkPurchasedProfileAvailability'])->name('purchase_profile_availability');
     Route::get('/purchase-plan/{profile}/u/{profile_uuid}', [App\Http\Controllers\User\ProfileController::class, 'purchasePlan'])->name('purchase_plan');
     Route::get('/purchase-profile/{purchased_profile_id}/u/{purchased_profile_uuid}/my/{profile}/u/{profile_uuid}', [App\Http\Controllers\User\ProfileController::class, 'purchaseProfile'])->name('purchase_profile');
-    Route::post('/update-last-login/{profile}', [App\Http\Controllers\Admin\UserController::class, 'updateLastLoginProfile'])->name('update_last_login_profile');
+    Route::post('/update-last-login/{profile?}/{uuid?}', [App\Http\Controllers\Admin\UserController::class, 'updateLastLoginProfile'])->name('update_last_login_profile');
     Route::post('/profile/create-authenticated', [App\Http\Controllers\User\ProfileController::class, 'profileCreateAuthenticated'])->name('profile_create_authenticated');
-
 });
 
 Route::get('razorpay-payment', [App\Http\Controllers\RazorpayPaymentController::class, 'index']);

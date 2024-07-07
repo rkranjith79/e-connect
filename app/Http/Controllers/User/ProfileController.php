@@ -142,8 +142,8 @@ class ProfileController extends Controller
         $rasi = [];
         $navamsam = [];
         for ($i = 1; $i <= 12; $i++) {
-            $rasi[$i] = $request->{'rasi_'.$i};
-            $navamsam[$i] = $request->{'navamsam_'.$i};
+            $rasi[$i] = $request->{'rasi_' . $i};
+            $navamsam[$i] = $request->{'navamsam_' . $i};
         }
 
         $photo_file_path = $jathagam_file_path = '';
@@ -256,7 +256,7 @@ class ProfileController extends Controller
             DB::rollBack();
 
             // Log the error or handle it appropriately
-            Log::error('Transaction failed: '.$e->getMessage());
+            Log::error('Transaction failed: ' . $e->getMessage());
 
             return response()->json([
                 'status' => 400,
@@ -275,8 +275,8 @@ class ProfileController extends Controller
         $rasi = [];
         $navamsam = [];
         for ($i = 1; $i <= 12; $i++) {
-            $rasi[$i] = $request->{'rasi_'.$i};
-            $navamsam[$i] = $request->{'navamsam_'.$i};
+            $rasi[$i] = $request->{'rasi_' . $i};
+            $navamsam[$i] = $request->{'navamsam_' . $i};
         }
 
         $photo_file_path = $jathagam_file_path = '';
@@ -380,7 +380,7 @@ class ProfileController extends Controller
             DB::rollBack();
 
             // Log the error or handle it appropriately
-            Log::error('Transaction failed: '.$e->getMessage());
+            Log::error('Transaction failed: ' . $e->getMessage());
 
             return response()->json([
                 'status' => 400,
@@ -416,10 +416,11 @@ class ProfileController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function edit(Profile $profile)
+    public function edit($id, $uuid)
     {
-        $profile = ! empty($profile->id ?? '') ? $profile : Auth::user()->profile;
-        if (! empty($profile)) {
+        $profile = Profile::selectColumns()->hashFind($id, $uuid);
+
+        if (!empty($profile)) {
             $profileBasic = ProfileBasic::where('profile_id', $profile->id)->first();
             $profileJathagam = profileJathagam::where('profile_id', $profile->id)->first();
             $record = $this->getlookupData();
@@ -432,8 +433,8 @@ class ProfileController extends Controller
 
     public function interestedProfile(Profile $profile)
     {
-        $profile = ! empty($profile->id ?? '') ? $profile : Auth::user()->profile;
-        if (! empty($profile)) {
+        $profile = !empty($profile->id ?? '') ? $profile : Auth::user()->profile;
+        if (!empty($profile)) {
             return view('user.profile.interested_profile', compact(['profile']));
         } else {
             return view('pages.404');
@@ -442,8 +443,8 @@ class ProfileController extends Controller
 
     public function ignoredProfile(Profile $profile)
     {
-        $profile = ! empty($profile->id ?? '') ? $profile : Auth::user()->profile;
-        if (! empty($profile)) {
+        $profile = !empty($profile->id ?? '') ? $profile : Auth::user()->profile;
+        if (!empty($profile)) {
             return view('user.profile.ignored_profile', compact(['profile']));
         } else {
             return view('pages.404');
@@ -452,9 +453,20 @@ class ProfileController extends Controller
 
     public function purchasedProfile(Profile $profile)
     {
-        $profile = ! empty($profile->id ?? '') ? $profile : Auth::user()->profile;
-        if (! empty($profile)) {
+        $profile = !empty($profile->id ?? '') ? $profile : Auth::user()->profile;
+        if (!empty($profile)) {
             return view('user.profile.purchased_profile', compact(['profile']));
+        } else {
+            return view('pages.404');
+        }
+    }
+
+    public function myProfiles()
+    {
+        $profiles = Profile::where('user_id', auth()->user()->id)->where('id', '!=', auth()->user()->last_login_profile_id)->get();
+
+        if (!empty($profiles)) {
+            return view('user.profile.my_profiles', compact(['profiles']));
         } else {
             return view('pages.404');
         }
@@ -574,8 +586,8 @@ class ProfileController extends Controller
             $rasi = [];
             $navamsam = [];
             for ($i = 1; $i <= 12; $i++) {
-                $rasi[$i] = $request->{'rasi_'.$i};
-                $navamsam[$i] = $request->{'navamsam_'.$i};
+                $rasi[$i] = $request->{'rasi_' . $i};
+                $navamsam[$i] = $request->{'navamsam_' . $i};
             }
 
             $photo_file_path = $jathagam_file_path = '';
@@ -613,7 +625,7 @@ class ProfileController extends Controller
 
             if ($request->hasFile('photo_file')) {
                 if ($profile->photo_file) {
-                    Storage::delete('public/photos/'.$profile->photo_file);
+                    Storage::delete('public/photos/' . $profile->photo_file);
                 }
                 $file = $request->file('photo_file');
                 $photo_file_path = $file->getClientOriginalName();
@@ -675,7 +687,7 @@ class ProfileController extends Controller
 
             if ($request->hasFile('jathagam_file')) {
                 if ($profileJathagam->jathagam_file) {
-                    Storage::delete('public/jathagam/'.$profileJathagam->jathagam_file);
+                    Storage::delete('public/jathagam/' . $profileJathagam->jathagam_file);
                 }
                 $file = $request->file('jathagam_file');
                 $jathagam_file_path = $file->getClientOriginalName();
@@ -734,7 +746,7 @@ class ProfileController extends Controller
     public function purchasePlan(Request $request, $profile, $profile_uuid)
     {
 
-        if (! empty($request->plan_id)) {
+        if (!empty($request->plan_id)) {
             $profile = Profile::find($profile);
 
             $purchasedPlan = $profile->setPurchasedPlan($request->plan_id, $request->all());
@@ -758,7 +770,7 @@ class ProfileController extends Controller
             ]);
         }
 
-        if (! $profile->getAvailablePlanExists()) {
+        if (!$profile->getAvailablePlanExists()) {
             return redirect()->route('user-login');
         }
 

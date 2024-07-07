@@ -3,7 +3,7 @@
 @section('content')
     <div class="py-5 bg-white">
         <div class="container">
-            <div id="form_content" class="row">
+            <div id="form_content" class="">
                 <div class="d-flex align-items-start">
                     @include('user.profile.sidebar')
                     <div class="aiz-user-panel overflow-hidden">

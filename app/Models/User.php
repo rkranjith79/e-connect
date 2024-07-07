@@ -69,4 +69,17 @@ class User extends Authenticatable
     {
         return $this->hasMany(Profile::class);
     }
+
+    public function getMyProfileCountAttribute()
+    {
+        return $this->profiles()
+            ->where('id', '!=', auth()->user()->last_login_profile_id)
+            ->count();
+    }
+
+    public function getProfileCountAttribute()
+    {
+        return $this->profiles()
+            ->count();
+    }
 }

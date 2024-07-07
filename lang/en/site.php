@@ -11,6 +11,8 @@ return [
     'reset_password' => 'Reset Password',
     'change_password' => 'Change Password',
     'my_profile' => 'My Profile',
+    'my_profiles' => 'My Profiles',
+    'edit_profile' => 'Edit Profile',
 
     //Main Menu
     'home' => 'Home',
