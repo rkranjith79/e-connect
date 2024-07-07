@@ -196,4 +196,29 @@ class PlanController extends Controller
             ]);
         }
     }
+
+    public function priceUpdate(Request $request)
+    {
+        // variable declaration should be camelcase. 
+        
+        $modal_data = $this->modal->find($request->id);
+        if ($modal_data) {
+            $modal_data->update([
+                'price' => $request->price,
+            ]);            
+        }
+        return redirect('admin/plan');
+
+        // return response()->json([
+        //     'status' => 200,
+        //     'message' => $this->pageData['title'].' Activated',
+        // ]);
+        // else {
+
+        //     return response()->json([
+        //         'status' => 404,
+        //         'message' => $this->pageData['title'].' Not Found',
+        //     ]);
+        // }
+    }
 }

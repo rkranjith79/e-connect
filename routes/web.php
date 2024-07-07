@@ -81,6 +81,7 @@ Route::name('admin.')->prefix('admin')->middleware(['auth', 'isAdmin'])->group(f
     Route::post('site_configuration/create_code', [App\Http\Controllers\Admin\SiteConfigurationsController::class, 'storeCode'])->name('site_configuration.store_code');
     Route::resource('information_admin', App\Http\Controllers\Admin\InformationController::class);
     Route::resource('plan', App\Http\Controllers\PlanController::class);
+    Route::post('price_update', [App\Http\Controllers\PlanController::class, 'priceUpdate'])->name('price_update');
     Route::put('plan-deactivate/{id}', [App\Http\Controllers\PlanController::class, 'deactivate'])->name('plan.deactivate');
     Route::put('plan-activate/{id}', [App\Http\Controllers\PlanController::class, 'activate'])->name('plan.activate');
     Route::get('purchased_plan', [App\Http\Controllers\PurchasedPlanController::class, 'index'])->name('purchased_plan.index');
