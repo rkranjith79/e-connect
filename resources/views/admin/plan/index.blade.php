@@ -60,37 +60,6 @@
                                     </td>
                                 </tr>
                             </form>
-                            </thead>
-                            <tbody>
-                                @foreach ($modal_data as $data_record)
-                                    <tr>
-                                        <td>{{ ($modal_data->currentPage() - 1) * $modal_data->perPage() + $loop->iteration }}
-                                        </td>
-                                        <td>
-                                            {{-- <button class="btn-icon btn editPlan ms-1" value="{{ $data_record->id }}"><i
-                                                    class="fa fa-pencil" aria-hidden="true"></i>
-                                            </button> --}}
-                                            @if ($data_record->active == 1)
-                                                <button class="btn deactivatePlan text-danger"
-                                                    data-bs-toggle="tooltip" title="Deactivate"
-                                                    value="{{ $data_record->id }}">
-                                                    <i class="mdi mdi-close-circle" aria-hidden="true"></i>
-                                                </button>
-                                            @else
-                                                <button class="btn activatePlan text-success"
-                                                    data-bs-toggle="tooltip" title="Activate"
-                                                    value="{{ $data_record->id }}">
-                                                    <i class="mdi mdi-check-circle" aria-hidden="true"></i>
-                                                </button>
-                                            @endif
-                                        </td>
-                                        <td>{{ $data_record->title ?? '' }}</td>
-                                        <td>{{ $data_record->expire_in_days }}</td>
-                                        <td>{{ $data_record->profile_count }}</td>
-                                        <td>{{ $data_record->price }}</td>
-                                        <td>{{ collect($data_record->attributes)->toJson() ?? '' }}</td>
-                                        <td>{{ $data_record->active == 1 ? 'Active' : 'Inactive' }}</td>
-                                    </tr>
                                 @endforeach
                         </tbody>
                     </table>
