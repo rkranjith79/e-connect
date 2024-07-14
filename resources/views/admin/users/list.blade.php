@@ -57,7 +57,7 @@
                                                 <li>
                                                     <button class="dropdown-item deleteUser text-danger d-flex" data-bs-toggle="tooltip" title="Delete" value="{{ $user->id }}">
                                                         <i class="mdi mdi-trash-can" aria-hidden="true"></i>
-                                                        <p class="btn-align">Delete</p>
+                                                           <p class="btn-align">Delete</p>
                                                     </button>
                                                 </li>
                                             </ul>
