@@ -132,7 +132,7 @@
             padding: 3px 0;
             margin: 10px 0;
             font-size: 1.25rem;
-        }
+        }       
     </style>
     <!--  -->
     <!-- preloading area end -->
@@ -148,6 +148,8 @@
 
         <div class="close-layer"></div>
         <!-- Go to Top -->
+         
+        <a href="{{ __getSiteConfigration('whatsapp_group') }}"><button id="whatapp" class="btn btn-primary btn-icon btn-circle" style="float:left !important;"><i class="fas fab fa  fa-whatsapp"></i></button></a>
         <button id="goTop" class="btn btn-primary btn-icon btn-circle"><i class="fas fa-angle-up"></i></button>
         <div class="bubbling-animation text-danger bubbling-heart d-none">
             <div><i class="fa fa-heart fa-5x"></i></div>

@@ -22,7 +22,7 @@ class UserController extends Controller
     public function index()
     {
         $page_data = $this->pageData;
-        $users = User::paginate(15);
+        $users = User::orderBy('id', 'desc')->paginate(15);
 
         return view('admin.users.list', compact('users', 'page_data'));
     }

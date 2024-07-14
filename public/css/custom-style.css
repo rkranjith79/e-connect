@@ -469,6 +469,17 @@ body.print_profile .print-content .view-profile {
   font-size: 22px;
 }
 
+#whatapp {
+  position: fixed;
+  left: 0px;
+  bottom: 30px;
+  z-index: 999;
+}
+
+#whatapp>i {
+  font-size: 22px;
+}
+
 .bootstrap-select .dropdown-menu {
   min-width: fit-content !important;
 }

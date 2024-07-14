@@ -44,10 +44,24 @@
                                             @endif
                                         </td>
                                         <td>
-                                            <button class="btn btn-primary editUser btn-sm"
-                                                value="{{ $user->id }}">Edit</button>
-                                            <button class="btn btn-danger deleteUser btn-sm"
-                                                value="{{ $user->id }}">Delete</button>
+
+                                        <div class="dropdown-container">
+                                            <button class="btn btn-sm btn-primary fa fa-bars" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false"></button>
+                                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton" data-bs-placement="right">                                               
+                                                <li>
+                                                    <button class="dropdown-item d-flex text-info editUser" title="edit"  value="{{ $user->id }}">
+                                                        <i class="mdi mdi-pencil"></i>
+                                                        <p class="btn-align">Edit</p>
+                                                    </button>
+                                                </li>
+                                                <li>
+                                                    <button class="dropdown-item deleteUser text-danger d-flex" data-bs-toggle="tooltip" title="Delete" value="{{ $user->id }}">
+                                                        <i class="mdi mdi-trash-can" aria-hidden="true"></i>
+                                                        <p class="btn-align">Delete</p>
+                                                    </button>
+                                                </li>
+                                            </ul>
+                                        </div>                                           
                                         </td>
                                     </tr>
                                 @endforeach
