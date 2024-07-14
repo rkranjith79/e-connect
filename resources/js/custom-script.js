@@ -18,6 +18,7 @@ $(window).scroll(function () {
         $('#goTop').fadeOut();
     }
 });
+
 $("#goTop").click(function () {
     $("html, body").animate({ scrollTop: 0 }, 1000);
 });
