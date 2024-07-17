@@ -51,8 +51,8 @@
         <div class="form-group autocomplete mb-3">
             <label class="form-label" for="sub_caste">{{ trans('fields.sub_caste') }}<span
                     class="require-star">*</span></label>
-            <input class="form-control" id="sub_caste" 
-            type="text" name="sub_caste" 
+            <input class="form-control" id="sub_caste"
+            type="text" name="sub_caste"
             value="{{ @old('sub_caste') ?? ($profileBasic->sub_caste->title ?? '') }}"
             placeholder="{{ trans('fields.sub_caste') }}">
         </div>
@@ -65,6 +65,7 @@
             <div class="input-group">
                 <div class="input-group-prepend"><span class="input-group-text"><i class="fas fa-caret-down"></i></span>
                 </div>
+            <div id="sub_caste_div" style="width:230px;">
                 <select type="select" name="sub_caste_id" id="sub_caste_id"
                     class="form-control aiz-selectpicker required " data-live-search="true" -data-width="auto">
                     <option data-caste-id="" style="display:none" value="">-- Select --</option>
@@ -75,6 +76,7 @@
                         @endforeach
                     @endisset
                 </select>
+            </div>
             </div>
             <small class="form-text text-muted text-help"></small>
             <span class="invalid-feedback"></span>
@@ -102,14 +104,13 @@
         $(document).ready(function() {
 
             //
-            //    $('#sub_caste_id').removeClass('aiz-selectpicker');
+            //
             //    $('#sub_caste_id').addClass('aiz-selectpicker').selectpicker('refresh');
             // $('#sub_caste_id').selectpicker("destroy");
             //  $('#sub_caste_id').selectpicker('refresh');
-
-
-
-        }).change();
+            console.log('parthi')
+            $('#sub_caste_div').addClass('d-none');
+        });
 
 
 

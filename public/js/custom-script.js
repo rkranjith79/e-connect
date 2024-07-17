@@ -1,12 +1,12 @@
 /*
 $( document ).ready( function () {
 	//Loader
-	
+
 	$("#loading").delay(500).fadeOut(500);
 	$("#loading").click(function() {
 		$("#loading").fadeOut(500);
 	});
-	
+
 	if($.validator) {
 		$("#reg-form").validate({
 			rules: {
@@ -28,11 +28,11 @@ $( document ).ready( function () {
 			}
 		});
 	}
-	
+
 	$('#reg-form .aiz-selectpicker').not(".ignore").on('change', function () {
 		$(this).valid();
 	});
-	
+
 	//Maxlength fix for number fields
 	$('input[type=number][maxlength]').on('input', function() {
 		var $this = $(this);
@@ -42,12 +42,12 @@ $( document ).ready( function () {
 			$this.val(value.substr(0, maxlength));
 			}
 	});
-	
+
 	if($('.div-astro').length)
 		process_horo('.div-astro', $('#cur_lang').data('lang'));
-	
+
 	$('.close-layer').on("click",nav_toggler);
-	
+
 	if(navigator.userAgent.indexOf('SSMAndroidApp') !== -1) {
 		jQuery('a[target="_blank"]').on("click", function() {
 			window.open(jQuery(this).attr('href'));
@@ -276,7 +276,7 @@ function setPurchasePlan(purchased_profile_id, purchased_profile_uuid, profile_i
 $('#splcategory').on("change", function() {
 	//Reset field
 	$('#splcat_details').val('');
-	
+
 	if($(this).val() == 'Y')
 		$('.div-splcategory-details').removeClass('hide');
 	else
@@ -285,16 +285,16 @@ $('#splcategory').on("change", function() {
 $('#maritalstatus').on("change", function() {
 	//Reset fields
 	var maritalstatus = $(this).val();
-	
+
 	$('#havechildren, #childlivstatus, #noofchild').prop('selectedIndex', 0).selectpicker('refresh');
 	$('#marital_details').val('');
 	$('.div-marital-details, .div-havechildren, .div-childlivstatus, .div-noofchild').addClass('hide');
-	
+
 	if(maritalstatus == 'U')
 		$('.div-marital-details, .div-havechildren').addClass('hide');
 	else
 		$('.div-marital-details, .div-havechildren').removeClass('hide');
-	
+
 	//Fill expectation also
 	$('#exp_maritalstatus option').prop('selected', false);
 	$('#exp_maritalstatus').find('[value='+maritalstatus+']').prop('selected', true);
@@ -319,7 +319,7 @@ $('#work').on("change", function() {
 		$('.div-work-others').removeClass('hide');
 	else
 		$('.div-work-others').addClass('hide');
-	
+
 	$('#work_place').prop('selectedIndex', 0).selectpicker('refresh');
 	if($('#work').val() != '8' && $('#work').val() != '9')
 		$('.div-work-place').removeClass('hide');
@@ -329,7 +329,7 @@ $('#work').on("change", function() {
 $('#education').on("change", function() {
 	//Reset field
 	$('#education_others').val('');
-	
+
 	if($(this).val() == '1')
 		$('.div-education-others').removeClass('hide');
 	else
@@ -338,7 +338,7 @@ $('#education').on("change", function() {
 $('#sub_caste').on("change", function() {
 	//Reset field
 	$('#sub_caste_others').val('');
-	
+
 	if($(this).val() == '1')
 		$('.div-sub_caste-others').removeClass('hide');
 	else
@@ -347,7 +347,7 @@ $('#sub_caste').on("change", function() {
 $('#father_status').on("change", function() {
 	//Reset field
 	$('#father_occu').val('');
-	
+
 	if($(this).val() != '1')
 		$('.div-father-occu').addClass('hide');
 	else
@@ -356,7 +356,7 @@ $('#father_status').on("change", function() {
 $('#mother_status').on("change", function() {
 	//Reset field
 	$('#mother_occu').val('');
-	
+
 	if($(this).val() != '1')
 		$('.div-mother-occu').addClass('hide');
 	else
@@ -364,7 +364,7 @@ $('#mother_status').on("change", function() {
 });
 $('#gender').on("change", function() {
 	$('#seimurai').val('');
-	
+
 	if($(this).val() != '2')
 		$('.div-seimurai').addClass('hide');
 	else
@@ -376,7 +376,7 @@ $("#country").on("change", function() {
 	var state = $('#state');
 	if(state.length == 0) return;
 	$(state).empty();
-	
+
 	if($('#state').attr('multiple')=='multiple')
 		$(state).val('');
 	else {
@@ -384,7 +384,7 @@ $("#country").on("change", function() {
 		$(state).prop('selectedIndex', 0);
 		$('#div-state-other').addClass('hide');
 	}
-	
+
 	if(country_id != '')
 		$.post('/states/get_state_by_country', {country_id:country_id, _token:$('meta[name="csrf-token"]').attr("content")}, function(data){
 			$.each(data, function (key, value) {
@@ -399,7 +399,7 @@ $("#state").on("change", function() {
 	var district = $('#district');
 	if(district.length == 0) return;
 	$(district).empty();
-	
+
 	if($('#district').attr('multiple')=='multiple')
 		$(district).val('');
 	else {
@@ -407,7 +407,7 @@ $("#state").on("change", function() {
 		$(district).prop('selectedIndex', 0);
 		$('.div-district-others').addClass('hide');
 	}
-	
+
 	if(state_id != '')
 		$.post('/cities/get_cities_by_state', {state_id:state_id, _token:$('meta[name="csrf-token"]').attr("content")}, function(data){
 			$.each(data, function (key, value) {
@@ -416,7 +416,7 @@ $("#state").on("change", function() {
 			$(district).selectpicker('refresh');
 		});
 	$(district).selectpicker('refresh');
-	
+
 	//Check for Others Option
 	$('#state_others').val('');
 	if(state_id == '1')
@@ -452,7 +452,7 @@ $("#temple").on("keyup", function() {
 	var search = $(this).val();
 	if(search == '')
 		return false;
-	
+
 	var auto_complete = '';
 	$.post('/kovils/get_kovil_list', {search:search, _token:$('meta[name="csrf-token"]').attr("content")}, function(data){
 		$.each(data, function (key, value) {
@@ -470,7 +470,7 @@ $("#exp_nakshatra").on("keyup", function() {
 		return false;
 	search = search.split(" ");
 	search = search[search.length - 1];
-	
+
 	var auto_complete = '';
 	$.post('/nakshatra/get_autocomplete_list', {search:search, _token:$('meta[name="csrf-token"]').attr("content")}, function(data){
 		$.each(data, function (key, value) {
@@ -490,7 +490,7 @@ $('.tablehoro select').on("change", function() {
 		planets = ['லக்னம்', 'சூரியன்', 'சந்திரன்', 'செவ்வாய்', 'ராகு', 'குரு', 'சனி', 'புதன்', 'கேது', 'சுக்கிரன்', 'மாந்தி', 'செவ்வாய் (வ)', 'குரு (வ)', 'சனி (வ)', 'புதன் (வ)', 'சுக்கிரன் (வ)'];
 	else
 		planets = ['Lagnam', 'Sun', 'Moon', 'Mars', 'Raagu', 'Jupiter', 'Saturn', 'Mercury', 'Kethu', 'Venus', 'Maanthi', 'Mars (V)', 'Jupiter (V)', 'Saturn (V)', 'Mercury (V)', 'Venus (V)'];
-	
+
 	$.each($(this).val(), function( i, val ) {
 		in_text.push(planets[val-1]);
 	});
@@ -567,10 +567,18 @@ function dependencyDropDown(parent_id, child_id, data_id) {
 			} else {
 				// $(this).prop('disabled', true);
 				$(this).hide();
-			}
+    		}
 		});
+        alert(child_id);
 		$('#' + child_id).selectpicker("destroy");
 		$('#' + child_id).selectpicker('refresh');
+        $('#' + child_id).prop('selectedIndex', 0);
+       // $('#sub_caste_id').find('option:first').prop('selected', true);
+        // $('#sub_caste_id').val('');
+        if(parent_id == 'caste_id') {
+            $('#sub_caste_div').removeClass('d-none');
+        }
+
 	});
 }
 
@@ -584,7 +592,7 @@ $(window).scroll(function () {
 $("#goTop").click(function () {
 	$("html, body").animate({ scrollTop: 0 }, 1000);
 });
- 
+
 
 $(window).scroll(function () {
     if ($(this).scrollTop()) {
