@@ -569,7 +569,7 @@ function dependencyDropDown(parent_id, child_id, data_id) {
 				$(this).hide();
     		}
 		});
-        alert(child_id);
+
 		$('#' + child_id).selectpicker("destroy");
 		$('#' + child_id).selectpicker('refresh');
         $('#' + child_id).prop('selectedIndex', 0);
