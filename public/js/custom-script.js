@@ -572,8 +572,6 @@ function dependencyDropDown(parent_id, child_id, data_id) {
 		$('#' + child_id).selectpicker("destroy");
 		$('#' + child_id).selectpicker('refresh');
         $('#' + child_id).prop('selectedIndex', 0);
-       // $('#sub_caste_id').find('option:first').prop('selected', true);
-        // $('#sub_caste_id').val('');
         if(parent_id == 'caste_id') {
             $('#sub_caste_div').removeClass('d-none');
         }
