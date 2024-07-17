@@ -35,11 +35,11 @@
 
     <!-- CSS -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&amp;display=swap">
-    <link rel="stylesheet" href="{{ asset('css/vendors.css') }}?id={{config('app.version')}}">
-    <link rel="stylesheet" href="{{ asset('css/aiz-core.css') }}?id={{config('app.version')}}">
+    <link rel="stylesheet" href="{{ asset('css/vendors.css') }}?id={{ config('app.version') }}">
+    <link rel="stylesheet" href="{{ asset('css/aiz-core.css') }}?id={{ config('app.version') }}">
 
 
-    <link rel="stylesheet" href="{{ asset('css/custom-style.css') }}?id={{config('app.version')}}">
+    <link rel="stylesheet" href="{{ asset('css/custom-style.css') }}?id={{ config('app.version') }}">
     <script>
         var AIZ = AIZ || {};
     </script>
@@ -132,7 +132,7 @@
             padding: 3px 0;
             margin: 10px 0;
             font-size: 1.25rem;
-        }       
+        }
     </style>
     <!--  -->
     <!-- preloading area end -->
@@ -148,8 +148,10 @@
 
         <div class="close-layer"></div>
         <!-- Go to Top -->
-         
-          <a href="{{ __getSiteConfigration('whatsapp_group') }}"><button id="whatapp" class="btn btn-primary btn-icon btn-circle" style="float:left !important;"><i class="fas fab fa  fa-whatsapp"></i></button></a>
+
+        <a href="{{ __getSiteConfigration('whatsapp_group') }}"><button id="whatapp"
+                class="btn btn-primary btn-icon btn-circle" style="float:left !important;"><i
+                    class="fas fab fa  fa-whatsapp"></i></button></a>
         <button id="goTop" class="btn btn-primary btn-icon btn-circle"><i class="fas fa-angle-up"></i></button>
         <div class="bubbling-animation text-danger bubbling-heart d-none">
             <div><i class="fa fa-heart fa-5x"></i></div>
@@ -181,9 +183,9 @@
         </div>
     </div>
 
-    <script src="{{ asset('js/vendors.js') }}?id={{config('app.version')}}"></script>
-    <script src="{{ asset('js/aiz-core.js') }}?id={{config('app.version')}}"></script>
-    <script src="{{ asset('js/custom-script.js') }}?id={{config('app.version')}}"></script>
+    <script src="{{ asset('js/vendors.js') }}?id={{ config('app.version') }}"></script>
+    <script src="{{ asset('js/aiz-core.js') }}?id={{ config('app.version') }}"></script>
+    <script src="{{ asset('js/custom-script.js') }}?id={{ config('app.version') }}"></script>
     <script src="{{ asset('js/jasny-bootstrap.min.js') }}"></script>
     <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 
@@ -192,7 +194,7 @@
             $('.package_update_alert_modal').modal('show');
         }
     </script>
-       @stack('scripts')
+    @stack('scripts')
 </body>
 
 </html>
