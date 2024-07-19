@@ -290,7 +290,7 @@
         }
 
         /*An array containing all the country names in the world:*/
-        var sub_caste = JSON.parse('{!! collect($record['sub_castes'])->toJson() !!}');
+       // var sub_caste = JSON.parse('{!! collect($record['sub_castes'])->toJson() !!}');
 
         // var filter = document.getElementById("caste_id");
         // document.getElementById("caste_id").value = 1;
