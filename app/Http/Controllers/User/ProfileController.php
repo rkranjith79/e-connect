@@ -785,4 +785,12 @@ class ProfileController extends Controller
 
         return redirect()->back();
     }
+
+    public function getSubCastes(Request $request )
+    {
+        // dd($request->caste_id);
+        // $casteId = $request->caste_id;
+        $subCastes = $this->getSubCastesTrait($request);
+        return response()->json($subCastes);
+    }
 }

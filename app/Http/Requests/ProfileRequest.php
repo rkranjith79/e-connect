@@ -46,7 +46,7 @@ class ProfileRequest extends FormRequest
             'religion_id' => ['required'],
             'caste_id' => ['required'],
             //'sub_caste' => ['required'],
-            'sub_caste_id' => ['required'],
+            'sub_caste_id' => ['nullable'],
             'work_id' => ['required'],
             'education_details' => ['required', 'max:100'],
 

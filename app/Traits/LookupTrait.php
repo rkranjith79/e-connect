@@ -79,4 +79,19 @@ trait LookupTrait
 
         return $data;
     }
+
+    //18th July 2024 - Caste Wise Subcaste dependency - Ajax
+
+    public function getSubCastesTrait($casteId)
+    {
+        $casteIds = $casteId->query('caste_ids', []);
+
+        // Ensure casteIds is an array
+        if (!is_array($casteId)) {
+            $casteIds = explode(',', $casteId);
+        }
+        $subCastes = SubCaste::whereIn('caste_id', $casteId)->published()->translated()->pluck('title', 'id')->toArray();
+        // dd($subCastes);
+        return $subCastes;
+    }
 }

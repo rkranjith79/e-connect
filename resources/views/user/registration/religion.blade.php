@@ -30,9 +30,8 @@
             <div class="input-group">
                 <div class="input-group-prepend"><span class="input-group-text"><i class="fas fa-caret-down"></i></span>
                 </div>
-                <select type="select" name="caste_id" id="caste_id"
-                    onchange="dependencyDropDown($parent_id='caste_id',$child_id='sub_caste_id',$data_id='caste-id')"
-                    class="form-control aiz-selectpicker required " data-live-search="true" -data-width="auto">
+                <select type="select" name="caste_id" id="caste_id" class="form-control aiz-selectpicker required "
+                    data-live-search="true" -data-width="auto">
                     <option style="display:none" value="">-- Select --</option>
 
                     @isset($record['castes'])
@@ -62,21 +61,13 @@
         <div class="form-group mb-3">
             <label class="form-label" for="sub_caste_id">{{ trans('fields.sub_caste') }}<span
                     class="require-star">*</span></label>
-            <div class="input-group">
+            <div class="input-group" id="sub_caste_ids">
                 <div class="input-group-prepend"><span class="input-group-text"><i class="fas fa-caret-down"></i></span>
                 </div>
-            <div id="sub_caste_div" style="width:230px;">
-                <select type="select" name="sub_caste_id" id="sub_caste_id"
-                    class="form-control aiz-selectpicker required " data-live-search="true" -data-width="auto">
-                    <option data-caste-id="" style="display:none" value="">-- Select --</option>
-                    @isset($record['sub_castes'])
-                        @foreach ($record['sub_castes'] as $value => $label)
-                            <option value="{{ $label['id'] }}" data-caste-id="{{ $label['caste_id'] }}"
-                                @selected(old('sub_caste_id') ?? ($profileBasic->sub_caste_id ?? '') == $label['id'])>{{ $label['title'] }}</option>
-                        @endforeach
-                    @endisset
+                <select type="select" name="sub_caste_id" id="sub_caste_id" class="form-control required "
+                    data-live-search="true" -data-width="auto">
+                    {{-- <option data-caste-id="" style="display:none" value="">-- Select --</option> --}}
                 </select>
-            </div>
             </div>
             <small class="form-text text-muted text-help"></small>
             <span class="invalid-feedback"></span>
@@ -108,17 +99,83 @@
             //    $('#sub_caste_id').addClass('aiz-selectpicker').selectpicker('refresh');
             // $('#sub_caste_id').selectpicker("destroy");
             //  $('#sub_caste_id').selectpicker('refresh');
-            console.log('parthi')
-            $('#sub_caste_div').addClass('d-none');
+            //console.log('parthi')
+            //$('#sub_caste_div').addClass('d-none');
+            var currentCasteId = $('#caste_id').val();
+            // console.log(currentCasteId);
+            var isSubCasteId = '{{ $profileBasic->sub_caste_id ?? '' }}';
+
+            if (currentCasteId) {
+                $.ajax({
+                    url: '/sub_caste',
+                    type: 'GET',
+                    dataType: 'json',
+                    data: {
+                        'caste_id': currentCasteId
+                    },
+                    success: function(data) {
+                        $('#sub_caste_id').empty();
+                        var selectedValue, subcaste, selected, slectedId;
+                        $.each(data, function(id, title) {
+                            selected = (isSubCasteId == id) ? 'selected' : '';
+                            selectedValue = (isSubCasteId == id) ? title : '';
+                            if (selectedValue) {
+                                subcaste = selectedValue;
+                            }
+                            if (selected) {
+                                slectedId = selected;
+                            }
+                            $('#sub_caste_id').append('<option value="' + id +
+                                '" ' + slectedId + '>' + title + '</option>');
+                        });
+                        $('[data-id="sub_caste_id"]').html(subcaste);
+                        $('[data-id="sub_caste_id"]').attr('title', '');
+                        $('[data-id="sub_caste_id"]').attr('title', subcaste);
+                        $('#sub_caste_id').selectpicker(
+                            'refresh'); // Refresh if using a plugin like Bootstrap Select
+
+                        // Optionally set the selected sub caste if editing
+                        var currentSubCasteId = $('#sub_caste_id').data('selected');
+                        // console.log("currentSubCasteId:", currentSubCasteId);
+                        if (currentSubCasteId) {
+                            $('#sub_caste_id').val(currentSubCasteId).selectpicker(
+                                'refresh');
+                        }
+                    }
+                });
+            }
         });
 
+        $('#caste_id').change(function() {
+            var casteId = $(this).val();
 
+            $.ajax({
+                url: '/sub_caste',
+                type: 'GET',
+                dataType: 'json',
+                data: {
+                    'caste_id': casteId
+                },
+                success: function(data) {
+                    $('#sub_caste_id').empty();
+                    $('#sub_caste_id').append('<option value="">-- Select --</option>');
+                    $.each(data, function(id, title) {
+                        $('#sub_caste_id').append('<option value="' + id + '">' + title +
+                            '</option>');
+                    });
+                    $('#sub_caste_id').selectpicker('refresh');
+                },
+                error: function(xhr, status, error) {
+                    console.error(xhr.responseText);
+                }
+            });
+        });
 
         function autocomplete(inp, arr, filter, filter_id) {
             /*the autocomplete function takes two arguments,
             the text field element and an array of possible autocompleted values:*/
             var currentFocus;
-            if(!inp) {
+            if (!inp) {
                 return false;
             }
             /*execute a function when someone writes in the text field:*/
@@ -138,7 +195,7 @@
                 this.parentNode.appendChild(a);
                 /*for each item in the array...*/
 
-                var fill_arr =  arrayFilter();
+                var fill_arr = arrayFilter();
                 //console.log(fill_arr);
                 for (i = 0; i < fill_arr.length; i++) {
                     /*check if the item starts with the same letters as the text field value:*/
@@ -148,7 +205,7 @@
                         b = document.createElement("DIV");
                         /*make the matching letters bold:*/
                         b.innerHTML = "<strong>" + fill_arr[i] + "</strong>";
-                       // b.innerHTML += fill_arr[i].substr(val.length);
+                        // b.innerHTML += fill_arr[i].substr(val.length);
                         /*insert a input field that will hold the current array item's value:*/
                         b.innerHTML += "<input type='hidden' value='" + fill_arr[i] + "'>";
                         /*execute a function when someone clicks on the item value (DIV element):*/
@@ -201,15 +258,15 @@
             }
 
             function arrayFilter() {
-                var data  = arr.map(function(arrs) {
-                    if(arrs[filter_id]  == filter.value) {
+                var data = arr.map(function(arrs) {
+                    if (arrs[filter_id] == filter.value) {
                         return arrs.title;
                     }
                 });
 
-                return  data.filter(function( element ) {
+                return data.filter(function(element) {
                     return element !== undefined;
-                    });
+                });
             }
 
             function removeActive(x) {
@@ -246,12 +303,12 @@
         //             return sub_caste[filter_id]  == filter.value;
         //         });
 
-                // var filteredArray = sub_caste.map(function(sub_caste) {
-                //     if(sub_caste[filter_id]  == filter.value) {
-                //         return sub_caste.title;
-                //     }
-                // });
-                // console.log(filteredArray);
+        // var filteredArray = sub_caste.map(function(sub_caste) {
+        //     if(sub_caste[filter_id]  == filter.value) {
+        //         return sub_caste.title;
+        //     }
+        // });
+        // console.log(filteredArray);
 
         /*initiate the autocomplete function on the "myInput" element, and pass along the countries array as possible autocomplete values:*/
         autocomplete(document.getElementById("sub_caste"), sub_caste, document.getElementById("caste_id"), 'caste_id');

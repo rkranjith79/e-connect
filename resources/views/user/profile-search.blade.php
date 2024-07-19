@@ -30,7 +30,8 @@
                                                     <div class="col-6">
                                                         <div class="form-group mb-3">
                                                             <div class="form-group mb-3">
-                                                                <label class="form-label" for="age_from">{{ trans('fields.age_from') }}</label>
+                                                                <label class="form-label"
+                                                                    for="age_from">{{ trans('fields.age_from') }}</label>
                                                                 <div class="input-group">
                                                                     <div class="input-group-prepend"><span
                                                                             class="input-group-text"><i
@@ -56,7 +57,8 @@
                                                     <div class="col-6">
                                                         <div class="form-group mb-3">
                                                             <div class="form-group mb-3">
-                                                                <label class="form-label" for="age_to">{{ trans('fields.age_to') }}</label>
+                                                                <label class="form-label"
+                                                                    for="age_to">{{ trans('fields.age_to') }}</label>
                                                                 <div class="input-group">
                                                                     <div class="input-group-prepend"><span
                                                                             class="input-group-text"><i
@@ -68,7 +70,7 @@
                                                                         <option style="display:none" value="">--
                                                                             Select --</option>
                                                                         @for ($i = 18; $i <= 60; $i++)
-                                                                            <option value="{{ $i }}" >
+                                                                            <option value="{{ $i }}">
                                                                                 {{ $i }}</option>
                                                                         @endfor
                                                                     </select>
@@ -82,7 +84,8 @@
                                             </div>
                                             <div class="col-sm-6">
                                                 <div class="form-group mb-3">
-                                                    <label class="form-label" for="exp_maritalstatus">{{ trans('fields.marital_status') }}</label>
+                                                    <label class="form-label"
+                                                        for="exp_maritalstatus">{{ trans('fields.marital_status') }}</label>
                                                     <div class="input-group">
                                                         <div class="input-group-prepend"><span class="input-group-text"><i
                                                                     class="fas fa-caret-down"></i></span></div>
@@ -92,7 +95,8 @@
                                                             <option style="display:none" value="">-- Select --
                                                             </option>
                                                             @foreach ($data['select']['marital_statuses'] as $value => $label)
-                                                                <option value="{{ $value }}">{{ $label }}</option>
+                                                                <option value="{{ $value }}">{{ $label }}
+                                                                </option>
                                                             @endforeach
                                                         </select>
                                                     </div>
@@ -104,7 +108,8 @@
                                         <div class="form-row">
                                             <div class="col-sm-4">
                                                 <div class="form-group mb-3">
-                                                    <label class="form-label" for="caste">{{ trans('fields.caste') }}</label>
+                                                    <label class="form-label"
+                                                        for="caste">{{ trans('fields.caste') }}</label>
                                                     <div class="input-group">
                                                         <div class="input-group-prepend"><span class="input-group-text"><i
                                                                     class="fas fa-caret-down"></i></span></div>
@@ -125,19 +130,20 @@
                                             </div>
                                             <div class="col-sm-4">
                                                 <div class="form-group mb-3">
-                                                    <label class="form-label" for="sub_caste">{{ trans('fields.sub_caste') }}</label>
+                                                    <label class="form-label"
+                                                        for="sub_caste">{{ trans('fields.sub_caste') }}</label>
                                                     <div class="input-group">
                                                         <div class="input-group-prepend"><span class="input-group-text"><i
                                                                     class="fas fa-caret-down"></i></span></div>
                                                         <select type="select" name="sub_caste[]" id="sub_caste"
                                                             class="form-control aiz-selectpicker " multiple ""
                                                             data-live-search="true" -data-width="auto">
-                                                            <option style="display:none" value="">-- Select --
+                                                            {{-- <option style="display:none" value="">-- Select --
                                                             </option>
                                                             @foreach ($data['select']['sub_castes'] as $value => $label)
                                                                 <option value="{{ $label['id'] }}">{{ $label['title'] }}
                                                                 </option>
-                                                            @endforeach
+                                                            @endforeach --}}
                                                         </select>
                                                     </div>
                                                     <small class="form-text text-muted text-help"></small>
@@ -146,7 +152,8 @@
                                             </div>
                                             <div class="col-sm-4">
                                                 <div class="form-group mb-3">
-                                                    <label class="form-label" for="exp_jathagam">{{ trans('fields.jathagam') }}</label>
+                                                    <label class="form-label"
+                                                        for="exp_jathagam">{{ trans('fields.jathagam') }}</label>
                                                     <div class="input-group">
                                                         <div class="input-group-prepend"><span class="input-group-text"><i
                                                                     class="fas fa-caret-down"></i></span></div>
@@ -168,7 +175,8 @@
                                         </div>
 
                                         <div class="text-center mb-3">
-                                            <button type="submit" class="btn btn-primary btn-circle">{{ trans('site.search') }} <i
+                                            <button type="submit"
+                                                class="btn btn-primary btn-circle">{{ trans('site.search') }} <i
                                                     class="fas fa-search"></i></button>
                                         </div>
                                     </form>
@@ -178,7 +186,8 @@
                                         <div class="form-row">
                                             <div class="col-sm-6 mx-auto">
                                                 <div class="form-group mb-3">
-                                                    <label class="form-label" for="member_id">{{ trans('fields.member_id') }}</label>
+                                                    <label class="form-label"
+                                                        for="member_id">{{ trans('fields.member_id') }}</label>
                                                     <div class="input-group">
                                                         <div class="input-group-prepend"><span class="input-group-text"><i
                                                                     class="fas fa-id-card"></i></span></div>
@@ -191,7 +200,8 @@
                                             </div>
                                         </div>
                                         <div class="text-center mb-3">
-                                            <button type="submit" class="btn btn-primary btn-circle">{{ trans('site.search') }} <i
+                                            <button type="submit"
+                                                class="btn btn-primary btn-circle">{{ trans('site.search') }} <i
                                                     class="fas fa-search"></i></button>
                                         </div>
                                     </form>
@@ -202,7 +212,8 @@
                                         <div class="form-row">
                                             <div class="col-sm-6">
                                                 <div class="form-group mb-3">
-                                                    <label class="form-label" for="name">{{ trans('fields.name') }}</label>
+                                                    <label class="form-label"
+                                                        for="name">{{ trans('fields.name') }}</label>
                                                     <div class="input-group">
                                                         <div class="input-group-prepend"><span class="input-group-text"><i
                                                                     class="fas fa-user"></i></span></div>
@@ -218,7 +229,8 @@
                                                     <div class="col-6">
                                                         <div class="form-group mb-3">
                                                             <div class="form-group mb-3">
-                                                                <label class="form-label" for="age_from">{{ trans('fields.age_from') }}</label>
+                                                                <label class="form-label"
+                                                                    for="age_from">{{ trans('fields.age_from') }}</label>
                                                                 <div class="input-group">
                                                                     <div class="input-group-prepend"><span
                                                                             class="input-group-text"><i
@@ -244,7 +256,8 @@
                                                     <div class="col-6">
                                                         <div class="form-group mb-3">
                                                             <div class="form-group mb-3">
-                                                                <label class="form-label" for="age_to">{{ trans('fields.age_to') }}</label>
+                                                                <label class="form-label"
+                                                                    for="age_to">{{ trans('fields.age_to') }}</label>
                                                                 <div class="input-group">
                                                                     <div class="input-group-prepend"><span
                                                                             class="input-group-text"><i
@@ -271,7 +284,8 @@
                                             </div>
                                             <div class="col-sm-6">
                                                 <div class="form-group mb-3">
-                                                    <label class="form-label" for="exp_maritalstatus">{{ trans('fields.marital_status') }}</label>
+                                                    <label class="form-label"
+                                                        for="exp_maritalstatus">{{ trans('fields.marital_status') }}</label>
                                                     <div class="input-group">
                                                         <div class="input-group-prepend"><span class="input-group-text"><i
                                                                     class="fas fa-caret-down"></i></span></div>
@@ -281,7 +295,8 @@
                                                             <option style="display:none" value="">-- Select --
                                                             </option>
                                                             @foreach ($data['select']['marital_statuses'] as $value => $label)
-                                                                <option value="{{ $value }}">{{ $label }}</option>
+                                                                <option value="{{ $value }}">{{ $label }}
+                                                                </option>
                                                             @endforeach
                                                         </select>
                                                     </div>
@@ -291,7 +306,8 @@
                                             </div>
                                             <div class="col-sm-6">
                                                 <div class="form-group mb-3">
-                                                    <label class="form-label" for="splcategory">{{ trans('fields.physical_status') }}</label>
+                                                    <label class="form-label"
+                                                        for="splcategory">{{ trans('fields.physical_status') }}</label>
                                                     <div class="input-group">
                                                         <div class="input-group-prepend"><span class="input-group-text"><i
                                                                     class="fas fa-caret-down"></i></span></div>
@@ -301,7 +317,8 @@
                                                             <option style="display:none" value="">-- Select --
                                                             </option>
                                                             @foreach ($data['select']['physical_statuses'] as $value => $label)
-                                                                <option value="{{ $value }}">{{ $label }}</option>
+                                                                <option value="{{ $value }}">{{ $label }}
+                                                                </option>
                                                             @endforeach
                                                         </select>
                                                     </div>
@@ -311,7 +328,8 @@
                                             </div>
                                             <div class="col-sm-6">
                                                 <div class="form-group mb-3">
-                                                    <label class="form-label" for="body_type">{{ trans('fields.body_type') }}</label>
+                                                    <label class="form-label"
+                                                        for="body_type">{{ trans('fields.body_type') }}</label>
                                                     <div class="input-group">
                                                         <div class="input-group-prepend"><span class="input-group-text"><i
                                                                     class="fas fa-caret-down"></i></span></div>
@@ -321,7 +339,8 @@
                                                             <option style="display:none" value="">-- Select --
                                                             </option>
                                                             @foreach ($data['select']['body_types'] as $value => $label)
-                                                                <option value="{{ $value }}">{{ $label }}</option>
+                                                                <option value="{{ $value }}">{{ $label }}
+                                                                </option>
                                                             @endforeach
                                                         </select>
                                                     </div>
@@ -331,7 +350,8 @@
                                             </div>
                                             <div class="col-sm-6">
                                                 <div class="form-group mb-3">
-                                                    <label class="form-label" for="color">{{ trans('fields.color') }}</label>
+                                                    <label class="form-label"
+                                                        for="color">{{ trans('fields.color') }}</label>
                                                     <div class="input-group">
                                                         <div class="input-group-prepend"><span class="input-group-text"><i
                                                                     class="fas fa-caret-down"></i></span></div>
@@ -341,7 +361,8 @@
                                                             <option style="display:none" value="">-- Select --
                                                             </option>
                                                             @foreach ($data['select']['colors'] as $value => $label)
-                                                                <option value="{{ $value }}">{{ $label }}</option>
+                                                                <option value="{{ $value }}">{{ $label }}
+                                                                </option>
                                                             @endforeach
                                                         </select>
                                                     </div>
@@ -355,7 +376,8 @@
                                         <div class="form-row">
                                             <div class="col-sm-6">
                                                 <div class="form-group mb-3">
-                                                    <label class="form-label" for="caste">{{ trans('fields.caste') }}</label>
+                                                    <label class="form-label"
+                                                        for="caste">{{ trans('fields.caste') }}</label>
                                                     <div class="input-group">
                                                         <div class="input-group-prepend"><span class="input-group-text"><i
                                                                     class="fas fa-caret-down"></i></span></div>
@@ -365,7 +387,8 @@
                                                             <option style="display:none" value="">-- Select --
                                                             </option>
                                                             @foreach ($data['select']['castes'] as $value => $label)
-                                                                <option value="{{ $label['id'] }}">{{ $label['title'] }}</option>
+                                                                <option value="{{ $label['id'] }}">{{ $label['title'] }}
+                                                                </option>
                                                             @endforeach
                                                         </select>
                                                     </div>
@@ -375,7 +398,8 @@
                                             </div>
                                             <div class="col-sm-6">
                                                 <div class="form-group mb-3">
-                                                    <label class="form-label" for="sub_caste">{{ trans('fields.sub_caste') }}</label>
+                                                    <label class="form-label"
+                                                        for="sub_caste">{{ trans('fields.sub_caste') }}</label>
                                                     <div class="input-group">
                                                         <div class="input-group-prepend"><span class="input-group-text"><i
                                                                     class="fas fa-caret-down"></i></span></div>
@@ -385,7 +409,8 @@
                                                             <option style="display:none" value="">-- Select --
                                                             </option>
                                                             @foreach ($data['select']['sub_castes'] as $value => $label)
-                                                                <option value="{{ $label['id'] }}">{{ $label['title'] }}</option>
+                                                                <option value="{{ $label['id'] }}">{{ $label['title'] }}
+                                                                </option>
                                                             @endforeach
                                                         </select>
                                                     </div>
@@ -395,7 +420,8 @@
                                             </div>
                                             <div class="col-sm-6">
                                                 <div class="form-group mb-3">
-                                                    <label class="form-label" for="education">{{ trans('fields.education') }}</label>
+                                                    <label class="form-label"
+                                                        for="education">{{ trans('fields.education') }}</label>
                                                     <div class="input-group">
                                                         <div class="input-group-prepend"><span class="input-group-text"><i
                                                                     class="fas fa-graduation-cap"></i></span></div>
@@ -405,7 +431,8 @@
                                                             <option style="display:none" value="">-- Select --
                                                             </option>
                                                             @foreach ($data['select']['educations'] as $value => $label)
-                                                                <option value="{{ $value }}">{{ $label }}</option>
+                                                                <option value="{{ $value }}">{{ $label }}
+                                                                </option>
                                                             @endforeach
                                                         </select>
                                                     </div>
@@ -415,7 +442,8 @@
                                             </div>
                                             <div class="col-sm-6">
                                                 <div class="form-group mb-3">
-                                                    <label class="form-label" for="work">{{ trans('fields.work') }}</label>
+                                                    <label class="form-label"
+                                                        for="work">{{ trans('fields.work') }}</label>
                                                     <div class="input-group">
                                                         <div class="input-group-prepend"><span class="input-group-text"><i
                                                                     class="fas fa-caret-down"></i></span></div>
@@ -425,7 +453,8 @@
                                                             <option style="display:none" value="">-- Select --
                                                             </option>
                                                             @foreach ($data['select']['works'] as $value => $label)
-                                                                <option value="{{ $value }}">{{ $label }}</option>
+                                                                <option value="{{ $value }}">{{ $label }}
+                                                                </option>
                                                             @endforeach
                                                         </select>
                                                     </div>
@@ -435,7 +464,8 @@
                                             </div>
                                             <div class="col-sm-6">
                                                 <div class="form-group mb-3">
-                                                    <label class="form-label" for="exp_work_place">{{ trans('fields.work_place') }}</label>
+                                                    <label class="form-label"
+                                                        for="exp_work_place">{{ trans('fields.work_place') }}</label>
                                                     <div class="input-group">
                                                         <div class="input-group-prepend"><span class="input-group-text"><i
                                                                     class="fas fa-caret-down"></i></span></div>
@@ -445,7 +475,8 @@
                                                             <option style="display:none" value="">-- Select --
                                                             </option>
                                                             @foreach ($data['select']['work_places'] as $value => $label)
-                                                                <option value="{{ $value }}">{{ $label }}</option>
+                                                                <option value="{{ $value }}">{{ $label }}
+                                                                </option>
                                                             @endforeach
                                                         </select>
                                                     </div>
@@ -460,7 +491,8 @@
                                         <div class="form-row">
                                             <div class="col-sm-4">
                                                 <div class="form-group mb-3">
-                                                    <label class="form-label" for="country">{{ trans('fields.country') }}</label>
+                                                    <label class="form-label"
+                                                        for="country">{{ trans('fields.country') }}</label>
                                                     <div class="input-group">
                                                         <div class="input-group-prepend"><span class="input-group-text"><i
                                                                     class="fas fa-globe-asia"></i></span></div>
@@ -470,7 +502,8 @@
                                                             <option style="display:none" value="">-- Select --
                                                             </option>
                                                             @foreach ($data['select']['countries'] as $value => $label)
-                                                                <option value="{{ $value }}">{{ $label }}</option>
+                                                                <option value="{{ $value }}">{{ $label }}
+                                                                </option>
                                                             @endforeach
                                                         </select>
                                                     </div>
@@ -480,7 +513,8 @@
                                             </div>
                                             <div class="col-sm-4">
                                                 <div class="form-group mb-3">
-                                                    <label class="form-label" for="state">{{ trans('fields.state') }}</label>
+                                                    <label class="form-label"
+                                                        for="state">{{ trans('fields.state') }}</label>
                                                     <div class="input-group">
                                                         <div class="input-group-prepend"><span class="input-group-text"><i
                                                                     class="fas fa-map-marker-alt"></i></span></div>
@@ -490,7 +524,8 @@
                                                             <option style="display:none" value="">-- Select --
                                                             </option>
                                                             @foreach ($data['select']['states'] as $value => $label)
-                                                                <option value="{{ $value }}">{{ $label }}</option>
+                                                                <option value="{{ $value }}">{{ $label }}
+                                                                </option>
                                                             @endforeach
                                                         </select>
                                                     </div>
@@ -500,7 +535,8 @@
                                             </div>
                                             <div class="col-sm-4">
                                                 <div class="form-group mb-3">
-                                                    <label class="form-label" for="district">{{ trans('fields.district') }}</label>
+                                                    <label class="form-label"
+                                                        for="district">{{ trans('fields.district') }}</label>
                                                     <div class="input-group">
                                                         <div class="input-group-prepend"><span class="input-group-text"><i
                                                                     class="fas fa-map-marker-alt"></i></span></div>
@@ -510,7 +546,8 @@
                                                             <option style="display:none" value="">-- Select --
                                                             </option>
                                                             @foreach ($data['select']['districts'] as $value => $label)
-                                                                <option value="{{ $value }}">{{ $label }}</option>
+                                                                <option value="{{ $value }}">{{ $label }}
+                                                                </option>
                                                             @endforeach
                                                         </select>
                                                     </div>
@@ -524,7 +561,8 @@
                                         <div class="form-row">
                                             <div class="col-sm-4">
                                                 <div class="form-group mb-3">
-                                                    <label class="form-label" for="rasi_nakshatra">{{ trans('fields.rasi_nakshatra') }}</label>
+                                                    <label class="form-label"
+                                                        for="rasi_nakshatra">{{ trans('fields.rasi_nakshatra') }}</label>
                                                     <div class="input-group">
                                                         <div class="input-group-prepend"><span class="input-group-text"><i
                                                                     class="fas fa-caret-down"></i></span></div>
@@ -534,7 +572,8 @@
                                                             <option style="display:none" value="">-- Select --
                                                             </option>
                                                             @foreach ($data['select']['rasi_nakshatras'] as $value => $label)
-                                                                <option value="{{ $value }}">{{ $label }}</option>
+                                                                <option value="{{ $value }}">{{ $label }}
+                                                                </option>
                                                             @endforeach
                                                         </select>
                                                     </div>
@@ -544,10 +583,10 @@
                                             </div>
                                             <div class="col-sm-4">
                                                 <div class="form-group mb-3">
-                                                    <label class="form-label" for="lagnam">{{ trans('fields.lagnam') }}</label>
+                                                    <label class="form-label"
+                                                        for="lagnam">{{ trans('fields.lagnam') }}</label>
                                                     <div class="input-group">
-                                                        <div class="input-group-prepend"><span
-                                                                class="input-group-text"><i
+                                                        <div class="input-group-prepend"><span class="input-group-text"><i
                                                                     class="fas fa-caret-down"></i></span></div>
                                                         <select type="select" name="lagnam[]" id="lagnam"
                                                             class="form-control aiz-selectpicker " multiple ""
@@ -555,7 +594,8 @@
                                                             <option style="display:none" value="">-- Select --
                                                             </option>
                                                             @foreach ($data['select']['lagnams'] as $value => $label)
-                                                                <option value="{{ $value }}">{{ $label }}</option>
+                                                                <option value="{{ $value }}">{{ $label }}
+                                                                </option>
                                                             @endforeach
                                                         </select>
                                                     </div>
@@ -565,10 +605,10 @@
                                             </div>
                                             <div class="col-sm-4">
                                                 <div class="form-group mb-3">
-                                                    <label class="form-label" for="exp_jathagam">{{ trans('fields.jathagam') }}</label>
+                                                    <label class="form-label"
+                                                        for="exp_jathagam">{{ trans('fields.jathagam') }}</label>
                                                     <div class="input-group">
-                                                        <div class="input-group-prepend"><span
-                                                                class="input-group-text"><i
+                                                        <div class="input-group-prepend"><span class="input-group-text"><i
                                                                     class="fas fa-caret-down"></i></span></div>
                                                         <select type="select" name="exp_jathagam[]" id="exp_jathagam"
                                                             class="form-control aiz-selectpicker " multiple ""
@@ -576,7 +616,8 @@
                                                             <option style="display:none" value="">-- Select --
                                                             </option>
                                                             @foreach ($data['select']['jathagams'] as $value => $label)
-                                                                <option value="{{ $value }}">{{ $label }}</option>
+                                                                <option value="{{ $value }}">{{ $label }}
+                                                                </option>
                                                             @endforeach
                                                         </select>
                                                     </div>
@@ -587,7 +628,8 @@
                                         </div>
 
                                         <div class="text-center mb-3">
-                                            <button type="submit" class="btn btn-primary btn-circle">{{ trans('site.advanced_search') }} <i
+                                            <button type="submit"
+                                                class="btn btn-primary btn-circle">{{ trans('site.advanced_search') }} <i
                                                     class="fas fa-search"></i></button>
                                         </div>
                                     </form>
@@ -599,4 +641,31 @@
             </div>
         </div>
     </div>
+    <script src="{{ asset('js/jquery.js')}}"></script>
+    <script>
+        $('#caste').change(function() {
+            var casteIds = $(this).val();
+            // console.log(casteIds);
+            $.ajax({
+                url: '/sub_caste',
+                type: 'GET',
+                dataType: 'json',
+                data :{
+                    'caste_id': casteIds
+                } ,
+                success: function(data) {
+                    $('#sub_caste').empty();
+                    $('#sub_caste').append('<option value="">-- Select --</option>');
+                    $.each(data, function(id, title) {
+                        $('#sub_caste').append('<option value="' + id + '">' + title +
+                            '</option>');
+                    });
+                    $('#sub_caste').selectpicker('refresh');
+                },
+                error: function(xhr, status, error) {
+                    console.error(xhr.responseText);
+                }
+            });
+        });
+    </script>
 @endsection

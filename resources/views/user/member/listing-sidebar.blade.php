@@ -177,11 +177,11 @@
                                     <div class="input-group">
                                         <div class="input-group-prepend"><span class="input-group-text"><i class="fas fa-caret-down"></i></span></div>
                                         <select type="select" name="sub_caste[]" id="sub_caste" class="form-control aiz-selectpicker " multiple "" data-live-search="true" -data-width="auto">
-                                            <option style="display:none" value="">--
+                                            {{-- <option style="display:none" value="">--
                                                 Select --</option>
                                             @foreach ($data['select']['sub_castes'] ?? [] as $value => $label)
                                                 <option value="{{ $label['id'] }}">{{ $label['title'] }}</option>
-                                            @endforeach
+                                            @endforeach --}}
                                         </select>
                                     </div>
                                     <small class="form-text text-muted text-help"></small>
@@ -373,6 +373,33 @@
         </div>
     </div>
 </div>
+<script src="{{ asset('js/jquery.js')}}"></script>
+    <script>
+        $('#caste').change(function() {
+            var casteIds = $(this).val();
+            // console.log(casteIds);
+            $.ajax({
+                url: '/sub_caste',
+                type: 'GET',
+                dataType: 'json',
+                data :{
+                    'caste_id': casteIds
+                } ,
+                success: function(data) {
+                    $('#sub_caste').empty();
+                    $('#sub_caste').append('<option value="">-- Select --</option>');
+                    $.each(data, function(id, title) {
+                        $('#sub_caste').append('<option value="' + id + '">' + title +
+                            '</option>');
+                    });
+                    $('#sub_caste').selectpicker('refresh');
+                },
+                error: function(xhr, status, error) {
+                    console.error(xhr.responseText);
+                }
+            });
+        });
+    </script>
 <style>
     h4.btn {
         width: 100%;

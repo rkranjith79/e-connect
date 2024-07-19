@@ -128,3 +128,4 @@ Route::post('phonepay-payment-failed', [App\Http\Controllers\RazorpayPaymentCont
 Route::get('user/information/{code?}', [App\Http\Controllers\User\InformationController::class, 'index'])->name('user.information');
 Route::get('user/member-listing', [App\Http\Controllers\User\MemberController::class, 'listing'])->name('user.member-listing');
 Route::post('user/profile_store', [App\Http\Controllers\User\ProfileController::class, 'store'])->name('user.profile_store');
+Route::get('sub_caste', [App\Http\Controllers\User\ProfileController::class, 'getSubCastes'])->name('get-subcastes');
