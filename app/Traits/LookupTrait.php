@@ -65,7 +65,7 @@ trait LookupTrait
             'social_types' => $this->getPublishedData(SocialType::class),
             'blood_groups' => $this->getPublishedData(BloodGroup::class),
             'castes' => $this->getPublishedCustomData(Caste::class, $ex_param = 'religion_id'),
-            'sub_castes' => $this->getPublishedCustomData(SubCaste::class, $ex_param = 'caste_id'),
+            'sub_castes' => $this->getPublishedData(SubCaste::class),
             'religions' => $this->getPublishedData(Religion::class),
             'rasi_nakshatras' => $this->getPublishedData(RasiNakshatra::class),
             'lagnams' => $this->getPublishedData(Lagnam::class),
