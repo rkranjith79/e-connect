@@ -59,8 +59,7 @@
 
     <div class="col-sm-3">
         <div class="form-group mb-3">
-            <label class="form-label" for="sub_caste_id">{{ trans('fields.sub_caste') }}<span
-                    class="require-star">*</span></label>
+            <label class="form-label" for="sub_caste_id">{{ trans('fields.sub_caste') }}</label>
             <div class="input-group" id="sub_caste_ids">
                 <div class="input-group-prepend"><span class="input-group-text"><i class="fas fa-caret-down"></i></span>
                 </div>
@@ -104,7 +103,7 @@
             var currentCasteId = $('#caste_id').val();
             // console.log(currentCasteId);
             var isSubCasteId = '{{ $profileBasic->sub_caste_id ?? '' }}';
-
+            // alert(isSubCasteId);
             if (currentCasteId) {
                 $.ajax({
                     url: '/sub_caste',
@@ -117,20 +116,17 @@
                         $('#sub_caste_id').empty();
                         var selectedValue, subcaste, selected, slectedId;
                         $.each(data, function(id, title) {
-                            selected = (isSubCasteId == id) ? 'selected' : '';
-                            selectedValue = (isSubCasteId == id) ? title : '';
-                            if (selectedValue) {
-                                subcaste = selectedValue;
-                            }
-                            if (selected) {
-                                slectedId = selected;
+                            if (isSubCasteId == id) {
+                                subcaste = title;
+                                slectedId = "selected";
+                            } else {
+                                slectedId = "";
                             }
                             $('#sub_caste_id').append('<option value="' + id +
                                 '" ' + slectedId + '>' + title + '</option>');
                         });
                         $('[data-id="sub_caste_id"]').html(subcaste);
-                        $('[data-id="sub_caste_id"]').attr('title', '');
-                        $('[data-id="sub_caste_id"]').attr('title', subcaste);
+                        // $('[data-id="sub_caste_id"]').attr('title', subcaste);
                         $('#sub_caste_id').selectpicker(
                             'refresh'); // Refresh if using a plugin like Bootstrap Select
 

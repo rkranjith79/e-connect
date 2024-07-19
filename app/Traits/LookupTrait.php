@@ -30,6 +30,7 @@ use App\Models\SubCaste;
 use App\Models\Weight;
 use App\Models\Work;
 use App\Models\WorkPlace;
+use Illuminate\Support\Arr;
 
 trait LookupTrait
 {
@@ -84,13 +85,16 @@ trait LookupTrait
 
     public function getSubCastesTrait($casteId)
     {
-        $casteIds = $casteId->query('caste_ids', []);
+        // Retrieve caste_ids from query parameters, defaulting to an empty array if not provided
+        $casteIds = $casteId->query('caste_id', []);
 
-        // Ensure casteIds is an array
-        if (!is_array($casteId)) {
-            $casteIds = explode(',', $casteId);
+        // Ensure casteIds is a flat array
+        if (!is_array($casteIds)) {
+            $casteIds = explode(',', $casteIds);
+        } else {
+            $casteIds = Arr::flatten($casteIds);
         }
-        $subCastes = SubCaste::whereIn('caste_id', $casteId)->published()->translated()->pluck('title', 'id')->toArray();
+        $subCastes = SubCaste::whereIn('caste_id', $casteIds)->published()->translated()->pluck('title', 'id')->toArray();
         // dd($subCastes);
         return $subCastes;
     }
