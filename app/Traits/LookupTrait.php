@@ -85,7 +85,7 @@ trait LookupTrait
 
     public function getSubCastesTrait($casteId)
     {
-        // Retrieve caste_ids from query parameters, defaulting to an empty array if not provided
+         // Retrieve caste_ids from query parameters, defaulting to an empty array if not provided
         $casteIds = $casteId->query('caste_id', []);
 
         // Ensure casteIds is a flat array
