@@ -46,7 +46,8 @@
             <span class="invalid-feedback"></span>
         </div>
     </div>
-    {{-- <div class="col-sm-3">
+
+     {{-- <div class="col-sm-3">
         <div class="form-group autocomplete mb-3">
             <label class="form-label" for="sub_caste">{{ trans('fields.sub_caste') }}<span
                     class="require-star">*</span></label>
