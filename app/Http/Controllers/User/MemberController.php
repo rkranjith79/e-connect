@@ -36,8 +36,8 @@ class MemberController extends Controller
      */
     public function index()
     {
-        $data['grooms'] = Profile::published()->selectColumns()->groom()->get();
-        $data['brides'] = Profile::published()->selectColumns()->bride()->get();
+        $data['grooms'] = Profile::published()->selectColumns()->groom()->limit(10)->get();
+        $data['brides'] = Profile::published()->selectColumns()->bride()->limit(10)->get();
         $data['select'] = $this->getlookupData();
 
         return view('user.index', compact('data'));
