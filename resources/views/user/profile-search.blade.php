@@ -409,7 +409,7 @@
                                                             <option style="display:none" value="">-- Select --
                                                             </option>
                                                             @foreach ($data['select']['sub_castes'] as $value => $label)
-                                                                <option value="{{ $label['id'] }}">{{ $label['title'] }}
+                                                                <option value="{{ $value }}">{{ $label }}
                                                                 </option>
                                                             @endforeach
                                                         </select>
