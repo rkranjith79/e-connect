@@ -153,33 +153,33 @@
                             <tbody>
                             <tr>
                                     <td>{{ trans('fields.rasi_nakshatra') }}</td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :&nbsp;</td>
+                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;</td>
                                     <td>{{ $data['profile']->jathagam->rasi_nakshatra->title ?? '-' }}</td>
                                 </tr>
                                 <tr>
                                     <td>{{ trans('fields.nakshatra_patham') }}</td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :&nbsp;</td>
+                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;</td>
                                     <td>{{ $data['profile']->jathagam->nakshatra_patham->title ?? '-' }}</td>
                                 </tr>
                                 <tr>
                                     <td>{{ trans('fields.lagnam') }}</td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :&nbsp;</td>
+                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;</td>
                                     <td>{{ $data['profile']->jathagam->lagnam->title ?? '-' }}</td>
                                 </tr>
                                 <tr>
                                     <td>{{ trans('fields.jathagam') }}</td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :&nbsp;</td>
+                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;</td>
                                     <td>{{ $data['profile']->jathagam->jathagam->title ?? '-' }}</td>
                                 </tr>
                                 <tr>
                                     <td>{{ trans('fields.date_of_birth') }}</td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :&nbsp;</td>
+                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;</td>
                                     <td>{{ __setDateFormat($data['profile']->jathagam->date_of_birth ?? '') ?? '-' }}
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>{{ trans('fields.time_of_birth') }}</td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :&nbsp;</td>
+                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;</td>
                                     <td>{{ __setTimeFormat($data['profile']->jathagam->time_of_birth ?? '') ?? '-' }}
                                     </td>
                                 </tr>
@@ -190,7 +190,7 @@
                                 </tr> --}}
                                 <tr>
                                     <td>{{ trans('fields.place_of_birth') }}</td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :&nbsp;</td>
+                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;</td>
                                     <td>{{ $data['profile']->jathagam->place_of_birth ?? '-' }}</td>
                                 </tr>
                             </tbody>
