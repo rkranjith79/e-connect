@@ -461,7 +461,7 @@ body.print_profile .print-content .view-profile {
 #goTop {
   position: fixed;
   right: 15px;
-  bottom: 30px;
+  bottom: 80px;
   z-index: 999;
 }
 
@@ -473,7 +473,7 @@ body.print_profile .print-content .view-profile {
 #whatapp {
   position: fixed;
   left: 15px;
-  bottom: 30px;
+  bottom: 80px;
   z-index: 999;
 }
 

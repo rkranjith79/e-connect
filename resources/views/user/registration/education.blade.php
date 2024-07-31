@@ -59,7 +59,7 @@
         </div>
     </div>
 
-    <div class="col-sm-3">
+    <div class="col-sm-3 wrk_det">
         <div class="form-group mb-3">
             <label class="form-label" for="work_details">{{ trans('fields.work_details') }}<span
                     class="require-star">*</span></label>
@@ -110,3 +110,34 @@
         </div>
     </div>
 </div>
+
+@push('scripts')
+
+<script>
+    $(document).ready(function() {
+        // Initially hide work_details
+        var validWorkIds = [4, 8, 9, 10]; // Replace with your actual values
+        $('#work_details').closest('.col-sm-3').hide();
+        $('#work_place_id').closest('.col-sm-3').hide();
+        $('#monthly_income').closest('.col-sm-3').hide();
+
+        // Show/hide work_details based on work_id change
+        $('#work_id').change(function() {
+            var selectedValue = $(this).val();
+            if (validWorkIds.includes(parseInt(selectedValue))) {
+                $('#work_details').closest('.col-sm-3').hide();
+                $('#work_place_id').closest('.col-sm-3').hide();
+                $('#monthly_income').closest('.col-sm-3').hide();
+            } else {
+                $('#work_details').closest('.col-sm-3').show();
+                $('#work_place_id').closest('.col-sm-3').show();
+                $('#monthly_income').closest('.col-sm-3').show();
+            }
+        });
+
+        // Trigger change event on page load if work_id has a pre-selected value
+        $('#work_id').trigger('change');
+    });
+</script>
+
+@endpush

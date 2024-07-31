@@ -124,7 +124,7 @@
         <div class="row align-items-center gutters-5 text-center">
             <div class="col">
                 <a href="{{ url('/') }}" class="text-reset d-block flex-grow-1 text-center py-2">
-                    <i class="fas fa-home fs-18 opacity-60 "></i>
+                    <i class="fas fa-home fs-18 opacity-60 " style="color:darkmagenta"></i>
                     <span class="d-block fs-10 opacity-60 ">{{ trans('site.home') }}</span>
                 </a>
             </div>
@@ -132,7 +132,7 @@
             <div class="col">
                 <a href="{{ route('user.search') }}" class="text-reset d-block flex-grow-1 text-center py-2 ">
                     <span class="d-inline-block position-relative px-2">
-                        <i class="fas fa-search fs-18 opacity-60 "></i>
+                        <i class="fas fa-search fs-18 opacity-60 " style="color:darkmagenta"></i>
                     </span>
                     <span class="d-block fs-10 opacity-60 ">{{ trans('site.search') }}</span>
                 </a>
@@ -144,7 +144,7 @@
                 <a href="{{ route('user.interested_profile') }}"
                     class="text-reset d-block flex-grow-1 text-center py-2 ">
                     <span class="d-inline-block position-relative px-2">
-                        <i class="fas fa-heart fs-18 opacity-60 "></i>
+                        <i class="fas fa-heart fs-18 opacity-60 " style="color:darkmagenta"></i>
                     </span>
                     @if (Auth::user()->profile->my_interested_count)
                         <span class="bg-primary mobile-footer-count-span">
@@ -161,7 +161,7 @@
                 <a href="{{ route('user.purchased_profile') }}"
                     class="text-reset d-block flex-grow-1 text-center py-2 ">
                     <span class="d-inline-block position-relative px-2">
-                        <i class="fas fa-users fs-18 opacity-60 "></i>
+                        <i class="fas fa-users fs-18 opacity-60 " style="color:darkmagenta"></i>
                     </span>
                     @if (Auth::user()->profile->my_purchased_count)
                         <span class="bg-success mobile-footer-count-span">
@@ -177,7 +177,7 @@
             <div class="col">
                 <a herf="#!" class="text-reset d-block flex-grow-1 text-center py-2 mobile-side-nav-thumb"
                     onclick="nav_toggler()">
-                    <span class="d-block mx-auto mb-1 opacity-60">
+                    <span class="d-block mx-auto mb-1 opacity-60" style="color:darkmagenta">
                         <img loading="lazy" src="{{ Auth::user()->profile->photo ?? '' }}"
                             class="rounded-circle size-20px"
                             onerror="this.onerror=null;this.src='{{ asset('img/avatar-place.png') }}';">
